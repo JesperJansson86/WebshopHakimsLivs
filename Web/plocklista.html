@@ -10,37 +10,54 @@
         width: 5cm;
          }
         input[id=name] {
-        width: 10cm;
+        width: 12cm;
          }
          input[id=size] {
-        width: 3cm;
+        width: 2cm;
          }
         input[id=amount] {
-        width: 2cm;
+        width: 1cm;
          }
          </style></style>
 </head>
-<body>
-    <div id="test"></div>
+<body> 
+    <h1>Hakims Livs. Plocklista</h1> 
+   <div id="customer"></div>
    <form action="" id="form1">
-       <input type="text" id="articlenumber">
-       <input type="text" id="name">
-       <input type="text" id="size">
-       <input type="text" id="amount">
+    <input type="text" id="articlenumber" value="Artikelnummer">
+    <input type="text" id="name" value="Artikelnamn">
+    <input type="text" id="size" value="Storlek">
+    <input type="text" id="amount" value="Antal">
+    
    </form>
+    <div id="items"></div>
+  
   
     <script>
         fetch('picklist.json')
             .then(res=>res.json()
             .then(data=> {
-                console.log(data)
-                
-            data.forEach(item => {
-
-                document.getElementById("test").innerHTML += `<br>${item.name}`
-            })
-}
- ))
+                 data.forEach(item => {
+                document.getElementById("items").innerHTML += `
+                <input type="text" id="articlenumber" value="${item.articlenumber}">
+                <input type="text" id="name" value="${item.name}">
+                <input type="text" id="size" value="${item.size}"">
+                <input type="text" id="amount" value="${item.amount}"">
+                <br>`
+            })}))
+            fetch('customers.json')
+            .then(res=>res.json()
+            .then(data=> {
+                 data.forEach(item => {
+                document.getElementById("customer").innerHTML += `
+                <h2>${item.name}
+                <br>
+                ${item.adress}
+                <br>
+                ${item.phone}
+                <br></h2>
+                `
+            })}))
     
 
 
