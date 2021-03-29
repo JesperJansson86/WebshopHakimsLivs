@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plocklista</title>
+    <style>  
+        input[id=articlenumber] {
+        width: 5cm;
+         }
+        input[id=name] {
+        width: 10cm;
+         }
+         input[id=size] {
+        width: 3cm;
+         }
+        input[id=amount] {
+        width: 2cm;
+         }
+         </style></style>
+</head>
+<body>
+    <div id="test"></div>
+   <form action="" id="form1">
+       <input type="text" id="articlenumber">
+       <input type="text" id="name">
+       <input type="text" id="size">
+       <input type="text" id="amount">
+   </form>
+  
+    <script>
+        fetch('picklist.json')
+            .then(res=>res.json()
+            .then(data=> {
+                console.log(data)
+                
+            data.forEach(item => {
+
+                document.getElementById("test").innerHTML += `<br>${item.name}`
+            })
+}
+ ))
+    
+
+
+
+
+            
+    </script>   
+</body>
+</html>
