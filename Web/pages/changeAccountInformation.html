@@ -61,20 +61,47 @@
             special caractär, en stor bokstav och ett nummer
           </small>
         </div>
-        <!--TODO: Change to whats in the register account form! (AKA address verification)-->
+        <!--Adress,areacode & city is same as when regestring account -->
         <div class="form-group">
-          <label for="address">Adress</label>
+          <label for="adress">Adress</label>
           <input
+            class="form-control"
+            type="text"
+            placeholder="Adress"
+            aria-describedby="addressHelp"
             id="address"
             name="address"
-            type="text"
-            placeholder="Skriv din adress här"
-            aria-describedby="addressHelp"
-            class="form-control"
           />
           <small id="addressHelp" class="form-text text-muted"
             >skriv din address i formulär rutan över</small
           >
+        </div>
+        <div class="form-group">
+          <label for="areacode">Postkod</label>
+          <input
+            class="form-control"
+            type="text"
+            maxlength="5"
+            onkeyup="this.value=this.value.replace(/[^\d]/,'')"
+            pattern="[0-9]*"
+            inputmode="numeric"
+            placeholder="Postkod"
+            id="areacode"
+            name="areacode"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="city">Stad</label>
+          <input
+            class="form-control"
+            type="text"
+            maxlength="20"
+            placeholder="Stad"
+            id="city"
+            name="city"
+            required
+          />
         </div>
         <!--TODO: Change to whats in the register account form! (AKA phone number verification)-->
         <div class="form-group">
