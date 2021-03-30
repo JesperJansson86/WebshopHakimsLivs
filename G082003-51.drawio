@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-03-30T11:03:19.509Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36" etag="Ptf4SEj-qsmvLedh0jUM" version="14.5.3" type="github">
+<mxfile host="app.diagrams.net" modified="2021-03-30T11:05:59.621Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36" etag="rSL03oK3VJnIZfQqYthN" version="14.5.3" type="github">
   <diagram name="Page-1" id="03018318-947c-dd8e-b7a3-06fadd420f32">
     <mxGraphModel dx="2858" dy="1873" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
       <root>
@@ -615,20 +615,20 @@
         <mxCell id="Tds_lSETVSFmA4y9HQOW-226" value="Visa erbjudanden" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fillColor=#1CA5B8;fontColor=#FFFFFF;whiteSpace=wrap;align=center;verticalAlign=middle;spacingLeft=0;fontStyle=0;fontSize=16;spacing=5;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-224">
           <mxGeometry x="14.560638098551966" y="163.24770642201833" width="306.68343995075077" height="39.81651376146788" as="geometry" />
         </mxCell>
-        <mxCell id="Tds_lSETVSFmA4y9HQOW-238" value="Namn Namnsson&lt;br&gt;&lt;br&gt;070-123 45 67&lt;br&gt;&lt;br&gt;namn.namnsson2@epost.se&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#D2D3D4;html=1;whiteSpace=wrap;fillColor=#F8F9FA;fontColor=#212529;verticalAlign=bottom;align=left;spacing=20;spacingBottom=0;fontSize=14;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-29">
-          <mxGeometry x="279" y="146" width="333" height="227" as="geometry" />
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-238" value="Namn&lt;br&gt;Namn Namnsson&lt;br&gt;&lt;br&gt;Mobil&lt;br&gt;070-123 45 67&lt;br&gt;&lt;br&gt;E-post&lt;br&gt;namn.namnsson2@epost.se&lt;br&gt;&lt;br&gt;Lösenord&lt;br&gt;*****************&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#D2D3D4;html=1;whiteSpace=wrap;fillColor=#F8F9FA;fontColor=#212529;verticalAlign=bottom;align=left;spacing=20;spacingBottom=0;fontSize=14;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-29">
+          <mxGeometry x="279" y="146" width="333" height="324" as="geometry" />
         </mxCell>
         <mxCell id="Tds_lSETVSFmA4y9HQOW-239" value="Kunduppgifter" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.topButton;rSize=5;perimeter=none;whiteSpace=wrap;fillColor=#F0F1F2;strokeColor=#D2D3D4;fontColor=#212529;resizeWidth=1;fontSize=18;align=left;spacing=20;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-238">
           <mxGeometry width="333" height="50" relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Tds_lSETVSFmA4y9HQOW-240" value="Ändra uppgifter" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fillColor=#0085FC;fontColor=#FFFFFF;whiteSpace=wrap;align=center;verticalAlign=middle;spacingLeft=0;fontStyle=0;fontSize=16;spacing=5;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-238">
-          <mxGeometry x="16.03682719546742" y="170" width="301.8696883852691" height="40" as="geometry" />
+          <mxGeometry x="16.04" y="256" width="301.87" height="43.74" as="geometry" />
         </mxCell>
         <mxCell id="Tds_lSETVSFmA4y9HQOW-241" value="Mina adresser" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-29">
-          <mxGeometry x="237" y="411" width="799" height="50" as="geometry" />
+          <mxGeometry x="238" y="512" width="799" height="50" as="geometry" />
         </mxCell>
         <mxCell id="Tds_lSETVSFmA4y9HQOW-242" value="&lt;span style=&quot;font-size: 17px&quot;&gt;&lt;b&gt;Stadsgatan 4&lt;/b&gt;&lt;/span&gt;&lt;br&gt;&lt;br&gt;123 45 Stockholm&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#999999&quot;&gt;Lades till DATUM&lt;/font&gt;" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#DFDFDF;html=1;whiteSpace=wrap;fillColor=#ffffff;fontColor=#000000;verticalAlign=top;align=left;spacing=20;spacingBottom=0;fontSize=14;spacingTop=160;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-29">
-          <mxGeometry x="276.5" y="488" width="320" height="347" as="geometry" />
+          <mxGeometry x="277.5" y="589" width="320" height="347" as="geometry" />
         </mxCell>
         <mxCell id="Tds_lSETVSFmA4y9HQOW-243" value="Image cap" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.topButton;rSize=5;perimeter=none;whiteSpace=wrap;fillColor=#868E96;strokeColor=#DFDFDF;fontColor=#DEE2E6;resizeWidth=1;fontSize=18;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-242">
           <mxGeometry width="320" height="160" relative="1" as="geometry" />
@@ -643,7 +643,7 @@
           <mxGeometry x="240" y="184" width="56.5" height="20" as="geometry" />
         </mxCell>
         <mxCell id="Tds_lSETVSFmA4y9HQOW-245" value="&lt;span style=&quot;font-size: 17px&quot;&gt;&lt;b&gt;Hornsgatan 42&lt;/b&gt;&lt;/span&gt;&lt;br&gt;&lt;br&gt;223 45 Malmö&lt;br&gt;&lt;br&gt;&lt;span style=&quot;color: rgb(153 , 153 , 153)&quot;&gt;Lades till DATUM&lt;/span&gt;" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#DFDFDF;html=1;whiteSpace=wrap;fillColor=#ffffff;fontColor=#000000;verticalAlign=top;align=left;spacing=20;spacingBottom=0;fontSize=14;spacingTop=160;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-29">
-          <mxGeometry x="676.5" y="488" width="338.50428571428574" height="347" as="geometry" />
+          <mxGeometry x="677.5" y="589" width="338.50428571428574" height="347" as="geometry" />
         </mxCell>
         <mxCell id="Tds_lSETVSFmA4y9HQOW-246" value="Image cap" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.topButton;rSize=5;perimeter=none;whiteSpace=wrap;fillColor=#868E96;strokeColor=#DFDFDF;fontColor=#DEE2E6;resizeWidth=1;fontSize=18;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-245">
           <mxGeometry width="320" height="160" relative="1" as="geometry" />
