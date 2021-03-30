@@ -1,0 +1,10 @@
+[{"id":1,"name":"Jane","email":"j@gmail.com","password":"null","loyalty":"guld","mobile number":"734 545 546"},
+    {"id":2,"name":"Mark","email":"m@gmail.com","password":"null","loyalty":"silver","mobile number":"072-6566557"},
+    {"id":3,"name":"Ann","email":"a@gmail.com","password":"null","loyalty":"brons","mobile number":"073-6575757"},
+    {"id":4,"name":"Rid","email":"rid@gmail.com","password":"null","loyalty":"grön","mobile number":"072-65575757"},
+    {"id":5,"name":"Berit","email":"berit@telia.com","password":"null","loyalty":"silver","mobile number":"070-7994947"},
+    {"id":6,"name":"Per","email":"per@permon.se","password":"null","loyalty":"röd","mobile number":"070-7422100"},
+    {"id":7,"name":"Nora","email":"namita.isakson@hotmail.se","password":"null","loyalty":"guld","mobile number":"0739-256488"},
+    {"id":8,"name":"Matilda","email":"matildanilsson@hotmail.com","password":"null","loyalty":"silver","mobile number":"073-7803080"},
+    {"id":9,"name":"Monica","email":"monica@permon.se","password":"null","loyalty":"guld","mobile number":"070-7422114"},
+    {"id":10,"name":"Caroline","email":"carro.tamm@gmail.com","password":"null","loyalty":"brons","mobile number":"0709-225410"}]
