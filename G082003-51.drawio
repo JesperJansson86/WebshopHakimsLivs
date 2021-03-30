@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-03-30T12:54:23.989Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36" etag="hRw-hlRaxYaT-5dxD4RL" version="14.5.3" type="github">
+<mxfile host="app.diagrams.net" modified="2021-03-30T13:20:41.655Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36" etag="RuTNsy-h5u3YH0g4iAc4" version="14.5.3" type="github">
   <diagram name="Page-1" id="03018318-947c-dd8e-b7a3-06fadd420f32">
     <mxGraphModel dx="1391" dy="1688" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
       <root>
@@ -1297,6 +1297,34 @@
         </mxCell>
         <mxCell id="Tds_lSETVSFmA4y9HQOW-515" value="Sök" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;fontSize=14;fillColor=#7EA6E0;fontColor=#FFFFFF;strokeColor=none;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-510">
           <mxGeometry x="710" y="12" width="70" height="40" as="geometry" />
+        </mxCell>
+        <UserObject label="https://getbootstrap.com/docs/5.0/content/tables/#striped-rows" link="https://getbootstrap.com/docs/5.0/content/tables/#striped-rows" id="Tds_lSETVSFmA4y9HQOW-516">
+          <mxCell style="text;whiteSpace=wrap;html=1;fontSize=15;fontColor=#FF3399;" vertex="1" parent="1">
+            <mxGeometry x="692.0011764705882" y="3561.0041176470586" width="434" height="32" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-524" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.006;entryY=0.48;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=15;fontColor=#FF3399;" edge="1" parent="1" source="Tds_lSETVSFmA4y9HQOW-521" target="Tds_lSETVSFmA4y9HQOW-367">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1001" y="4248" />
+              <mxPoint x="1001" y="3666" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-521" value="&lt;font color=&quot;#000000&quot;&gt;Ikon för trogen kund, t.ex.&lt;br&gt;https://icons.getbootstrap.com/icons/star-fill/&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#7EA6E0;fontSize=15;fontColor=#FF3399;align=left;" vertex="1" parent="1">
+          <mxGeometry x="855" y="4247.88" width="363" height="71.12" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-523" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;fontSize=15;fontColor=#FF3399;entryX=1.026;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="Tds_lSETVSFmA4y9HQOW-522" target="Tds_lSETVSFmA4y9HQOW-374">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1156" y="3857" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1143" y="4150" />
+              <mxPoint x="1143" y="3668" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-522" value="&lt;font color=&quot;#000000&quot;&gt;Ikon för ändra uppgifter, t.ex.&lt;br&gt;https://icons.getbootstrap.com/icons/gear-fill/&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#7EA6E0;fontSize=15;fontColor=#FF3399;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1065" y="4150" width="363" height="71.12" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
