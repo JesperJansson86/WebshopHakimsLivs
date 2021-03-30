@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-03-30T08:34:18.727Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36" etag="0PZPYRm0_nHeTZpIcWlM" version="14.5.3" type="github">
+<mxfile host="app.diagrams.net" modified="2021-03-30T09:09:32.652Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36" etag="4efirAJ_-B-Y0SREXn0D" version="14.5.3" type="github">
   <diagram name="Page-1" id="03018318-947c-dd8e-b7a3-06fadd420f32">
-    <mxGraphModel dx="985" dy="1437" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="2858" dy="1873" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -637,10 +637,61 @@
           <mxGeometry width="209" height="59" as="geometry" />
         </mxCell>
         <mxCell id="Tds_lSETVSFmA4y9HQOW-157" value="" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#DFDFDF;html=1;whiteSpace=wrap;fillColor=#FFFFFF;fontColor=#000000;align=center;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-29">
-          <mxGeometry x="224" y="391" width="789" height="230" as="geometry" />
+          <mxGeometry x="225.5" y="388" width="789" height="420" as="geometry" />
         </mxCell>
         <mxCell id="Tds_lSETVSFmA4y9HQOW-158" value="Mina adresser" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.topButton;strokeColor=inherit;fillColor=#F7F7F7;rSize=5;perimeter=none;whiteSpace=wrap;resizeWidth=1;align=left;spacing=20;fontSize=14;fontStyle=1" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-157">
           <mxGeometry width="789" height="40" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-181" value="&lt;span style=&quot;font-size: 17px&quot;&gt;&lt;b&gt;Förvald leveransadress&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;br&gt;Stadsgatan 4&lt;br&gt;123 45 Stockholm&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#999999&quot;&gt;Lades till DATUM&lt;/font&gt;" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#DFDFDF;html=1;whiteSpace=wrap;fillColor=#ffffff;fontColor=#000000;verticalAlign=top;align=left;spacing=20;spacingBottom=0;fontSize=14;spacingTop=160;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-157">
+          <mxGeometry x="22" y="54" width="320" height="347" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-182" value="Image cap" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.topButton;rSize=5;perimeter=none;whiteSpace=wrap;fillColor=#868E96;strokeColor=#DFDFDF;fontColor=#DEE2E6;resizeWidth=1;fontSize=18;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-181">
+          <mxGeometry width="320" height="160" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-183" value="Ändra" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fillColor=#0085FC;fontColor=#FFFFFF;whiteSpace=wrap;align=center;verticalAlign=middle;spacingLeft=0;fontStyle=0;fontSize=16;spacing=5;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-181">
+          <mxGeometry x="224" y="291" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-184" value="&lt;span style=&quot;font-size: 17px&quot;&gt;&lt;b&gt;Alternativ leveransadress&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;br&gt;Stadsgatan 34&lt;br&gt;223 45 Malmö&lt;br&gt;&lt;br&gt;&lt;span style=&quot;color: rgb(153 , 153 , 153)&quot;&gt;Lades till DATUM&lt;/span&gt;" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#DFDFDF;html=1;whiteSpace=wrap;fillColor=#ffffff;fontColor=#000000;verticalAlign=top;align=left;spacing=20;spacingBottom=0;fontSize=14;spacingTop=160;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-157">
+          <mxGeometry x="422" y="54" width="320" height="347" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-185" value="Image cap" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.topButton;rSize=5;perimeter=none;whiteSpace=wrap;fillColor=#868E96;strokeColor=#DFDFDF;fontColor=#DEE2E6;resizeWidth=1;fontSize=18;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-184">
+          <mxGeometry width="320" height="160" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-186" value="Ändra" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fillColor=#0085FC;fontColor=#FFFFFF;whiteSpace=wrap;align=center;verticalAlign=middle;spacingLeft=0;fontStyle=0;fontSize=16;spacing=5;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-184">
+          <mxGeometry x="227" y="295" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-189" value="Gör till förvald" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fillColor=#6C767D;fontColor=#FFFFFF;whiteSpace=wrap;align=center;verticalAlign=middle;spacingLeft=0;fontStyle=0;fontSize=16;spacing=5;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-184">
+          <mxGeometry x="86" y="295" width="127" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-171" value="&lt;b&gt;&lt;font style=&quot;font-size: 17px&quot;&gt;Card title that wraps to a new line&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer." style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#DFDFDF;html=1;whiteSpace=wrap;fillColor=#ffffff;fontColor=#000000;verticalAlign=top;align=left;spacing=20;spacingBottom=0;fontSize=14;spacingTop=160;" vertex="1" parent="1">
+          <mxGeometry x="-1046" y="2605" width="320" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-172" value="Image cap" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.topButton;rSize=5;perimeter=none;whiteSpace=wrap;fillColor=#868E96;strokeColor=#DFDFDF;fontColor=#DEE2E6;resizeWidth=1;fontSize=18;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-171">
+          <mxGeometry width="320" height="160" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-173" value="&lt;font style=&quot;font-size: 18px&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;br&gt;&lt;br&gt;&lt;/font&gt;&lt;font style=&quot;font-size: 12px&quot; color=&quot;#999999&quot;&gt;- Someone famous in &lt;i&gt;Source Title&lt;/i&gt;&lt;/font&gt;" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#DFDFDF;html=1;whiteSpace=wrap;fillColor=#ffffff;fontColor=#000000;verticalAlign=top;align=left;spacing=30;spacingBottom=0;fontSize=14;spacingTop=0;" vertex="1" parent="1">
+          <mxGeometry x="-1046" y="2905" width="320" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-174" value="&lt;b&gt;&lt;font style=&quot;font-size: 17px&quot;&gt;Card title&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;This card has supporting text below as a natural lead-in to additional content.&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#999999&quot; style=&quot;font-size: 12px&quot;&gt;Last updated 3 mins ago&lt;/font&gt;" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#DFDFDF;html=1;whiteSpace=wrap;fillColor=#ffffff;fontColor=#000000;verticalAlign=top;align=left;spacing=20;spacingBottom=0;fontSize=14;spacingTop=160;" vertex="1" parent="1">
+          <mxGeometry x="-716" y="2605" width="320" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-175" value="Image cap" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.topButton;rSize=5;perimeter=none;whiteSpace=wrap;fillColor=#868E96;strokeColor=#DFDFDF;fontColor=#DEE2E6;resizeWidth=1;fontSize=18;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-174">
+          <mxGeometry width="320" height="160" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-176" value="&lt;font style=&quot;font-size: 18px&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;br&gt;&lt;br&gt;&lt;/font&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;- Someone famous in &lt;i&gt;Source Title&lt;/i&gt;&lt;/font&gt;" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#DFDFDF;html=1;whiteSpace=wrap;fillColor=#0085FC;fontColor=#FFFFFF;verticalAlign=top;align=center;spacing=10;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="-716" y="2915" width="320" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-177" value="&lt;font style=&quot;font-size: 18px&quot;&gt;Card title&lt;/font&gt;&lt;br&gt;&lt;br&gt;This card has a regular title and short paragraphy of text below it.&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#999999&quot; style=&quot;font-size: 12px&quot;&gt;Last updated 3 mins ago&lt;/font&gt;" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#DFDFDF;html=1;whiteSpace=wrap;fillColor=#ffffff;fontColor=#000000;verticalAlign=top;align=center;spacing=10;spacingBottom=0;fontSize=14;spacingTop=0;" vertex="1" parent="1">
+          <mxGeometry x="-716" y="3055" width="320" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-178" value="Card image" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#DFDFDF;html=1;whiteSpace=wrap;fillColor=#868E96;fontColor=#DEE2E6;verticalAlign=middle;align=center;spacing=10;spacingBottom=0;fontSize=14;spacingTop=0;" vertex="1" parent="1">
+          <mxGeometry x="-386" y="2605" width="320" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-179" value="&lt;font style=&quot;font-size: 18px&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;br&gt;&lt;br&gt;&lt;/font&gt;&lt;font style=&quot;font-size: 12px&quot; color=&quot;#999999&quot;&gt;- Someone famous in &lt;i&gt;Source Title&lt;/i&gt;&lt;/font&gt;" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#DFDFDF;html=1;whiteSpace=wrap;fillColor=#ffffff;fontColor=#000000;verticalAlign=top;align=right;spacing=30;spacingBottom=0;fontSize=14;spacingTop=0;" vertex="1" parent="1">
+          <mxGeometry x="-386" y="2855" width="320" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-180" value="&lt;font style=&quot;font-size: 18px&quot;&gt;&lt;b&gt;Card title&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;This is another card with title and supporting text below it. This card has some additional content to make it slightly taller overall.&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#999999&quot; style=&quot;font-size: 12px&quot;&gt;Last updated 3 mins ago&lt;/font&gt;" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#DFDFDF;html=1;whiteSpace=wrap;fillColor=#ffffff;fontColor=#000000;verticalAlign=top;align=left;spacing=20;spacingBottom=0;fontSize=14;spacingTop=0;" vertex="1" parent="1">
+          <mxGeometry x="-386" y="3015" width="320" height="171" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
