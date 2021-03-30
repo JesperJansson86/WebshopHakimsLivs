@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-03-30T11:27:38.749Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36" etag="3t6wAoUbsIr_VILDnCVB" version="14.5.3" type="github">
+<mxfile host="app.diagrams.net" modified="2021-03-30T11:33:20.973Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36" etag="oPa9627d_NVcvKIQ0tCb" version="14.5.3" type="github">
   <diagram name="Page-1" id="03018318-947c-dd8e-b7a3-06fadd420f32">
-    <mxGraphModel dx="1689" dy="1873" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="1970" dy="2047" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -814,6 +814,15 @@
         </mxCell>
         <mxCell id="Tds_lSETVSFmA4y9HQOW-310" value="Om man klickar på Visa erbjudanden hamnar man på en egen sida för erbjudanden" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E6E6E6;fontSize=15;align=left;" vertex="1" parent="1">
           <mxGeometry x="1230.5" y="1949.16" width="131" height="136" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-312" value="Avsluta konto" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;" vertex="1" parent="1">
+          <mxGeometry x="356" y="2827" width="799" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-314" value="Om du inte längre vill vara kund hos Hakim Livs kan du radera ditt konto. Då tas alla dina uppgifter bort förutom de som behövs sparas för ekonomihantering etc.&lt;br&gt;&lt;br&gt;&lt;br&gt;" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#D6D8DB;strokeWidth=1;fillColor=#E2E3E5;fontColor=#383D41;whiteSpace=wrap;align=left;verticalAlign=middle;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="365" y="2900" width="800" height="132" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-315" value="Radera konto" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fillColor=#DB2843;fontColor=#FFFFFF;whiteSpace=wrap;align=center;verticalAlign=middle;spacingLeft=0;fontStyle=0;fontSize=16;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="1021" y="2981" width="130" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
