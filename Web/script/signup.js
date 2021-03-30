@@ -41,7 +41,7 @@ function validation() {
             validateAreaCode($("#areacode")) &&
             fieldNotEmpty($("#city"))
     )
-    validated ? signup() : fail();
+    validated ? signUp() : fail();
 }
 
 /**
@@ -121,12 +121,39 @@ function renderInvalid(object){
     object.addClass("is-invalid");
 }
 
+/**
+ * checks if field is not empty.
+ * @param field {textfield}
+ * @returns {boolean}
+ */
 function fieldNotEmpty(field){
     return field.val().length > 0;
 }
 
+/**
+ * This is for sending to server
+ * password not
+ */
 function signUp() {
+    console.log(`email: ${$("#email").val()}`);
+    var objectdata = JSON.stringify({
+        'email' : $("#email").val(),
+        'password' : $("#password").val(),
+        'phonenumber' : $("#phone").val(),
+        'address' : $("#adress").val(),
+        'areacode' : $("#areacode").val(),
+        'city' : $("#city").val()
+    })
+    console.log(objectdata);
     //POST
     //GET
     //REDIRECT?
+}
+
+/**
+ * if validation fails.
+ */
+function fail() {
+    alert("Something went wrong");
+    console.log("Something went wrong...");
 }
