@@ -8,6 +8,7 @@ const password = document.getElementById("password"); //inputted password
  * if the login was successful it takes you to mypages
  */
 function Success() {
+ //TODO: connect to java side (were it checks if the username and password are correct and is in the database)
   localStorage.setItem("username", username); //stores the inloged users username
   window.location.assign("mypages.html"); //takes the user to mypages.html
 }
@@ -39,9 +40,9 @@ function validateUsername(username) {
  */
 function validatePassword(password) {
   const regex = new RegExp(
-    "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,40})" 
+    "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{6,40})"
   ); //Password need to be at least 6 characters but max 40, include 1 special character, 1 uppercase character and a number
-    //do not by mistake format the regex string changes on format and probably breaks !
+  //do not by mistake format the regex string changes on format and probably breaks !
   if (regex.test(password)) {
     console.log(password + " is valid"); // TODO: REMOVE TEST PASSWORD CHECK
     return true;
