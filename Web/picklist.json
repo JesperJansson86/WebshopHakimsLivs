@@ -1,32 +1,37 @@
 [
 {
-        "articlenumber": "00000156",
+        "productid": "00000156",
         "name": "Bregott - extra saltat",
-        "size": "400g",
+        "size": "400",
+        "unit": "g",
         "amount": 2
     },
     {
-        "articlenumber": "00000157",
+        "productid": "00000157",
         "name": "Bregott - osaltat",
-        "size": "400g",
+        "size": "400",
+        "unit": "g",
         "amount": 1
     },
     {
-        "articlenumber": "00000158",
+        "productid": "00000158",
         "name": "Bregott - Normal saltat",
-        "size": "400g",
+        "size": "400",
+        "unit": "g",
         "amount": 1
     },
     {
-        "articlenumber": "00000159",
+        "productid": "00000159",
         "name": "Ägg - Frigående L-M",
-        "size": "24st",
+        "size": "24",
+        "unit": "st",
         "amount": 2
     },
     {
-        "articlenumber": "00000160",
+        "productid": "00000160",
         "name": "Bregott - osaltat",
-        "size": "400g",
+        "size": "200",
+        "unit": "g",
         "amount": 1
     }
    

@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plocklista</title>
     <style>  
+    /**
+    *Detta är 20cm brett av anledningen att en A4 är 21 cm bred.
+    **/
         input[id=articlenumber] {
         width: 5cm;
          }
@@ -24,7 +27,7 @@
     <h1>Hakims Livs. Plocklista</h1> 
    <div id="customer"></div>
    <form action="" id="form1">
-    <input type="text" id="articlenumber" value="Artikelnummer">
+    <input type="text" id="productid" value="Artikelnummer">
     <input type="text" id="name" value="Artikelnamn">
     <input type="text" id="size" value="Storlek">
     <input type="text" id="amount" value="Antal">
@@ -34,21 +37,27 @@
   
   
     <script>
+        /**
+         *Detta är en tillfällig json i brist på nuvarande testdata. 
+         **/
         fetch('picklist.json')
             .then(res=>res.json()
             .then(data=> {
                  data.forEach(item => {
                 document.getElementById("items").innerHTML += `
-                <input type="text" id="articlenumber" value="${item.articlenumber}">
+                <input type="text" id="productid" value="${item.productid}">
                 <input type="text" id="name" value="${item.name}">
-                <input type="text" id="size" value="${item.size}"">
+                <input type="text" id="size" value="${item.size+item.unit}"">
                 <input type="text" id="amount" value="${item.amount}"">
                 <br>`
             })}))
+            /**
+             * Notera att denna JSON bara innehåller en enda kund.
+             **/
             fetch('customers.json')
             .then(res=>res.json()
             .then(data=> {
-                 data.forEach(item => {
+                 
                 document.getElementById("customer").innerHTML += `
                 <h2>${item.name}
                 <br>
@@ -57,7 +66,7 @@
                 ${item.phone}
                 <br></h2>
                 `
-            })}))
+            }))
     
 
 
