@@ -15,7 +15,7 @@
   </head>
   <body>
     <div id="errorMessage"></div>
-    <form id="changeInfoForm" action="/" method="get">
+    <form id="changeInfoForm" action="/" method="POST" autocomplete="on">
       <fieldset>
         <div class="form-group">
           <label for="name">Namn</label>
@@ -115,10 +115,7 @@
             name="phone"
             id="phone"
           />
-          <small id="phoneHelp" class="form-text text-muted"
-            >(123) 456-7890 | (123)456-7890 | 123-456-7890 | 123.456.7890 |
-            +31636363634 | Ta bort mellanslag framför och backom mobil nummret
-          </small>
+          <small id="phoneHelp" class="form-text text-muted"> </small>
         </div>
       </fieldset>
       <hr />
