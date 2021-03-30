@@ -8,8 +8,8 @@ const password = document.getElementById("password"); //inputted password
  * if the login was successful it takes you to mypages
  */
 function Success() {
- //TODO: connect to java side (were it checks if the username and password are correct and is in the database)
-  localStorage.setItem("username", username); //stores the inloged users username
+  //TODO: connect to java side (were it checks if the username and password are correct and is in the database)
+  localStorage.setItem("user", username); //stores the inloged users username in (Java side gets the users data so tampering in this value breaks nothing)
   window.location.assign("mypages.html"); //takes the user to mypages.html
 }
 
