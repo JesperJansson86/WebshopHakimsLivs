@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-03-30T11:33:20.973Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36" etag="oPa9627d_NVcvKIQ0tCb" version="14.5.3" type="github">
+<mxfile host="app.diagrams.net" modified="2021-03-30T11:34:25.789Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36" etag="A0Qb_MeK-EIHh9F4FFAJ" version="14.5.3" type="github">
   <diagram name="Page-1" id="03018318-947c-dd8e-b7a3-06fadd420f32">
     <mxGraphModel dx="1970" dy="2047" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
       <root>
@@ -823,6 +823,12 @@
         </mxCell>
         <mxCell id="Tds_lSETVSFmA4y9HQOW-315" value="Radera konto" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fillColor=#DB2843;fontColor=#FFFFFF;whiteSpace=wrap;align=center;verticalAlign=middle;spacingLeft=0;fontStyle=0;fontSize=16;spacing=5;" vertex="1" parent="1">
           <mxGeometry x="1021" y="2981" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-317" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fontSize=15;" edge="1" parent="1" source="Tds_lSETVSFmA4y9HQOW-316" target="Tds_lSETVSFmA4y9HQOW-315">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-316" value="Kunden måste bekräfta en gång till att hen verkligen vill radera sitt konto" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E6E6E6;fontSize=15;align=left;" vertex="1" parent="1">
+          <mxGeometry x="863" y="3143" width="175" height="130" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
