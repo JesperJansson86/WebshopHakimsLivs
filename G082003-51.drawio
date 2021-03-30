@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-03-30T13:20:41.655Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36" etag="RuTNsy-h5u3YH0g4iAc4" version="14.5.3" type="github">
+<mxfile host="app.diagrams.net" modified="2021-03-30T14:01:27.530Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36" etag="nbFbAS2xsjF5S1xUWQ6u" version="14.5.3" type="github">
   <diagram name="Page-1" id="03018318-947c-dd8e-b7a3-06fadd420f32">
-    <mxGraphModel dx="1391" dy="1688" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1689" dy="1873" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -861,7 +861,7 @@
         <mxCell id="Tds_lSETVSFmA4y9HQOW-325" value="Administration" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.topButton;rSize=5;strokeColor=none;fillColor=#0085FC;fontColor=#ffffff;perimeter=none;whiteSpace=wrap;resizeWidth=1;align=left;spacing=10;fontStyle=1" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-324">
           <mxGeometry width="200" height="30" relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Tds_lSETVSFmA4y9HQOW-326" value="Produktsortiment" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;fontColor=inherit;html=1;shadow=0;dashed=0;perimeter=none;whiteSpace=wrap;resizeWidth=1;align=left;spacing=10;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-324">
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-326" value="Produktregister" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;fontColor=inherit;html=1;shadow=0;dashed=0;perimeter=none;whiteSpace=wrap;resizeWidth=1;align=left;spacing=10;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-324">
           <mxGeometry width="200" height="30" relative="1" as="geometry">
             <mxPoint y="30" as="offset" />
           </mxGeometry>
@@ -1104,10 +1104,13 @@
         <mxCell id="Tds_lSETVSFmA4y9HQOW-430" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=15;fontColor=#000000;" edge="1" parent="1" source="Tds_lSETVSFmA4y9HQOW-429">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="662" y="4120" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="220" y="4120" />
+            </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="Tds_lSETVSFmA4y9HQOW-429" value="Om fler än X i kundregister/söklista så visas &amp;gt;X på nästa sida.&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#E6E6E6;fontSize=15;fontColor=#000000;align=left;" vertex="1" parent="1">
-          <mxGeometry x="140" y="4070" width="180" height="102" as="geometry" />
+          <mxGeometry x="130" y="4003.5" width="180" height="102" as="geometry" />
         </mxCell>
         <mxCell id="Tds_lSETVSFmA4y9HQOW-431" value="" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#DFDFDF;html=1;whiteSpace=wrap;fillColor=#FFFFFF;fontColor=#000000;align=right;" vertex="1" parent="1">
           <mxGeometry x="1269" y="3586" width="200" height="150" as="geometry" />
@@ -1115,7 +1118,7 @@
         <mxCell id="Tds_lSETVSFmA4y9HQOW-432" value="Administration" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.topButton;rSize=5;strokeColor=none;fillColor=#0085FC;fontColor=#ffffff;perimeter=none;whiteSpace=wrap;resizeWidth=1;align=left;spacing=10;fontStyle=1" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-431">
           <mxGeometry width="200" height="30" relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Tds_lSETVSFmA4y9HQOW-433" value="Produktsortiment" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;fontColor=inherit;html=1;shadow=0;dashed=0;perimeter=none;whiteSpace=wrap;resizeWidth=1;align=left;spacing=10;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-431">
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-433" value="Produktregister" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;fontColor=inherit;html=1;shadow=0;dashed=0;perimeter=none;whiteSpace=wrap;resizeWidth=1;align=left;spacing=10;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-431">
           <mxGeometry width="200" height="30" relative="1" as="geometry">
             <mxPoint y="30" as="offset" />
           </mxGeometry>
@@ -1303,28 +1306,204 @@
             <mxGeometry x="692.0011764705882" y="3561.0041176470586" width="434" height="32" as="geometry" />
           </mxCell>
         </UserObject>
-        <mxCell id="Tds_lSETVSFmA4y9HQOW-524" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.006;entryY=0.48;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=15;fontColor=#FF3399;" edge="1" parent="1" source="Tds_lSETVSFmA4y9HQOW-521" target="Tds_lSETVSFmA4y9HQOW-367">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="1001" y="4248" />
-              <mxPoint x="1001" y="3666" />
-            </Array>
-          </mxGeometry>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-554" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=-0.026;entryY=0.184;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=15;fontColor=#FF3399;" edge="1" parent="1" source="Tds_lSETVSFmA4y9HQOW-521" target="Tds_lSETVSFmA4y9HQOW-367">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Tds_lSETVSFmA4y9HQOW-521" value="&lt;font color=&quot;#000000&quot;&gt;Ikon för trogen kund, t.ex.&lt;br&gt;https://icons.getbootstrap.com/icons/star-fill/&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#7EA6E0;fontSize=15;fontColor=#FF3399;align=left;" vertex="1" parent="1">
-          <mxGeometry x="855" y="4247.88" width="363" height="71.12" as="geometry" />
+          <mxGeometry x="679" y="3859.13" width="311" height="71.12" as="geometry" />
         </mxCell>
-        <mxCell id="Tds_lSETVSFmA4y9HQOW-523" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;fontSize=15;fontColor=#FF3399;entryX=1.026;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="Tds_lSETVSFmA4y9HQOW-522" target="Tds_lSETVSFmA4y9HQOW-374">
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-555" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=15;fontColor=#FF3399;" edge="1" parent="1" source="Tds_lSETVSFmA4y9HQOW-522" target="Tds_lSETVSFmA4y9HQOW-368">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1156" y="3857" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="1143" y="4150" />
+              <mxPoint x="1113" y="3987" />
+              <mxPoint x="1143" y="3987" />
               <mxPoint x="1143" y="3668" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="Tds_lSETVSFmA4y9HQOW-522" value="&lt;font color=&quot;#000000&quot;&gt;Ikon för ändra uppgifter, t.ex.&lt;br&gt;https://icons.getbootstrap.com/icons/gear-fill/&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#7EA6E0;fontSize=15;fontColor=#FF3399;align=left;" vertex="1" parent="1">
-          <mxGeometry x="1065" y="4150" width="363" height="71.12" as="geometry" />
+          <mxGeometry x="750.25" y="3987" width="363" height="71.12" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-525" value="" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#DFDFDF;html=1;whiteSpace=wrap;fillColor=#FFFFFF;fontColor=#000000;align=right;" vertex="1" parent="1">
+          <mxGeometry x="123" y="4410" width="200" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-526" value="Administration" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.topButton;rSize=5;strokeColor=none;fillColor=#0085FC;fontColor=#ffffff;perimeter=none;whiteSpace=wrap;resizeWidth=1;align=left;spacing=10;fontStyle=1" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-525">
+          <mxGeometry width="200" height="30" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-527" value="Produktregister" style="strokeColor=#6c8ebf;fillColor=#dae8fc;html=1;shadow=0;dashed=0;perimeter=none;whiteSpace=wrap;resizeWidth=1;align=left;spacing=10;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-525">
+          <mxGeometry width="200" height="30" relative="1" as="geometry">
+            <mxPoint y="30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-528" value="Kundregister" style="strokeColor=#6c8ebf;html=1;shadow=0;dashed=0;perimeter=none;whiteSpace=wrap;resizeWidth=1;align=left;spacing=10;fillColor=none;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-525">
+          <mxGeometry width="200" height="30" relative="1" as="geometry">
+            <mxPoint y="60" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-529" value="Mina erbjudanden" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;fontColor=inherit;html=1;shadow=0;dashed=0;perimeter=none;whiteSpace=wrap;resizeWidth=1;align=left;spacing=10;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-525">
+          <mxGeometry width="200" height="30" relative="1" as="geometry">
+            <mxPoint y="90" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-530" value="Vestibulum at eros" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;fontColor=inherit;html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.bottomButton;rSize=5;perimeter=none;whiteSpace=wrap;resizeWidth=1;resizeHeight=0;align=left;spacing=10;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-525">
+          <mxGeometry y="1" width="200" height="30" relative="1" as="geometry">
+            <mxPoint y="-30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-531" value="" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#DFDFDF;html=1;whiteSpace=wrap;fillColor=#FFFFFF;fontColor=#000000;align=right;" vertex="1" parent="1">
+          <mxGeometry x="123" y="4249" width="200" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-532" value="Produkter" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;fontColor=inherit;html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.topButton;rSize=5;perimeter=none;whiteSpace=wrap;resizeWidth=1;align=left;spacing=10;fontStyle=1" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-531">
+          <mxGeometry width="200" height="30" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-533" value="Kategori 1" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;fontColor=inherit;html=1;shadow=0;dashed=0;perimeter=none;whiteSpace=wrap;resizeWidth=1;align=left;spacing=10;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-531">
+          <mxGeometry width="200" height="30" relative="1" as="geometry">
+            <mxPoint y="30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-534" value="Kategori 2" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;fontColor=inherit;html=1;shadow=0;dashed=0;perimeter=none;whiteSpace=wrap;resizeWidth=1;align=left;spacing=10;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-531">
+          <mxGeometry width="200" height="30" relative="1" as="geometry">
+            <mxPoint y="60" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-535" value="Kategori 3" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;fontColor=inherit;html=1;shadow=0;dashed=0;perimeter=none;whiteSpace=wrap;resizeWidth=1;align=left;spacing=10;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-531">
+          <mxGeometry width="200" height="30" relative="1" as="geometry">
+            <mxPoint y="90" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-536" value="Kategori 4" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;fontColor=inherit;html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.bottomButton;rSize=5;perimeter=none;whiteSpace=wrap;resizeWidth=1;resizeHeight=0;align=left;spacing=10;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-531">
+          <mxGeometry y="1" width="200" height="30" relative="1" as="geometry">
+            <mxPoint y="-30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-537" value="" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#DFDFDF;html=1;whiteSpace=wrap;fillColor=#FFFFFF;fontColor=#000000;align=right;" vertex="1" parent="1">
+          <mxGeometry x="123" y="4571" width="200" height="89" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-538" value="Information" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;fontColor=inherit;html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.topButton;rSize=5;perimeter=none;whiteSpace=wrap;resizeWidth=1;align=left;spacing=10;fontStyle=1" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-537">
+          <mxGeometry width="200" height="30" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-539" value="Om HakimLivs" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;fontColor=inherit;html=1;shadow=0;dashed=0;perimeter=none;whiteSpace=wrap;resizeWidth=1;align=left;spacing=10;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-537">
+          <mxGeometry width="200" height="30" relative="1" as="geometry">
+            <mxPoint y="30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-540" value="Kontakt" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;fontColor=inherit;html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.bottomButton;rSize=5;perimeter=none;whiteSpace=wrap;resizeWidth=1;resizeHeight=0;align=left;spacing=10;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-537">
+          <mxGeometry y="1" width="200" height="30" relative="1" as="geometry">
+            <mxPoint y="-30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-541" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.graphics.simpleIcon;strokeColor=#999999;fontSize=28;" vertex="1" parent="1">
+          <mxGeometry x="120" y="4172" width="209" height="59" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-542" value="" style="html=1;shadow=0;dashed=0;fillColor=#0085FC;strokeColor=none;fontSize=16;fontColor=#ffffff;align=left;spacing=15;" vertex="1" parent="1">
+          <mxGeometry x="329" y="4172" width="800" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-543" value="Search" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;fontSize=14;fontColor=#6C767D;strokeColor=#CED4DA;fillColor=#ffffff;align=left;spacing=10;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-542">
+          <mxGeometry x="1" width="180" height="40" relative="1" as="geometry">
+            <mxPoint x="-405" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-544" value="Varukorg" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fillColor=#6C767D;fontColor=#FFFFFF;whiteSpace=wrap;align=center;verticalAlign=middle;spacingLeft=0;fontStyle=0;fontSize=16;spacing=5;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-542">
+          <mxGeometry x="587" y="10" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-545" value="Logga ut" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fillColor=#6C767D;fontColor=#FFFFFF;whiteSpace=wrap;align=center;verticalAlign=middle;spacingLeft=0;fontStyle=0;fontSize=16;spacing=5;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-542">
+          <mxGeometry x="694" y="10" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-546" value="Produktregister" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;" vertex="1" parent="1">
+          <mxGeometry x="333" y="4254" width="799" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-547" value="Visar produktregister (alla ANTAL produkter)" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#FDFDFE;strokeWidth=1;fillColor=#FEFEFE;fontColor=#818182;whiteSpace=wrap;align=left;verticalAlign=middle;spacingLeft=10;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="338" y="4378" width="800" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-556" value="Sök i produktregister" style="html=1;shadow=0;dashed=0;fillColor=#F8F9FA;strokeColor=none;fontSize=16;fontColor=#181819;align=left;spacing=15;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="346" y="4319" width="800" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-557" value="Sök produkt" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;fontSize=14;fontColor=#6C767D;strokeColor=#CED4DA;fillColor=#ffffff;align=left;spacing=10;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-556">
+          <mxGeometry x="1" width="180" height="40" relative="1" as="geometry">
+            <mxPoint x="-367" y="12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-558" value="Rensa" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fontColor=#FFFFFF;whiteSpace=wrap;align=center;verticalAlign=middle;spacingLeft=0;fontStyle=0;fontSize=16;spacing=5;fontFamily=Helvetica;fillColor=#CCCCCC;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-556">
+          <mxGeometry x="633" y="12" width="69" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-559" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=15;fontColor=#000000;" edge="1" parent="Tds_lSETVSFmA4y9HQOW-556">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="790" y="32.00000000000091" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-560" value="Sök" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;fontSize=14;fillColor=#7EA6E0;fontColor=#FFFFFF;strokeColor=none;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-556">
+          <mxGeometry x="710" y="12" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-595" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="354" y="4593" width="772" height="267" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-598" value="" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#DEE2E6;html=1;whiteSpace=wrap;fillColor=#ffffff;fontColor=#0085FC;align=center;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-595">
+          <mxGeometry x="299" y="494" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-599" value="&lt;&lt;" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;fontColor=inherit;html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.leftButton;rSize=5;perimeter=none;whiteSpace=wrap;resizeHeight=1;fontSize=14;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-598">
+          <mxGeometry width="30" height="30" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-600" value="1" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;fontColor=inherit;html=1;shadow=0;dashed=0;perimeter=none;whiteSpace=wrap;resizeHeight=1;fontSize=14;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-598">
+          <mxGeometry width="30" height="30" relative="1" as="geometry">
+            <mxPoint x="30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-601" value="2" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;fontColor=inherit;html=1;shadow=0;dashed=0;perimeter=none;whiteSpace=wrap;resizeHeight=1;fontSize=14;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-598">
+          <mxGeometry width="30" height="30" relative="1" as="geometry">
+            <mxPoint x="60" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-602" value="3" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;fontColor=inherit;html=1;shadow=0;dashed=0;perimeter=none;whiteSpace=wrap;resizeHeight=1;fontSize=14;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-598">
+          <mxGeometry width="30" height="30" relative="1" as="geometry">
+            <mxPoint x="90" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-603" value="&gt;&gt;" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;fontColor=inherit;html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rightButton;rSize=5;perimeter=none;whiteSpace=wrap;resizeHeight=1;fontSize=14;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-598">
+          <mxGeometry x="1" width="30" height="30" relative="1" as="geometry">
+            <mxPoint x="-30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-642" value="" style="group" vertex="1" connectable="0" parent="Tds_lSETVSFmA4y9HQOW-595">
+          <mxGeometry x="-4" y="-154" width="772" height="188" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-596" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#ffffff;fontSize=15;fontColor=#333333;align=center;strokeColor=none;fillColor=#E6E6E6;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-642">
+          <mxGeometry y="36" width="754" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-604" value="Produkt" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;align=left;labelBackgroundColor=#ffffff;fontStyle=1;strokeColor=none;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-642">
+          <mxGeometry x="44" width="102" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-605" value="Storlek" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fontColor=#000000;align=center;labelBackgroundColor=#ffffff;strokeColor=none;fontStyle=1" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-642">
+          <mxGeometry x="259" width="151" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-607" value="Pris" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fontColor=#000000;align=center;labelBackgroundColor=#ffffff;strokeColor=none;fontStyle=1" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-642">
+          <mxGeometry x="394" width="163" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-609" value="Lagerstatus" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fontColor=#000000;align=center;labelBackgroundColor=#ffffff;strokeColor=none;fontStyle=1" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-642">
+          <mxGeometry x="525" width="126" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-611" value="Id" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;align=center;labelBackgroundColor=#ffffff;fontStyle=1;strokeColor=none;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-642">
+          <mxGeometry width="24" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-628" value="" style="group" vertex="1" connectable="0" parent="Tds_lSETVSFmA4y9HQOW-642">
+          <mxGeometry x="5" y="39.5" width="742" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-612" value="1&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Produktens namn&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;360 gram&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;XX,YY kr&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;38" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=15;fontColor=#000000;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-628">
+          <mxGeometry y="9" width="628" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-627" value="Mer info" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fillColor=#0085FC;fontColor=#FFFFFF;whiteSpace=wrap;align=center;verticalAlign=middle;spacingLeft=0;fontStyle=0;fontSize=16;spacing=5;labelBackgroundColor=none;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-628">
+          <mxGeometry x="672" width="70" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-629" value="" style="group" vertex="1" connectable="0" parent="Tds_lSETVSFmA4y9HQOW-642">
+          <mxGeometry x="5" y="84" width="742" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-630" value="2&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Produktens namn&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;NN liter&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; XX,YY kr&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;32" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=15;fontColor=#000000;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-629">
+          <mxGeometry y="9" width="628" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-631" value="Mer info" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fillColor=#0085FC;fontColor=#FFFFFF;whiteSpace=wrap;align=center;verticalAlign=middle;spacingLeft=0;fontStyle=0;fontSize=16;spacing=5;labelBackgroundColor=none;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-629">
+          <mxGeometry x="672" width="70" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-641" value="osv......" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#e1d5e7;fontSize=15;align=center;strokeColor=#9673a6;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-642">
+          <mxGeometry x="5" y="137" width="767" height="51" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
