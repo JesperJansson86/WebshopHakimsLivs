@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-03-30T14:57:19.094Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36" etag="u-XfVGRWU7FX5627TjYD" version="14.5.3" type="github">
+<mxfile host="app.diagrams.net" modified="2021-03-30T14:58:45.916Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36" etag="gBV_u6q04ER7hWZinq0y" version="14.5.3" type="github">
   <diagram name="Page-1" id="03018318-947c-dd8e-b7a3-06fadd420f32">
     <mxGraphModel dx="2364" dy="1464" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
       <root>
@@ -1439,7 +1439,7 @@
           <mxGeometry x="300" y="4936" width="862" height="2001" as="geometry" />
         </mxCell>
         <mxCell id="Tds_lSETVSFmA4y9HQOW-853" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=#000000;fillColor=#ffffff;fontSize=15;fontColor=#FF3399;align=left;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-854">
-          <mxGeometry y="60" width="862" height="830" as="geometry" />
+          <mxGeometry y="60" width="862" height="770" as="geometry" />
         </mxCell>
         <mxCell id="Tds_lSETVSFmA4y9HQOW-848" value="" style="group;" vertex="1" connectable="0" parent="Tds_lSETVSFmA4y9HQOW-854">
           <mxGeometry x="3" y="59" width="830" height="726" as="geometry" />
@@ -1594,9 +1594,6 @@
         </mxCell>
         <mxCell id="Tds_lSETVSFmA4y9HQOW-867" value="Visa mer" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fillColor=#0085FC;fontColor=#FFFFFF;whiteSpace=wrap;align=center;verticalAlign=middle;spacingLeft=0;fontStyle=0;fontSize=16;spacing=5;labelBackgroundColor=none;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-865">
           <mxGeometry x="653" width="89" height="32" as="geometry" />
-        </mxCell>
-        <mxCell id="Tds_lSETVSFmA4y9HQOW-868" value="osv......" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#d80073;fontSize=15;align=center;strokeColor=#A50040;fontColor=#ffffff;" vertex="1" parent="Tds_lSETVSFmA4y9HQOW-855">
-          <mxGeometry x="5" y="137" width="767" height="51" as="geometry" />
         </mxCell>
         <mxCell id="Tds_lSETVSFmA4y9HQOW-869" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=15;fontColor=#FF3399;" edge="1" parent="1" source="Tds_lSETVSFmA4y9HQOW-791" target="Tds_lSETVSFmA4y9HQOW-852">
           <mxGeometry relative="1" as="geometry" />
@@ -1845,6 +1842,12 @@
         </mxCell>
         <mxCell id="Tds_lSETVSFmA4y9HQOW-886" value="&lt;span style=&quot;color: rgb(255 , 51 , 153) ; font-family: &amp;#34;helvetica&amp;#34; ; font-size: 23px ; font-style: normal ; font-weight: 700 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250) ; display: inline ; float: none&quot;&gt;Administrationsvy &amp;gt; Lägg till produkt i produktregister&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;fontSize=23;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="19" y="5003" width="1030" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-888" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=23;fontColor=#000000;" edge="1" parent="1" source="Tds_lSETVSFmA4y9HQOW-887" target="Tds_lSETVSFmA4y9HQOW-810">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Tds_lSETVSFmA4y9HQOW-887" value="Produktid ges per autoincrement.&lt;br&gt;Fältet är därför siabled" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FF0080;fillColor=#d80073;fontSize=15;fontColor=#ffffff;align=left;strokeColor=#A50040;" vertex="1" parent="1">
+          <mxGeometry x="80" y="5295" width="164" height="132" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
