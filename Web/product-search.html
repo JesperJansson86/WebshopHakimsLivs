@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sökmotor</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="hej">
+        <input type="text" id="search" name="search">
+        <ul  id="results">
+    </div>
+    
+
+    <script>
+        $(document).ready(function(){
+            $('#search').keyup(function(){
+                $('#results').html('');
+                var searchField = $('#search').val();
+                var expression = new RegExp(searchField,"i");
+                $.getJSON('picklist.json',function(data){
+                    $.each(data, function(key, value){
+                        console.log(data);
+                        if(value.name.search(expression) != -1) 
+                    {
+                        $('#results').append('<li >'+value.name);
+                    }
+                    })
+                })
+            })
+        })
+    </script>
+</body>
+</html>
