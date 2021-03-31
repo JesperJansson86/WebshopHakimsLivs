@@ -1,5 +1,0 @@
-[{"id":1,"orderDate":"2021-03-29 14:00","orderStatus":"Behandlas","deliveryOption":"Hämtas i butik","deliveryAddress":"null","customer":1},
-    {"id":2,"orderDate":"2021-03-26 13:30","orderStatus":"Skickad","deliveryOption":"Levereras till kund","deliveryAddress":"Hornsgatan 10","customer":3},
-    {"id":3,"orderDate":"2021-03.25 10:45","orderStatus":"Redo att hämtas","deliveryOption":"Hämtas i butik","deliveryAddress":"null","customer":2},
-    {"id":4,"orderDate":"2021-03-19 11:00","orderStatus":"Skickad","deliveryOption":"Levereras till kund","deliveryAddress":"Timmermansgatan 20","customer":4},
-    {"id":5,"orderDate":"2021-03-29 15:10","orderStatus":"Uthämtad","deliveryOption":"Levereras till kund","deliveryAddress":"Hornsgatan 10","customer":4}]

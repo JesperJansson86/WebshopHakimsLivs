@@ -1,4 +1,0 @@
-[{"id":1,"streetNumber":"ort 1","cityId(FK)":1},
-    {"id":2,"streetNumber":"ort 2","cityId(FK)":1},
-    {"id":3,"streetNumber":"ort 3","cityId(FK)":2},
-    {"id":4,"streetNumber":"ort 4","cityId(FK)":3}]
