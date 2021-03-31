@@ -23,7 +23,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h1 class="display-1">Mina uppgifter</h1>
+          <h1>Mina uppgifter</h1>
         </div>
       </div>
 
@@ -43,8 +43,10 @@
             </div>
             <div class="card-body">
               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                  <!-- länk behöver justeras -->
-                <a href="edit.html" class="btn btn-primary" type="button">Ändra</a>
+                <!-- länk behöver justeras -->
+                <a href="edit.html" class="btn btn-primary" type="button"
+                  >Ändra</a
+                >
               </div>
             </div>
           </div>
@@ -60,7 +62,7 @@
                 extra förmånliga erbjudanden
               </p>
               <div class="d-grid gap-2">
-                <a href="#" class="btn btn-primary" type="button"
+                <a href="#" class="btn btn-primary disabled" type="button"
                   >Visa erbjudanden</a
                 >
               </div>
@@ -78,7 +80,7 @@
                 lagen kräver.
               </p>
               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                  <!-- länk behöver justeras -->
+                <!-- länk behöver justeras -->
                 <a href="edit.html" class="btn btn-danger">Radera konto</a>
               </div>
             </div>
@@ -88,11 +90,35 @@
 
       <div class="row">
         <div class="col-12">
-          <h1 class="display-2">Mina adresser</h1>
+          <h1>Mina adresser</h1>
         </div>
       </div>
 
       <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-3">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16275.952811037801!2d18.047031999999998!3d59.34139964999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x82fc0f30ed84f9ed!2sNackademin!5e0!3m2!1ssv!2sse!4v1617181403686!5m2!1ssv!2sse"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+            <div class="card-body">
+              <h5 class="card-title">
+                [UTDELNINGSADRESS]
+                <span class="btn btn-info btn-sm">Primär</span>
+              </h5>
+              <p class="card-text">[ZIP] [CITY]</p>
+              <p class="card-text text-muted">Lades till [TIMESTAMP]</p>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <!-- länk behöver justeras -->
+                <a href="edit.html" class="btn btn-primary" type="button"
+                  >Ändra</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div class="col-md-6">
           <div class="card mb-3">
@@ -103,41 +129,101 @@
               loading="lazy"
             ></iframe>
             <div class="card-body">
-                
-              <h5 class="card-title">[UTDELNINGSADRESS] <span class="btn btn-info btn-sm">Primär</span></h5>
+              <h5 class="card-title">
+                [UTDELNINGSADRESS]
+                <a href="#" class="btn btn-secondary btn-sm">Gör till primär</a>
+              </h5>
               <p class="card-text">[ZIP] [CITY]</p>
               <p class="card-text text-muted">Lades till [TIMESTAMP]</p>
               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                  <!-- länk behöver justeras -->
-                <a href="edit.html" class="btn btn-primary" type="button">Ändra</a>
+                <!-- länk behöver justeras -->
+                <a href="edit.html" class="btn btn-primary" type="button"
+                  >Ändra</a
+                >
               </div>
             </div>
           </div>
         </div>
-
-        <div class="col-md-6">
-            <div class="card mb-3">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16275.952811037801!2d18.047031999999998!3d59.34139964999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x82fc0f30ed84f9ed!2sNackademin!5e0!3m2!1ssv!2sse!4v1617181403686!5m2!1ssv!2sse"
-                style="border: 0"
-                allowfullscreen=""
-                loading="lazy"
-              ></iframe>
-              <div class="card-body">
-                
-                <h5 class="card-title">[UTDELNINGSADRESS] <a href="#" class="btn btn-secondary btn-sm">Gör till primär</a></h5>
-                <p class="card-text">[ZIP] [CITY]</p>
-                <p class="card-text text-muted">Lades till [TIMESTAMP]</p>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                  <!-- länk behöver justeras -->
-                  <a href="edit.html" class="btn btn-primary" type="button">Ändra</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
       </div>
     </div>
     <!-- ./container -->
+
+    <hr />
+    <!-- Innehåll över/under <hr> ska flyttas till olika sidor -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>Nya beställningar</h1>
+        </div>
+    </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="card text-center mb-3"><!-- order card -->
+              <div class="card-header">
+                Ny beställning (orderid: [orders.id])
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Beställning gjord den [order.date]</h5>
+                <p class="card-text">Summa: [order.sum] kr inkl. moms</p>
+                <p class="card-text">
+                  [order.deliveryType] [order.deliveryDate]
+                </p>
+                <p class="card-text"></p>
+                <a href="#" class="btn btn-primary disabled"
+                  >Visa beställning</a>
+              </div>
+            </div><!-- ./ order card -->
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+              <h1>Tidigare beställningar</h1>
+              <p class="text-muted">Här visas beställningar som har [order.status = delivered]</p>
+            </div>
+        </div>
+
+      <div class="row">
+        <div class="col-md-6">
+            <div class="card text-center mb-3"><!-- order card -->
+                <div class="card-header">
+                  Hanterad beställning (orderid: [orders.id])
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Beställning gjord den [order.date]</h5>
+                  <p class="card-text">Summa: [order.sum] kr inkl. moms</p>
+                  <p class="card-text">
+                    [order.deliveryType] [order.deliveryDate]
+                  </p>
+                  <p class="card-text"></p>
+                  <a href="#" class="btn btn-primary disabled"
+                    >Visa beställning</a>
+                </div>
+              </div><!-- ./ order card -->
+        </div>
+        <div class="col-md-6">
+            <div class="card text-center mb-3"><!-- order card -->
+                <div class="card-header">
+                  Hanterad beställning (orderid: [orders.id])
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Beställning gjord den [order.date]</h5>
+                  <p class="card-text">Summa: [order.sum] kr inkl. moms</p>
+                  <p class="card-text">
+                    [order.deliveryType] [order.deliveryDate]
+                  </p>
+                  <p class="card-text"></p>
+                  <a href="#" class="btn btn-primary disabled"
+                    >Visa beställning</a>
+                </div>
+              </div><!-- ./ order card -->
+        </div>
+        
+      </div>
+    </div><!-- ./ container -->
+
+
   </body>
 </html>
