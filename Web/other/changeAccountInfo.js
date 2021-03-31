@@ -17,6 +17,11 @@ function success() {
     alert("Success");
 }
 
+/**
+ * Sanitising the string, so that all html tags get removed
+ * @param {String} originalString - original string
+ * @returns - Returns a sanitesed string
+ */
 function removeHtml(originalString){
   return originalString.replace(/(<([^>]+)>)/gi, "");
 }
