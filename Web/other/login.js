@@ -14,6 +14,15 @@ function Success() {
 }
 
 /**
+ * removes all html tags from the string
+ * @param {String} string - original string
+ * @returns Sanitised String that has had all html tags removed
+ */
+function removeHtml(string) {
+  return string.replace(/(<([^>]+)>)/gi, "");
+}
+
+/**
  * validation of the user inputted Username
  * @param {String} Username - the user inputted Username
  * @Link the regex i used for validation is based on a simplification of the RFC 2822 standard https://tools.ietf.org/html/rfc2822#section-3.4.1
@@ -25,7 +34,6 @@ function validateUsername(username) {
   ); //adhears to 99.99% of all email addresses in actual use today. and is based on RFC 2822  https://tools.ietf.org/html/rfc2822#section-3.4.1
 
   if (regex.test(username)) {
-    console.log(username + " is valid"); // TODO: REMOVE TEST PASSWORD CHECK
     return true;
   } else {
     message.push(username + " är inte en standard email address");
@@ -44,7 +52,6 @@ function validatePassword(password) {
   ); //Password need to be at least 6 characters but max 40, include 1 special character, 1 uppercase character and a number
   //do not by mistake format the regex string changes on format and probably breaks !
   if (regex.test(password)) {
-    console.log(password + " is valid"); // TODO: REMOVE TEST PASSWORD CHECK
     return true;
   } else {
     message.push(
@@ -63,7 +70,10 @@ form.addEventListener("submit", (e) => {
     message.push("username and password can't be blank or null");
   }
 
-  if (validateUsername(username.value) && validatePassword(password.value)) {
+  if (
+    validateUsername(removeHtml(username.value)) &&
+    validatePassword(removeHtml(password.value))
+  ) {
     //if all validations return true
     Success();
   }
@@ -72,14 +82,3 @@ form.addEventListener("submit", (e) => {
     errorMessages.innerHTML = message.join("\n , ");
   }
 });
-
-//password tests
-validatePassword("password");
-validatePassword("=N<^EuPc=aG+`53@P$&m");
-validatePassword("wqddsm7pripUCnJuMAGaQsx3D3JsgvgndTxPk9A9");
-validatePassword("socjusuohoowdtrereobobkyitvbaexqdvdzkxar");
-
-//username tests
-validateUsername("Lukas");
-validateUsername("lukas@gmail.com");
-validateUsername("");

@@ -15,36 +15,38 @@
   </head>
   <body>
     <div id="errorMessage"></div>
-    <form id="loginForm" action="/" method="get">
+    <form id="loginForm" action="/" method="POST">
       <fieldset>
         <legend>Login</legend>
         <div>
-          <label for="username">Username</label>
+          <label for="username">Användarnamn</label>
           <input
             class="form-control"
             type="text"
             aria-describedby="usernameHelp"
-            placeholder="Enter your email address"
+            placeholder="Skriv din email address här"
             name="username"
             id="username"
             required
           />
-          <small id="usernameHelp">Username is your email address!</small>
+          <small id="usernameHelp"
+            >Användarnamnet är samma som din Email address</small
+          >
         </div>
         <div>
-          <label for="password">Password</label>
+          <label for="password">Lösenord</label>
           <input
             class="form-control"
             type="password"
-            placeholder="Enter your password"
+            placeholder="Skriv dit lösenord här"
             aria-describedby="passwordHelp"
             name="password"
             id="password"
             required
           />
           <small id="passwordHelp">
-            Password need to be at least 6 characters but max 40, include 1
-            special character, a lower case letter and a number
+            Lösenord behöver vara minst 6 caractärer lång men max 40, inehålla 1
+            special caractär, en stor bokstav och ett nummer
           </small>
         </div>
       </fieldset>
@@ -54,7 +56,7 @@
       >
     </form>
 
-    <a href="register.html">Register a new account</a>
+    <a href="register.html">Registrera en ny användare</a>
     <!--Popper and Bootstrap JS-->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
