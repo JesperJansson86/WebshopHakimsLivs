@@ -17,6 +17,10 @@ function success() {
     alert("Success");
 }
 
+function removeHtml(originalString){
+  return originalString.replace(/(<([^>]+)>)/gi, "");
+}
+
 /**
  * kontrollerar om name stämmer med regexen 
  * @param {String} name
@@ -119,11 +123,12 @@ function validation() {
  */
 form.addEventListener("submit", (e) => {
   //a dubble check
+  
   if (username.length === 0 || password.length === 0) {
     message.push("username and password can't be blank or null");
   }
 
-  if (validateUsername(username.value) && validatePassword(password.value)) {
+  if (validateUsername(removeHtml(username.value)) && validatePassword(removeHtml(password.value))) {
     //if all validations return true
     success();
   }
