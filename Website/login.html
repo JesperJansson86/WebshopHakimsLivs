@@ -33,38 +33,40 @@
     >
       <h2 style="color: rgb(3, 78, 3)" id="titleOfPage">Logga in</h2>
       <div id="contentOfPage">
-        <div id="errorMessage"></div>
-        <form id="loginForm" action="/" method="POST">
+        <div id="errorMessage" style="color: red; font-weight: 500"></div>
+        <form id="loginForm" action="/" method="POST" class="mb-3">
           <fieldset>
-            <div>
-              <label for="username">Användarnamn</label>
+            <div class="mb-3 mt-2">
+              <label for="username" style="font-weight: 500"
+                >Användarnamn</label
+              >
               <input
                 class="form-control"
                 type="text"
                 aria-describedby="usernameHelp"
-                placeholder="Skriv din email address här"
+                placeholder="Skriv ditt användarnamn"
                 name="username"
                 id="username"
-                required
+                style="width: 40%"
               />
               <small id="usernameHelp"
-                >Användarnamnet är samma som din Email address</small
+                >Användarnamnet är samma som din e-post</small
               >
             </div>
-            <div>
-              <label for="password">Lösenord</label>
+            <div class="mb-3">
+              <label for="password" style="font-weight: 500">Lösenord</label>
               <input
                 class="form-control"
                 type="password"
-                placeholder="Skriv ditt lösenord här"
+                placeholder="Skriv ditt lösenord"
                 aria-describedby="passwordHelp"
                 name="password"
                 id="password"
-                required
+                style="width: 40%"
               />
               <small id="passwordHelp">
-                Lösenord behöver vara minst 6 caractärer lång men max 40,
-                inehålla 1 special caractär, en stor bokstav och ett nummer
+                Lösenord behöver vara minst 6 tecken lång men max 40, innehålla
+                1 special tecken, en stor bokstav och en siffra
               </small>
             </div>
           </fieldset>
@@ -76,7 +78,7 @@
           >
         </form>
 
-        <a href="">Registrera en ny användare WIP </a>
+        <a href="">Har du inget konto? Registrera dig</a>
         <!--Popper and Bootstrap JS-->
         <script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
@@ -86,7 +88,7 @@
         <!--JQuery-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <!--Javascript file for login page-->
-        <script src="/Web/other/login.js"></script>
+        <script src="javascript/login.js"></script>
       </div>
     </div>
 
