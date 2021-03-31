@@ -13,15 +13,6 @@
 </ul>
     <script>
       
-fetch('products1.json')
-            .then(res=>res.json()
-            .then(data=> {}))
-
-  $.getJSON('products1.json',function(data){
-            console.log(data[0])})
-         
- 
-
  $.getJSON('products1.json',function(value)
             {$.each(value, function(key, value){
                 document.getElementById("card").innerHTML += `
