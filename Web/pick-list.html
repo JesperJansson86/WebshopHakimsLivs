@@ -40,7 +40,7 @@
         /**
          *Detta är en tillfällig json i brist på nuvarande testdata. 
          **/
-        fetch('picklist.json')
+        fetch('picklist.json?limit=10')
             .then(res=>res.json()
             .then(data=> {
                  data.forEach(item => {
@@ -50,6 +50,7 @@
                 <input type="text" id="size" value="${item.size+item.unit}"">
                 <input type="text" id="amount" value="${item.amount}"">
                 <br>`
+                
             })}))
             /**
              * Notera att denna JSON bara innehåller en enda kund.
