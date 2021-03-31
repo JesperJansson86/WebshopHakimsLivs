@@ -10,7 +10,6 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css" />
     <title>Startsida</title>
   </head>
   <body class="container">
@@ -44,31 +43,87 @@
 
           <div class="row">
             <div class="col-md-6">
-              <div class="card mb-3 border-success">
-                <div class="card-header">Kunduppgifter</div>
+              <div class="card mb-3">
+                <div class="card-header">Ändra kunduppgifter</div>
                 <div class="card-body">
-                  <h5 class="card-title">Namn</h5>
-                  <p class="card-text">[customers.name]</p>
-                  <h5 class="card-title">Mobil</h5>
-                  <p class="card-text">[customers.phone]</p>
-                  <h5 class="card-title">E-post</h5>
-                  <p class="card-text">[customers.email]</p>
-                  <h5 class="card-title">Lösenord</h5>
-                  <p class="card-text">anonym([customers.pass])</p>
+                  <h5 class="card-title"><label for="name">Namn</label></h5>
+                  <div class="">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="[customers.name]"
+                      id="name"
+                    />
+                  </div>
+
+                  <h5 class="card-title"><label for="phone">Mobil</label></h5>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="[customers.phone]"
+                      id="phone"
+                    />
+                  </div>
+
+                  <h5 class="card-title"><label for="email">E-post</label></h5>
+                  <div class="input-group">
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="[customers.email]"
+                      id="email"
+                    />
+                  </div>
+
+                  <h5 class="card-title">Ändra lösenord</h5>
+                  <label for="password">Nuvarande lösenord</label>
+                  <div class="input-group">
+                    <input
+                      type="password"
+                      class="form-control"
+                      placeholder="[customers.password]"
+                      id="password"
+                    />
+                  </div>
+
+                  <label for="password-new">Nytt lösenord</label
+                  ><span class="text-muted">[password.rule]</span>
+                  <div class="input-group">
+                    <input
+                      type="password"
+                      class="form-control"
+                      placeholder=""
+                      id="password-new"
+                    />
+                  </div>
+
+                  <label for="password-new-repeat">Upprepa nytt lösenord</label>
+                  <div class="input-group">
+                    <input
+                      type="password"
+                      class="form-control"
+                      placeholder=""
+                      id="password-new-repeat"
+                    />
+                  </div>
                 </div>
                 <div class="card-body">
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <!-- länk behöver justeras -->
-                    <a href="editMyInfo.html" class="btn btn-success" type="button"
-                      >Ändra</a
+                    <a
+                      href="myInfo.html"
+                      class="btn btn-secondary me-md-2"
+                      type="button"
+                      >Stäng</a
                     >
+                    <a href="#" class="btn btn-success" type="button">Spara</a>
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="col-md-6">
-              <div class="card mb-3 border-success">
+              <div class="card mb-3">
                 <div class="card-header">Kundstatus</div>
                 <div class="card-body">
                   <h5 class="card-title">[customers.status]</h5>
@@ -84,19 +139,21 @@
                 </div>
               </div>
 
-              <div class="card mb-3 border-success">
+              <div class="card mb-3">
                 <div class="card-header">Användarkonto</div>
                 <div class="card-body">
-                  <h5 class="card-title">Avsluta konto</h5>
+                  <h5 class="card-title">Bekräfta</h5>
                   <p class="card-text">
-                    Om du inte längre vill vara kund hos Hakim Livs kan du
-                    radera ditt konto. Då tas alla dina personuppgifter bort.
-                    Uppgifter som behövs för bokföring etc. kommer att behållas
-                    så lång tid som lagen kräver.
+                    Är du säker på att du vill radera ditt användarkonto?
+                    Åtgärden kan inte ångras.
                   </p>
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <!-- länk behöver justeras -->
-                    <a href="minasidor/" class="btn btn-danger">Radera konto</a>
+                    <a href="#" class="btn btn-danger me-md-2 disabled"
+                      >Ja, radera!</a
+                    >
+                    <a href="myInfo.html" class="btn btn-success" type="button"
+                      >Nej, ångra!</a
+                    >
                   </div>
                 </div>
               </div>
@@ -113,7 +170,7 @@
 
           <div class="row">
             <div class="col-md-6">
-              <div class="card mb-3 border-success">
+              <div class="card mb-3">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16275.952811037801!2d18.047031999999998!3d59.34139964999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x82fc0f30ed84f9ed!2sNackademin!5e0!3m2!1ssv!2sse!4v1617181403686!5m2!1ssv!2sse"
                   style="border: 0"
@@ -121,24 +178,34 @@
                   loading="lazy"
                 ></iframe>
                 <div class="card-body">
-                  <h5 class="card-title">
-                    [UTDELNINGSADRESS]
-                    <span class="btn btn-info btn-sm">Primär</span>
-                  </h5>
-                  <p class="card-text">[ZIP] [CITY]</p>
-                  <p class="card-text text-muted">Lades till [TIMESTAMP]</p>
+                  <label for="address">Ändra adress</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="[UTDELNINGSADRESS], [ZIP] [CITY]"
+                      id="address"
+                    />
+                  </div>
+                </div>
+
+                <div class="card-body">
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <!-- länk behöver justeras -->
-                    <a href="editMyInfo.html" class="btn btn-success" type="button"
-                      >Ändra</a
+                    <a
+                      href="myInfo.html"
+                      class="btn btn-secondary me-md-2"
+                      type="button"
+                      >Stäng</a
                     >
+                    <a href="#" class="btn btn-success" type="button">Spara</a>
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="col-md-6">
-              <div class="card mb-3 border-success">
+              <div class="card mb-3">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16275.952811037801!2d18.047031999999998!3d59.34139964999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x82fc0f30ed84f9ed!2sNackademin!5e0!3m2!1ssv!2sse!4v1617181403686!5m2!1ssv!2sse"
                   style="border: 0"
@@ -155,10 +222,7 @@
                   <p class="card-text">[ZIP] [CITY]</p>
                   <p class="card-text text-muted">Lades till [TIMESTAMP]</p>
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <!-- länk behöver justeras -->
-                    <a href="editMyInfo.html" class="btn btn-success" type="button"
-                      >Ändra</a
-                    >
+                    <a href="#" class="btn btn-success" type="button">Ändra</a>
                   </div>
                 </div>
               </div>
