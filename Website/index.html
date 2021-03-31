@@ -146,7 +146,7 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      fetch("headersFooterSidebar/headerStandard.html")
+      fetch("/Website/headersFooterSidebar/headerStandard.html")
         .then((response) => {
           return response.text();
         })
@@ -154,7 +154,7 @@
           document.querySelector("header").innerHTML = data;
         });
 
-      fetch("headersFooterSidebar/footerStandard.html")
+      fetch("/Website/headersFooterSidebar/footerStandard.html")
         .then((response) => {
           return response.text();
         })
@@ -162,7 +162,7 @@
           document.querySelector("footer").innerHTML = data;
         });
 
-      fetch("headersFooterSidebar/sidebarStandard.html")
+      fetch("/Website/headersFooterSidebar/sidebarStandard.html")
         .then((response) => {
           return response.text();
         })

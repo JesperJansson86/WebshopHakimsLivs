@@ -10,6 +10,7 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style.css" />
     <title>Startsida</title>
   </head>
   <body class="container">
@@ -31,15 +32,9 @@
         margin-left: 18%;
       "
     >
-      <h2 style="color: rgb(3, 78, 3)" id="titleOfPage">Om oss</h2>
-      <div id="contentOfPage">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-          ratione natus quia vero explicabo esse fuga. Debitis ipsam, ratione
-          perferendis, sint exercitationem, omnis magnam voluptas accusamus
-          mollitia blanditiis praesentium beatae?
-        </p>
-      </div>
+      <h2 style="color: rgb(3, 78, 3)" id="titleOfPage">Mina erbjudanden</h2>
+      <p>Nedan ska det komma information om erbjudanden</p>
+      <div id="contentOfPage"></div>
     </div>
 
     <!-- footer/ information-->
@@ -51,7 +46,7 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      fetch("headersFooterSidebar/headerStandard.html")
+      fetch("/Website/headersFooterSidebar/headerStandard.html")
         .then((response) => {
           return response.text();
         })
@@ -59,7 +54,7 @@
           document.querySelector("header").innerHTML = data;
         });
 
-      fetch("headersFooterSidebar/footerStandard.html")
+      fetch("/Website/headersFooterSidebar/footerStandard.html")
         .then((response) => {
           return response.text();
         })
@@ -67,7 +62,7 @@
           document.querySelector("footer").innerHTML = data;
         });
 
-      fetch("headersFooterSidebar/sidebarStandard.html")
+      fetch("/Website/headersFooterSidebar/sidebarStandard.html")
         .then((response) => {
           return response.text();
         })
