@@ -18,40 +18,57 @@
     crossorigin="anonymous"
   ></script>
   </head>
-  <body class="container">
-    <!-- Header/ huvudmenyn -->
-    <header></header>
+  <body class="container-fluid">
 
+        <!-- Header/ huvudmenyn -->
+    <div class="row">
+          <div class="col px-0">
+    <header></header>
+    </div>
+    </div>
+
+
+    <div class="row px-5">
+      <div class="col-3">
     <!-- Sidomenyn -->
     <div id="sidebar"></div>
-
-    <div
-      class="p-3 overflow-auto"
-      style="
-        width: 75%;
-        background-color: rgb(197, 221, 197);
-        margin-top: 82px;
-        position: fixed;
-        height: 70%;
-        margin-left: 18%;
-      "
-    >
-
-      <div id="hej">
-        <input type="text" id="search" name="search">
-        <br> 
-        <input type="checkbox" id="category1" onclick="updateSearchResults()">Kategori 1
-        <input type="checkbox" id="category2" onclick="updateSearchResults()">Kategori 2
-        <input type="checkbox" id="category3" onclick="updateSearchResults()">Kategori 3
-        <input type="checkbox" id="category4" onclick="updateSearchResults()">Kategori 4
-        <input type="checkbox" id="category5" onclick="updateSearchResults()">Kategori 5
-        <input type="checkbox" id="category6" onclick="updateSearchResults()">Kategori 6
-        <ul  id="results">
+      </div>
+      <div class="col">
+        <div
+        class="p-3 overflow-auto"
+        style="
+          background-color: rgb(197, 221, 197);
+        "
+      >
+        <div id="hej">
+          <input type="text" id="search" name="search">
+          <br> 
+          <input type="checkbox" id="category1" onclick="updateSearchResults()">Kategori 1
+          <input type="checkbox" id="category2" onclick="updateSearchResults()">Kategori 2
+          <input type="checkbox" id="category3" onclick="updateSearchResults()">Kategori 3
+          <input type="checkbox" id="category4" onclick="updateSearchResults()">Kategori 4
+          <input type="checkbox" id="category5" onclick="updateSearchResults()">Kategori 5
+          <input type="checkbox" id="category6" onclick="updateSearchResults()">Kategori 6
+          <ul  id="results">
+        </div>
+      </div>
       </div>
     </div>
 
+
+    <div class="row">
+      <div class="col px-0">
     <!-- footer/ information-->
     <footer></footer>
+      </div>
+    </div>
+
+
+
+
+
+
+
 
 
 

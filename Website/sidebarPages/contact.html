@@ -21,71 +21,76 @@
       }
     </style>
   </head>
-  <body class="container">
-    <!-- Header/ huvudmenyn -->
-    <header></header>
-
-    <!-- Sidomenyn -->
-    <div id="sidebar"></div>
-
-    <!-- Main -->
-    <div
-      class="p-3 overflow-auto"
-      style="
-        width: 75%;
-        background-color: rgb(197, 221, 197);
-        margin-top: 82px;
-        position: fixed;
-        height: 70%;
-        margin-left: 18%;
-      "
-    >
-      <h1 style="color: rgb(3, 78, 3)" id="titleOfPage">Kontakt</h1>
-      <p>Butikens telefonnummer</p>
-      <p>butikens adddress</p>
-      <div id="contentOfPage">
-        <h4 style="color: rgb(3, 78, 3)" id="titleOfPage">
-          Skicka ett meddelande
-        </h4>
-        <form
-          action="mailto:hakimsmail@yh.nackademin.se"
-          id="contact"
-          name="contact"
+  <body class="container-fluid">
+    <div class="row">
+      <div class="col px-0">
+        <!-- Header/ huvudmenyn -->
+        <header></header>
+      </div>
+    </div>
+    <div class="row px-5">
+      <div class="col-3">
+        <!-- Sidomenyn -->
+        <div id="sidebar"></div>
+      </div>
+      <div class="col">
+        <!-- Main -->
+        <div
+          class="p-3 overflow-auto"
+          style="background-color: rgb(197, 221, 197)"
         >
-          <input
-            type="text"
-            id="name"
-            name="name"
-            title="Ditt namn"
-            placeholder="Ditt namn"
-            required
-            class="mb-2"
-          /><br />
-          <textarea
-            id="message"
-            class="mb-2"
-            name="message"
-            rows="5"
-            cols="50"
-            title="Ditt meddelande till Hakim Livs."
-            placeholder="Skriv ditt meddelande här"
-            required
-            style="resize: none"
-          ></textarea
-          ><br />
+          <h1 style="color: rgb(3, 78, 3)" id="titleOfPage">Kontakt</h1>
+          <p>Butikens telefonnummer</p>
+          <p>butikens adddress</p>
+          <div id="contentOfPage">
+            <h4 style="color: rgb(3, 78, 3)" id="titleOfPage">
+              Skicka ett meddelande
+            </h4>
+            <form
+              action="mailto:hakimsmail@yh.nackademin.se"
+              id="contact"
+              name="contact"
+            >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                title="Ditt namn"
+                placeholder="Ditt namn"
+                required
+                class="mb-2"
+              /><br />
+              <textarea
+                id="message"
+                class="mb-2"
+                name="message"
+                rows="5"
+                cols="50"
+                title="Ditt meddelande till Hakim Livs."
+                placeholder="Skriv ditt meddelande här"
+                required
+                style="resize: none"
+              ></textarea
+              ><br />
 
-          <input
-            type="Submit"
-            id="order"
-            value="Skicka"
-            class="btn btn-success"
-          />
-        </form>
+              <input
+                type="Submit"
+                id="order"
+                value="Skicka"
+                class="btn btn-success"
+              />
+            </form>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- footer/ information-->
-    <footer></footer>
+    <div class="row">
+      <div class="col px-0">
+        <!-- footer/ information-->
+        <footer></footer>
+      </div>
+    </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
