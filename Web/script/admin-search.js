@@ -14,6 +14,9 @@
 //  Vi får välja som funkar bäst med övrig layout/design)           //
 //////////////////////////////////////////////////////////////////////
 
+//Ligger här för att kunna nås vid både produktsök och filtrering
+productsArray = [];
+
 $(document).ready(function(){
     $("#search-customer").on("keyup change", function(){ //Automatisk kundsökning direkt efter inmatning i input-fältet
         searchCustomer(($(this).val()));
@@ -33,6 +36,14 @@ $(document).ready(function(){
     $("#btn-filter-category").on("click",function(){ // Sökning vid tryckning på sökknappen
         filterByCategory($("#filter-category").val());
     });
+
+    //Uppdatera array med
+    fetch("./json/products-response.json")
+        .then(response => response.json())
+        .then(data => {
+            productsArray = filterData(data, "*"); //Tills vi har sökmotor
+        })
+        .catch((error) => console.log(error));
 
     setFilterButtons();
 })
@@ -61,9 +72,6 @@ function validateSearchString(searchString){
 
     return true;
 }
-
-//Ligger här för att kunna nås vid både produktsök och filtrering
-productsArray = [];
 
 /**
  * Tar emot kategorierna i JSON-format och kallar på funktionen för att rendera knapparna
