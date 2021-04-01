@@ -105,14 +105,15 @@ function searchCustomer(searchString){
  * @param {String} searchString
  */
 function searchProduct(searchString){
-    if(!validateSearchString(searchString)) return;
     searchString = cleanUpSearchString(searchString);
+    const render = (validateSearchString(searchString));
     productsArray = [];
     fetch("./json/products-response.json")
         .then(response => response.json())
         .then(data => {
-            productsArray = filterData(data, searchString); //Tills vi har sökmotor
-            renderResult("product", productsArray);
+            console.log(searchString);
+            productsArray = filterData(data, (searchString === "" || searchString === null) ? "*" : searchString); //Tills vi har sökmotor
+            if(render)renderResult("product", productsArray);
         })
         .catch((error) => console.log(error));
 }
