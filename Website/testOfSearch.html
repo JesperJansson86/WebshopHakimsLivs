@@ -63,20 +63,6 @@
       </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-    
-
-    
-
-
     <script>
      /*Detta är för att sökresultaten ska uppdateras både om en skriver i sök-fältet
      och om en klickar i en kategoricheckbox.
@@ -94,7 +80,7 @@
       function updateSearchResults() {$('#results').html('');
               var searchField = $('#search').val();
               var expression = new RegExp(searchField,"i");
-              $.getJSON('/Website/javascript/products1.json',function(data){
+              $.getJSON('/Website/json/products1.json',function(data){
                   $.each(data, function(key, value){
                       console.log(value.categoryId +"HÄR")
                       if(value.name.search(expression) != -1) 
