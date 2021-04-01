@@ -11,6 +11,15 @@
       crossorigin="anonymous"
     />
     <title>Startsida</title>
+    <style>
+      input[name="message"] {
+        width: 20rem;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        height: 10rem;
+      }
+    </style>
   </head>
   <body class="container">
     <!-- Header/ huvudmenyn -->
@@ -31,9 +40,48 @@
         margin-left: 18%;
       "
     >
-      <h2 style="color: rgb(3, 78, 3)" id="titleOfPage">Kontakt</h2>
-      <p>Nedan ska kontaktformuläret finnas</p>
-      <div id="contentOfPage"></div>
+      <h1 style="color: rgb(3, 78, 3)" id="titleOfPage">Kontakt</h1>
+      <p>Butikens telefonnummer</p>
+      <p>butikens adddress</p>
+      <div id="contentOfPage">
+        <h4 style="color: rgb(3, 78, 3)" id="titleOfPage">
+          Skicka ett meddelande
+        </h4>
+        <form
+          action="mailto:hakimsmail@yh.nackademin.se"
+          id="contact"
+          name="contact"
+        >
+          <input
+            type="text"
+            id="name"
+            name="name"
+            title="Ditt namn"
+            placeholder="Ditt namn"
+            required
+            class="mb-2"
+          /><br />
+          <textarea
+            id="message"
+            class="mb-2"
+            name="message"
+            rows="5"
+            cols="50"
+            title="Ditt meddelande till Hakim Livs."
+            placeholder="Skriv ditt meddelande här"
+            required
+            style="resize: none"
+          ></textarea
+          ><br />
+
+          <input
+            type="Submit"
+            id="order"
+            value="Skicka"
+            class="btn btn-success"
+          />
+        </form>
+      </div>
     </div>
 
     <!-- footer/ information-->
