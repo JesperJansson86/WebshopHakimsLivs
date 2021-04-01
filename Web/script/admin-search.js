@@ -1,4 +1,5 @@
 //////////////////////////////////////////////////////////////////////
+//  G82003-14                                                       //
 //  (Använd det som redan gjorts i sökfält kund).                   //
 //                                                                  //
 //  Sökfält och filtrering för administratör                        //
@@ -27,53 +28,15 @@ $(document).ready(function(){
         searchProduct($("#search-product").val());
     });
     $("#filter-category").on("keyup change", function(){
-        filterCategory($(this).val());
+        filterByCategory($(this).val());
     });
     $("#btn-filter-category").on("click",function(){
-        filterCategory($("#filter-category").val());
+        filterByCategory($("#filter-category").val());
     });
+
+    setFilterButtons();
 })
 
-function searchCustomer(searchString){
-    if(!validateSearchString(searchString)) return;
-    searchString = cleanUpSearchString(searchString);
-    console.log(`Searching customers for: ${searchString}`);
-    customers = [];
-    fetch("./json/customers-response.json")
-        .then(response => response.json())
-        .then(data => {
-            filterCustomers(data); //Tills vi har sökmotor
-            renderResult("customer", customers);
-        })
-        .catch((error) => console.log(error));
-
-
-    //Tills vi har sökmotor
-    function filterCustomers(dataArray){
-        dataArray.forEach(customer => {
-            if(JSON.stringify(customer).includes(searchString)){
-                customers.push(customer);
-                console.log("HAHHA");
-            }
-        })
-    }
-
-function searchProduct(searchString){
-    if(!validateSearchString(searchString)) return;
-    console.log(`Searching products for: ${searchString}`);
-    products = null;
-    fetch("./json/products-response.json")
-        .then(response => response.json())
-        .then(data => renderResult("product", data))
-        .catch((error) => console.log(error));
-}
-
-function filterCategory(searchString){
-    if(!validateSearchString(searchString)) return;
-    categories = null;
-    console.log(`filtering category by: ${searchString}`)
-    renderResult("category", categories);
-}
 
 /**
  * Städar upp söksträngen innan den skickas till backend.
@@ -83,7 +46,7 @@ function filterCategory(searchString){
  */
 function cleanUpSearchString(searchString){
     result = searchString.trim();
-    // metod för att bara behålla normala tecken i söksträngen.
+    // Lägg till metod för att bara behålla normala tecken i söksträngen.
     return result;
 }
 
@@ -99,18 +62,120 @@ function validateSearchString(searchString){
     return true;
 }
 
+//Ligger här för att kunna nås vid både produktsök och filtrering
+productsArray = [];
+
+/**
+ * Tar emot kategorierna i JSON-format och kallar på funktionen för att rendera knapparna
+ */
+function setFilterButtons(){
+    fetch("./json/categories.json")
+        .then(response => response.json())
+        .then(data => renderFilterButtons(data))
+        .catch((error) => console.log(error));
+}
+
+/**
+ * Tar emot sträng i kundsöknings-inmatningsfält, hämtar kunder och filtrerar efter sökningen.
+ * @param {String} searchString
+ */
+function searchCustomer(searchString){
+    if(!validateSearchString(searchString)) return;
+    searchString = cleanUpSearchString(searchString);
+    customerArray = [];
+    fetch("./json/customers-response.json")
+        .then(response => response.json())
+        .then(data => {
+            customerArray = filterData(data, searchString); //Tills vi har sökmotor
+            renderResult("customer", customerArray);
+        })
+        .catch((error) => console.log(error));
+}
+
+/**
+ * Tar emot sträng i produktsöknings-inmatningsfält, hämtar produkter och filtrerar efter sökningen.
+ * @param {String} searchString
+ */
+function searchProduct(searchString){
+    if(!validateSearchString(searchString)) return;
+    searchString = cleanUpSearchString(searchString);
+    productsArray = [];
+    fetch("./json/products-response.json")
+        .then(response => response.json())
+        .then(data => {
+            productsArray = filterData(data, searchString); //Tills vi har sökmotor
+            renderResult("product", productsArray);
+        })
+        .catch((error) => console.log(error));
+}
+
+/**
+ * begär validering av söksträng samt extra filtrering av produkt-array.
+ * @param {String} searchString
+ */
+function filterByCategory(searchString){
+    if(!validateSearchString(searchString)) return;
+    renderResult("product", filterData(productsArray, searchString));
+}
+
+/**
+ * Temporär filtrering vid sökning, konllar om texten finns någonstans i objektet.
+ * Funktion som antagligen inte behövs när backend är implementerat.
+ * @param dataArray
+ * @param searchString
+ */
+function filterData(dataArray, searchString) {
+    var filteredArray = [];
+    if(searchString == "*"){
+        filteredArray = dataArray;
+    }
+    dataArray.forEach(object => {
+        if (JSON.stringify(object).includes(searchString)) {
+            filteredArray.push(object);
+        }
+    })
+    return filteredArray;
+}
+
+/**
+ * Renderar knapparna till html-sidan.
+ * @param {Object[]} buttonSet (category-objects)
+ */
+function renderFilterButtons(buttonSet){
+    if(!Array.isArray(buttonSet)) throw new Error("Not an Array");
+    buttonSet.forEach(button => {
+        $("#filter-container").append(`
+            <button id="btn-${button.id}" class="btn btn-primary">${button.category}</button>
+        `);
+        $(`#btn-${button.id}`).on("click", function(){
+            filterByCategory(button.category);
+        })
+    })
+}
+
+/**
+ * samlingsfunktion som skickar vidare till respektive renderings-funktion.
+ * Kan vara onödig senare.
+ * @param resultType
+ * @param results
+ */
 function renderResult(resultType, results){
     if(resultType == "customer"){
         renderCustomers(results);
     } else if (resultType == "product"){
         renderProducts(results);
     } else if (resultType == "filterProducts"){
-        filterProducts();
+        filterByCategory(results);
     }
 }
 
+/**
+ * renderar kundsvarssök till html.
+ * @param {Object[]} customers (Customer-objects)
+ */
 function renderCustomers(customers){
     if(!Array.isArray(customers)) throw new Error("Not an Array");
+    $("#result-amount").html(`Antal träffar: ${customers.length}`);
     $("#results").html("");
     $("#results").append(`
     <thead>
@@ -124,11 +189,10 @@ function renderCustomers(customers){
         </tr>
     </thead>
     `)
-    console.log("Rendering customer results")
     $("#results").append(`<tbody>`)
     customers.map(customer => {
         $("#results").append(`
-            <tr>
+            <tr class="table-striped" onclick='alert("Här ska en kunna gå till mina sidor")'>
                 <td>${customer.id}</td>
                 <td class="cname">${customer.name}</td>
                 <td>${customer.address.street_address}<br>${customer.address.city}</td>
@@ -141,12 +205,38 @@ function renderCustomers(customers){
     $("#results").append(`</tbody>`)
 }
 
+/**
+ * renderar kundsvarssök till html.
+ * @param {Object[]} customers (produkt-objects)
+ */
 function renderProducts(products){
     if(!Array.isArray(products)) throw new Error("Not an Array");
+    $("#result-amount").html("");
+    $("#result-amount").append(`<p>Antal träffar: ${products.length}</p>`);
+    $("#results").html("");
+    $("#results").append(`
+    <thead>
+        <tr>
+            <th scope="col">Varor</th>
+        </tr>
+    `);
 
-    console.log("Rendering products results")
-}
+    //Har inte koll på hur kortet ska se ut just nu.
+    products.forEach(product => {
+        $("#results").append(`
+            <tr>
+                <td>
+                    <img src="https://via.placeholder.com/100" alt="produktbild"/>"
+                    ${product.id} ${product.name} 
+                    <a href="#" onclick="alert('ska leda til redigera-produkt-sida')">
+                        Redigera    
+                    </a>
+                </td>
+            </tr>
+        `);
+    });
 
-function filterProducts(filter){
-
+    $("#results").append(`
+    </thead>
+    `);
 }
