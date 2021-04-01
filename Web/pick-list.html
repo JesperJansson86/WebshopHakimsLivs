@@ -59,11 +59,11 @@
             .then(data=> {
                  
                 document.getElementById("customer").innerHTML += `
-                <h2>${item.name}
+                <h2>${data[0].name}
                 <br>
-                ${item.adress}
+                ${data[0].adress}
                 <br>
-                ${item.phone}
+                ${data[0].phone}
                 <br></h2>
                 `
             }))
