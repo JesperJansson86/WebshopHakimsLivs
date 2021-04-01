@@ -15,22 +15,22 @@
 //////////////////////////////////////////////////////////////////////
 
 $(document).ready(function(){
-    $("#search-customer").on("keyup change", function(){
+    $("#search-customer").on("keyup change", function(){ //Automatisk kundsökning direkt efter inmatning i input-fältet
         searchCustomer(($(this).val()));
     });
-    $("#btn-search-customer").on("click", function(){
+    $("#btn-search-customer").on("click", function(){ //Sökning vid tryckning på sökknappen
         searchCustomer($("#search-customer").val());
     })
-    $("#search-product").on("keyup change", function() {
+    $("#search-product").on("keyup change", function() { //Automatisk produktsökning direkt efter imatning i input-fältet.
         searchProduct($(this).val());
     });
-    $("#btn-search-product").on("click", function(){
+    $("#btn-search-product").on("click", function(){ // Sökning vid tryckning på sökknappen
         searchProduct($("#search-product").val());
     });
-    $("#filter-category").on("keyup change", function(){
+    $("#filter-category").on("keyup change", function(){ //Automatisk kategorifiltrering.
         filterByCategory($(this).val());
     });
-    $("#btn-filter-category").on("click",function(){
+    $("#btn-filter-category").on("click",function(){ // Sökning vid tryckning på sökknappen
         filterByCategory($("#filter-category").val());
     });
 
