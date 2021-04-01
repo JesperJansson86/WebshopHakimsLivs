@@ -24,7 +24,7 @@
          </style></style>
 </head>
 <body> 
-    <h1>Hakims Livs. Plocklista</h1> 
+    <h1>Plocklista</h1> 
    <div id="customer"></div>
    <form action="" id="form1">
     <input type="text" id="productid" value="Artikelnummer">
@@ -47,7 +47,7 @@
                 document.getElementById("items").innerHTML += `
                 <input type="text" id="productid" value="${item.productid}">
                 <input type="text" id="name" value="${item.name}">
-                <input type="text" id="size" value="${item.size+item.unit}"">
+                <input type="text" id="size" value="${item.size+' '+item.unit}"">
                 <input type="text" id="amount" value="${item.amount}"">
                 <br>`
             })}))
