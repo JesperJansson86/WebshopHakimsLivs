@@ -1,4 +1,4 @@
-let message = []; //Array that holds errorMessages
+let message; //Array that holds errorMessages
 const errorMessages = document.getElementById("errorMessage"); //div that holds login error messages
 const form = document.getElementById("loginForm"); //form that holds the logins
 const username = document.getElementById("username"); //inputted username
@@ -36,7 +36,7 @@ function validateUsername(username) {
   if (regex.test(username)) {
     return true;
   } else {
-    message.push(username + " är inte en standard email address");
+    message = "Användarnamnet är samma som din e-post.";
     return false;
   }
 }
@@ -54,9 +54,8 @@ function validatePassword(password) {
   if (regex.test(password)) {
     return true;
   } else {
-    message.push(
-      password + " did not adhear to password standard of the site "
-    );
+    message =
+      "Lösenord behöver vara mellan 6-40 tecken, innehålla 1 special tecken, 1 stor bokstav och 1 siffra.";
     return false;
   }
 }
@@ -79,6 +78,6 @@ form.addEventListener("submit", (e) => {
   }
   if (message.length > 0) {
     e.preventDefault(); //prevents page reload on submit
-    errorMessages.innerHTML = message.join("\n , ");
+    errorMessages.innerHTML = message;
   }
 });
