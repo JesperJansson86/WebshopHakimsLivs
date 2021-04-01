@@ -39,33 +39,155 @@
                 <h1>Produktregister</h1>
               </div>
             </div>
-      
+            
             <div class="row mb-3">
       
-              <div class="col-md-3">
-                  <a href="addProduct.html" class="btn btn-primary" type="button"
-                  >Lägg till produkt</a
-                  >
+                <div class="col-md-3">
+                    <a href="addProduct.html" class="disabled btn btn-primary" type="button"
+                    >Lägg till produkt</a
+                    >
+                  </div>
+      
+      
+                <div class="col-md-3">
+                    <p>Sök i produktregister</p>
                 </div>
+                <div class="col-md-6">
+                  <form class="d-flex">
+                      <input class="form-control me-2" type="search" placeholder="Sök">
+                      <button class="btn btn-outline-secondary disabled me-2" type="submit">Rensa</button>
+                      <button class="btn btn-primary" type="submit">Sök</button>
+                    </form>
+                </div>
+            </div>
       
+            <div class="row mb-3">
+              <div class="col-12">
+                <div class="card mb-3">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <div class="row">
+                        <img src="..." alt="..." class="img-fluid">
+                      </div>
+                      <div class="row">
+                        <div class="mb-3">
+                          <input class="form-control" type="file" id="formFile">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <div class="row mb-2">
       
-              <div class="col-md-3">
-                  <p>Sök i produktregister</p>
+                          <div class="input-group">
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="[product.name]"
+                              id="name"
+                            />
+                          </div>
+                        </div>
+                        
+                        <div class="row mb-2">
+                          <div class="col">
+                            <div class="input-group">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="[products.brandName]"
+                                id="brandName"
+                              />
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="input-group">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="[products.size] [products.unit]"
+                                id="size"
+                              />
+                            </div>
+                            </div>
+                          <div class="col">
+                            <div class="input-group">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="[products.price] SEK"
+                                id="price"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row mb-2">
+                          <div class="col">
+                            <div class="input-group">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="[product.id]"
+                                id="id"
+                                disabled
+                              />
+                            </div>
+                            </div>
+                          <div class="col">
+                            <div class="input-group">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="[products.inStock]"
+                                id="stock"
+                              />
+                            </div>
+                            </div>
+                          <div class="col"></div>
+                        </div>
+                        <div class="row mb-2">
+                          <div class="col">
+                            <div class="input-group">
+                              <textarea
+                                type="text"
+                                class="form-control"
+                                placeholder="[products.description]"
+                                id="description"></textarea>
+                            </div>
+                            </div>
+                        </div>
+      
+                        <div class="row">
+                          <div
+                            class="d-grid gap-2 d-md-flex justify-content-md-end"
+                          >
+                            <a
+                              href="products.html"
+                              class="btn btn-secondary me-md-2"
+                              type="button"
+                              >Stäng</a
+                            >
+                            <a
+                              href="products.html"
+                              class="btn btn-primary"
+                              type="button"
+                              >Spara</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="col-md-6">
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Sök">
-                    <button class="btn btn-outline-secondary disabled me-2" type="submit">Rensa</button>
-                    <button class="btn btn-primary" type="submit">Sök</button>
-                  </form>
-              </div>
-          </div>
-          
+            </div>
+      
             <div class="row mb-3">
                 <div class="col-12">
                     <p>Visar produktregister ([COUNT products.id] produkter)</p>
                 </div>
             </div>
+            
       
             <div class="row mb-3">
                 <div class="col-12 table-responsive">
@@ -88,7 +210,7 @@
                                 <td>[products.size] [products.unit]</td>
                                 <td>[products.price] SEK</td>
                                 <td>[products.inStock]</td>
-                                <td><a href="#edit" class="btn btn-primary" type="button">Visa mer</a></td>
+                                <td><a href="showProduct.html" class="btn btn-primary" type="button">Visa mer</a></td>
                             </tr>
                             <tr>
                               <th scope="row">[products.id]</th>
@@ -96,7 +218,7 @@
                               <td>[products.size] [products.unit]</td>
                               <td>[products.price] SEK</td>
                               <td>[products.inStock]</td>
-                              <td><a href="#edit" class="btn btn-primary" type="button">Visa mer</a></td>
+                              <td><a href="showProduct.html" class="btn btn-primary" type="button">Visa mer</a></td>
                           </tr>                      
                           <tr>
                             <th scope="row">[products.id]</th>
@@ -104,7 +226,7 @@
                             <td>[products.size] [products.unit]</td>
                             <td>[products.price] SEK</td>
                             <td>[products.inStock]</td>
-                            <td><a href="#edit" class="btn btn-primary" type="button">Visa mer</a></td>
+                            <td><a href="showProduct.html" class="btn btn-primary" type="button">Visa mer</a></td>
                         </tr>
                         <tr>
                           <th scope="row">[products.id]</th>
@@ -112,7 +234,7 @@
                           <td>[products.size] [products.unit]</td>
                           <td>[products.price] SEK</td>
                           <td>[products.inStock]</td>
-                          <td><a href="#edit" class="btn btn-primary" type="button">Visa mer</a></td>
+                          <td><a href="showProduct.html" class="btn btn-primary" type="button">Visa mer</a></td>
                       </tr>
                         <tr>
                           <th scope="row">[products.id]</th>
@@ -120,7 +242,7 @@
                           <td>[products.size] [products.unit]</td>
                           <td>[products.price] SEK</td>
                           <td>[products.inStock]</td>
-                          <td><a href="#edit" class="btn btn-primary" type="button">Visa mer</a></td>
+                          <td><a href="showProduct.html" class="btn btn-primary" type="button">Visa mer</a></td>
                       </tr>
                             <tr>
                                 <th scope="row">[products.id]</th>
@@ -128,7 +250,7 @@
                                 <td>[products.size] [products.unit]</td>
                                 <td>[products.price] SEK</td>
                                 <td>[products.inStock]</td>
-                                <td><a href="#edit" class="btn btn-primary" type="button">Visa mer</a></td>
+                                <td><a href="showProduct.html" class="btn btn-primary" type="button">Visa mer</a></td>
                             </tr>
                             <tr>
                               <th scope="row">[products.id]</th>
@@ -136,14 +258,14 @@
                               <td>[products.size] [products.unit]</td>
                               <td>[products.price] SEK</td>
                               <td>[products.inStock]</td>
-                              <td><a href="#edit" class="btn btn-primary" type="button">Visa mer</a></td>
+                              <td><a href="showProduct.html" class="btn btn-primary" type="button">Visa mer</a></td>
                           </tr>                      <tr>
                             <th scope="row">[products.id]</th>
                             <td>[products.name]</td>
                             <td>[products.size] [products.unit]</td>
                             <td>[products.price] SEK</td>
                             <td>[products.inStock]</td>
-                            <td><a href="#edit" class="btn btn-primary" type="button">Visa mer</a></td>
+                            <td><a href="showProduct.html" class="btn btn-primary" type="button">Visa mer</a></td>
                         </tr>
                         <tr>
                           <th scope="row">[products.id]</th>
@@ -151,7 +273,7 @@
                           <td>[products.size] [products.unit]</td>
                           <td>[products.price] SEK</td>
                           <td>[products.inStock]</td>
-                          <td><a href="#edit" class="btn btn-primary" type="button">Visa mer</a></td>
+                          <td><a href="showProduct.html" class="btn btn-primary" type="button">Visa mer</a></td>
                       </tr>
                         <tr>
                           <th scope="row">[products.id]</th>
@@ -159,74 +281,14 @@
                           <td>[products.size] [products.unit]</td>
                           <td>[products.price] SEK</td>
                           <td>[products.inStock]</td>
-                          <td><a href="#edit" class="btn btn-primary" type="button">Visa mer</a></td>
+                          <td><a href="showProduct.html" class="btn btn-primary" type="button">Visa mer</a></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-      
-                <div class="row" id="edit">
-                  <div class="col-12">
-                    <div class="card mb-3">
-                      <div class="row g-0">
-                        <div class="col-md-4">
-                          <img src="..." alt="...">
-      
-                        </div>
-                        <div class="col-md-8">
-                          <div class="card-body">
-                            <h5 class="card-title">[product.name]</h5>
-                            <div class="row mb-2">
-                              <div class="col">
-                                [product.brandName]
-                              </div>
-                              <div class="col">
-                                [products.size] [products.unit]
-                              </div>
-                              <div class="col">
-                                [products.price] SEK
-                              </div>
-                            </div>
-                            <div class="row mb-2">
-                              <div class="col">
-                                [product.id]
-                              </div>
-                              <div class="col">
-                                [products.inStock]
-                              </div>
-                              <div class="col">
-                                
-                              </div>
-                            </div>
-                            <div class="row mb-2">
-                              <div class="col">
-                                [products.description]
-                              </div>
-                            </div>
-      
-                            <div class="row">
-                              <p class="card-text"><small class="text-muted">Senast uppdaterad [products.changeDate]</small></p>
-                            </div>
-      
-                            <div class="row">
-                              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                
-                                <!-- länk behöver justeras -->
-                                <a href="editProduct.html#edit" class="btn btn-primary" type="button"
-                                >Ändra</a
-                                >
-                              </div>
-                            </div>
-      
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-      
             </div>
-            <div class="row">
+            
+            <div class="row mb-3">
                 <div class="col-12">
                   <nav aria-label="Page navigation example">
                       <ul class="pagination justify-content-center">
