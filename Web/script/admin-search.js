@@ -130,7 +130,7 @@ function filterData(dataArray, searchString) {
         filteredArray = dataArray;
     }
     dataArray.forEach(object => {
-        if (JSON.stringify(object).includes(searchString)) {
+        if (JSON.stringify(object).toUpperCase().includes(searchString.toUpperCase())) {
             filteredArray.push(object);
         }
     })
