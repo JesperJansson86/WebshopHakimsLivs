@@ -167,7 +167,7 @@
     </div>
 
     <script>
-              let output = `              <li class="mb-1">
+      let output = `<li class="mb-1">
                 <button
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
@@ -182,6 +182,7 @@
                 <button
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
+                  onclick="localStorage.setItem('Knapp', JSON.stringify(${value.id})); location.href='/Website/testofProductView.html'"
                 >
                 ${value.category}
                 </button>
@@ -189,8 +190,6 @@
         });
         document.getElementById("viewCategories").innerHTML = output;
       });
-      
-
     </script>
   </body>
 </html>
