@@ -67,7 +67,8 @@
 
       $.getJSON("/Website/json/products1.json", function (value) {
         $.each(value, function (key, value) {
-          document.getElementById("card").innerHTML += `
+          if (value.categoryId == getFromLS || getFromLS === null) {
+            document.getElementById("card").innerHTML += `
                        
                        <div class="col-4">
                   <div
@@ -104,6 +105,7 @@
                   </div>
                 </div>
                          `;
+          }
         });
       });
     </script>
