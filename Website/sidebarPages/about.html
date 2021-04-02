@@ -55,30 +55,6 @@
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
       crossorigin="anonymous"
     ></script>
-    <script>
-      fetch("/Website/headersFooterSidebar/headerStandard.html")
-        .then((response) => {
-          return response.text();
-        })
-        .then((data) => {
-          document.querySelector("header").innerHTML = data;
-        });
-
-      fetch("/Website/headersFooterSidebar/footerStandard.html")
-        .then((response) => {
-          return response.text();
-        })
-        .then((data) => {
-          document.querySelector("footer").innerHTML = data;
-        });
-
-      fetch("/Website/headersFooterSidebar/sidebarStandard.html")
-        .then((response) => {
-          return response.text();
-        })
-        .then((data) => {
-          document.getElementById("sidebar").innerHTML = data;
-        });
-    </script>
+    <script src="/Website/javascript/barsStandard.js"></script>
   </body>
 </html>
