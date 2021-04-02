@@ -45,11 +45,10 @@
           <h2 style="color: rgb(3, 78, 3)" id="titleOfPage">
             Registrera ett konto
           </h2>
-          <div id="contentOfPage" class="mt-3">
+          <div id="contentOfPage">
             <div id="signupform">
-              <form action="#">
-                <div class="container">
-                  <span class=""></span>
+              <form action="#" class="row">
+                <div class="col-12 mb-3 mt-2">
                   <label for="email" style="font-weight: 500"
                     >E-mail (användarnamn)</label
                   >
@@ -62,12 +61,9 @@
                     required
                     style="width: 40%"
                   />
-
+                </div>
+                <div class="col-6 mb-1">
                   <label for="psw" style="font-weight: 500"> Lösenord</label>
-                  <p>
-                    Lösenord behöver vara mellan 6-40 tecken, innehålla 1
-                    special tecken, 1 stor bokstav och 1 siffra.
-                  </p>
                   <input
                     class="form-control"
                     type="password"
@@ -75,9 +71,9 @@
                     id="psw"
                     name="psw"
                     required
-                    style="width: 40%"
                   />
-
+                </div>
+                <div class="col-6 mb-1">
                   <label for="psw2" style="font-weight: 500"
                     >Repetera lösenord</label
                   >
@@ -88,9 +84,13 @@
                     id="psw2"
                     name="psw2"
                     required
-                    style="width: 40%"
                   />
-
+                </div>
+                <small>
+                  Lösenordet behöver vara mellan 6-40 tecken, innehålla 1
+                  special tecken, 1 stor bokstav och 1 siffra.
+                </small>
+                <div class="col-12 mb-3 mt-3">
                   <label for="phone" style="font-weight: 500"
                     >Telefonnummer</label
                   >
@@ -107,7 +107,8 @@
                     required
                     style="width: 40%"
                   />
-
+                </div>
+                <div class="col-12 mb-3">
                   <label for="adress" style="font-weight: 500">Adress</label>
                   <input
                     class="form-control"
@@ -119,6 +120,20 @@
                     required
                     style="width: 40%"
                   />
+                </div>
+                <div class="col-3 mb-3">
+                  <label for="city" style="font-weight: 500">Stad</label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    maxlength="20"
+                    placeholder="Stad"
+                    id="city"
+                    name="city"
+                    required
+                  />
+                </div>
+                <div class="col-2 mb-3">
                   <label for="areacode" style="font-weight: 500"
                     >Postnummer</label
                   >
@@ -133,20 +148,10 @@
                     id="areacode"
                     name="areacode"
                     required
-                    style="width: 40%"
                   />
-                  <label for="city" style="font-weight: 500">Stad</label>
-                  <input
-                    class="form-control"
-                    type="text"
-                    maxlength="20"
-                    placeholder="Stad"
-                    id="city"
-                    name="city"
-                    required
-                    style="width: 40%"
-                  />
+                </div>
 
+                <div class="mx-auto">
                   <button
                     class="btn btn-success"
                     type="button"
