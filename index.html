@@ -10,6 +10,11 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
     <title>HakimLivs</title>
   </head>
   <body class="container-fluid">
@@ -31,116 +36,9 @@
           style="background-color: rgb(197, 221, 197)"
         >
           <h2 style="color: rgb(3, 78, 3)" id="titleOfPage">Välkommen!</h2>
-          <p>Slumpade x antal produkter till startsidan</p>
+          <p>Visar de första 6 produkterna i json filen</p>
           <div id="contentOfPage">
-            <div class="row">
-              <div class="col">
-                <div
-                  class="card text-dark border-success bg-light mb-3"
-                  style="max-width: 18rem"
-                >
-                  <div class="card-header">Plats för bild senare</div>
-                  <div class="card-body">
-                    <h5 class="card-title">Produktnamn</h5>
-                    <p class="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                  </div>
-                  <div class="card-footer text-end">
-                    <p class="mb-1" style="font-weight: 500">LAGERSTATUS</p>
-                    <p class="mb-2" style="font-weight: bold">KR</p>
-                    <button class="btn btn-success" style="width: 100%">
-                      Köp
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div
-                  class="card text-dark border-success bg-light mb-3"
-                  style="max-width: 18rem"
-                >
-                  <div class="card-header">Header</div>
-                  <div class="card-body">
-                    <h5 class="card-title">Light card title</h5>
-                    <p class="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                  </div>
-                  <div class="card-footer text-end">
-                    <h6>KR</h6>
-                    <button class="btn btn-success" style="width: 100%">
-                      Köp
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div
-                  class="card text-dark border-success bg-light mb-3"
-                  style="max-width: 18rem"
-                >
-                  <div class="card-header">Header</div>
-                  <div class="card-body">
-                    <h5 class="card-title">Light card title</h5>
-                    <p class="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                  </div>
-                  <div class="card-footer text-end">
-                    <h6>KR</h6>
-                    <button class="btn btn-success" style="width: 100%">
-                      Köp
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div
-                  class="card text-dark border-success bg-light mb-3"
-                  style="max-width: 18rem"
-                >
-                  <div class="card-header">Header</div>
-                  <div class="card-body">
-                    <h5 class="card-title">Light card title</h5>
-                    <p class="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                  </div>
-                  <div class="card-footer text-end">
-                    <h6>KR</h6>
-                    <button class="btn btn-success" style="width: 100%">
-                      Köp
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p>Test för scrollfunktion</p>
-            <div class="card text-dark bg-light mb-3" style="max-width: 18rem">
-              <div class="card-header">Header</div>
-              <div class="card-body">
-                <h5 class="card-title">Light card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
-            </div>
-            <div class="card text-dark bg-light mb-3" style="max-width: 18rem">
-              <div class="card-header">Header</div>
-              <div class="card-body">
-                <h5 class="card-title">Light card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
-            </div>
+            <div class="row mt-5" id="card"></div>
           </div>
         </div>
       </div>
@@ -157,5 +55,53 @@
       crossorigin="anonymous"
     ></script>
     <script src="/Website/javascript/barsStandard.js"></script>
+
+    <script>
+      let getFromLS = JSON.parse(localStorage.getItem("Knapp"));
+
+      $.getJSON("/Website/json/products1.json", function (value) {
+        $.each(value, function (key, value) {
+          if (value.id <= 6) {
+            document.getElementById("card").innerHTML += `
+                       
+                       <div class="col-4">
+                  <div
+                    class="card text-dark border-success bg-light mb-3"
+                    style="max-width: 18rem"
+                  >
+                    <div class="card-header">
+                        <h5 class="card-title">${value.name}</h5>
+
+                    </div>
+                    <div class="card-body">
+                        <img src="https://raw.githubusercontent.com/JesperJansson86/WebshopHakimsLivs/S01-4/Testdata/img/${
+                          value.image
+                        }" width="50%"><br>
+
+                      <p class="card-text">
+                        ${value.description}
+                      </p>
+                    </div>
+                    <div class="card-footer text-end">
+                      <p class="mb-1" style="font-weight: 500">LAGERSTATUS: ${Math.round(
+                        Math.random() * 10
+                      )}</p>
+                      <p class="mb-2" style="font-weight: bold">Pris: ${
+                        value.price
+                      } kr</p>
+                      <p class="mb-2" style="font-weight: bold">Jämför pris: ${Math.round(
+                        (value.price / value.size) * 1000
+                      )}/${value.unitId} kr</p>
+                      <button class="btn btn-success" style="width: 100%">
+                        Köp
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                         `;
+          }
+        });
+      });
+    </script>
   </body>
 </html>
