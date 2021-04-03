@@ -36,7 +36,7 @@
           style="background-color: rgb(197, 221, 197)"
         >
           <h2 style="color: rgb(3, 78, 3)" id="titleOfPage">Välkommen!</h2>
-          <p>Visar de första 6 produkterna i json filen</p>
+          <p>Visar 6 produkter random med id 1-13</p>
           <div id="contentOfPage">
             <div class="row mt-5" id="card"></div>
           </div>
@@ -58,11 +58,21 @@
 
     <script>
       let getFromLS = JSON.parse(localStorage.getItem("Knapp"));
-
+      var randomNumbers = [
+        Math.round(Math.random() * 13) + 1,
+        Math.round(Math.random() * 13) + 1,
+        Math.round(Math.random() * 13) + 1,
+        Math.round(Math.random() * 13) + 1,
+        Math.round(Math.random() * 13) + 1,
+        Math.round(Math.random() * 13) + 1,
+      ];
+      var i;
+      console.log(randomNumbers);
       $.getJSON("/Website/json/products1.json", function (value) {
         $.each(value, function (key, value) {
-          if (value.id <= 6) {
-            document.getElementById("card").innerHTML += `
+          for (i = 0; i < randomNumbers.length; i++) {
+            if (value.id === randomNumbers[i]) {
+              document.getElementById("card").innerHTML += `
                        
                        <div class="col-4">
                   <div
@@ -99,6 +109,7 @@
                   </div>
                 </div>
                          `;
+            }
           }
         });
       });
