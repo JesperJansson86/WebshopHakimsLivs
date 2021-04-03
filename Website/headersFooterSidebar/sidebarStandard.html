@@ -35,10 +35,9 @@
       <ul class="list-unstyled">
         <li class="mb-2">
           <button
-            class="btn btn-toggle btn-outline-light"
-            data-bs-toggle="collapse"
-            data-bs-target="#product-collapse"
+            class="btn btn-outline-light"
             style="width: 100%"
+            onclick="hideShowProducts()"
           >
             Produkter
           </button>
@@ -57,7 +56,7 @@
         </li>
         <li class="mb-2">
           <button
-            class="btn btn-toggle btn-outline-light"
+            class="btn btn-outline-light"
             style="width: 100%"
             onclick="location.href='/Website/sidebarPages/contact.html'"
           >
@@ -66,10 +65,9 @@
         </li>
         <li class="mb-2">
           <button
-            class="btn btn-toggle btn-outline-light"
-            data-bs-toggle="collapse"
-            data-bs-target="#myPages-collapse"
+            class="btn btn-outline-light"
             style="width: 100%"
+            onclick="hideShowMyPages()"
           >
             Mina Sidor
           </button>
@@ -108,9 +106,8 @@
         <li class="mb-2">
           <button
             class="btn btn-toggle btn-outline-light"
-            data-bs-toggle="collapse"
-            data-bs-target="#admin-collapse"
             style="width: 100%"
+            onclick="hideShowAdmin()"
           >
             Admin
           </button>
@@ -156,6 +153,7 @@
                 <button
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
+                  onclick="location.href='/Website/admin/storeInfo.html'"
                 >
                   Butiksinformation
                 </button>
@@ -190,6 +188,66 @@
         });
         document.getElementById("viewCategories").innerHTML = output;
       });
+
+      function hideShowProducts() {
+        var products = document.getElementById("product-collapse");
+        var myPages = document.getElementById("myPages-collapse");
+        var admin = document.getElementById("admin-collapse");
+
+        if (
+          myPages.style.display === "block" ||
+          admin.style.display === "block"
+        ) {
+          myPages.style.display = "none";
+          admin.style.display = "none";
+        }
+
+        if (products.style.display === "block") {
+          products.style.display = "none";
+        } else {
+          products.style.display = "block";
+        }
+      }
+
+      function hideShowMyPages() {
+        var products = document.getElementById("product-collapse");
+        var myPages = document.getElementById("myPages-collapse");
+        var admin = document.getElementById("admin-collapse");
+
+        if (
+          products.style.display === "block" ||
+          admin.style.display === "block"
+        ) {
+          products.style.display = "none";
+          admin.style.display = "none";
+        }
+
+        if (myPages.style.display === "block") {
+          myPages.style.display = "none";
+        } else {
+          myPages.style.display = "block";
+        }
+      }
+
+      function hideShowAdmin() {
+        var products = document.getElementById("product-collapse");
+        var myPages = document.getElementById("myPages-collapse");
+        var admin = document.getElementById("admin-collapse");
+
+        if (
+          myPages.style.display === "block" ||
+          products.style.display === "block"
+        ) {
+          myPages.style.display = "none";
+          products.style.display = "none";
+        }
+
+        if (admin.style.display === "block") {
+          admin.style.display = "none";
+        } else {
+          admin.style.display = "block";
+        }
+      }
     </script>
   </body>
 </html>
