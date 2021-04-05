@@ -28,7 +28,7 @@ function success(valid) {
     //send valid to java
     console.log(valid); // TODO: remove later just for test !
     itemsToSubmit = [] //empties array
-    changeButton.disabled =false;
+    changeButton.disabled = false;
     alert("Success");
     window.location.reload();
 
@@ -62,8 +62,8 @@ function isAllHidden() {
  * @param input - inmatnings fältet vi vill kunna ändra om man behöver ha data i den eller inte, också ta bart dens värde
  */
 function show(div, input) {
-    if(div === "addressBox"){
-        if(addressBox.style.display === "none"){
+    if (div === "addressBox") {
+        if (addressBox.style.display === "none") {
             address.required = true;
             areacode.required = true;
             city.required = true;
@@ -77,16 +77,16 @@ function show(div, input) {
         address.value = "";
         areacode.value = "";
         city.value = "";
-    } else if(div === "passwordBox"){
-        if(passwordBox.style.display === "none"){
+    } else if (div === "passwordBox") {
+        if (passwordBox.style.display === "none") {
             password.required = true;
             password2.required = true;
-            passwordBox.style.display ="block";
+            passwordBox.style.display = "block";
 
-        } else{
+        } else {
             password.required = false;
             password2.required = false;
-            passwordBox.style.display ="none";
+            passwordBox.style.display = "none";
         }
         password.value = "";
         password2.value = "";
@@ -154,6 +154,20 @@ function validatePassword(password) {
     }
 }
 
+/**
+ * kollar om de två lösenorden är likadana eller inte
+ * @returns {boolean} if true passwords match, else false
+ */
+function passwordCheck() {
+    if(password.value === password2.value){
+        return true;
+    } else{
+        alert("Passwords do not match each other!")
+        return false;
+    }
+
+}
+
 
 /**
  * kontrollerar om field är 4 nummer mellan 1-9
@@ -193,16 +207,17 @@ function validation() {
     const valid = [validateUsername(removeHtml(values[0].value)), validatePassword(removeHtml(values[1].value)),
         validatePhoneNumber(removeHtml(values[2].value)), validateAreaCode(removeHtml(values[3].value)),
         fieldNotEmpty(removeHtml(values[4].value)), fieldNotEmpty(removeHtml(values[5].value))];
-
-    if (valid.some(value => value === true)) {
-        for (let i = 0; i < valid.length; i++) {
-            if (valid[i] === true) {
-                itemsToSubmit.push(values[i].value);
+    if (passwordCheck()) {
+        if (valid.some(value => value === true)) {
+            for (let i = 0; i < valid.length; i++) {
+                if (valid[i] === true) {
+                    itemsToSubmit.push(values[i].value);
+                }
+                // TODO: maybe add a if false here and make it push null or some special character we don't aloe in the forms to represent values we don't want changed
             }
-            // TODO: maybe add a if false here and make it push null or some special character we don't aloe in the forms to represent values we don't want changed
-        }
-        if (itemsToSubmit.length > 0) {
-            return true;
+            if (itemsToSubmit.length > 0) {
+                return true;
+            }
         }
     }
     return false;
@@ -216,8 +231,6 @@ form.addEventListener("submit", (e) => {
     e.preventDefault(); //prevents page reload on submit
     if (validation()) {
         success(itemsToSubmit);
-    } else {
-        alert("validation did not succeed")
     }
     if (message.length > 0) {
         errorMessages.innerHTML = message;
