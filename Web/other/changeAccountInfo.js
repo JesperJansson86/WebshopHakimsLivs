@@ -1,26 +1,87 @@
-const form = document.getElementById("changeInfoForm"); //form that holds the inputs thats used to change account information
+importScripts()
+const form = document.getElementById("changeInfoForm"); //form that holds the inputs that's used to change account information
 const name = document.getElementById("name"); //inputted name
 const username = document.getElementById("username"); //inputted username
 const password = document.getElementById("password"); //inputted password
+const password2 = document.getElementById("password2"); //repeated password
 const address = document.getElementById("address"); //inputted address
-const phonenumber = document.getElementById("phone"); //inputted phonenumber
+const phoneNumber = document.getElementById("phone"); //inputted phoneNumber
 const errorMessages = document.getElementById("errorMessage"); //div that holds error messages
-let message = []; //Array that holds errorMessages
-let toChange = [] //stores the variables that the user want to change to.
+const changeButton = document.getElementById("changeButton");
+const nameBox  = document.getElementById("nameBox");
+const usernameBox  = document.getElementById("usernameBox");
+const passwordBox  = document.getElementById("passwordBox");
+const addressBox = document.getElementById("addressBox");
+const phoneBox  = document.getElementById("phoneBox");
+const boxBox = [nameBox,usernameBox,passwordBox,addressBox,phoneBox] //box that holds all the boxes (used to disable the changeButton when all the boxes are hidden
+let message = ""; //Array that holds errorMessages
+let toChange = []; //stores the variables that the user want to change to.
 
 /**
- * Blir skickad hit om alla valideringar stämmer
- * här skikar man vidare värdena som ska ändras till java delen
+ * Blir skickad hit om alla värderingar stämmer
+ * här skickar man vidare värdena som ska ändras till java delen
  */
 function success() {
     // TODO: connect to java that sends back a success message
-    alert("Success");
+   let x =   alert("Success");
+    if(x === true){ //if user presses ok ? i think
+    window.location.reload();
+    }
+}
+
+/**
+ * skickar att användaren vill radera sit account, låter sedan java göra resten
+ */
+function removeAccount(){
+  let x =  confirm("Vill du verkligen radera ditt account?")
+  if(x===true){
+    // TODO: connect on java side, (checking what account this is form localstorage is unsafe!)
+    location.assign("../index.html"); //just sends the user back to the main page for now
+
+  } else{
+    console.log("User did not delete account!")
+  }
+}
+
+function isAllHidden(){
+  function hidden(){
+    let isHidden = true;
+    for(let i = 0;  i <  boxBox.length;i++){
+      if(boxBox[i].style.display === "block"){
+        isHidden = false;
+      }
+    }
+    return isHidden;
+  }
+
+  return !!hidden();
+
+}
+
+/**
+ * vissa och gömma formulären
+ * @param div - är div boxen som håller i formuläret vi vill visa eller dölja
+ * @param input - inmatnings fältet vi vill kunna ändra om man behöver ha data i den eller inte, också ta bart dens värde
+ */
+function show(div,input){
+  const formContent =document.getElementById(div);
+  const inputContent = document.getElementById(input);
+
+  if(formContent.style.display === "none"){
+    inputContent.required = true;
+    formContent.style.display = "block";
+  } else {
+    inputContent.required = false;
+    formContent.style.display = "none";
+  }
+  changeButton.disabled = isAllHidden(); //changes the disable status of the changeButton depending on if
+  inputContent.value ="";//should clear the input on show and hide
 }
 
 /**
  * Sanitising the string, so that all html tags get removed
  * @param {String} originalString - original string
- * @returns - Returns a sanitesed string
+ * @returns - Returns a sanitised string
  */
 function removeHtml(originalString){
   return originalString.replace(/(<([^>]+)>)/gi, "");
@@ -38,7 +99,7 @@ function validateName(name) {
   if (regex.test(name)) {
     return true;
   } else {
-    message.push(name + " did NOT adhear to the nameing standard of this site");
+    message = (name + " did NOT adhere to the naming standard of this site");
     return false;
   }
 }
@@ -51,13 +112,12 @@ function validateName(name) {
 function validateUsername(username) {
   const regex = new RegExp(
     "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
-  ); //adhears to 99.99% of all email addresses in actual use today. and is based on RFC 2822  https://tools.ietf.org/html/rfc2822#section-3.4.1
+  ); //adheres to 99.99% of all email addresses in actual use today. and is based on RFC 2822  https://tools.ietf.org/html/rfc2822#section-3.4.1
 
   if (regex.test(username)) {
-    console.log(username + " is valid"); // TODO: REMOVE TEST PASSWORD CHECK
     return true;
   } else {
-    message.push(username + " är inte en standard email address");
+    message = (username + " är inte en standard email address");
     return false;
   }
 }
@@ -73,11 +133,10 @@ function validatePassword(password) {
   ); //Password need to be at least 6 characters but max 40, include 1 special character, 1 uppercase character and a number
   //do not by mistake format the regex string changes on format and probably breaks !
   if (regex.test(password)) {
-    console.log(password + " is valid"); // TODO: REMOVE TEST PASSWORD CHECK
     return true;
   } else {
-    message.push(
-      password + " did not adhear to password standard of the site "
+    message = (
+      " did not adhere to password standard of the site "
     );
     return false;
   }
@@ -98,7 +157,7 @@ function validateAreaCode(field) {
  * @param {String} field
  * @returns {boolean} true om field stämmer med regexen och false om field inte stämmer med regexen
  */
-function validatePhonenumber(field) {
+function validatePhoneNumber(field) {
   const regex = /^0\d{6,}/g;
   return regex.test(field.val());
 }
@@ -118,19 +177,16 @@ function fieldNotEmpty(field) {
  */
 function validation() {
 
-    if(validator())
-
-
 }
 
 /**
- * när användaren tryker på submit knappen så callas validation() och sammlas error messages 
+ * när användaren trycker på submit knappen så callas validation() och samlas error messages
  */
 form.addEventListener("submit", (e) => {
-  //a dubble check
+  //a double check
   
   if (username.length === 0 || password.length === 0) {
-    message.push("username and password can't be blank or null");
+    message = ("username and password can't be blank or null");
   }
 
   if (validateUsername(removeHtml(username.value)) && validatePassword(removeHtml(password.value))) {
