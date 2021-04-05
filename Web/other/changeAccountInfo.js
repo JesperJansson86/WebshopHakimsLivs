@@ -29,6 +29,7 @@ function success(valid) {
     console.log(valid); // TODO: remove later just for test !
     itemsToSubmit = [] //empties array
     alert("Success");
+    changeButton.disabled =false;
     window.location.reload();
 
 }
