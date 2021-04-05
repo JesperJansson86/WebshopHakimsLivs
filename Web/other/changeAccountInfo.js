@@ -42,7 +42,6 @@ function removeAccount() {
     if (x === true) {
         // TODO: connect on java side, (checking what account this is form localstorage is unsafe!)
         location.assign("../index.html"); //just sends the user back to the main page for now
-
     } else {
         console.log("User did not delete account!")
     }
@@ -118,18 +117,20 @@ function removeHtml(string) {
 
 /**
  * kontrollerar om username (email) stämmer med regexen
- * @param {String} username
+ * @param {String} String
  * @returns {boolean} true om username stämmer med regexen och false om username inte stämmer med regexen
  */
-function validateUsername(username) {
+function validateUsername(String) {
     const regex = new RegExp(
         "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
     ); //adheres to 99.99% of all email addresses in actual use today. and is based on RFC 2822  https://tools.ietf.org/html/rfc2822#section-3.4.1
 
-    if (regex.test(username)) {
+    if (regex.test(String)) {
         return true;
     } else {
-        message += (username + " är inte en standard email address");
+        if(username.required){
+            message += (String + " är inte en standard email address. ");
+        }
         return false;
     }
 }
@@ -139,17 +140,17 @@ function validateUsername(username) {
  * @param {String} password
  * @returns {boolean} true om password stämmer med regexen och false om password inte stämmer med regexen
  */
-function validatePassword(password) {
+function validatePassword(String) {
     const regex = new RegExp(
         "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{6,40})"
     ); //Password need to be at least 6 characters but max 40, include 1 special character, 1 uppercase character and a number
     //do not by mistake format the regex string changes on format and probably breaks !
-    if (regex.test(password)) {
+    if (regex.test(String)) {
         return true;
     } else {
-        message += (
-            " did not adhere to password standard of the site "
-        );
+        if(password.required){
+        message += (" Password did not adhere to password standard of the site. ");
+        }
         return false;
     }
 }
@@ -221,7 +222,6 @@ function validation() {
         }
     }
     return false;
-
 }
 
 /**
