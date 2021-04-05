@@ -1,6 +1,6 @@
 const form = document.getElementById("changeInfoForm"); //form that holds the inputs that's used to change account information
 const username = document.getElementById("username"); //inputted username
-//apparently the user has no name (its never registered )
+//apparently the user has no name (its never registered so there's no reason to check for it)
 const password = document.getElementById("password"); //inputted password
 const password2 = document.getElementById("password2"); //repeated password
 const address = document.getElementById("address"); //inputted address
@@ -28,8 +28,8 @@ function success(valid) {
     //send valid to java
     console.log(valid); // TODO: remove later just for test !
     itemsToSubmit = [] //empties array
-    alert("Success");
     changeButton.disabled =false;
+    alert("Success");
     window.location.reload();
 
 }
@@ -49,8 +49,8 @@ function removeAccount() {
 }
 
 /**
- *
- * @returns {boolean}
+ * kollar om all boxar är avstängda eller inte
+ * @returns {boolean} - true om avstängda, false om inte
  */
 function isAllHidden() {
     return boxBox.every(box => box.style.display === "none");
@@ -62,9 +62,6 @@ function isAllHidden() {
  * @param input - inmatnings fältet vi vill kunna ändra om man behöver ha data i den eller inte, också ta bart dens värde
  */
 function show(div, input) {
-    const formContent = document.getElementById(div);
-    const inputContent = document.getElementById(input);
-
     if(div === "addressBox"){
         if(addressBox.style.display === "none"){
             address.required = true;
@@ -94,6 +91,8 @@ function show(div, input) {
         password.value = "";
         password2.value = "";
     } else {
+        const formContent = document.getElementById(div);
+        const inputContent = document.getElementById(input);
         if (formContent.style.display === "none") {
             inputContent.required = true;
             formContent.style.display = "block";
@@ -104,11 +103,7 @@ function show(div, input) {
         inputContent.value = "";//should clear the input on show and hide
     }
 
-    if(isAllHidden()){
-        changeButton.disabled =true;
-    } else{
-        changeButton.disabled =false;
-    }
+    changeButton.disabled = isAllHidden();
 }
 
 /**
@@ -190,8 +185,8 @@ function fieldNotEmpty(field) {
 }
 
 /**
- * checks the form validation
- * @return {boolean}
+ * koller om någon av formulären har värde som är acceptabla
+ * @return {boolean} om en eller flera av värdena är acceptabla så skickas det till backa true annars false
  */
 function validation() {
     const values = [username, password, phoneNumber, areacode, address, city];
