@@ -5,16 +5,15 @@ const password = document.getElementById("password"); //inputted password
 const password2 = document.getElementById("password2"); //repeated password
 const address = document.getElementById("address"); //inputted address
 const areacode = document.getElementById("areacode"); //inputted areacode
-const phoneNumber = document.getElementById("phone"); //inputted phoneNumber
 const city = document.getElementById("city"); //inputted city
+const phoneNumber = document.getElementById("phone"); //inputted phoneNumber
 const errorMessages = document.getElementById("errorMessage"); //div that holds error messages
 const changeButton = document.getElementById("changeButton");
-const nameBox = document.getElementById("nameBox");
 const usernameBox = document.getElementById("usernameBox");
 const passwordBox = document.getElementById("passwordBox");
 const addressBox = document.getElementById("addressBox");
 const phoneBox = document.getElementById("phoneBox");
-const boxBox = [nameBox, usernameBox, passwordBox, addressBox, phoneBox] //box that holds all the boxes (used to disable the changeButton when all the boxes are hidden
+const boxBox = [usernameBox, passwordBox, addressBox, phoneBox] //box that holds all the boxes (used to disable the changeButton when all the boxes are hidden
 let message = ""; //Array that holds errorMessages
 let itemsToSubmit = []; // creates an empty array
 
@@ -29,11 +28,9 @@ function success(valid) {
     //send valid to java
     console.log(valid); // TODO: remove later just for test !
     itemsToSubmit = [] //empties array
+    alert("Success");
+    window.location.reload();
 
-    let x = alert("Success");
-    if (x === true) { //if user presses ok ? i think
-        window.location.reload();
-    }
 }
 
 /**
@@ -55,8 +52,7 @@ function removeAccount() {
  * @returns {boolean}
  */
 function isAllHidden() {
-
-
+    return boxBox.every(box => box.style.display === "none");
 }
 
 /**
@@ -68,14 +64,50 @@ function show(div, input) {
     const formContent = document.getElementById(div);
     const inputContent = document.getElementById(input);
 
-    if (formContent.style.display === "none") {
-        inputContent.required = true;
-        formContent.style.display = "block";
+    if(div === "addressBox"){
+        if(addressBox.style.display === "none"){
+            address.required = true;
+            areacode.required = true;
+            city.required = true;
+            addressBox.style.display = "block";
+        } else {
+            address.required = false;
+            areacode.required = false;
+            city.required = false;
+            addressBox.style.display = "none";
+        }
+        address.value = "";
+        areacode.value = "";
+        city.value = "";
+    } else if(div === "passwordBox"){
+        if(passwordBox.style.display === "none"){
+            password.required = true;
+            password2.required = true;
+            passwordBox.style.display ="block";
+
+        } else{
+            password.required = false;
+            password2.required = false;
+            passwordBox.style.display ="none";
+        }
+        password.value = "";
+        password2.value = "";
     } else {
-        inputContent.required = false;
-        formContent.style.display = "none";
+        if (formContent.style.display === "none") {
+            inputContent.required = true;
+            formContent.style.display = "block";
+        } else {
+            inputContent.required = false;
+            formContent.style.display = "none";
+        }
+        inputContent.value = "";//should clear the input on show and hide
     }
-    inputContent.value = "";//should clear the input on show and hide
+
+    if(isAllHidden()){
+        changeButton.disabled =true;
+    } else{
+        changeButton.disabled =false;
+    }
 }
 
 /**
@@ -166,21 +198,18 @@ function validation() {
         validatePhoneNumber(removeHtml(values[2].value)), validateAreaCode(removeHtml(values[3].value)),
         fieldNotEmpty(removeHtml(values[4].value)), fieldNotEmpty(removeHtml(values[5].value))];
 
-    if (valid.some(boolean => boolean === true)) {
-        if (valid.every((boolean) => boolean === true)) {
-            for (let i = 0; i < valid.length; i++) {
-                if (valid[i] === true) {
-                    itemsToSubmit.push(values[i].value);
-                }
+    if (valid.some(value => value === true)) {
+        for (let i = 0; i < valid.length; i++) {
+            if (valid[i] === true) {
+                itemsToSubmit.push(values[i].value);
             }
-            if (itemsToSubmit.length > 0) {
-                return true;
-            }
+            // TODO: maybe add a if false here and make it push null or some special character we don't aloe in the forms to represent values we don't want changed
         }
-    } else {
-        return false;
-
+        if (itemsToSubmit.length > 0) {
+            return true;
+        }
     }
+    return false;
 
 }
 
@@ -191,6 +220,8 @@ form.addEventListener("submit", (e) => {
     e.preventDefault(); //prevents page reload on submit
     if (validation()) {
         success(itemsToSubmit);
+    } else {
+        alert("validation did not succeed")
     }
     if (message.length > 0) {
         errorMessages.innerHTML = message;
