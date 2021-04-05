@@ -38,12 +38,12 @@ function success(valid) {
  * skickar att användaren vill radera sit account, låter sedan java göra resten
  */
 function removeAccount() {
-    let x = confirm("Vill du verkligen radera ditt account?")
+    let x = confirm("Vill du verkligen radera ditt account? ")
     if (x === true) {
         // TODO: connect on java side, (checking what account this is form localstorage is unsafe!)
         location.assign("../index.html"); //just sends the user back to the main page for now
     } else {
-        console.log("User did not delete account!")
+        console.log("Användaren har inte tagit bort sitt account. ");
     }
 }
 
@@ -137,7 +137,7 @@ function validateUsername(String) {
 
 /**
  * kontrollerar om username (email) stämmer med regexen
- * @param {String} password
+ * @param {String} String
  * @returns {boolean} true om password stämmer med regexen och false om password inte stämmer med regexen
  */
 function validatePassword(String) {
@@ -149,7 +149,7 @@ function validatePassword(String) {
         return true;
     } else {
         if(password.required){
-        message += (" Password did not adhere to password standard of the site. ");
+        message += (" Lösenorden följer inte webbsidans Lösenord standard. ")
         }
         return false;
     }
@@ -163,7 +163,7 @@ function passwordCheck() {
     if(password.value === password2.value){
         return true;
     } else{
-        alert("Passwords do not match each other!")
+        message += (" Lösenorden matchar inte varandra! ")
         return false;
     }
 
