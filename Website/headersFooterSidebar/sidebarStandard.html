@@ -33,18 +33,10 @@
         Admin ska enbart synas när admin är inloggad.
       </p>
       <ul class="list-unstyled">
-        <li class="mb-2">
-          <button
-            class="btn btn-outline-light"
-            style="width: 100%"
-            onclick="hideShowProducts()"
-          >
-            Produkter
-          </button>
-          <div class="collapse" id="product-collapse">
-            <ul class="btn-toggle-nav pb-2 mt-1" id="viewCategories"></ul>
-          </div>
+        <li>
+          <div id="viewCategories"></div>
         </li>
+        <hr style="height: 3px;">
         <li class="mb-2">
           <button
             class="btn btn-outline-light"
@@ -147,62 +139,32 @@
     </div>
 
     <script>
-      let output = `<li class="mb-1">
+      let output = `
                 <button
-                  class="btn btn-outline-light btn-sm"
-                  style="width: 100%"
+                class="btn btn-toggle btn-outline-light mb-2"
+            style="width: 100%"
                   onclick="location.href='/Website/testofProductView.html'"
                 >
                   Alla produkter
                 </button>
-              </li>`;
+              `;
       $.getJSON("/Website/json/categories.json", function (data) {
         $.each(data, function (key, value) {
-          output += `<li class="mb-1">
+          output += `
                 <button
-                  class="btn btn-outline-light btn-sm"
-                  style="width: 100%"
+                class="btn btn-toggle btn-outline-light mb-2"
+                style="width: 100%"
                   onclick="localStorage.setItem('Knapp', JSON.stringify(${value.id})); location.href='/Website/testofProductView.html'"
                 >
                 ${value.category}
                 </button>
-              </li>`;
+              `;
         });
         document.getElementById("viewCategories").innerHTML = output;
       });
 
-      function hideShowProducts() {
-        var products = document.getElementById("product-collapse");
-        var myPages = document.getElementById("myPages-collapse");
-        var admin = document.getElementById("admin-collapse");
-
-        if (
-          myPages.style.display === "block" ||
-          admin.style.display === "block"
-        ) {
-          myPages.style.display = "none";
-          admin.style.display = "none";
-        }
-
-        if (products.style.display === "block") {
-          products.style.display = "none";
-        } else {
-          products.style.display = "block";
-        }
-      }
-
       function hideShowMyPages() {
-        var products = document.getElementById("product-collapse");
         var myPages = document.getElementById("myPages-collapse");
-        var admin = document.getElementById("admin-collapse");
-
-        if (
-          products.style.display === "block" ||
-          admin.style.display === "block"
-        ) {
-          products.style.display = "none";
-          admin.style.display = "none";
-        }
 
         if (myPages.style.display === "block") {
           myPages.style.display = "none";
@@ -212,17 +174,7 @@
       }
 
       function hideShowAdmin() {
-        var products = document.getElementById("product-collapse");
-        var myPages = document.getElementById("myPages-collapse");
         var admin = document.getElementById("admin-collapse");
-
-        if (
-          myPages.style.display === "block" ||
-          products.style.display === "block"
-        ) {
-          myPages.style.display = "none";
-          products.style.display = "none";
-        }
 
         if (admin.style.display === "block") {
           admin.style.display = "none";
