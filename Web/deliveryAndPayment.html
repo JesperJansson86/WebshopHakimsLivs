@@ -14,12 +14,15 @@
     <div id="orderSummary"></div>
     <form id="chooseDeliveryForm">
         Hämta i butik.
-        <input type="radio" name="deliveryChoice" id="storePickUpChoice"><br>
+        <input type="radio" name="deliveryChoice" id="storePickUpChoice" ><br>
         Hemleverans.    
         <input type="radio" name="deliveryChoice" id="homeDeliveryChoice"><br>
     </form>
 <div id="storePickUp">
     Hämtas i butik efter 12:00
+    <form id="storePickUpForm" onsubmit="submitPickUp()">
+        <input type="submit" name="storePickUpSubmit" id="storePickUpSubmit" value="Beställ!">
+    </form>
 </div>
 <div id="homeDelivery">
     Hemleverans!<br>
@@ -34,6 +37,15 @@
 
 
     <script>
+function submitDelivery(){
+//Todo vad händer här?
+}
+function submitPickUp() {
+//Todo vad händer här?
+}
+$('#storePickUp').hide();
+
+
             $('document').ready(function(){
                 $.getJSON(
                     'order.json',function(data)
