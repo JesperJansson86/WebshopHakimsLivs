@@ -36,12 +36,12 @@
         <li>
           <div id="viewCategories"></div>
         </li>
-        <hr style="height: 3px;">
+        <hr style="height: 3px" />
         <li class="mb-2">
           <button
             class="btn btn-outline-light"
             style="width: 100%"
-            onclick="hideShowMyPages()"
+            onclick="hideShowMyPages();"
           >
             Mina Sidor
           </button>
@@ -51,7 +51,8 @@
                 <button
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
-                  onclick="location.href='/Website/minaSidor/myOrders.html'"
+                  id="myOrders"
+                  onclick="location.href='/Website/minaSidor/myOrders.html'; highlightButton(this.id);"
                 >
                   Mina beställningar
                 </button>
@@ -60,7 +61,8 @@
                 <button
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
-                  onclick="location.href='/Website/minaSidor/myInfo.html'"
+                  id="myInfo"
+                  onclick="location.href='/Website/minaSidor/myInfo.html'; highlightButton(this.id);"
                 >
                   Mina uppgifter
                 </button>
@@ -69,7 +71,8 @@
                 <button
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
-                  onclick="location.href='/Website/minaSidor/myOffers.html'"
+                  id="myOffers"
+                  onclick="location.href='/Website/minaSidor/myOffers.html'; highlightButton(this.id);"
                 >
                   Mina erbjudanden
                 </button>
@@ -91,7 +94,8 @@
                 <button
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
-                  onclick="location.href='/Website/admin/admin.html'"
+                  id="admin"
+                  onclick="location.href='/Website/admin/admin.html'; highlightButton(this.id);"
                 >
                   Admin
                 </button>
@@ -100,7 +104,8 @@
                 <button
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
-                  onclick="location.href='/Website/admin/customers.html'"
+                  id="AdminCustomers"
+                  onclick="location.href='/Website/admin/customers.html'; highlightButton(this.id);"
                 >
                   Kundregister
                 </button>
@@ -109,7 +114,8 @@
                 <button
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
-                  onclick="location.href='/Website/admin/products.html'"
+                  id="AdminProducts"
+                  onclick="location.href='/Website/admin/products.html'; highlightButton(this.id);"
                 >
                   Produktregister
                 </button>
@@ -118,7 +124,8 @@
                 <button
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
-                  onclick="location.href='/Website/admin/campaign.html'"
+                  id="AdminCampain"
+                  onclick="location.href='/Website/admin/campaign.html'; highlightButton(this.id);"
                 >
                   Kampanjhantering
                 </button>
@@ -127,7 +134,8 @@
                 <button
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
-                  onclick="location.href='/Website/admin/storeInfo.html'"
+                  id="AdminStoreInfo"
+                  onclick="location.href='/Website/admin/storeInfo.html'; highlightButton(this.id);"
                 >
                   Butiksinformation
                 </button>
@@ -143,7 +151,8 @@
                 <button
                 class="btn btn-toggle btn-outline-light mb-2"
             style="width: 100%"
-                  onclick="location.href='/Website/testofProductView.html'"
+            id="allProducts"
+                  onclick="location.href='/Website/testofProductView.html'; highlightButton(this.id);"
                 >
                   Alla produkter
                 </button>
@@ -154,7 +163,8 @@
                 <button
                 class="btn btn-toggle btn-outline-light mb-2"
                 style="width: 100%"
-                  onclick="localStorage.setItem('Knapp', JSON.stringify(${value.id})); location.href='/Website/testofProductView.html'"
+                id="btn${value.category}"
+                  onclick="localStorage.setItem('Knapp', JSON.stringify(${value.id})); location.href='/Website/testofProductView.html';;highlightButton(this.id);"
                 >
                 ${value.category}
                 </button>
@@ -181,6 +191,10 @@
         } else {
           admin.style.display = "block";
         }
+      }
+
+      function highlightButton(clicked_btn) {
+        document.getElementById(clicked_btn).style.backgroundColor = "#ADC178";
       }
     </script>
   </body>
