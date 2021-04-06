@@ -1,0 +1,132 @@
+[
+  {
+    "id":1,
+    "name":"Jane",
+    "email":"j@gmail.com",
+    "password":"null",
+    "loyality":true,
+    "mobile_number":"734 545 546",
+    "address": {
+      "street_address": "Agatan 1",
+      "city": "Bstad",
+      "zipcode": 12345
+    }
+  },
+  {
+    "id":2,
+    "name":"Mark",
+    "email":"m@gmail.com",
+    "password":"null",
+    "loyality":true,
+    "mobile_number":"072-6566557",
+    "address": {
+      "street_address": "Bgränd 2",
+      "city": "Cstad",
+      "zipcode": 23456
+    }
+  },
+  {
+    "id":3,
+    "name":"Ann",
+    "email":"a@gmail.com",
+    "password":"null",
+    "loyality":true,
+    "mobile_number":"073-6575757",
+    "address": {
+      "street_address": "Agatan 12",
+      "city": "Bstad",
+      "zipcode": 12345
+    }
+  },
+  {
+    "id":4,
+    "name":"Rid",
+    "email":"rid@gmail.com",
+    "password":"null",
+    "loyality":false,
+    "mobile_number":"072-65575757",
+    "address": {
+      "street_address": "Cvägen 3",
+      "city": "Dystersund",
+      "zipcode": 34567
+    }
+  },
+  {
+    "id":5,
+    "name":"Berit",
+    "email":"berit@telia.com",
+    "password":"null",
+    "loyality":true,
+    "mobile_number":"070-7994947",
+    "address": {
+      "street_address": "Bgränd 3",
+      "city": "Cstad",
+      "zipcode": 23456
+    }
+  },
+  {
+    "id":6,
+    "name":"Per",
+    "email":"per@permon.se",
+    "password":"null",
+    "loyality":false,
+    "mobile_number":"070-7422100",
+    "address": {
+      "street_address": "Agatan 1",
+      "city": "Bstad",
+      "zipcode": 12345
+    }
+  },
+  {
+    "id":7,
+    "name":"Nora",
+    "email":"namita.isakson@hotmail.se",
+    "password":"null",
+    "loyality":true,
+    "mobile_number":"0739-256488",
+    "address": {
+      "street_address": "Evägen 3",
+      "city": "Dystersund",
+      "zipcode": 34567
+    }
+  },
+  {
+    "id":8,
+    "name":"Matilda",
+    "email":"matildanilsson@hotmail.com",
+    "password":"null",
+    "loyality":true,
+    "mobile_number":"073-7803080",
+    "address": {
+      "street_address": "Fgränd 5",
+      "city": "Cstad",
+      "zipcode": 23456
+    }
+  },
+  {
+    "id":9,
+    "name":"Monica",
+    "email":"monica@permon.se",
+    "password":"null",
+    "loyality":true,
+    "mobile_number":"070-7422114",
+    "address": {
+      "street_address": "H allé 3",
+      "city": "Cstad",
+      "zipcode": 23456
+    }
+  },
+  {
+    "id":10,
+    "name":"Caroline",
+    "email":"carro.tamm@gmail.com",
+    "password":"null",
+    "loyality":true,
+    "mobile_number":"0709-225410",
+    "address": {
+      "street_address": "Ggatan 12",
+      "city": "Dystersund",
+      "zipcode": 34567
+    }
+  }
+]
