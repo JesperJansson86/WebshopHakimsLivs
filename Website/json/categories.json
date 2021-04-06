@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "category": "Bröd & kakor"
+  },
+  {
+    "id": 2,
+    "category": "Skafferi"
+  },
+  {
+    "id": 3,
+    "category": "Dryck"
+  },
+  {
+    "id": 4,
+    "category": "Godis & snacks"
+  },
+  {
+    "id": 5,
+    "category": "Hem & Hushåll"
+  },
+  {
+    "id": 6,
+    "category": "Hygien & apotek"
+  }
+]

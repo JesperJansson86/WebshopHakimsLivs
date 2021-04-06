@@ -18,54 +18,56 @@
     crossorigin="anonymous"
   ></script>
   </head>
-  <body class="container">
-    <!-- Header/ huvudmenyn -->
-    <header></header>
+  <body class="container-fluid">
 
+        <!-- Header/ huvudmenyn -->
+    <div class="row">
+          <div class="col px-0">
+    <header></header>
+    </div>
+    </div>
+
+
+    <div class="row px-5">
+      <div class="col-3">
     <!-- Sidomenyn -->
     <div id="sidebar"></div>
-
-    <div
-      class="p-3 overflow-auto"
-      style="
-        width: 75%;
-        background-color: rgb(197, 221, 197);
-        margin-top: 82px;
-        position: fixed;
-        height: 70%;
-        margin-left: 18%;
-      "
-    >
-
-      <div id="hej">
-        <input type="text" id="search" name="search">
-        <br> 
-        <input type="checkbox" id="category1" onclick="updateSearchResults()">Kategori 1
-        <input type="checkbox" id="category2" onclick="updateSearchResults()">Kategori 2
-        <input type="checkbox" id="category3" onclick="updateSearchResults()">Kategori 3
-        <input type="checkbox" id="category4" onclick="updateSearchResults()">Kategori 4
-        <input type="checkbox" id="category5" onclick="updateSearchResults()">Kategori 5
-        <input type="checkbox" id="category6" onclick="updateSearchResults()">Kategori 6
-        <ul  id="results">
+      </div>
+      <div class="col">
+        <div
+        class="p-3 overflow-auto"
+        style="
+          background-color: rgb(197, 221, 197);
+        "
+      >
+        <div id="hej">
+          <input type="text" id="search" name="search">
+          <br> 
+          <input type="checkbox" id="category1" onclick="updateSearchResults()">Kategori 1
+          <input type="checkbox" id="category2" onclick="updateSearchResults()">Kategori 2
+          <input type="checkbox" id="category3" onclick="updateSearchResults()">Kategori 3
+          <input type="checkbox" id="category4" onclick="updateSearchResults()">Kategori 4
+          <input type="checkbox" id="category5" onclick="updateSearchResults()">Kategori 5
+          <input type="checkbox" id="category6" onclick="updateSearchResults()">Kategori 6
+          <ul  id="results">
+        </div>
+      </div>
       </div>
     </div>
 
+
+    <div class="row">
+      <div class="col px-0">
     <!-- footer/ information-->
     <footer></footer>
-
-
-
-    
-
-    
-
+      </div>
+    </div>
 
     <script>
      /*Detta är för att sökresultaten ska uppdateras både om en skriver i sök-fältet
      och om en klickar i en kategoricheckbox.
      */
      $(document).ready(function(){
-       layout();
           $('#search').keyup(function() {
               updateSearchResults()
           })
@@ -77,7 +79,7 @@
       function updateSearchResults() {$('#results').html('');
               var searchField = $('#search').val();
               var expression = new RegExp(searchField,"i");
-              $.getJSON('/Website/javascript/products1.json',function(data){
+              $.getJSON('/Website/json/products1.json',function(data){
                   $.each(data, function(key, value){
                       console.log(value.categoryId +"HÄR")
                       if(value.name.search(expression) != -1) 
@@ -106,31 +108,8 @@
 
 
 
-      function layout(){
-        fetch("/Website/headersFooterSidebar/headerStandard.html")
-        .then((response) => {
-          return response.text();
-        })
-        .then((data) => {
-          document.querySelector("header").innerHTML = data;
-        });
 
-      fetch("/Website/headersFooterSidebar/footerStandard.html")
-        .then((response) => {
-          return response.text();
-        })
-        .then((data) => {
-          document.querySelector("footer").innerHTML = data;
-        });
-
-      fetch("/Website/headersFooterSidebar/sidebarStandard.html")
-        .then((response) => {
-          return response.text();
-        })
-        .then((data) => {
-          document.getElementById("sidebar").innerHTML = data;
-        });
-      }
     </script>
+    <script src="/Website/javascript/barsStandard.js"></script>
   </body>
 </html>

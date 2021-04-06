@@ -26,14 +26,7 @@
     <!-- Sidomenyn -->
     <div
       class="p-3 overflow-auto sidebar"
-      style="
-        width: 250px;
-        background-color: rgb(78, 131, 78);
-        margin-top: 82px;
-        position: fixed;
-        height: 70%;
-        margin-left: -4%;
-      "
+      style="background-color: rgb(78, 131, 78)"
     >
       <p>
         Mina sidor ska enbart synas när du är inloggad.<br />
@@ -42,44 +35,14 @@
       <ul class="list-unstyled">
         <li class="mb-2">
           <button
-            class="btn btn-toggle btn-outline-light"
-            data-bs-toggle="collapse"
-            data-bs-target="#product-collapse"
+            class="btn btn-outline-light"
             style="width: 100%"
+            onclick="hideShowProducts()"
           >
             Produkter
           </button>
           <div class="collapse" id="product-collapse">
-            <ul class="btn-toggle-nav pb-2 mt-1" id="viewCategories">
-              <li class="mb-1">
-                <button
-                  class="btn btn-outline-light btn-sm"
-                  style="width: 100%"
-                >Kategori 1
-                </button>
-              </li>
-              <li class="mb-1">
-                <button
-                  class="btn btn-outline-light btn-sm"
-                  style="width: 100%"
-                >Kategori 2
-                </button>
-              </li>
-              <li class="mb-1">
-                <button
-                  class="btn btn-outline-light btn-sm"
-                  style="width: 100%"
-                >Kategori 3
-                </button>
-              </li>
-              <li class="mb-1">
-                <button
-                  class="btn btn-outline-light btn-sm"
-                  style="width: 100%"
-                >Kategori 4
-                </button>
-              </li>
-            </ul>
+            <ul class="btn-toggle-nav pb-2 mt-1" id="viewCategories"></ul>
           </div>
         </li>
         <li class="mb-2">
@@ -93,7 +56,7 @@
         </li>
         <li class="mb-2">
           <button
-            class="btn btn-toggle btn-outline-light"
+            class="btn btn-outline-light"
             style="width: 100%"
             onclick="location.href='/Website/sidebarPages/contact.html'"
           >
@@ -102,10 +65,9 @@
         </li>
         <li class="mb-2">
           <button
-            class="btn btn-toggle btn-outline-light"
-            data-bs-toggle="collapse"
-            data-bs-target="#myPages-collapse"
+            class="btn btn-outline-light"
             style="width: 100%"
+            onclick="hideShowMyPages()"
           >
             Mina Sidor
           </button>
@@ -144,9 +106,8 @@
         <li class="mb-2">
           <button
             class="btn btn-toggle btn-outline-light"
-            data-bs-toggle="collapse"
-            data-bs-target="#admin-collapse"
             style="width: 100%"
+            onclick="hideShowAdmin()"
           >
             Admin
           </button>
@@ -192,6 +153,7 @@
                 <button
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
+                  onclick="location.href='/Website/admin/storeInfo.html'"
                 >
                   Butiksinformation
                 </button>
@@ -203,21 +165,89 @@
     </div>
 
     <script>
-      let output = "";
-      $.getJSON("/Website/javascript/products1.json", function (data) {
+      let output = `<li class="mb-1">
+                <button
+                  class="btn btn-outline-light btn-sm"
+                  style="width: 100%"
+                  onclick="location.href='/Website/testofProductView.html'"
+                >
+                  Alla produkter
+                </button>
+              </li>`;
+      $.getJSON("/Website/json/categories.json", function (data) {
         $.each(data, function (key, value) {
-          console.log(value.categoryId + "HÄR");
           output += `<li class="mb-1">
                 <button
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
-                >Kategori 
-                ${value.categoryId}
+                  onclick="localStorage.setItem('Knapp', JSON.stringify(${value.id})); location.href='/Website/testofProductView.html'"
+                >
+                ${value.category}
                 </button>
               </li>`;
         });
         document.getElementById("viewCategories").innerHTML = output;
       });
+
+      function hideShowProducts() {
+        var products = document.getElementById("product-collapse");
+        var myPages = document.getElementById("myPages-collapse");
+        var admin = document.getElementById("admin-collapse");
+
+        if (
+          myPages.style.display === "block" ||
+          admin.style.display === "block"
+        ) {
+          myPages.style.display = "none";
+          admin.style.display = "none";
+        }
+
+        if (products.style.display === "block") {
+          products.style.display = "none";
+        } else {
+          products.style.display = "block";
+        }
+      }
+
+      function hideShowMyPages() {
+        var products = document.getElementById("product-collapse");
+        var myPages = document.getElementById("myPages-collapse");
+        var admin = document.getElementById("admin-collapse");
+
+        if (
+          products.style.display === "block" ||
+          admin.style.display === "block"
+        ) {
+          products.style.display = "none";
+          admin.style.display = "none";
+        }
+
+        if (myPages.style.display === "block") {
+          myPages.style.display = "none";
+        } else {
+          myPages.style.display = "block";
+        }
+      }
+
+      function hideShowAdmin() {
+        var products = document.getElementById("product-collapse");
+        var myPages = document.getElementById("myPages-collapse");
+        var admin = document.getElementById("admin-collapse");
+
+        if (
+          myPages.style.display === "block" ||
+          products.style.display === "block"
+        ) {
+          myPages.style.display = "none";
+          products.style.display = "none";
+        }
+
+        if (admin.style.display === "block") {
+          admin.style.display = "none";
+        } else {
+          admin.style.display = "block";
+        }
+      }
     </script>
   </body>
 </html>
