@@ -1,0 +1,25 @@
+body {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.checkbox-inline {
+    margin-right:10px;
+}
+
+#box1, #box2 {
+    margin-right: 5px;
+}
+
+.col-sm-7 {
+    padding-bottom: 20px;
+}
+
+.card {
+    margin-top: 10px;
+}
+
+.card-header {
+    text-transform: uppercase;
+    font-weight: bold;
+}
