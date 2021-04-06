@@ -164,13 +164,19 @@
                 class="btn btn-toggle btn-outline-light mb-2"
                 style="width: 100%"
                 id="btn${value.category}"
-                  onclick="localStorage.setItem('Knapp', JSON.stringify(${value.id})); location.href='/Website/testofProductView.html';;highlightButton(this.id);"
+                  onclick="localStorage.setItem('Knapp', JSON.stringify(${value.id})); highlightButton(this.id); location.href='/Website/testofProductView.html';"
                 >
                 ${value.category}
                 </button>
               `;
         });
         document.getElementById("viewCategories").innerHTML = output;
+
+        let enKnapp = JSON.parse(localStorage.getItem("Knappen"));
+        if (enKnapp != null) {
+          document.getElementById(enKnapp).style.backgroundColor = "#ADC178";
+          localStorage.removeItem("Knappen");
+        }
       });
 
       function hideShowMyPages() {
@@ -194,7 +200,7 @@
       }
 
       function highlightButton(clicked_btn) {
-        document.getElementById(clicked_btn).style.backgroundColor = "#ADC178";
+        localStorage.setItem("Knappen", JSON.stringify(clicked_btn));
       }
     </script>
   </body>
