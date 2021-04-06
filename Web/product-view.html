@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <title>Produktvy</title>
+</head>
+<body>
+    <ul>
+    <div id="card"></div>
+</ul>
+    <script>
+      
+ $.getJSON('products1.json',function(value)
+            {$.each(value, function(key, value){
+                document.getElementById("card").innerHTML += `
+                <li>
+                  <b> ${value.name}</b><br>
+                  <img src="https://raw.githubusercontent.com/JesperJansson86/WebshopHakimsLivs/S01-4/Testdata/img/${value.image}" width="7%"><br>
+                  ${value.description}<br>
+                 Pris: ${value.price}<br>
+                 Jämför Pris: ${Math.round(value.price/value.size*1000)}/${value.unitId}<br>
+                 Lagerstatus: ${Math.round(Math.random()*10)}<br><br>
+</li>
+                  ` })})
+                  
+            
+    </script>
+</body>
+</html>
