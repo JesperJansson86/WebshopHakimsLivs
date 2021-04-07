@@ -10,12 +10,12 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
+    <title>Startsida</title>
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
       crossorigin="anonymous"
     ></script>
-    <title>HakimLivs</title>
   </head>
   <body class="container-fluid">
     <div class="row">
@@ -29,50 +29,46 @@
         <!-- Sidomenyn -->
         <div id="sidebar"></div>
       </div>
-      <!-- Main -->
       <div class="col">
+        <!-- Main -->
         <div
           class="p-3 overflow-auto"
           style="background-color: rgb(197, 221, 197)"
         >
-          <h2 style="color: rgb(3, 78, 3)" id="titleOfPage">Välkommen!</h2>
-          <p>Visar 6 produkter random med id 1-13</p>
+          <h2 style="color: rgb(3, 78, 3)" id="titleOfPage">Alla produkter</h2>
           <div id="contentOfPage">
             <div class="row mt-5" id="card"></div>
           </div>
         </div>
       </div>
     </div>
+
     <div class="row">
       <div class="col px-0">
         <!-- footer/ information-->
         <footer></footer>
       </div>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-      crossorigin="anonymous"
-    ></script>
-    <script src="../javascript/barsStandard.js"></script>
-
     <script>
       let getFromLS = JSON.parse(localStorage.getItem("Knapp"));
-      var randomNumbers = [
-        Math.round(Math.random() * 13) + 1,
-        Math.round(Math.random() * 13) + 1,
-        Math.round(Math.random() * 13) + 1,
-        Math.round(Math.random() * 13) + 1,
-        Math.round(Math.random() * 13) + 1,
-        Math.round(Math.random() * 13) + 1,
-      ];
-      var i;
-      console.log(randomNumbers);
+      if (getFromLS === null) {
+        document.getElementById("titleOfPage").innerHTML = "Alla produkter";
+      } else {
+        $.getJSON("../json/categories.json", function (data) {
+          $.each(data, function (key, value) {
+            if (value.id == getFromLS) {
+              document.getElementById("titleOfPage").innerHTML = value.category;
+            }
+          });
+        });
+
+        localStorage.removeItem("Knapp");
+      }
+
       $.getJSON("../json/products1.json", function (value) {
         $.each(value, function (key, value) {
-          for (i = 0; i < randomNumbers.length; i++) {
-            if (value.id === randomNumbers[i]) {
-              document.getElementById("card").innerHTML += `
+          if (value.categoryId == getFromLS || getFromLS === null) {
+            document.getElementById("card").innerHTML += `
                        
                        <div class="col-4">
                   <div
@@ -109,10 +105,16 @@
                   </div>
                 </div>
                          `;
-            }
           }
         });
       });
     </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../javascript/barsStandard.js"></script>
   </body>
 </html>
