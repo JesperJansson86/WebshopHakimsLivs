@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,38 +17,49 @@
       crossorigin="anonymous"
     ></script>
   </head>
+
   <body class="container-fluid">
+
+    <!-- Header/ huvudmenyn -->
     <div class="row">
       <div class="col px-0">
-        <!-- Header/ huvudmenyn -->
         <header></header>
       </div>
     </div>
+    <!-- ./ header -->
+
+    <!-- Sidomenyn -->
     <div class="row px-5">
       <div class="col-3">
-        <!-- Sidomenyn -->
         <div id="sidebar"></div>
       </div>
+      <!-- ./ sidomeny -->
+
+      <!-- Main -->
       <div class="col">
-        <!-- Main -->
-        <div
-          class="p-3 overflow-auto"
-          style="background-color: rgb(197, 221, 197)"
-        >
-          <h2 style="color: rgb(3, 78, 3)" id="titleOfPage">Alla produkter</h2>
-          <div id="contentOfPage">
-            <div class="row mt-5" id="card"></div>
-          </div>
+        
+        <div class="p-3 overflow-auto" style="background-color: rgb(197, 221, 197)">
+          <div class="container">
+        
+          <h1 style="color: rgb(3, 78, 3)" id="titleOfPage">Alla produkter</h2>
+          
+            <div id="contentOfPage">
+              <div class="row mt-5" id="card"></div>
+            </div>
+
         </div>
-      </div>
+        </div>
+      </div> <!-- ./ main -->
     </div>
 
+    <!-- footer/ information-->
     <div class="row">
       <div class="col px-0">
-        <!-- footer/ information-->
         <footer></footer>
       </div>
-    </div>
+    </div> 
+    <!-- ./ footer/ information-->
+
     <script>
       let getFromLS = JSON.parse(localStorage.getItem("Knapp"));
       if (getFromLS === null) {
@@ -69,41 +80,31 @@
         $.each(value, function (key, value) {
           if (value.categoryId == getFromLS || getFromLS === null) {
             document.getElementById("card").innerHTML += `
-                       
-                       <div class="col-4">
-                  <div
-                    class="card text-dark border-success bg-light mb-3"
-                    style="max-width: 18rem"
-                  >
-                    <div class="card-header">
-                        <h5 class="card-title">${value.name}</h5>
+            <div class="col-md-6 col-lg-4">
+              <div class="card text-dark border-success bg-light mb-3">
+                      
+                <div class="card-body">
+                  <h5 class="card-title">${value.name}</h5>
 
-                    </div>
-                    <div class="card-body">
-                        <img src="https://raw.githubusercontent.com/JesperJansson86/WebshopHakimsLivs/S01-4/Testdata/img/${
-                          value.image
-                        }" width="50%"><br>
+                  <img src="https://raw.githubusercontent.com/JesperJansson86/WebshopHakimsLivs/S01-4/Testdata/img/${value.image}" class="img-fluid">
 
-                      <p class="card-text">
-                        ${value.description}
-                      </p>
-                    </div>
-                    <div class="card-footer text-end">
-                      <p class="mb-1" style="font-weight: 500">LAGERSTATUS: ${Math.round(
-                        Math.random() * 10
-                      )}</p>
-                      <p class="mb-2" style="font-weight: bold">Pris: ${
-                        value.price
-                      } kr</p>
-                      <p class="mb-2" style="font-weight: bold">Jämför pris: ${Math.round(
-                        (value.price / value.size) * 1000
-                      )}/${value.unitId} kr</p>
-                      <button class="btn btn-success disabled" style="width: 100%">
-                        Köp
-                      </button>
-                    </div>
+                  <p class="card-text">${value.description}</p>
+                </div>
+                    
+
+                <div class="card-body text-end">
+                  <p>Pris: ${value.price} kr</p>
+                  
+                  <p class="my-1"><small class="text-muted">Jmfrpris: ${Math.round((value.price/value.size) * 1000)}/${value.unitId} kr</small></p>
+                  <p><small class="text-muted">Lagerstatus: ${Math.round(Math.random() * 10)}</small></p>
+                
+                  <div class="d-grid gap-2">
+                  <a href="#" class="btn btn-primary">Köp</a>
                   </div>
                 </div>
+
+              </div>
+            </div>
                          `;
           }
         });
