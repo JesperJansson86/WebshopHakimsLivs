@@ -30,7 +30,9 @@
     >
       <p>
         Mina sidor ska enbart synas när du är inloggad.<br />
-        Admin ska enbart synas när admin är inloggad.
+        Admin ska enbart synas när admin är inloggad.<br /><br />
+        OBS om de känns buggigt mellan Mina sidor och Admin. Kom ihåg att dessa
+        inte kommer visas samtidigt
       </p>
       <ul class="list-unstyled">
         <li>
@@ -151,7 +153,7 @@
                 <button
                 class="btn btn-toggle btn-outline-light mb-2"
             style="width: 100%"
-            id="allProducts"
+            id="btnAllProducts"
                   onclick="location.href='/Website/testofProductView.html'; highlightButton(this.id);"
                 >
                   Alla produkter
@@ -182,14 +184,20 @@
         var myPages = document.getElementById("myPages-collapse");
         if (OpenMyPages === true) {
           myPages.style.display = "block";
-          localStorage.setItem("MyPagesOpen", JSON.stringify(false));
+          if (enKnapp.substring(0, 3) === "btn"){
+            myPages.style.display = "none";
+            localStorage.setItem("MyPagesOpen", JSON.stringify(false));
+          } 
         }
 
         let OpenAdmin = JSON.parse(localStorage.getItem("AdminOpen"));
         var admin = document.getElementById("admin-collapse");
         if (OpenAdmin === true) {
           admin.style.display = "block";
-          localStorage.setItem("AdminOpen", JSON.stringify(false));
+          if (enKnapp.substring(0, 3) === "btn"){
+            admin.style.display = "none";
+            localStorage.setItem("AdminOpen", JSON.stringify(false));
+          } 
         }
       });
 
