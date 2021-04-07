@@ -27,11 +27,11 @@
 <div id="homeDelivery">
     Hemleverans!<br>
     <form id="homeDeliveryForm" onsubmit="submitDelivery()">
-        <input type="text" name="deliveryName" id="deliveryName" placeholder="Ditt Namn" required
-               pattern="[a-z A-ZåöäÅÖÄ{2-30}]"><br>
+        <input type="text" name="deliveryName" id="deliveryName" placeholder="Ditt Namn"
+               pattern="[a-zA-ZåöäÅÖÄ]{2,30}"><br>
         <input type="text" name="deliveryPhone" id="deliveryPhone" placeholder="Ditt telefonnummer"
-               pattern="[0-9{5,20}]"><br>
-        <input type="text" name="deliveryAdress" id="deliveryAdress" placeholder="Din Adress" required> <br>
+               pattern="[0-9]{5,20}"><br>
+        <input type="text" name="deliveryAdress" id="deliveryAdress" placeholder="Din Adress" > <br>
         <input type="submit" name="deliverySubmit" id="deliverySubmit" value="Beställ!">
     </form>
 </div>
