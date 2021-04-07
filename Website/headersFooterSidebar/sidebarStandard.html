@@ -177,6 +177,20 @@
           document.getElementById(enKnapp).style.backgroundColor = "#ADC178";
           localStorage.removeItem("Knappen");
         }
+
+        let OpenMyPages = JSON.parse(localStorage.getItem("MyPagesOpen"));
+        var myPages = document.getElementById("myPages-collapse");
+        if (OpenMyPages === true) {
+          myPages.style.display = "block";
+          localStorage.setItem("MyPagesOpen", JSON.stringify(false));
+        }
+
+        let OpenAdmin = JSON.parse(localStorage.getItem("AdminOpen"));
+        var admin = document.getElementById("admin-collapse");
+        if (OpenAdmin === true) {
+          admin.style.display = "block";
+          localStorage.setItem("AdminOpen", JSON.stringify(false));
+        }
       });
 
       function hideShowMyPages() {
@@ -184,8 +198,10 @@
 
         if (myPages.style.display === "block") {
           myPages.style.display = "none";
+          localStorage.setItem("MyPagesOpen", JSON.stringify(false));
         } else {
           myPages.style.display = "block";
+          localStorage.setItem("MyPagesOpen", JSON.stringify(true));
         }
       }
 
@@ -194,8 +210,10 @@
 
         if (admin.style.display === "block") {
           admin.style.display = "none";
+          localStorage.setItem("AdminOpen", JSON.stringify(false));
         } else {
           admin.style.display = "block";
+          localStorage.setItem("AdminOpen", JSON.stringify(true));
         }
       }
 
