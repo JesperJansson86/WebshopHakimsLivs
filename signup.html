@@ -55,7 +55,7 @@
                   <input
                     class="form-control"
                     type="email"
-                    placeholder="Enter Username"
+                    placeholder="Epost"
                     id="email"
                     name="email"
                     required
@@ -90,9 +90,8 @@
                   Lösenordet behöver vara mellan 6-40 tecken, innehålla 1
                   special tecken, 1 stor bokstav och 1 siffra.
                 </small>
-                <!-- Korrigera input/ felhantering -->
                 <div class="col-12 mb-3 mt-3">
-                  <label for="phone" style="font-weight: 500">Förnamn</label>
+                  <label for="firstName" style="font-weight: 500">Förnamn</label>
                   <input
                     class="form-control"
                     type="text"
@@ -103,10 +102,9 @@
                     style="width: 40%"
                   />
                 </div>
-                <!-- Korrigera input/ felhantering -->
 
                 <div class="col-12 mb-3">
-                  <label for="phone" style="font-weight: 500">Efternamn</label>
+                  <label for="lastName" style="font-weight: 500">Efternamn</label>
                   <input
                     class="form-control"
                     type="text"
@@ -128,7 +126,7 @@
                     onkeyup="this.value=this.value.replace(/[^\d]/,'')"
                     pattern="[0-9]*"
                     inputmode="numeric"
-                    placeholder="telefonnummer"
+                    placeholder="Telefonnummer"
                     id="phone"
                     name="phone"
                     required
