@@ -18,46 +18,39 @@
     <title>HakimLivs</title>
   </head>
 
-  <body class="container-fluid">
-
+  <body style="background-color: rgb(197, 221, 197)">
     <!-- Header/ huvudmenyn -->
-    <div class="row">
-      <div class="col px-0">
-        <header></header>
+
+      <div class="row">
+        <header class="col px-0"></header>
       </div>
-    </div>
-    <!-- ./ header -->
 
-    <!-- Sidomenyn -->
-    <div class="row px-5">
-      <div class="col-3">
-        <div id="sidebar"></div>
-      </div>
-      <!-- ./ sidomeny -->
+      <!-- ./ header -->
 
-      <!-- Main -->
-      <div class="col">
-        
-        <div class="p-3 overflow-auto" style="background-color: rgb(197, 221, 197)">
-          <div class="container">
+      <!-- Sidomenyn -->
+      <div class="container" >
+        <div class="row">
+          <div class="col-md-3" id="sidebar"></div>
+          <!-- ./ sidomeny -->
 
-          <h1 style="color: rgb(3, 78, 3)" id="titleOfPage">Välkommen!</h1>
-          <p>Visar 6 produkter random med id 1-13</p>
-          <div id="contentOfPage">
-            <div class="row mt-5" id="card"></div>
+          <!-- Main -->
+          <div class="col-md-9">
+            <h1 style="color: rgb(3, 78, 3)" id="titleOfPage">Välkommen!</h1>
+            <p>Visar 6 produkter random med id 1-13</p>
+
+            <div id="contentOfPage">
+              <div class="row mt-5" id="card"></div>
+            </div>
           </div>
-
         </div>
       </div>
-    </div> <!-- ./ main -->
-  </div>
+    </div>
+    <!-- ./ main -->
 
     <!-- footer/ information-->
     <div class="row">
-      <div class="col px-0">
-        <footer></footer>
-      </div>
-    </div> 
+      <footer class="col"></footer>
+    </div>
     <!-- ./ footer/ information-->
 
     <script
@@ -81,7 +74,7 @@
       console.log(randomNumbers);
       $.getJSON("/Website/json/products1.json", function (value) {
         $.each(value, function (key, value) {
-          for (i = 0; i < randomNumbers.length+1; i++) {
+          for (i = 0; i < randomNumbers.length + 1; i++) {
             if (value.id === randomNumbers[i]) {
               document.getElementById("card").innerHTML += `
             <div class="col-md-6 col-lg-4">
@@ -90,7 +83,9 @@
                 <div class="card-body">
                   <h5 class="card-title">${value.name}</h5>
 
-                  <img src="https://raw.githubusercontent.com/JesperJansson86/WebshopHakimsLivs/S01-4/Testdata/img/${value.image}" class="img-fluid">
+                  <img src="https://raw.githubusercontent.com/JesperJansson86/WebshopHakimsLivs/S01-4/Testdata/img/${
+                    value.image
+                  }" class="img-fluid">
 
                   <p class="card-text">${value.description}</p>
                 </div>
@@ -99,8 +94,12 @@
                 <div class="card-body text-end">
                   <p>Pris: ${value.price} kr</p>
                   
-                  <p class="my-1"><small class="text-muted">Jmfrpris: ${Math.round((value.price/value.size) * 1000)}/${value.unitId} kr</small></p>
-                  <p><small class="text-muted">Lagerstatus: ${Math.round(Math.random() * 10)}</small></p>
+                  <p class="my-1"><small class="text-muted">Jmfrpris: ${Math.round(
+                    (value.price / value.size) * 1000
+                  )}/${value.unitId} kr</small></p>
+                  <p><small class="text-muted">Lagerstatus: ${Math.round(
+                    Math.random() * 10
+                  )}</small></p>
                 
                   <div class="d-grid gap-2">
                   <a href="#" class="btn btn-primary">Köp</a>
