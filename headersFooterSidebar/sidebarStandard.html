@@ -28,11 +28,15 @@
       class="p-3 overflow-auto sidebar"
       style="background-color: rgb(78, 131, 78)"
     >
+      <!-- denna information ska tas bort senare -->
       <p>
         Mina sidor ska enbart synas när du är inloggad.<br />
-        Admin ska enbart synas när admin är inloggad.
+        Admin ska enbart synas när admin är inloggad.<br /><br />
+        OBS om de känns buggigt mellan Mina sidor och Admin. Kom ihåg att dessa
+        inte kommer visas samtidigt
       </p>
       <ul class="list-unstyled">
+<<<<<<< HEAD:headersFooterSidebar/sidebarStandard.html
         <li class="mb-2">
           <button
             class="btn btn-outline-light"
@@ -62,12 +66,17 @@
           >
             Kontakt
           </button>
+=======
+        <li>
+          <div id="viewCategories"></div>
+>>>>>>> d4320a8280118bf45d9b2bd3bb2169b8fb45bb7e:Website/headersFooterSidebar/sidebarStandard.html
         </li>
+        <hr style="height: 3px" />
         <li class="mb-2">
           <button
             class="btn btn-outline-light"
             style="width: 100%"
-            onclick="hideShowMyPages()"
+            onclick="hideShowMyPages();"
           >
             Mina Sidor
           </button>
@@ -77,7 +86,12 @@
                 <button
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
+<<<<<<< HEAD:headersFooterSidebar/sidebarStandard.html
                   onclick="location.href='../minaSidor/myOrders.html'"
+=======
+                  id="myOrders"
+                  onclick="location.href='/Website/minaSidor/myOrders.html'; highlightButton(this.id);"
+>>>>>>> d4320a8280118bf45d9b2bd3bb2169b8fb45bb7e:Website/headersFooterSidebar/sidebarStandard.html
                 >
                   Mina beställningar
                 </button>
@@ -86,7 +100,12 @@
                 <button
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
+<<<<<<< HEAD:headersFooterSidebar/sidebarStandard.html
                   onclick="location.href='../minaSidor/myInfo.html'"
+=======
+                  id="myInfo"
+                  onclick="location.href='/Website/minaSidor/myInfo.html'; highlightButton(this.id);"
+>>>>>>> d4320a8280118bf45d9b2bd3bb2169b8fb45bb7e:Website/headersFooterSidebar/sidebarStandard.html
                 >
                   Mina uppgifter
                 </button>
@@ -95,7 +114,12 @@
                 <button
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
+<<<<<<< HEAD:headersFooterSidebar/sidebarStandard.html
                   onclick="location.href='../minaSidor/myOffers.html'"
+=======
+                  id="myOffers"
+                  onclick="location.href='/Website/minaSidor/myOffers.html'; highlightButton(this.id);"
+>>>>>>> d4320a8280118bf45d9b2bd3bb2169b8fb45bb7e:Website/headersFooterSidebar/sidebarStandard.html
                 >
                   Mina erbjudanden
                 </button>
@@ -117,7 +141,12 @@
                 <button
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
+<<<<<<< HEAD:headersFooterSidebar/sidebarStandard.html
                   onclick="location.href='../admin/admin.html'"
+=======
+                  id="admin"
+                  onclick="location.href='/Website/admin/admin.html'; highlightButton(this.id);"
+>>>>>>> d4320a8280118bf45d9b2bd3bb2169b8fb45bb7e:Website/headersFooterSidebar/sidebarStandard.html
                 >
                   Admin
                 </button>
@@ -126,7 +155,12 @@
                 <button
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
+<<<<<<< HEAD:headersFooterSidebar/sidebarStandard.html
                   onclick="location.href='../admin/customers.html'"
+=======
+                  id="AdminCustomers"
+                  onclick="location.href='/Website/admin/customers.html'; highlightButton(this.id);"
+>>>>>>> d4320a8280118bf45d9b2bd3bb2169b8fb45bb7e:Website/headersFooterSidebar/sidebarStandard.html
                 >
                   Kundregister
                 </button>
@@ -135,7 +169,12 @@
                 <button
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
+<<<<<<< HEAD:headersFooterSidebar/sidebarStandard.html
                   onclick="location.href='../admin/products.html'"
+=======
+                  id="AdminProducts"
+                  onclick="location.href='/Website/admin/products.html'; highlightButton(this.id);"
+>>>>>>> d4320a8280118bf45d9b2bd3bb2169b8fb45bb7e:Website/headersFooterSidebar/sidebarStandard.html
                 >
                   Produktregister
                 </button>
@@ -144,7 +183,12 @@
                 <button
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
+<<<<<<< HEAD:headersFooterSidebar/sidebarStandard.html
                   onclick="location.href='../admin/campaign.html'"
+=======
+                  id="AdminCampain"
+                  onclick="location.href='/Website/admin/campaign.html'; highlightButton(this.id);"
+>>>>>>> d4320a8280118bf45d9b2bd3bb2169b8fb45bb7e:Website/headersFooterSidebar/sidebarStandard.html
                 >
                   Kampanjhantering
                 </button>
@@ -153,7 +197,12 @@
                 <button
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
+<<<<<<< HEAD:headersFooterSidebar/sidebarStandard.html
                   onclick="location.href='../admin/storeInfo.html'"
+=======
+                  id="AdminStoreInfo"
+                  onclick="location.href='/Website/admin/storeInfo.html'; highlightButton(this.id);"
+>>>>>>> d4320a8280118bf45d9b2bd3bb2169b8fb45bb7e:Website/headersFooterSidebar/sidebarStandard.html
                 >
                   Butiksinformation
                 </button>
@@ -165,8 +214,12 @@
     </div>
 
     <script>
-      let output = `<li class="mb-1">
+      /**
+       * Lägger till knappar för kategorierna som finns i json fil.
+       * */
+      let output = `
                 <button
+<<<<<<< HEAD:headersFooterSidebar/sidebarStandard.html
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
                   onclick="location.href='../testofProductView.html'"
@@ -175,78 +228,107 @@
                 </button>
               </li>`;
       $.getJSON("../json/categories.json", function (data) {
+=======
+                class="btn btn-toggle btn-outline-light mb-2"
+            style="width: 100%"
+            id="btnAllProducts"
+                  onclick="location.href='/Website/testofProductView.html'; highlightButton(this.id);"
+                >
+                  Alla produkter
+                </button>
+              `;
+      $.getJSON("/Website/json/categories.json", function (data) {
+>>>>>>> d4320a8280118bf45d9b2bd3bb2169b8fb45bb7e:Website/headersFooterSidebar/sidebarStandard.html
         $.each(data, function (key, value) {
-          output += `<li class="mb-1">
+          output += `
                 <button
+<<<<<<< HEAD:headersFooterSidebar/sidebarStandard.html
                   class="btn btn-outline-light btn-sm"
                   style="width: 100%"
                   onclick="localStorage.setItem('Knapp', JSON.stringify(${value.id})); location.href='../testofProductView.html'"
+=======
+                class="btn btn-toggle btn-outline-light mb-2"
+                style="width: 100%"
+                id="btn${value.category}"
+                  onclick="localStorage.setItem('Knapp', JSON.stringify(${value.id})); highlightButton(this.id); location.href='/Website/testofProductView.html';"
+>>>>>>> d4320a8280118bf45d9b2bd3bb2169b8fb45bb7e:Website/headersFooterSidebar/sidebarStandard.html
                 >
                 ${value.category}
                 </button>
-              </li>`;
+              `;
         });
         document.getElementById("viewCategories").innerHTML = output;
+
+        /**
+         * Om man klickar på en knapp som finns i sidomenyn ska denna byta bakgrundsfärg för att markera att det är den sidan man är på
+         * */
+        let enKnapp = JSON.parse(localStorage.getItem("Knappen"));
+        if (enKnapp != null) {
+          document.getElementById(enKnapp).style.backgroundColor = "#ADC178";
+          localStorage.removeItem("Knappen");
+        }
+        /**
+         * Om man klickar på "mina sidor" i menyn så ska denna vara öppen/ tooglad tills man klickar på en av kategorierna
+         * */
+        let OpenMyPages = JSON.parse(localStorage.getItem("MyPagesOpen"));
+        var myPages = document.getElementById("myPages-collapse");
+        if (OpenMyPages === true) {
+          myPages.style.display = "block";
+          if (enKnapp.substring(0, 3) === "btn") {
+            myPages.style.display = "none";
+            localStorage.setItem("MyPagesOpen", JSON.stringify(false));
+          }
+        }
+        /*
+        Samma som ovan men för adminfältet.
+        */
+        let OpenAdmin = JSON.parse(localStorage.getItem("AdminOpen"));
+        var admin = document.getElementById("admin-collapse");
+        if (OpenAdmin === true) {
+          admin.style.display = "block";
+          if (enKnapp.substring(0, 3) === "btn") {
+            admin.style.display = "none";
+            localStorage.setItem("AdminOpen", JSON.stringify(false));
+          }
+        }
       });
 
-      function hideShowProducts() {
-        var products = document.getElementById("product-collapse");
-        var myPages = document.getElementById("myPages-collapse");
-        var admin = document.getElementById("admin-collapse");
-
-        if (
-          myPages.style.display === "block" ||
-          admin.style.display === "block"
-        ) {
-          myPages.style.display = "none";
-          admin.style.display = "none";
-        }
-
-        if (products.style.display === "block") {
-          products.style.display = "none";
-        } else {
-          products.style.display = "block";
-        }
-      }
-
+      /*
+      Om man klickar på "mina Sidor" om denna inte är togglad så ska den öppna sig, annars stänga sig. Sparar även till LS om knappen är öppen eller inte
+      */
       function hideShowMyPages() {
-        var products = document.getElementById("product-collapse");
         var myPages = document.getElementById("myPages-collapse");
-        var admin = document.getElementById("admin-collapse");
-
-        if (
-          products.style.display === "block" ||
-          admin.style.display === "block"
-        ) {
-          products.style.display = "none";
-          admin.style.display = "none";
-        }
 
         if (myPages.style.display === "block") {
           myPages.style.display = "none";
+          localStorage.setItem("MyPagesOpen", JSON.stringify(false));
         } else {
           myPages.style.display = "block";
+          localStorage.setItem("MyPagesOpen", JSON.stringify(true));
         }
       }
 
+      /**
+       * Samma som ovan bara för adminfältet
+       *
+       * */
       function hideShowAdmin() {
-        var products = document.getElementById("product-collapse");
-        var myPages = document.getElementById("myPages-collapse");
         var admin = document.getElementById("admin-collapse");
-
-        if (
-          myPages.style.display === "block" ||
-          products.style.display === "block"
-        ) {
-          myPages.style.display = "none";
-          products.style.display = "none";
-        }
 
         if (admin.style.display === "block") {
           admin.style.display = "none";
+          localStorage.setItem("AdminOpen", JSON.stringify(false));
         } else {
           admin.style.display = "block";
+          localStorage.setItem("AdminOpen", JSON.stringify(true));
         }
+      }
+
+      /**
+       * När man klickar på en knapp så sparas dennes id till LS
+       * */
+      function highlightButton(clicked_btn) {
+        localStorage.setItem("Knappen", JSON.stringify(clicked_btn));
       }
     </script>
   </body>

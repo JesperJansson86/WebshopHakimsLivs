@@ -1,3 +1,6 @@
+/**
+ * Hämtar header, footer och sidobar till sidorna som ska ha denna som standard.
+ */
 
 fetch("../headersFooterSidebar/headerStandard.html")
   .then((response) => {
@@ -23,6 +26,9 @@ fetch("../headersFooterSidebar/sidebarStandard.html")
     const app = document.getElementById("sidebar");
     app.innerHTML = data;
 
+    /**
+     * För att scripten som finns i sidobaren ska köras behövs nedanstående kod.
+     */
     var scripts = app.querySelectorAll("script");
 
     if (scripts !== null && scripts.length > 0) {
@@ -39,12 +45,8 @@ fetch("../headersFooterSidebar/sidebarStandard.html")
             newScript.src = scripts[index].src;
           }
           scripts[index].parentNode.removeChild(scripts[index]);
-          newScript.addEventListener("load", (event) =>
-            loadScript(index + 1)
-          );
-          newScript.addEventListener("error", (event) =>
-            loadScript(index + 1)
-          );
+          newScript.addEventListener("load", (event) => loadScript(index + 1));
+          newScript.addEventListener("error", (event) => loadScript(index + 1));
           app.appendChild(newScript);
         }
       };
