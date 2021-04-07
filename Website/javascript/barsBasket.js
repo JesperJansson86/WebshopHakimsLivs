@@ -1,3 +1,7 @@
+/**
+ * Hämtar header, footer och sidobar till sidorna som handlar om varukorgen.
+ */
+
 fetch("/Website/headersFooterSidebar/headerBasket.html")
   .then((response) => {
     return response.text();
