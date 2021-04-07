@@ -17,38 +17,42 @@
     ></script>
     <title>HakimLivs</title>
   </head>
-  <body class="container-fluid">
-    <div class="row">
-      <div class="col px-0">
-        <!-- Header/ huvudmenyn -->
-        <header></header>
+
+  <body style="background-color: rgb(197, 221, 197)">
+    <!-- Header/ huvudmenyn -->
+
+      <div class="row">
+        <header class="col px-0"></header>
       </div>
-    </div>
-    <div class="row px-5">
-      <div class="col-3">
-        <!-- Sidomenyn -->
-        <div id="sidebar"></div>
-      </div>
-      <!-- Main -->
-      <div class="col">
-        <div
-          class="p-3 overflow-auto"
-          style="background-color: rgb(197, 221, 197)"
-        >
-          <h2 style="color: rgb(3, 78, 3)" id="titleOfPage">Välkommen!</h2>
-          <p>Visar 6 produkter random med id 1-13</p>
-          <div id="contentOfPage">
-            <div class="row mt-5" id="card"></div>
+
+      <!-- ./ header -->
+
+      <!-- Sidomenyn -->
+      <div class="container" >
+        <div class="row">
+          <div class="col-md-3" id="sidebar"></div>
+          <!-- ./ sidomeny -->
+
+          <!-- Main -->
+          <div class="col-md-9">
+            <h1 style="color: rgb(3, 78, 3)" id="titleOfPage">Välkommen!</h1>
+            <p>Visar 6 produkter random med id 1-13</p>
+
+            <div id="contentOfPage">
+              <div class="row mt-5" id="card"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- ./ main -->
+
+    <!-- footer/ information-->
     <div class="row">
-      <div class="col px-0">
-        <!-- footer/ information-->
-        <footer></footer>
-      </div>
+      <footer class="col"></footer>
     </div>
+    <!-- ./ footer/ information-->
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
@@ -73,44 +77,40 @@
       console.log(randomNumbers);
       $.getJSON("/Website/json/products1.json", function (value) {
         $.each(value, function (key, value) {
-          for (i = 0; i < randomNumbers.length; i++) {
+          for (i = 0; i < randomNumbers.length + 1; i++) {
             if (value.id === randomNumbers[i]) {
               document.getElementById("card").innerHTML += `
-                       
-                       <div class="col-4">
-                  <div
-                    class="card text-dark border-success bg-light mb-3"
-                    style="max-width: 18rem"
-                  >
-                    <div class="card-header">
-                        <h5 class="card-title">${value.name}</h5>
+            <div class="col-md-6 col-lg-4">
+              <div class="card text-dark border-success bg-light mb-3">
+                      
+                <div class="card-body">
+                  <h5 class="card-title">${value.name}</h5>
 
-                    </div>
-                    <div class="card-body">
-                        <img src="https://raw.githubusercontent.com/JesperJansson86/WebshopHakimsLivs/S01-4/Testdata/img/${
-                          value.image
-                        }" width="50%"><br>
+                  <img src="https://raw.githubusercontent.com/JesperJansson86/WebshopHakimsLivs/S01-4/Testdata/img/${
+                    value.image
+                  }" class="img-fluid">
 
-                      <p class="card-text">
-                        ${value.description}
-                      </p>
-                    </div>
-                    <div class="card-footer text-end">
-                      <p class="mb-1" style="font-weight: 500">LAGERSTATUS: ${Math.round(
-                        Math.random() * 10
-                      )}</p>
-                      <p class="mb-2" style="font-weight: bold">Pris: ${
-                        value.price
-                      } kr</p>
-                      <p class="mb-2" style="font-weight: bold">Jämför pris: ${Math.round(
-                        (value.price / value.size) * 1000
-                      )}/${value.unitId} kr</p>
-                      <button class="btn btn-success disabled" style="width: 100%">
-                        Köp
-                      </button>
-                    </div>
+                  <p class="card-text">${value.description}</p>
+                </div>
+                    
+
+                <div class="card-body text-end">
+                  <p>Pris: ${value.price} kr</p>
+                  
+                  <p class="my-1"><small class="text-muted">Jmfrpris: ${Math.round(
+                    (value.price / value.size) * 1000
+                  )}/${value.unitId} kr</small></p>
+                  <p><small class="text-muted">Lagerstatus: ${Math.round(
+                    Math.random() * 10
+                  )}</small></p>
+                
+                  <div class="d-grid gap-2">
+                  <a href="#" class="btn btn-primary">Köp</a>
                   </div>
                 </div>
+
+              </div>
+            </div>
                          `;
             }
           }

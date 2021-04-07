@@ -1,0 +1,15 @@
+[
+    {
+    "customerName":"Herr kund",
+    "orderList":[
+                    {"product":"Ballerina1", 
+                    "price":"123"
+                    },
+                    
+                    {"product":"Ballerina2"  ,
+                    "price":"126"
+                    }
+        
+        ]
+    }
+]

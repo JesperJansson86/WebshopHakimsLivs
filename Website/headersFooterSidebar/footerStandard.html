@@ -10,61 +10,49 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style.css" />
     <title>Startsida</title>
   </head>
-  <body class="container">
+  <body>
     <!-- footer/ information-->
-    <footer>
-      <nav
-        class="navbar navbar-expand-lg navbar-light"
-        style="background-color: #a5f5b2; height: 200px"
-      >
-        <div class="container-fluid">
-          <ul class="navbar-nav">
-            <div class="row gap-5">
-              <div class="col-3">
-                <a class="navbar-brand" href="/Website/index.html">
-                  <h1 h1 style="color: green">HakimLivs</h1>
-                </a>
-              </div>
-              <div class="col">
-                <li class="nav-item">
-                  <span class="navbar-text"> PLATS FÖR EN SLOGAN?<br /> </span>
-                  <button
-                    class="btn btn-outline-success"
-                    onclick="location.href='/Website/sidebarPages/about.html'"
-                  >
-                    Om oss
-                  </button>
-                </li>
-              </div>
-              <div class="col">
-                <li class="nav-item">
-                  <span class="navbar-text">
-                    BUTIKENS ADDRESS <br />
-                    ORT + POSTNUMMER</span
-                  >
-                  <button
-                    class="btn btn-outline-success"
-                    onclick="location.href='/Website/sidebarPages/contact.html'"
-                  >
-                    Kontakta oss
-                  </button>
-                </li>
-              </div>
-              <div class="col">
-                <li class="nav-item">
-                  <span class="navbar-text">
-                    BUTIKENS ÖPPETTIDER <br />
-                    MÅNDAG - FREDAG <br />
-                    LÖRDAG - SÖNDAG
-                  </span>
-                </li>
-              </div>
-            </div>
-          </ul>
+    <footer style="background-color: #a5f5b2">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-3">
+            <a class="navbar-brand" href="/index.html">
+              <h1 style="color: green">HakimLivs</h1>
+            </a>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <p class="navbar-text">
+              PLATS FÖR EN SLOGAN?<br />
+              Den kan till och med vara på fler rader
+            </p>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <p class="navbar-text">
+              BUTIKENS ADDRESS <br />
+              ORT + POSTNUMMER
+            </p>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <p class="navbar-text">
+              BUTIKENS ÖPPETTIDER <br />
+              MÅNDAG - FREDAG <br />
+              LÖRDAG - SÖNDAG
+            </p>
+
+            <a
+              class="btn btn-outline-success my-2"
+              onclick="location.href='/Website/sidebarPages/contact.html'"
+            >
+              Kontakta oss
+            </a>
+          </div>
         </div>
-      </nav>
+      </div>
     </footer>
 
     <script
