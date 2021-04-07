@@ -57,6 +57,9 @@
     <script src="/Website/javascript/barsStandard.js"></script>
 
     <script>
+      /**
+       * Slumpar fram 6st produkter av de som har id 1-13 i Json fil
+       * */
       let getFromLS = JSON.parse(localStorage.getItem("Knapp"));
       var randomNumbers = [
         Math.round(Math.random() * 13) + 1,
