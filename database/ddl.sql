@@ -73,12 +73,12 @@ create table customer
 (
     id            int          not null auto_increment primary key,
     name          varchar(100) not null,
+    address_id    int,
     email         varchar(100) not null,
+    phone         varchar(15),
     password      varchar(500),
     loyalcustomer boolean default 0,
-    phone         varchar(15),
     adminstatus   boolean default 0,
-    address_id    int,
     foreign key (address_id) references address (id)
 );
 
@@ -106,7 +106,8 @@ create table image
 (
     id         int not null auto_increment primary key,
     image      varchar(150),
-    product_id int not null foreign key references product(id)
+    product_id int not null,
+    foreign key (product_id) references product(id)
 );
 
 create table store
@@ -114,8 +115,9 @@ create table store
     id         int not null auto_increment primary key,
     phone      varchar(15),
     email      varchar(100),
-    openhourse varchar(200),
-    address_id int foreign key references address(id)
+    openhours  varchar(200),
+    address_id int not null,
+    foreign key (address_id) references address(id)
 );
 
 create table content
