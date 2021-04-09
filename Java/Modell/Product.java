@@ -11,7 +11,7 @@ import java.util.Objects;
  */
 
 /**
- *
+ * Objekt representation av Product tabellen i från databasen
  */
 public class Product {
 
