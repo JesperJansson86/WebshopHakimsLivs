@@ -15,6 +15,7 @@
       
  $.getJSON('products1.json',function(value)
             {$.each(value, function(key, value){
+                if (value.visible) {
                 document.getElementById("card").innerHTML += `
                 <li>
                   <b> ${value.name}</b><br>
@@ -24,7 +25,7 @@
                  Jämför Pris: ${Math.round(value.price/value.size*1000)}/${value.unitId}<br>
                  Lagerstatus: ${Math.round(Math.random()*10)}<br><br>
 </li>
-                  ` })})
+                  ` }})})
                   
             
     </script>
