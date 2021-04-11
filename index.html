@@ -76,6 +76,10 @@
         var displayedProducts = 6;
           for (var i = 0; i < displayedProducts; i++) {
             var product = visibleProducts[Math.floor(Math.random() * visibleProducts.length)];
+            //Tar bort framslumpad product ur arrayen så att inga dubbletter visas
+            var removeIndex = visibleProducts.map(prod => prod.id).indexOf(product.id);
+            visibleProducts.splice(removeIndex, 1);
+            
               document.getElementById("card").innerHTML += `
             <div class="col-md-6 col-lg-4">
               <div class="card text-dark border-success bg-light mb-3">
