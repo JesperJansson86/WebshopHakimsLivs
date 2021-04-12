@@ -45,6 +45,12 @@ public class Product {
      * Lagerstatus av produkten
      * Om värdet inte sätts så är dens standard värdet 0
      */
+    private int inventory = 0;
+
+    /**
+     * Antal av items i produkten
+     * Om värdet inte sätts så är dens standard värdet 0
+     */
     private int quantity = 0;
 
     /**
@@ -110,17 +116,19 @@ public class Product {
      * @param title       namnet på produkten
      * @param description beskrivning av produkten
      * @param price       Priset av produkten
-     * @param quantity    Lagerstatus av produkten
+     * @param inventory   Lagerstatus av produkten
+     * @param quantity    Antal av items i produkten
      * @param size        Storeleks typ av produkten
      * @param brand       Märket som har skapat eller paketerat produkten
      * @param category    Kategorin som produkten är en del av
      * @param unit        Enheten som produkten är räknad från
      * @param visibility  Boolean som sätter om produkten ska vara synlig eller inte
      */
-    public Product(String title, String description, double price, int quantity, int size, Brand brand, Category category, Unit unit, boolean visibility) {
+    public Product(String title, String description, double price, int inventory, int quantity, int size, Brand brand, Category category, Unit unit, boolean visibility) {
         this.title = title;
         this.description = description;
         this.price = price;
+        this.inventory = inventory;
         this.quantity = quantity;
         this.size = size;
         this.brand = brand;
@@ -136,18 +144,20 @@ public class Product {
      * @param title       namnet på produkten
      * @param description beskrivning av produkten
      * @param price       Priset av produkten
-     * @param quantity    Lagerstatus av produkten
+     * @param inventory   Lagerstatus av produkten
+     * @param quantity    Antal av items i produkten
      * @param size        Storeleks typ av produkten
      * @param brand       Märket som har skapat eller paketerat produkten
      * @param category    Kategorin som produkten är en del av
      * @param unit        Enheten som produkten är räknad från
      * @param visibility  Boolean som sätter om produkten ska vara synlig eller inte
      */
-    public Product(int id, String title, String description, double price, int quantity, int size, Brand brand, Category category, Unit unit, boolean visibility) {
+    public Product(int id, String title, String description, double price, int inventory, int quantity, int size, Brand brand, Category category, Unit unit, boolean visibility) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.price = price;
+        this.inventory = inventory;
         this.quantity = quantity;
         this.size = size;
         this.brand = brand;
@@ -226,6 +236,24 @@ public class Product {
      */
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    /**
+     * Hämtar värdet på inventory
+     *
+     * @return Lager antal av produkten
+     */
+    public int getInventory() {
+        return inventory;
+    }
+
+    /**
+     * Sätter värdet på inventory
+     *
+     * @param inventory Lager antal av produkten
+     */
+    public void setInventory(int inventory) {
+        this.inventory = inventory;
     }
 
     /**
@@ -366,7 +394,7 @@ public class Product {
         if (this == o) return true;
         if (!(o instanceof Product)) return false;
         Product product = (Product) o;
-        return Double.compare(product.getPrice(), getPrice()) == 0 && getSize() == product.getSize() && getTitle().equals(product.getTitle()) && getDescription().equals(product.getDescription()) && getBrand().equals(product.getBrand()) && getCategory().equals(product.getCategory()) && getUnit().equals(product.getUnit());
+        return getId() == product.getId() && Double.compare(product.getPrice(), getPrice()) == 0 && getQuantity() == product.getQuantity() && getSize() == product.getSize() && getTitle().equals(product.getTitle()) && getDescription().equals(product.getDescription()) && getBrand().equals(product.getBrand()) && getCategory().equals(product.getCategory()) && getUnit().equals(product.getUnit());
     }
 
     /**
@@ -376,6 +404,8 @@ public class Product {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(getTitle(), getPrice(), getSize(), getBrand(), getCategory(), getUnit());
+        return Objects.hash(getId(), getTitle(), getDescription(), getPrice(), getQuantity(), getSize(), getBrand(), getCategory(), getUnit());
     }
+
+
 }
