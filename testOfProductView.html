@@ -69,7 +69,7 @@
 
       $.getJSON("../json/products1.json", function (value) {
         $.each(value, function (key, value) {
-          if (value.categoryId == getFromLS || getFromLS === null) {
+          if ((value.categoryId == getFromLS || getFromLS === null) && value.visible) {
             document.getElementById("card").innerHTML += `
             <div class="col-md-6 col-lg-4">
               <div class="card text-dark border-success bg-light mb-3">
