@@ -1,4 +1,4 @@
-drop    database hakimlivs;
+drop    database if exists hakimlivs;
 create  database hakimlivs;
 use     hakimlivs;
 
@@ -45,13 +45,13 @@ create table content /* Villkor för trogen kund */
 (
     id int not null auto_increment primary key,
     requirement varchar(1000)
-)
+);
 
 -- Tabeller som hanterar produkter
 
 create table brand
 (
-    id    int         not null auto_increment primary key,
+    id      int         not null auto_increment primary key,
     brand varchar(50) not null
 );
 
@@ -133,4 +133,3 @@ create table store
     address_id int not null,
     foreign key (address_id) references address(id)
 );
-
