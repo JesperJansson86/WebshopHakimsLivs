@@ -119,18 +119,18 @@ insert into address(address, areacode_id)VALUES
 	('Isotopgatan 4', 5),
 	('Slingerkroken 44', 2);
 
-insert into customer(name, email, password, loyalCustomer, phone, Adminstatus, address_id)VALUES
-('Jane','jabari45@example.org',null, TRUE,'070-1740605', FALSE, 1),
-('Mark','mallie.abbott@example.org',null, TRUE,'070-1740606', FALSE,2),
-('Ann','lpouros@example.com',null, FALSE,'070-1740607', FALSE,3),
-('Rid','rath.felicity@example.net',null, TRUE,'070-1740608',FALSE,4),
-('Berit','sim.heaney@example.com',null, TRUE,'070-1740609',FALSE,5),
-('Per','ziemann.lucinda@example.net',null, FALSE,'070-1740610',FALSE,6),
-('Nora','eichmann.daisha@example.com',null, FALSE,'070-1740611',FALSE,7),
-('Matilda','ykoss@example.net',null, TRUE,'070-1740612', FALSE,8),
-('Monica','huel.felicity@example.org',null, FALSE,'070-1740613',FALSE,8),
-('Caroline','marley.doyle@example.com',null, FALSE,'070-1740614', FALSE,1),
-('Hakim','greenfelder.brandy@example.com',null, TRUE,'070-1740615', TRUE,9);
+insert into customer(firstname, lastname, email, password, loyalCustomer, phone, Adminstatus, address_id)VALUES
+('Jane', 'Andersson','jabari45@example.org',null, TRUE,'070-1740605', FALSE, 1),
+('Mark','Browall','mallie.abbott@example.org',null, TRUE,'070-1740606', FALSE,2),
+('Ann','Cavallin','lpouros@example.com',null, FALSE,'070-1740607', FALSE,3),
+('Rid','Deichmann','rath.felicity@example.net',null, TRUE,'070-1740608',FALSE,4),
+('Berit','Engquist','sim.heaney@example.com',null, TRUE,'070-1740609',FALSE,5),
+('Per','Fisk','ziemann.lucinda@example.net',null, FALSE,'070-1740610',FALSE,6),
+('Nora','Guldstrand','eichmann.daisha@example.com',null, FALSE,'070-1740611',FALSE,7),
+('Matilda','Hartelius','ykoss@example.net',null, TRUE,'070-1740612', FALSE,8),
+('Monica','Irmlev','huel.felicity@example.org',null, FALSE,'070-1740613',FALSE,8),
+('Caroline','Johansson','marley.doyle@example.com',null, FALSE,'070-1740614', FALSE,1),
+('Hakim','Knöppel','greenfelder.brandy@example.com',null, TRUE,'070-1740615', TRUE,9);
 
 insert into orderStatus(OrderStatus) VALUES
 ('Ny'),
