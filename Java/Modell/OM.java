@@ -16,43 +16,114 @@ import java.time.LocalDate;
  */
 public class OM {
 
+    /**
+     * City record
+     *
+     * @param id
+     * @param city
+     */
     public record City(int id, String city) {
     }
 
+    /**
+     * @param id
+     * @param areaCode
+     * @param city
+     */
     public record AreaCode(int id, String areaCode, City city) {
     }
 
+    /**
+     * @param id
+     * @param address
+     * @param areaCode
+     */
     public record Address(int id, String address, AreaCode areaCode) {
     }
 
-    public record Customer(int id, String name, String email, String Password, String Phone, boolean loyalStatus,
+    /**
+     * @param id
+     * @param name
+     * @param email
+     * @param password
+     * @param phone
+     * @param loyalStatus
+     * @param adminStatus
+     * @param address
+     */
+    public record Customer(int id, String name, String email, String password, String phone, boolean loyalStatus,
                            boolean adminStatus, Address address) {
     }
 
+    /**
+     * @param id
+     * @param variables
+     */
     public record Content(int id, String variables) {
     }
 
-    public record Store(int id, String Phone, String email, String openHours, Content content) {
+    /**
+     * @param id
+     * @param phone
+     * @param email
+     * @param openHours
+     * @param content
+     */
+    public record Store(int id, String phone, String email, String openHours, Content content) {
     }
 
+    /**
+     * @param id
+     * @param brand
+     */
     public record Brand(int id, String brand) {
     }
 
+    /**
+     * @param id
+     * @param category
+     */
     public record Category(int id, String category) {
     }
 
+    /**
+     * @param id
+     * @param unit
+     * @param longUnit
+     */
     public record Unit(int id, String unit, String longUnit) {
     }
 
+    /**
+     * @param id
+     * @param image
+     * @param product
+     */
     public record Image(int id, String image, Product product) {
     }
 
-    public record OrderStatus(int id, String OrderStatus) {
+    /**
+     * @param id
+     * @param orderStatus
+     */
+    public record OrderStatus(int id, String orderStatus) {
     }
 
-    public record Order(int id, LocalDate orderDate, Customer Customer, OrderStatus orderStatus) {
+    /**
+     * @param id
+     * @param orderDate
+     * @param customer
+     * @param orderStatus
+     */
+    public record Order(int id, LocalDate orderDate, Customer customer, OrderStatus orderStatus) {
     }
 
+    /**
+     * @param id
+     * @param productAmount
+     * @param product
+     * @param order
+     */
     public record Contains(int id, int productAmount, Product product, Order order) {
     }
 
