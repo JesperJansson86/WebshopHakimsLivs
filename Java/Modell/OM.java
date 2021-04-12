@@ -49,7 +49,8 @@ public class OM {
      * Record som skapar ett "object" som representarar en kund
      *
      * @param id          idn av customer i databasen
-     * @param name        kundens namn
+     * @param firstName   kundens förnamn
+     * @param lastName    kundens efternamn
      * @param email       kundens email
      * @param password    kundens password (ska vara hashed)
      * @param phone       kundens mobil nummer
@@ -57,7 +58,8 @@ public class OM {
      * @param adminStatus om kunden är admin eller inte
      * @param address     address som är linkat till kunden
      */
-    public record Customer(int id, String name, String email, String password, String phone, boolean loyalStatus,
+    public record Customer(int id, String firstName, String lastName, String email, String password, String phone,
+                           boolean loyalStatus,
                            boolean adminStatus, Address address) {
     }
 
