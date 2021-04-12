@@ -24,9 +24,11 @@ public class test {
 
         Unit unit = new Unit(1, "g", "gram");
 
-        Product product = new Product(1, "title", "description", 200.04, 10, 5, brand, category, unit);
+        Product product = new Product(1, "title", "description", 200.04, 10, 5, brand, category, unit, false);
 
         Image image = new Image(1, "testImage", product);
+
+        System.out.println("image product = " + image.product());
 
         System.out.println("brand = " + brand.brand() + ", BrandId = " + brand.id());
     }
