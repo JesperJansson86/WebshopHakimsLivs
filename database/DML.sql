@@ -7,8 +7,7 @@ insert into City(city) VALUES
 	('Kista'),
 	('Märsta'),
 	('Saltsjöbaden'),
-	('Hägersten'),
-	('Vällingby');
+	('Hägersten');
 
 	insert into areaCode(areacode, city_id) VALUES
 	(11645, 1),
