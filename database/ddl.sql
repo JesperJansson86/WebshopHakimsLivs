@@ -2,6 +2,53 @@ drop    database hakimlivs;
 create  database hakimlivs;
 use     hakimlivs;
 
+-- Tabeller som hanterar kunder och kunders uppgifter
+
+create table city
+(
+    id   int not null auto_increment primary key,
+    city varchar(50)
+);
+
+create table areaCode /* Postnummer */
+(
+    id       int not null auto_increment primary key,
+    areacode varchar(6) not null,
+    city_id  int not null,
+    foreign key (city_id) references city (id)
+);
+
+create table address
+(
+    id          int         not null auto_increment primary key,
+    address     varchar(50) not null,
+    areacode_id int         not null,
+    foreign key (areacode_id) references areaCode (id)
+);
+
+create table customer
+(
+    id            int          not null auto_increment primary key,
+    firstname     varchar(100) not null,
+    lastname      varchar(100) not null,
+    email         varchar(100) not null,
+    phone         varchar(15),
+    password      varchar(500),
+    loyalcustomer boolean default 0,
+    adminstatus   boolean default 0,
+    address_id    int,
+    foreign key (address_id) references address (id)
+);
+
+
+create table content /* Villkor för trogen kund */
+(
+    id int not null auto_increment primary key,
+    requirement varchar(1000)
+)
+
+-- Tabeller som hanterar produkter
+
 create table brand
 (
     id    int         not null auto_increment primary key,
@@ -21,44 +68,16 @@ create table category
     category varchar(50) not null
 );
 
-create table orderStatus
-(
-    id          int         not null auto_increment primary key,
-    orderstatus varchar(50) not null
-);
-
-create table city
-(
-    id   int not null auto_increment primary key,
-    city varchar(50)
-);
-
-create table areaCode
-(
-    id       int not null auto_increment primary key,
-    areacode int not null,
-    city_id  int not null,
-    foreign key (city_id) references city (id)
-);
-
-create table address
-(
-    id          int         not null auto_increment primary key,
-    address     varchar(50) not null,
-    areacode_id int         not null,
-    foreign key (areacode_id) references areaCode (id)
-);
-
 create table product
 (
     id          int            not null auto_increment primary key,
     name        varchar(100)   not null,
     price       decimal(10, 2) not null,
     description varchar(1000),
-    inventory   int            not null default 0,
-    size        int                     default 1,
+    stockpile   int            not null default 0, 
     quantity    int                     default 1,
     visibility  boolean                 default false,
+    size        int                     default 1,
     category_id int,
     brand_id    int,
     unit_id     int                     default 7,
@@ -67,18 +86,20 @@ create table product
     foreign key (unit_id) references unit (id)
 );
 
-create table customer
+create table image
 (
-    id            int          not null auto_increment primary key,
-    firstname     varchar(100) not null,
-    lastname      varchar(100) not null,
-    address_id    int,
-    email         varchar(100) not null,
-    phone         varchar(15),
-    password      varchar(500),
-    loyalcustomer boolean default 0,
-    adminstatus   boolean default 0,
-    foreign key (address_id) references address (id)
+    id         int not null auto_increment primary key,
+    image      varchar(150),
+    product_id int not null,
+    foreign key (product_id) references product(id)
+);
+
+-- Tabeller som hanterar ordrar
+
+create table orderStatus
+(
+    id          int         not null auto_increment primary key,
+    orderstatus varchar(50) not null
 );
 
 create table orders
@@ -101,13 +122,7 @@ create table order_contains
     foreign key (product_id) references product (id)
 );
 
-create table image
-(
-    id         int not null auto_increment primary key,
-    image      varchar(150),
-    product_id int not null,
-    foreign key (product_id) references product(id)
-);
+-- Tabeller som hanterar data om butiken
 
 create table store
 (
@@ -119,8 +134,3 @@ create table store
     foreign key (address_id) references address(id)
 );
 
-create table content
-(
-    id int not null auto_increment primary key,
-    requirement varchar(1000)
-)
