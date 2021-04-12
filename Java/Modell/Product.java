@@ -72,6 +72,12 @@ public class Product {
     private Unit unit = null;
 
     /**
+     * Boolean som sätter om produkten ska vara synlig eller inte
+     * Om värdet inte sätts så är dens standard värdet false
+     */
+    private boolean visibility = false;
+
+    /**
      * Konstruktor som inte tar in några parametrar och tvingar då skaparen av denna instans av objektet att sätta värdet på allt själv i efterhand
      */
     public Product() {
@@ -109,8 +115,9 @@ public class Product {
      * @param brand       Märket som har skapat eller paketerat produkten
      * @param category    Kategorin som produkten är en del av
      * @param unit        Enheten som produkten är räknad från
+     * @param visibility  Boolean som sätter om produkten ska vara synlig eller inte
      */
-    public Product(String title, String description, double price, int quantity, int size, Brand brand, Category category, Unit unit) {
+    public Product(String title, String description, double price, int quantity, int size, Brand brand, Category category, Unit unit, boolean visibility) {
         this.title = title;
         this.description = description;
         this.price = price;
@@ -119,6 +126,7 @@ public class Product {
         this.brand = brand;
         this.category = category;
         this.unit = unit;
+        this.visibility = visibility;
     }
 
     /**
@@ -133,8 +141,9 @@ public class Product {
      * @param brand       Märket som har skapat eller paketerat produkten
      * @param category    Kategorin som produkten är en del av
      * @param unit        Enheten som produkten är räknad från
+     * @param visibility  Boolean som sätter om produkten ska vara synlig eller inte
      */
-    public Product(int id, String title, String description, double price, int quantity, int size, Brand brand, Category category, Unit unit) {
+    public Product(int id, String title, String description, double price, int quantity, int size, Brand brand, Category category, Unit unit, boolean visibility) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -144,6 +153,7 @@ public class Product {
         this.brand = brand;
         this.category = category;
         this.unit = unit;
+        this.visibility = visibility;
     }
 
     /**
@@ -306,6 +316,24 @@ public class Product {
      */
     public void setUnit(Unit unit) {
         this.unit = unit;
+    }
+
+    /**
+     * Hämtar värdet på visibility
+     *
+     * @return true om produkten ska vara synlig false om inte
+     */
+    public boolean isVisibility() {
+        return visibility;
+    }
+
+    /**
+     * Sätter värdet på visibility
+     *
+     * @param visibility true om produkten ska vara synlig false om inte
+     */
+    public void setVisibility(boolean visibility) {
+        this.visibility = visibility;
     }
 
     /**
