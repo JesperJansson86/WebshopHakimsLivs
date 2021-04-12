@@ -31,5 +31,6 @@ public class test {
         System.out.println("image product = " + image.product());
 
         System.out.println("brand = " + brand.brand() + ", BrandId = " + brand.id());
+
     }
 }
