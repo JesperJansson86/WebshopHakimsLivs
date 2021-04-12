@@ -1,9 +1,6 @@
-drop
-database hakimlivs;
-create
-database hakimlivs;
-use
-hakimlivs;
+drop    database hakimlivs;
+create  database hakimlivs;
+use     hakimlivs;
 
 create table brand
 (
@@ -61,6 +58,7 @@ create table product
     inventory   int            not null default 0,
     size        int                     default 1,
     quantity    int                     default 1,
+    visibility  boolean                 default false,
     category_id int,
     brand_id    int,
     unit_id     int                     default 7,
