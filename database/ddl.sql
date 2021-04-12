@@ -70,7 +70,8 @@ create table product
 create table customer
 (
     id            int          not null auto_increment primary key,
-    name          varchar(100) not null,
+    firstname     varchar(100) not null,
+    lastname      varchar(100) not null,
     address_id    int,
     email         varchar(100) not null,
     phone         varchar(15),
