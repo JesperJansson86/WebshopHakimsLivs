@@ -8,7 +8,6 @@ insert into category(category) VALUES
 ('Hem & hushåll'),
 ('Hygien & apotek');
 
-
 insert into unit(unit, longUnit) VALUES 
 ('ml','milliliter'),
 ('cl','centiliter'),
@@ -43,7 +42,7 @@ insert into brand(brand) VALUES
 ('Palmolive'),
 ('Love Beauty & Planet');
 
-insert into product(name, price, description, inventory, size, quantity, category_id, brand_id, unit_id, visibility) VALUES
+insert into product(name, price, description, stockpile, size, quantity, category_id, brand_id, unit_id, visibility) VALUES
 ('Ballerina Salted Caramel 10-pack', 69,'Ballerina salted caramel är två spröda kex med len och krämig fyllning med salt kolasmak',50, 190, 10, 1, 1, 4, TRUE),
 ('Råg crisps med gräddfil & dill', 19,'Perfekt när du ska bjuda på tilltugg eller smårätter.', 100, 150, 1, 1, 2, 4, TRUE),
 ('Salta Kex Vallmofrö',25,'Glutenfria, salta kex med vallmofrö. Goda som snacks både med eller utan topping!',70, 155, 1, 1, 3, 4, TRUE),
@@ -96,28 +95,30 @@ insert into Image(image, product_id)VALUES
 
 insert into City(city)VALUES
 	('Stockholm'),
-	('Solna'),
+	('Kista'),
 	('Märsta'),
+	('Saltsjöbaden'),
 	('Hägersten'),
-	('Vällingsby');
+	('Vällingby');
 
 insert into areaCode(areacode, city_id) VALUES
-	(11821, 1),
-	(75655, 2),
-	(23566, 3),
-	(11234, 4),
-	(66678, 5);
+	(11645, 1),
+	(16434, 2),
+	(19550, 3),
+	(13333, 4),
+	(12938, 5),
+	(11160, 1);
     
 insert into address(address, areacode_id)VALUES
-	('Stadsgårdsvägen 34', 1),
-	('Husbygatan 12', 1),
-	('Västerbyvägen 118', 2),
-	('Kalmargatan 6', 3),
-	('Väderkvarnsgatan 129',4),
+	('Stadsgårdshamnen 22', 1),
+	('Nidarosgatan 15', 2),
+	('Valsta Gårdsväg 4', 3),
+	('Vikingavägen 8', 4),
+	('Väderkvarnsgatan 129', 5),
 	('Klustertorget 2', 5),
-	('Västerbottengatan 14',1),
-	('Isotopgatan 4', 5),
-	('Slingerkroken 44', 2);
+	('Katarinavägen 19',1),
+	('Kammakargatan 30', 6),
+	('Holländargatan 21', 6);
 
 insert into customer(firstname, lastname, email, password, loyalCustomer, phone, Adminstatus, address_id)VALUES
 ('Jane', 'Andersson','jabari45@example.org',null, TRUE,'070-1740605', FALSE, 1),
@@ -138,11 +139,11 @@ insert into orderStatus(OrderStatus) VALUES
 ('Skickad');
 
 insert into orders(orderDate,orderStatus_id,customer_id)VALUES
-	("2021-03-29 14:00",1,1),
-	("2021-03-26 13:30",2,3),
-	("2021-03.25 10:45", 3, 2),
-	("2021-03-19 11:00",3,4),
-	("2021-03-29 15:10",1,4);
+	("2021-03-29 14:00:00",1,1),
+	("2021-03-26 13:30:00",2,3),
+	("2021-03-25 10:45:00", 3, 2),
+	("2021-03-19 11:00:00",3,4),
+	("2021-03-29 15:10:00",1,4);
 
 insert into order_contains(order_id, product_id, productamount)VALUES
 	(1,2,1),
