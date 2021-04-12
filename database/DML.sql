@@ -1,22 +1,48 @@
 use hakimLivs;
 
-insert into category(category) VALUES 
-('Bröd & kakor'),
-('Skafferi'),
-('Dryck'),
-('Godis & snacks'),
-('Hem & hushåll'),
-('Hygien & apotek');
+-- Data som hanterar kunder och kunders uppgifter
 
-insert into unit(unit, longUnit) VALUES 
-('ml','milliliter'),
-('cl','centiliter'),
-('l','liter'),
-('g','gram'),
-('hg','hektogram'),
-('kg','kilogram'),
-('st','styck'),
-('fpr','förpackning');
+insert into City(city) VALUES
+	('Stockholm'),
+	('Kista'),
+	('Märsta'),
+	('Saltsjöbaden'),
+	('Hägersten'),
+	('Vällingby');
+
+	insert into areaCode(areacode, city_id) VALUES
+	(11645, 1),
+	(16434, 2),
+	(19550, 3),
+	(13333, 4),
+	(12938, 5),
+	(11160, 1);
+
+	insert into address(address, areacode_id) VALUES
+	('Stadsgårdshamnen 22', 1),
+	('Nidarosgatan 15', 2),
+	('Valsta Gårdsväg 4', 3),
+	('Vikingavägen 8', 4),
+	('Väderkvarnsgatan 129', 5),
+	('Klustertorget 2', 5),
+	('Katarinavägen 19', 1),
+	('Kammakargatan 30', 6),
+	('Holländargatan 21', 6);
+
+insert into customer(firstname, lastname, email, password, loyalCustomer, phone, Adminstatus, address_id) VALUES
+('Jane', 'Andersson','jabari45@example.org',null, TRUE,'070-1740605', FALSE, 1),
+('Mark','Browall','mallie.abbott@example.org',null, TRUE,'070-1740606', FALSE,2),
+('Ann','Cavallin','lpouros@example.com',null, FALSE,'070-1740607', FALSE,3),
+('Rid','Deichmann','rath.felicity@example.net',null, TRUE,'070-1740608',FALSE,4),
+('Berit','Engquist','sim.heaney@example.com',null, TRUE,'070-1740609',FALSE,5),
+('Per','Fisk','ziemann.lucinda@example.net',null, FALSE,'070-1740610',FALSE,6),
+('Nora','Guldstrand','eichmann.daisha@example.com',null, FALSE,'070-1740611',FALSE,7),
+('Matilda','Hartelius','ykoss@example.net',null, TRUE,'070-1740612', FALSE,8),
+('Monica','Irmlev','huel.felicity@example.org',null, FALSE,'070-1740613',FALSE,8),
+('Caroline','Johansson','marley.doyle@example.com',null, FALSE,'070-1740614', FALSE,1),
+('Hakim','Knöppel','greenfelder.brandy@example.com',null, TRUE,'070-1740615', TRUE,9);
+
+-- Data som hanterar produkter
 
 insert into brand(brand) VALUES
 ('Göteborgs'),
@@ -41,6 +67,24 @@ insert into brand(brand) VALUES
 ('Pepsodent'),
 ('Palmolive'),
 ('Love Beauty & Planet');
+
+insert into unit(unit, longUnit) VALUES 
+('ml','milliliter'),
+('cl','centiliter'),
+('l','liter'),
+('g','gram'),
+('hg','hektogram'),
+('kg','kilogram'),
+('st','styck'),
+('fpr','förpackning');
+
+insert into category(category) VALUES 
+('Bröd & kakor'),
+('Skafferi'),
+('Dryck'),
+('Godis & snacks'),
+('Hem & hushåll'),
+('Hygien & apotek');
 
 insert into product(name, price, description, stockpile, size, quantity, category_id, brand_id, unit_id, visibility) VALUES
 ('Ballerina Salted Caramel 10-pack', 69,'Ballerina salted caramel är två spröda kex med len och krämig fyllning med salt kolasmak',50, 190, 10, 1, 1, 4, TRUE),
@@ -67,8 +111,7 @@ insert into product(name, price, description, stockpile, size, quantity, categor
 ('Duschkräm Muru Muru Butter & Rose', 39, 'Ta hand om dig själv och njut av en uppfriskande dusch med den fina duschkrämen med doft av Muru Muru Butter & Rose.', 30, 500, 1, 6, 22, 1, TRUE),
 ('Tandborste Vertical Expert Soft', 15, 'Med denna mjuka tanborste rengör du tack vare det solfjäderformat borsthuvudet effektivt plack mellan tänderna.', 40, 1, 1, 6, 20, 7, TRUE);	
 
-
-insert into Image(image, product_id)VALUES
+insert into Image(image, product_id) VALUES
 	('ballerina_salted_caramel_10-pack.png',1),
 	('linkosuo_rye_crisps_sourcream_dill.jpg',2),
 	('semper_crackers.jpg',3),
@@ -93,59 +136,24 @@ insert into Image(image, product_id)VALUES
 	('lovebeautyandplanet.jpg',22),
 	('ms120611_pep_pepsodent_tb_vertical_expert_soft_x12_1pcsjpg.jpg',23);
 
-insert into City(city)VALUES
-	('Stockholm'),
-	('Kista'),
-	('Märsta'),
-	('Saltsjöbaden'),
-	('Hägersten'),
-	('Vällingby');
+-- Data som hanterar data om butiken
 
-insert into areaCode(areacode, city_id) VALUES
-	(11645, 1),
-	(16434, 2),
-	(19550, 3),
-	(13333, 4),
-	(12938, 5),
-	(11160, 1);
-    
-insert into address(address, areacode_id)VALUES
-	('Stadsgårdshamnen 22', 1),
-	('Nidarosgatan 15', 2),
-	('Valsta Gårdsväg 4', 3),
-	('Vikingavägen 8', 4),
-	('Väderkvarnsgatan 129', 5),
-	('Klustertorget 2', 5),
-	('Katarinavägen 19',1),
-	('Kammakargatan 30', 6),
-	('Holländargatan 21', 6);
-
-insert into customer(firstname, lastname, email, password, loyalCustomer, phone, Adminstatus, address_id)VALUES
-('Jane', 'Andersson','jabari45@example.org',null, TRUE,'070-1740605', FALSE, 1),
-('Mark','Browall','mallie.abbott@example.org',null, TRUE,'070-1740606', FALSE,2),
-('Ann','Cavallin','lpouros@example.com',null, FALSE,'070-1740607', FALSE,3),
-('Rid','Deichmann','rath.felicity@example.net',null, TRUE,'070-1740608',FALSE,4),
-('Berit','Engquist','sim.heaney@example.com',null, TRUE,'070-1740609',FALSE,5),
-('Per','Fisk','ziemann.lucinda@example.net',null, FALSE,'070-1740610',FALSE,6),
-('Nora','Guldstrand','eichmann.daisha@example.com',null, FALSE,'070-1740611',FALSE,7),
-('Matilda','Hartelius','ykoss@example.net',null, TRUE,'070-1740612', FALSE,8),
-('Monica','Irmlev','huel.felicity@example.org',null, FALSE,'070-1740613',FALSE,8),
-('Caroline','Johansson','marley.doyle@example.com',null, FALSE,'070-1740614', FALSE,1),
-('Hakim','Knöppel','greenfelder.brandy@example.com',null, TRUE,'070-1740615', TRUE,9);
+-- Data som hanterar ordrar
 
 insert into orderStatus(OrderStatus) VALUES
 ('Ny'),
 ('Plock'),
 ('Skickad');
 
-insert into orders(orderDate,orderStatus_id,customer_id)VALUES
+insert into orders(orderDate,orderStatus_id,customer_id) VALUES
 	("2021-03-29 14:00:00",1,1),
 	("2021-03-26 13:30:00",2,3),
 	("2021-03-25 10:45:00", 3, 2),
 	("2021-03-19 11:00:00",3,4),
 	("2021-03-29 15:10:00",1,4);
 
-insert into order_contains(order_id, product_id, productamount)VALUES
+
+insert into order_contains(order_id, product_id, productamount) VALUES
 	(1,2,1),
 	(1,6,2),
 	(1,8,1),
