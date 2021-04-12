@@ -2,6 +2,8 @@ package Modell;
 
 import java.util.Objects;
 
+import static Modell.OM.*;
+
 /*
  * Created by Lukas Aronsson
  * Date: 07/04/2021
@@ -319,9 +321,9 @@ public class Product {
                 ", price=" + price +
                 ", quantity=" + quantity +
                 ", size=" + size +
-                ", brand=" + brand.getBrand() +
-                ", category=" + category.getCategory() +
-                ", unit=" + unit.getUnit() + " | " + unit.getLongUnit() +
+                ", brand=" + brand.brand() +
+                ", category=" + category.category() +
+                ", unit=" + unit.unit() + " | " + unit.longUnit() +
                 '}';
     }
 
@@ -334,8 +336,9 @@ public class Product {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Product product)) return false;
-        return Double.compare(product.getPrice(), getPrice()) == 0 && getSize() == product.getSize() && getTitle().equals(product.getTitle()) && getBrand().equals(product.getBrand()) && getCategory().equals(product.getCategory()) && getUnit().equals(product.getUnit());
+        if (!(o instanceof Product)) return false;
+        Product product = (Product) o;
+        return Double.compare(product.getPrice(), getPrice()) == 0 && getSize() == product.getSize() && getTitle().equals(product.getTitle()) && getDescription().equals(product.getDescription()) && getBrand().equals(product.getBrand()) && getCategory().equals(product.getCategory()) && getUnit().equals(product.getUnit());
     }
 
     /**
