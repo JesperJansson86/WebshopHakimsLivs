@@ -49,10 +49,17 @@ function getProducts() {
     );
     
     function handlebuyClick(e) {
-  
-      const button = e.target;
-      const productId = button.dataset.id; 
-      sendItemToCart(productId);   
+      let checkBasketQuantity = JSON.parse(localStorage.getItem("basketQuantity"));
+      if(checkBasketQuantity < 20){
+        const button = e.target;
+        const productId = button.dataset.id; 
+        sendItemToCart(productId);
+        localStorage.setItem("basketQuantity",checkBasketQuantity +1);  
+      }
+      else{
+        alert('Varukorgen är full, max 20 produkter!');
+      }
+
 
     }
 

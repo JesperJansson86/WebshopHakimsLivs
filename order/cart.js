@@ -12,7 +12,9 @@ function renderCart() {
       const quantity = itemsInCart[id];
       sum += (product.price * quantity)
       totalQuantity += quantity;
+      localStorage.setItem("basketQuantity",totalQuantity);
     }
+    
 
 
     for (let id in itemsInCart) { // loopar igenom och fyller output med info om produkt 
