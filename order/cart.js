@@ -14,6 +14,12 @@ function renderCart() {
     sum += product.price * quantity;
     totalQuantity += quantity;
     localStorage.setItem("basketQuantity", totalQuantity);
+    if (totalQuantity == 20) {
+      document.getElementById("bigError").innerHTML =
+        "Du får max beställa 20 varor";
+    } else {
+      document.getElementById("bigError").innerHTML = "";
+    }
   }
 
   for (let id in itemsInCart) {
@@ -37,7 +43,7 @@ function renderCart() {
           <div class="col">
             <div class="row">
               <div class="col">
-                <button class="btn btn-outline-success btn-sm remove-btn" data-mdb-ripple-color="dark" data-id="${
+                <button class="btn btn-outline-success btn-sm remove-btn"  data-id="${
                   product.id
                 }">-</button>
               </div>
@@ -46,7 +52,7 @@ function renderCart() {
                 <p>${quantity} st</p>
               </div>
               <div class="col">
-                <button class="btn btn-outline-success btn-sm add-btn" data-mdb-ripple-color="dark" ${
+                <button class="btn btn-outline-success btn-sm add-btn"  ${
                   tooManyItems ? "disabled" : ""
                 } data-id="${product.id}">+</button>
               </div>
@@ -62,13 +68,12 @@ function renderCart() {
           </div>
           <div class="col">
           <br>
-            <button class="btn btn-outline-success delete-btn" data-mdb-ripple-color="dark" data-id="${
+            <button class="btn btn-outline-success delete-btn"  data-id="${
               product.id
             }">Ta bort</button>
           </div>
         </div>        
       </div>
-      <h3 class="mx-auto" style="color:red">Error meddelande ska stå här</h3>
     </div>
     `;
 
@@ -112,7 +117,7 @@ function renderCart() {
     })
   );
 
-  const deleteItemButtons = document.querySelectorAll(".delete-btn"); // lägger till - knappar för varje produkt
+  const deleteItemButtons = document.querySelectorAll(".delete-btn"); // lägger till delete knappar för varje produkt
   deleteItemButtons.forEach((b) =>
     b.addEventListener("click", function (e) {
       const button = e.target;
@@ -124,6 +129,34 @@ function renderCart() {
       renderCart(); // renderar varukorgen
     })
   );
+
+  let v = JSON.parse(localStorage.getItem("basketValue"));
+  const lev = 39;
+
+  document.getElementById(
+    "basketValue"
+  ).innerHTML = `<b>Summa varor:</b> ${v.toFixed(2)}  kr`;
+
+  if (v < 500) {
+    document.getElementById("freeDelivery").innerHTML = `<b>${(500 - v).toFixed(
+      2
+    )}  kr kvar till gratis leverans</b>`;
+    document.getElementById(
+      "deliveryCost"
+    ).innerHTML = `<b>Leverans:</b> ${lev} kr`;
+    localStorage.setItem("deliveryCost", lev);
+  } else {
+    localStorage.setItem("deliveryCost", 0);
+    document.getElementById("freeDelivery").innerHTML =
+      "<b>Gratis leverans </b>";
+  }
+
+  let d = JSON.parse(localStorage.getItem("deliveryCost"));
+  let ta = d + v;
+  document.getElementById(
+    "TotalAmount"
+  ).innerHTML = `<b>Totalsumma: </b>${ta.toFixed(2)} kr`;
+  localStorage.setItem("TotalAmount", ta);
 }
 renderCart();
 
@@ -161,6 +194,10 @@ function IsCartEmpty() {
   let itemsInCart = JSON.parse(localStorage.getItem("cart") || "{}");
   if (Object.keys(itemsInCart).length === 0) {
     document.getElementById("total").innerHTML = "Din varukorg är tom";
+    localStorage.removeItem("basketQuantity");
+    localStorage.removeItem("basketValue");
+    localStorage.removeItem("TotalAmount");
+    localStorage.removeItem("deliveryCost");
     return true;
   }
   return false;
@@ -168,6 +205,13 @@ function IsCartEmpty() {
 
 function checkTotalValueOfCart(sum) {
   // kollar om varukorgens totala summa överstiger 700
+  localStorage.setItem("basketValue", sum);
+  if (sum > 700) {
+    document.getElementById("bigError").innerHTML =
+      "Du får max beställa varor för 700 kr";
+  } else {
+    document.getElementById("bigError").innerHTML = "";
+  }
   return sum > 700;
 }
 
