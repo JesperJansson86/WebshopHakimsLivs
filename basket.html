@@ -35,6 +35,19 @@
 
           <!-- Main -->
           <div class="col-md-9">
+
+            <h1>Test av varukorg</h1>
+            <div id="cart-output"></div>
+            <p class="mb-0"><span><strong id="total"></strong></span></p class="mb-0">
+              <div style="margin-top:100px"></div>
+              <td style="vertical-align: middle;" width="20" id="summary"></td><br>
+              <form id="proceed" action="index.html" onsubmit="return proceedToShippment(event);"> 
+               <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-4" >fortsätt till frakt/leverans</button>
+              </form>
+        
+            <script src="order/cart.js"></script>
+
           <h2 style="color: rgb(3, 78, 3)" id="titleOfPage">Varukorg</h2>
           <p class="mb-1" style="font-weight: 500">Produkt 1</p>
           <div class="card border-success mb-3">

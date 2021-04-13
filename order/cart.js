@@ -24,20 +24,41 @@ function renderCart() {
       const tooManyItems = quantity >= getMaxQuantity(id) || totalQuantity >= 20 ||  checkTotalValueOfCart(sum); // villkor som sen används i  + knappen för att disabl:ea den om antalet produkter av viss sort, antalet produkter i varukogen, värdet i varukorgen är för högt. Sätts på varje + knapp.
       
       output += ` 
-    <tr>
-    <td width="80"><img src="${product.image}"><br>
-    <td style="vertical-align: middle;" width="30">${product.title}</td><br>
-    <br><td style="vertical-align: middle;" width="20">$ ${product.price} - per st</td><br>
-    <td width="40"><br>
-    <button type="button" class="btn btn-outline-primary add-btn" data-mdb-ripple-color="dark" style="margin-right: 10px;" ${tooManyItems ? 'disabled' : ""} data-id="${product.id}">
-    + </button>
-    <td style="vertical-align: middle;" width="20">${quantity}</td>
-    <button type="button" class="btn btn-outline-primary remove-btn" data-mdb-ripple-color="dark" data-id="${product.id}">
-    - </button></td>
-    <button type="button" class="btn btn-outline-primary delete-btn" data-mdb-ripple-color="dark" data-id="${product.id}">
-    remove </button></td>
-    <td style="vertical-align: middle;" width="20" id="total"></td><br>
-    </tr>
+    <p class="mb-1" style="font-weight: 500">${product.title}</p>
+    <div class="card border-success mb-3">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+          <img style="width: 100%; height: auto;" src="${product.image}">
+          </div>
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <button class="btn btn-outline-success btn-sm remove-btn" data-mdb-ripple-color="dark" data-id="${product.id}">-</button>
+              </div>
+              <div class="col">
+                <p>Antal</p>
+                <p>${quantity}</p>
+              </div>
+              <div class="col">
+                <button class="btn btn-outline-success btn-sm add-btn" data-mdb-ripple-color="dark" ${tooManyItems ? 'disabled' : ""} data-id="${product.id}">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <p>á pris</p>
+            <p>${product.price}</p>
+          </div>
+          <div class="col">
+            <p>Totalpris</p>
+            <p>${quantity * product.price}</p>
+          </div>
+          <div class="col">
+            <button class="btn btn-outline-success delete-btn" data-mdb-ripple-color="dark" data-id="${product.id}">Ta bort</button>
+          </div>
+        </div>
+      </div>
+    </div>
     `;
     
     calculateShippment(sum)
