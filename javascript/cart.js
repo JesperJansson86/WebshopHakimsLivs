@@ -217,6 +217,7 @@ function calculateShippment(sum) {
     ).innerHTML = `<b>Leverans:</b> ${shippment} kr`;
     localStorage.setItem("deliveryCost", shippment);
   } else {
+    document.getElementById("deliveryCost").innerHTML = "";
     localStorage.setItem("deliveryCost", 0);
     document.getElementById("freeDelivery").innerHTML =
       "<b>Gratis leverans </b>";
