@@ -33,12 +33,14 @@ function renderCart() {
       checkTotalValueOfCart(sum); // villkor som sen används i  + knappen för att disabl:ea den om antalet produkter av viss sort, antalet produkter i varukogen, värdet i varukorgen är för högt. Sätts på varje + knapp.
 
     output += ` 
-    <p class="mb-1" style="font-weight: 500">${product.title}</p>
+    <p class="mb-1" style="font-weight: 500">${product.name}</p>
     <div class="card border-success mb-3">
       <div class="card-body">
         <div class="row">
           <div class="col">
-          <img style="width: 100%; height: auto;" src="${product.image}">
+          <img style="width: 100%; height: auto;" src="https://raw.githubusercontent.com/JesperJansson86/WebshopHakimsLivs/S01-4/Testdata/img/${
+            product.image
+          }">
           </div>
           <div class="col">
             <div class="row">

@@ -20,9 +20,7 @@ function getProducts() {
           <h5 class="card-title">${p.title}</h5>
           <p class="card-text">${p.description} </p>
           <h5> $ ${p.price}</h5> 
-          <button class="buy-btn" data-id="${p.id}">buy</button><br />
-          <a href="cart.html" class="btn btn-primary">Go to cart</a>
-          
+          <button class="buy-btn" data-id="${p.id}">buy</button><br />          
           </div>
           </div>
         `;
@@ -30,6 +28,10 @@ function getProducts() {
         
     });
     return output;
+
+
+
+
   }
 
   async function main() {

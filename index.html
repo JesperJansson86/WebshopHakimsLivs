@@ -64,7 +64,6 @@
       /**
        * Slumpar fram 6st synliga produkter från Json fil
        * */
-      let getFromLS = JSON.parse(localStorage.getItem("Knapp"));
          
       $.getJSON("../json/products1.json", function (value) {
         var visibleProducts = [];
