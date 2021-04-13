@@ -21,19 +21,19 @@
   <body style="background-color: rgb(197, 221, 197)">
     <!-- Header/ huvudmenyn -->
 
+    <div class="row">
+      <header class="col px-0"></header>
+    </div>
+    <!-- ./ header -->
+
+    <!-- Sidomenyn -->
+    <div class="container">
       <div class="row">
-        <header class="col px-0"></header>
-      </div>
-      <!-- ./ header -->
+        <div class="col-md-3" id="sidebar"></div>
+        <!-- ./ sidomeny -->
 
-      <!-- Sidomenyn -->
-      <div class="container" >
-        <div class="row">
-          <div class="col-md-3" id="sidebar"></div>
-          <!-- ./ sidomeny -->
-
-          <!-- Main -->
-          <div class="col-md-9">
+        <!-- Main -->
+        <div class="col-md-9">
           <div id="contentOfPage">
             <div class="container">
               <div class="row mb-3">
@@ -160,6 +160,22 @@
                                 />
                               </div>
                             </div>
+                            <div class="col">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  value=""
+                                  id="flexCheckChecked"
+                                  checked
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="flexCheckChecked"
+                                  >Synlig</label
+                                >
+                              </div>
+                            </div>
                             <div class="col"></div>
                           </div>
                           <div class="row mb-2">
@@ -216,6 +232,7 @@
                         <th scope="col">Storlek</th>
                         <th scope="col">Pris</th>
                         <th scope="col">Lagerstatus</th>
+                        <th scope="col">Synlig</th>
                         <th scope="col">Visa mer/ändra</th>
                       </tr>
                     </thead>
@@ -228,20 +245,20 @@
                         <td>[products.price] SEK</td>
                         <td>[products.inStock]</td>
                         <td>
-                          <a
-                            href="showProduct.html"
-                            class="btn btn-success"
-                            type="button"
-                            >Visa mer</a
-                          >
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              value=""
+                              id="flexCheckChecked"
+                              checked
+                            />
+                            <label
+                              class="form-check-label"
+                              for="flexCheckChecked"
+                            ></label>
+                          </div>
                         </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">[products.id]</th>
-                        <td>[products.name]</td>
-                        <td>[products.size] [products.unit]</td>
-                        <td>[products.price] SEK</td>
-                        <td>[products.inStock]</td>
                         <td>
                           <a
                             href="showProduct.html"
@@ -258,20 +275,20 @@
                         <td>[products.price] SEK</td>
                         <td>[products.inStock]</td>
                         <td>
-                          <a
-                            href="showProduct.html"
-                            class="btn btn-success"
-                            type="button"
-                            >Visa mer</a
-                          >
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              value=""
+                              id="flexCheckChecked"
+                              checked
+                            />
+                            <label
+                              class="form-check-label"
+                              for="flexCheckChecked"
+                            ></label>
+                          </div>
                         </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">[products.id]</th>
-                        <td>[products.name]</td>
-                        <td>[products.size] [products.unit]</td>
-                        <td>[products.price] SEK</td>
-                        <td>[products.inStock]</td>
                         <td>
                           <a
                             href="showProduct.html"
@@ -288,20 +305,20 @@
                         <td>[products.price] SEK</td>
                         <td>[products.inStock]</td>
                         <td>
-                          <a
-                            href="showProduct.html"
-                            class="btn btn-success"
-                            type="button"
-                            >Visa mer</a
-                          >
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              value=""
+                              id="flexCheckChecked"
+                              checked
+                            />
+                            <label
+                              class="form-check-label"
+                              for="flexCheckChecked"
+                            ></label>
+                          </div>
                         </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">[products.id]</th>
-                        <td>[products.name]</td>
-                        <td>[products.size] [products.unit]</td>
-                        <td>[products.price] SEK</td>
-                        <td>[products.inStock]</td>
                         <td>
                           <a
                             href="showProduct.html"
@@ -318,20 +335,20 @@
                         <td>[products.price] SEK</td>
                         <td>[products.inStock]</td>
                         <td>
-                          <a
-                            href="showProduct.html"
-                            class="btn btn-success"
-                            type="button"
-                            >Visa mer</a
-                          >
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              value=""
+                              id="flexCheckChecked"
+                              checked
+                            />
+                            <label
+                              class="form-check-label"
+                              for="flexCheckChecked"
+                            ></label>
+                          </div>
                         </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">[products.id]</th>
-                        <td>[products.name]</td>
-                        <td>[products.size] [products.unit]</td>
-                        <td>[products.price] SEK</td>
-                        <td>[products.inStock]</td>
                         <td>
                           <a
                             href="showProduct.html"
@@ -348,6 +365,21 @@
                         <td>[products.price] SEK</td>
                         <td>[products.inStock]</td>
                         <td>
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              value=""
+                              id="flexCheckChecked"
+                              checked
+                            />
+                            <label
+                              class="form-check-label"
+                              for="flexCheckChecked"
+                            ></label>
+                          </div>
+                        </td>
+                        <td>
                           <a
                             href="showProduct.html"
                             class="btn btn-success"
@@ -362,6 +394,141 @@
                         <td>[products.size] [products.unit]</td>
                         <td>[products.price] SEK</td>
                         <td>[products.inStock]</td>
+                        <td>
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              value=""
+                              id="flexCheckChecked"
+                              checked
+                            />
+                            <label
+                              class="form-check-label"
+                              for="flexCheckChecked"
+                            ></label>
+                          </div>
+                        </td>
+                        <td>
+                          <a
+                            href="showProduct.html"
+                            class="btn btn-success"
+                            type="button"
+                            >Visa mer</a
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">[products.id]</th>
+                        <td>[products.name]</td>
+                        <td>[products.size] [products.unit]</td>
+                        <td>[products.price] SEK</td>
+                        <td>[products.inStock]</td>
+                        <td>
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              value=""
+                              id="flexCheckChecked"
+                              checked
+                            />
+                            <label
+                              class="form-check-label"
+                              for="flexCheckChecked"
+                            ></label>
+                          </div>
+                        </td>
+                        <td>
+                          <a
+                            href="showProduct.html"
+                            class="btn btn-success"
+                            type="button"
+                            >Visa mer</a
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">[products.id]</th>
+                        <td>[products.name]</td>
+                        <td>[products.size] [products.unit]</td>
+                        <td>[products.price] SEK</td>
+                        <td>[products.inStock]</td>
+                        <td>
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              value=""
+                              id="flexCheckChecked"
+                              checked
+                            />
+                            <label
+                              class="form-check-label"
+                              for="flexCheckChecked"
+                            ></label>
+                          </div>
+                        </td>
+                        <td>
+                          <a
+                            href="showProduct.html"
+                            class="btn btn-success"
+                            type="button"
+                            >Visa mer</a
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">[products.id]</th>
+                        <td>[products.name]</td>
+                        <td>[products.size] [products.unit]</td>
+                        <td>[products.price] SEK</td>
+                        <td>[products.inStock]</td>
+                        <td>
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              value=""
+                              id="flexCheckChecked"
+                              checked
+                            />
+                            <label
+                              class="form-check-label"
+                              for="flexCheckChecked"
+                            ></label>
+                          </div>
+                        </td>
+                        <td>
+                          <a
+                            href="showProduct.html"
+                            class="btn btn-success"
+                            type="button"
+                            >Visa mer</a
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">[products.id]</th>
+                        <td>[products.name]</td>
+                        <td>[products.size] [products.unit]</td>
+                        <td>[products.price] SEK</td>
+                        <td>[products.inStock]</td>
+                        <td>
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              value=""
+                              id="flexCheckChecked"
+                              checked
+                            />
+                            <label
+                              class="form-check-label"
+                              for="flexCheckChecked"
+                            ></label>
+                          </div>
+                        </td>
                         <td>
                           <a
                             href="showProduct.html"
