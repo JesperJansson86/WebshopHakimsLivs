@@ -51,7 +51,7 @@
               Fortsätt till leverans och betalning
             </button>
           </form>
-          <script src="order/cart.js"></script>
+          
         </div>
 
         <!-- Kassa sidebar-->
@@ -91,35 +91,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="../javascript/barsBasket.js"></script>
-
-    <script>
-      let v = JSON.parse(localStorage.getItem("basketValue"));
-      const lev = 39;
-
-      document.getElementById(
-        "basketValue"
-      ).innerHTML = `<b>Summa varor:</b> ${v.toFixed(2)}  kr`;
-
-      if (v < 500) {
-        document.getElementById("freeDelivery").innerHTML = `<b>${(
-          500 - v
-        ).toFixed(2)}  kr kvar till gratis leverans</b>`;
-        document.getElementById(
-          "deliveryCost"
-        ).innerHTML = `<b>Leverans:</b> ${lev} kr`;
-        localStorage.setItem("deliveryCost", lev);
-      } else {
-        localStorage.setItem("deliveryCost", 0);
-        document.getElementById("freeDelivery").innerHTML =
-          "<b>Gratis leverans </b>";
-      }
-
-      let d = JSON.parse(localStorage.getItem("deliveryCost"));
-      let ta = d + v;
-      document.getElementById(
-        "TotalAmount"
-      ).innerHTML = `<b>Totalsumma: </b>${ta.toFixed(2)} kr`;
-      localStorage.setItem("TotalAmount", ta);
-    </script>
+    <script src="order/cart.js"></script>
   </body>
 </html>

@@ -76,7 +76,6 @@ function renderCart() {
       </div>
     </div>
     `;
-
     calculateShippment(sum);
   }
 
@@ -193,7 +192,7 @@ function IsCartEmpty() {
   // kollar om varukorgen är tom
   let itemsInCart = JSON.parse(localStorage.getItem("cart") || "{}");
   if (Object.keys(itemsInCart).length === 0) {
-    document.getElementById("total").innerHTML = "Din varukorg är tom";
+    document.getElementById("bigError").innerHTML = "Din varukorg är tom";
     localStorage.removeItem("basketQuantity");
     localStorage.removeItem("basketValue");
     localStorage.removeItem("TotalAmount");
@@ -236,7 +235,7 @@ function proceedToShippment(e) {
   e.preventDefault();
 
   if (IsCartEmpty()) {
-    document.getElementById("total").innerHTML =
+    document.getElementById("bigError").innerHTML =
       "Du kan inte fortsätta till leverans när din varukorg är tom";
 
     return false;
