@@ -130,36 +130,6 @@ function renderCart() {
       renderCart(); // renderar varukorgen
     })
   );
-
-  let v = JSON.parse(localStorage.getItem("basketValue"));
-  const lev = 39;
-
-  if (v !== null) {
-    document.getElementById(
-      "basketValue"
-    ).innerHTML = `<b>Summa varor:</b> ${v.toFixed(2)}  kr`;
-
-    if (v < 500) {
-      document.getElementById("freeDelivery").innerHTML = `<b>${(
-        500 - v
-      ).toFixed(2)}  kr kvar till gratis leverans</b>`;
-      document.getElementById(
-        "deliveryCost"
-      ).innerHTML = `<b>Leverans:</b> ${lev} kr`;
-      localStorage.setItem("deliveryCost", lev);
-    } else {
-      localStorage.setItem("deliveryCost", 0);
-      document.getElementById("freeDelivery").innerHTML =
-        "<b>Gratis leverans </b>";
-    }
-
-    let d = JSON.parse(localStorage.getItem("deliveryCost"));
-    let ta = d + v;
-    document.getElementById(
-      "TotalAmount"
-    ).innerHTML = `<b>Totalsumma: </b>${ta.toFixed(2)} kr`;
-    localStorage.setItem("TotalAmount", ta);
-  }
 }
 renderCart();
 
@@ -212,6 +182,7 @@ function checkTotalValueOfCart(sum) {
   if (sum > 700) {
     document.getElementById("bigError").innerHTML =
       "Du får max beställa varor för 700 kr";
+      renderCart();
   } else {
     document.getElementById("bigError").innerHTML = "";
   }
@@ -231,6 +202,34 @@ function calculateShippment(sum) {
       sumInkShippment.toFixed(2) +
       " inklusive fraktavgift på 39kr";
   }
+
+
+    document.getElementById(
+      "basketValue"
+    ).innerHTML = `<b>Summa varor:</b> ${sum.toFixed(2)}  kr`;
+
+    if (sum < 500) {
+      document.getElementById("freeDelivery").innerHTML = `<b>${(
+        500 - sum
+      ).toFixed(2)}  kr kvar till gratis leverans</b>`;
+      document.getElementById(
+        "deliveryCost"
+      ).innerHTML = `<b>Leverans:</b> ${shippment} kr`;
+      localStorage.setItem("deliveryCost", shippment);
+    } else {
+      localStorage.setItem("deliveryCost", 0);
+      document.getElementById("freeDelivery").innerHTML =
+        "<b>Gratis leverans </b>";
+    }
+
+    let d = JSON.parse(localStorage.getItem("deliveryCost"));
+    let ta = d + sum;
+    document.getElementById(
+      "TotalAmount"
+    ).innerHTML = `<b>Totalsumma: </b>${ta.toFixed(2)} kr`;
+    localStorage.setItem("TotalAmount", ta);
+  
+
 }
 
 function proceedToShippment(e) {
