@@ -132,30 +132,32 @@ function renderCart() {
   let v = JSON.parse(localStorage.getItem("basketValue"));
   const lev = 39;
 
-  document.getElementById(
-    "basketValue"
-  ).innerHTML = `<b>Summa varor:</b> ${v.toFixed(2)}  kr`;
-
-  if (v < 500) {
-    document.getElementById("freeDelivery").innerHTML = `<b>${(500 - v).toFixed(
-      2
-    )}  kr kvar till gratis leverans</b>`;
+  if (v !== null) {
     document.getElementById(
-      "deliveryCost"
-    ).innerHTML = `<b>Leverans:</b> ${lev} kr`;
-    localStorage.setItem("deliveryCost", lev);
-  } else {
-    localStorage.setItem("deliveryCost", 0);
-    document.getElementById("freeDelivery").innerHTML =
-      "<b>Gratis leverans </b>";
-  }
+      "basketValue"
+    ).innerHTML = `<b>Summa varor:</b> ${v.toFixed(2)}  kr`;
 
-  let d = JSON.parse(localStorage.getItem("deliveryCost"));
-  let ta = d + v;
-  document.getElementById(
-    "TotalAmount"
-  ).innerHTML = `<b>Totalsumma: </b>${ta.toFixed(2)} kr`;
-  localStorage.setItem("TotalAmount", ta);
+    if (v < 500) {
+      document.getElementById("freeDelivery").innerHTML = `<b>${(
+        500 - v
+      ).toFixed(2)}  kr kvar till gratis leverans</b>`;
+      document.getElementById(
+        "deliveryCost"
+      ).innerHTML = `<b>Leverans:</b> ${lev} kr`;
+      localStorage.setItem("deliveryCost", lev);
+    } else {
+      localStorage.setItem("deliveryCost", 0);
+      document.getElementById("freeDelivery").innerHTML =
+        "<b>Gratis leverans </b>";
+    }
+
+    let d = JSON.parse(localStorage.getItem("deliveryCost"));
+    let ta = d + v;
+    document.getElementById(
+      "TotalAmount"
+    ).innerHTML = `<b>Totalsumma: </b>${ta.toFixed(2)} kr`;
+    localStorage.setItem("TotalAmount", ta);
+  }
 }
 renderCart();
 
