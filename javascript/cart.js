@@ -182,9 +182,10 @@ function checkTotalValueOfCart(sum) {
   if (sum > 700) {
     document.getElementById("bigError").innerHTML =
       "Du får max beställa varor för 700 kr";
-      renderCart();
+    document.getElementById("nextPageBtn").disabled = true;
   } else {
     document.getElementById("bigError").innerHTML = "";
+    document.getElementById("nextPageBtn").disabled = false;
   }
   return sum > 700;
 }
@@ -203,33 +204,30 @@ function calculateShippment(sum) {
       " inklusive fraktavgift på 39kr";
   }
 
+  document.getElementById(
+    "basketValue"
+  ).innerHTML = `<b>Summa varor:</b> ${sum.toFixed(2)}  kr`;
 
+  if (sum < 500) {
+    document.getElementById("freeDelivery").innerHTML = `<b>${(
+      500 - sum
+    ).toFixed(2)}  kr kvar till gratis leverans</b>`;
     document.getElementById(
-      "basketValue"
-    ).innerHTML = `<b>Summa varor:</b> ${sum.toFixed(2)}  kr`;
+      "deliveryCost"
+    ).innerHTML = `<b>Leverans:</b> ${shippment} kr`;
+    localStorage.setItem("deliveryCost", shippment);
+  } else {
+    localStorage.setItem("deliveryCost", 0);
+    document.getElementById("freeDelivery").innerHTML =
+      "<b>Gratis leverans </b>";
+  }
 
-    if (sum < 500) {
-      document.getElementById("freeDelivery").innerHTML = `<b>${(
-        500 - sum
-      ).toFixed(2)}  kr kvar till gratis leverans</b>`;
-      document.getElementById(
-        "deliveryCost"
-      ).innerHTML = `<b>Leverans:</b> ${shippment} kr`;
-      localStorage.setItem("deliveryCost", shippment);
-    } else {
-      localStorage.setItem("deliveryCost", 0);
-      document.getElementById("freeDelivery").innerHTML =
-        "<b>Gratis leverans </b>";
-    }
-
-    let d = JSON.parse(localStorage.getItem("deliveryCost"));
-    let ta = d + sum;
-    document.getElementById(
-      "TotalAmount"
-    ).innerHTML = `<b>Totalsumma: </b>${ta.toFixed(2)} kr`;
-    localStorage.setItem("TotalAmount", ta);
-  
-
+  let d = JSON.parse(localStorage.getItem("deliveryCost"));
+  let ta = d + sum;
+  document.getElementById(
+    "TotalAmount"
+  ).innerHTML = `<b>Totalsumma: </b>${ta.toFixed(2)} kr`;
+  localStorage.setItem("TotalAmount", ta);
 }
 
 function proceedToShippment(e) {
