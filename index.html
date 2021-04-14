@@ -22,7 +22,7 @@
     <!-- Header/ huvudmenyn -->
 
       <div class="row">
-        <header class="col px-0"></header>
+        <header class="col px-0" id="header"></header>
       </div>
 
       <!-- ./ header -->
@@ -64,7 +64,6 @@
       /**
        * Slumpar fram 6st synliga produkter från Json fil
        * */
-      let getFromLS = JSON.parse(localStorage.getItem("Knapp"));
          
       $.getJSON("../json/products1.json", function (value) {
         var visibleProducts = [];
