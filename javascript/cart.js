@@ -167,12 +167,17 @@ function IsCartEmpty() {
   let itemsInCart = JSON.parse(localStorage.getItem("cart") || "{}");
   if (Object.keys(itemsInCart).length === 0) {
     document.getElementById("bigError").innerHTML = "Din varukorg är tom";
-    localStorage.removeItem("basketQuantity");
-    localStorage.removeItem("basketValue");
-    localStorage.removeItem("TotalAmount");
-    localStorage.removeItem("deliveryCost");
+    localStorage.clear();
+    document.getElementById("total").innerHTML = "";
+    document.getElementById("basketValue").innerHTML = "";
+    document.getElementById("deliveryCost").innerHTML = "";
+    document.getElementById("freeDelivery").innerHTML = "Handla för minst 500 kr och få gratis leverans";
+    document.getElementById("TotalAmount").innerHTML = "";
+    document.getElementById("nextPageBtn").disabled = true;
+
     return true;
   }
+  document.getElementById("nextPageBtn").disabled = false;
   return false;
 }
 
