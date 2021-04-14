@@ -45,7 +45,7 @@ function renderCart() {
           <div class="col">
             <div class="row">
               <div class="col">
-                <button class="btn btn-outline-success btn-sm remove-btn"  data-id="${
+                <button class="btn btn-success btn-sm remove-btn"  data-id="${
                   product.id
                 }">-</button>
               </div>
@@ -54,7 +54,7 @@ function renderCart() {
                 <p>${quantity} st</p>
               </div>
               <div class="col">
-                <button class="btn btn-outline-success btn-sm add-btn"  ${
+                <button class="btn btn-success btn-sm add-btn"  ${
                   tooManyItems ? "disabled" : ""
                 } data-id="${product.id}">+</button>
               </div>
@@ -76,6 +76,10 @@ function renderCart() {
           </div>
         </div>        
       </div>
+      <p class="mb-3 mx-auto" style="color: green; font-weight: 500" id="smallError">
+      Du får max beställa ${getMaxQuantity(product.id)} st av denna vara
+      
+    </p>
     </div>
     `;
     calculateShippment(sum);
@@ -171,7 +175,8 @@ function IsCartEmpty() {
     document.getElementById("total").innerHTML = "";
     document.getElementById("basketValue").innerHTML = "";
     document.getElementById("deliveryCost").innerHTML = "";
-    document.getElementById("freeDelivery").innerHTML = "Handla för minst 500 kr och få gratis leverans";
+    document.getElementById("freeDelivery").innerHTML =
+      "Handla för minst 500 kr och få gratis leverans";
     document.getElementById("TotalAmount").innerHTML = "";
     document.getElementById("nextPageBtn").disabled = true;
 
