@@ -1,8 +1,8 @@
 package Model;
 
-import java.util.Objects;
+import lombok.NonNull;
 
-import static Model.OM.*;
+import java.util.Objects;
 
 /*
  * Created by Lukas Aronsson
@@ -21,121 +21,75 @@ public class Product {
      * idn av produkten (primary key från databasen)
      * Om värdet inte sätts så är dens standard värdet 0
      */
+    @NonNull
     private int id = 0;
 
     /**
      * namnet på produkten
      * Om värdet inte sätts så är dens standard värdet ""
      */
+    @NonNull
     private String title = "";
 
     /**
      * beskrivning av produkten
      * Om värdet inte sätts så är dens standard värdet ""
      */
+    @NonNull
     private String description = "";
 
     /**
      * Priset av produkten
      * Om värdet inte sätts så är dens standard värdet 0
      */
+    @NonNull
     private double price = 0;
 
     /**
      * Lagerstatus av produkten
      * Om värdet inte sätts så är dens standard värdet 0
      */
+    @NonNull
     private int inventory = 0;
 
     /**
      * Antal av items i produkten
      * Om värdet inte sätts så är dens standard värdet 0
      */
+    @NonNull
     private int quantity = 0;
 
     /**
      * Storeleks typ av produkten
      * Om värdet inte sätts så är dens standard värdet 0
      */
+    @NonNull
     private int size = 0;
 
     /**
      * Märket som har skapat eller paketerat produkten
-     * Om värdet inte sätts så är dens standard värdet null
      */
-    private Brand brand = null;
+    @NonNull
+    private Brand brand;
 
     /**
      * Kategorin som produkten är en del av
-     * Om värdet inte sätts så är dens standard värdet null
      */
-    private Category category = null;
+    @NonNull
+    private Category category;
 
     /**
      * Enheten som produkten är räknad från
-     * Om värdet inte sätts så är dens standard värdet null
      */
-    private Unit unit = null;
+    @NonNull
+    private Unit unit;
 
     /**
      * Boolean som sätter om produkten ska vara synlig eller inte
      * Om värdet inte sätts så är dens standard värdet false
      */
+    @NonNull
     private boolean visibility = false;
-
-    /**
-     * Konstruktor som inte tar in några parametrar och tvingar då skaparen av denna instans av objektet att sätta värdet på allt själv i efterhand
-     */
-    public Product() {
-    }
-
-    /**
-     * Konstruktor som tar bara in namnet på produkten, allt annat måste skaparen av denna instans av objektet sätta själv
-     *
-     * @param title namnet på produkten
-     */
-    public Product(String title) {
-        this.title = title;
-    }
-
-    /**
-     * Konstruktor som bara sätter id och title och lämnar allt annat med deras standardvärden, allt annat måste skaparen av denna instans av objektet sätta själv
-     *
-     * @param id    idn av produkten (primary key från databasen)
-     * @param title namnet på produkten
-     */
-    public Product(int id, String title) {
-        this.id = id;
-        this.title = title;
-    }
-
-    /**
-     * Konstruktor som sätter alla parametrar utom id för produkten
-     * (id kommer ha värdet 0)
-     *
-     * @param title       namnet på produkten
-     * @param description beskrivning av produkten
-     * @param price       Priset av produkten
-     * @param inventory   Lagerstatus av produkten
-     * @param quantity    Antal av items i produkten
-     * @param size        Storeleks typ av produkten
-     * @param brand       Märket som har skapat eller paketerat produkten
-     * @param category    Kategorin som produkten är en del av
-     * @param unit        Enheten som produkten är räknad från
-     * @param visibility  Boolean som sätter om produkten ska vara synlig eller inte
-     */
-    public Product(String title, String description, double price, int inventory, int quantity, int size, Brand brand, Category category, Unit unit, boolean visibility) {
-        this.title = title;
-        this.description = description;
-        this.price = price;
-        this.inventory = inventory;
-        this.quantity = quantity;
-        this.size = size;
-        this.brand = brand;
-        this.category = category;
-        this.unit = unit;
-        this.visibility = visibility;
-    }
 
     /**
      * Konstruktor som sätter alla parametrar av produkten
@@ -377,9 +331,9 @@ public class Product {
                 ", price=" + price +
                 ", quantity=" + quantity +
                 ", size=" + size +
-                ", brand=" + brand.brand() +
-                ", category=" + category.category() +
-                ", unit=" + unit.unit() + " | " + unit.longUnit() +
+                ", brand=" + brand.getBrand() +
+                ", category=" + category.getCategory() +
+                ", unit=" + unit.getUnit() + " | " + unit.getLongUnit() +
                 '}';
     }
 
