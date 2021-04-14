@@ -1,8 +1,8 @@
-package Modell;
+package Model;
 
 import java.util.Objects;
 
-import static Modell.OM.*;
+import static Model.OM.*;
 
 /*
  * Created by Lukas Aronsson

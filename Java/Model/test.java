@@ -1,6 +1,6 @@
-package Modell;
+package Model;
 
-import static Modell.OM.*;
+import static Model.OM.*;
 
 /*
  * Created by Lukas Aronsson
@@ -31,6 +31,8 @@ public class test {
         System.out.println("image product = " + image.product());
 
         System.out.println("brand = " + brand.brand() + ", BrandId = " + brand.id());
+
+        City city = new City(1, "Stockholm");
 
     }
 }
