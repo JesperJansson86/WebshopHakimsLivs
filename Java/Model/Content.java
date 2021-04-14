@@ -35,8 +35,7 @@ public class Content {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Content)) return false;
-        Content content = (Content) o;
+        if (!(o instanceof Content content)) return false;
         return getRequirement().equals(content.getRequirement());
     }
 

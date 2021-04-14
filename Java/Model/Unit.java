@@ -37,8 +37,7 @@ public class Unit {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Unit)) return false;
-        Unit unit1 = (Unit) o;
+        if (!(o instanceof Unit unit1)) return false;
         return getUnit().equals(unit1.getUnit()) && getLongUnit().equals(unit1.getLongUnit());
     }
 

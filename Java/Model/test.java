@@ -1,7 +1,5 @@
 package Model;
 
-import static Model.OM.*;
-
 /*
  * Created by Lukas Aronsson
  * Date: 07/04/2021
@@ -28,9 +26,9 @@ public class test {
 
         Image image = new Image(1, "testImage", product);
 
-        System.out.println("image product = " + image.product());
+        System.out.println("image product = " + image.getProduct());
 
-        System.out.println("brand = " + brand.brand() + ", BrandId = " + brand.id());
+        System.out.println("brand = " + brand.getBrand() + ", BrandId = " + brand.getId());
 
         City city = new City(1, "Stockholm");
 

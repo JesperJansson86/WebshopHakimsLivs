@@ -35,8 +35,7 @@ public class City {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof City)) return false;
-        City city1 = (City) o;
+        if (!(o instanceof City city1)) return false;
         return getCity().equals(city1.getCity());
     }
 

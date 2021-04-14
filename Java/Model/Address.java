@@ -38,8 +38,7 @@ public class Address {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Address)) return false;
-        Address address1 = (Address) o;
+        if (!(o instanceof Address address1)) return false;
         return getAddress().equals(address1.getAddress()) && getAreaCode().equals(address1.getAreaCode());
     }
 

@@ -34,8 +34,7 @@ public class Brand {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Brand)) return false;
-        Brand brand1 = (Brand) o;
+        if (!(o instanceof Brand brand1)) return false;
         return getBrand().equals(brand1.getBrand());
     }
 

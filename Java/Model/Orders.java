@@ -41,8 +41,7 @@ public class Orders {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Orders)) return false;
-        Orders orders = (Orders) o;
+        if (!(o instanceof Orders orders)) return false;
         return getOrderDate().equals(orders.getOrderDate()) && getOrderStatus().equals(orders.getOrderStatus()) && getCustomer().equals(orders.getCustomer());
     }
 

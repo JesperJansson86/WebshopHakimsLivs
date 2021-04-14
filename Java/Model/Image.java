@@ -38,8 +38,7 @@ public class Image {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Image)) return false;
-        Image image1 = (Image) o;
+        if (!(o instanceof Image image1)) return false;
         return getImage().equals(image1.getImage()) && getProduct().equals(image1.getProduct());
     }
 

@@ -34,8 +34,7 @@ public class OrderStatus {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof OrderStatus)) return false;
-        OrderStatus that = (OrderStatus) o;
+        if (!(o instanceof OrderStatus that)) return false;
         return getOrderStatus().equals(that.getOrderStatus());
     }
 

@@ -346,8 +346,7 @@ public class Product {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Product)) return false;
-        Product product = (Product) o;
+        if (!(o instanceof Product product)) return false;
         return getId() == product.getId() && Double.compare(product.getPrice(), getPrice()) == 0 && getQuantity() == product.getQuantity() && getSize() == product.getSize() && getTitle().equals(product.getTitle()) && getDescription().equals(product.getDescription()) && getBrand().equals(product.getBrand()) && getCategory().equals(product.getCategory()) && getUnit().equals(product.getUnit());
     }
 

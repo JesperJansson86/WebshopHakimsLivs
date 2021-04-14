@@ -37,8 +37,7 @@ public class AreaCode {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof AreaCode)) return false;
-        AreaCode areaCode1 = (AreaCode) o;
+        if (!(o instanceof AreaCode areaCode1)) return false;
         return getAreaCode().equals(areaCode1.getAreaCode()) && getCity().equals(areaCode1.getCity());
     }
 

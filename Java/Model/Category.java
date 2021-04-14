@@ -34,8 +34,7 @@ public class Category {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Category)) return false;
-        Category category1 = (Category) o;
+        if (!(o instanceof Category category1)) return false;
         return getCategory().equals(category1.getCategory());
     }
 

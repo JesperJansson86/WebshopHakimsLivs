@@ -41,8 +41,7 @@ public class Order_Contains {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Order_Contains)) return false;
-        Order_Contains that = (Order_Contains) o;
+        if (!(o instanceof Order_Contains that)) return false;
         return getProductAmount() == that.getProductAmount() && getOrder().equals(that.getOrder()) && getProduct().equals(that.getProduct());
     }
 
