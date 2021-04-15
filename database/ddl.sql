@@ -102,14 +102,25 @@ create table orderStatus
     orderstatus varchar(50) not null
 );
 
+create table delivery
+(
+    id          int         not null auto_increment primary key,
+    deliverytype varchar(50),
+    deliverycost    int     not null
+);
+
 create table orders
 (
-    id             int not null auto_increment primary key,
-    orderDate      timestamp    default current_timestamp,
-    orderstatus_id int not null default 1,
-    customer_id    int not null,
+    id              int not null auto_increment primary key,
+    orderDate       timestamp    default current_timestamp,
+    orderstatus_id  int not null default 1,
+    customer_id     int not null,
+    deliveryOption  int not null default 1,
+    deliveryAddress_id  int default null,
     foreign key (orderstatus_id) references orderstatus (id),
-    foreign key (customer_id) references customer (id)
+    foreign key (customer_id) references customer (id),
+    foreign key (deliveryOption) references delivery (id),
+    foreign key (deliveryAddress_id) references address (id)
 );
 
 create table order_contains

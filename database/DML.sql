@@ -144,12 +144,17 @@ insert into orderStatus(OrderStatus) VALUES
 ('Plock'),
 ('Skickad');
 
-insert into orders(orderDate,orderStatus_id,customer_id) VALUES
-	("2021-03-29 14:00:00",1,1),
-	("2021-03-26 13:30:00",2,3),
-	("2021-03-25 10:45:00", 3, 2),
-	("2021-03-19 11:00:00",3,4),
-	("2021-03-29 15:10:00",1,4);
+insert into	delivery(deliverytype, deliverycost) VALUES
+('Hämtas i butik', 0),
+('Levereras till kund', 39),
+('Fri leverans', 0);
+
+insert into orders(orderDate,orderStatus_id,customer_id, deliveryOption, deliveryAddress_id) VALUES
+	("2021-03-29 14:00:00", 1, 1, 1, null),
+	("2021-03-26 13:30:00", 2, 3, 2, 3),
+	("2021-03-25 10:45:00", 3, 2, 2, 2),
+	("2021-03-19 11:00:00", 3, 4, 1, null),
+	("2021-03-29 15:10:00", 1, 4, 1, null);
 
 
 insert into order_contains(order_id, product_id, productamount) VALUES
