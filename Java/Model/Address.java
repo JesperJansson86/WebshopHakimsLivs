@@ -1,11 +1,12 @@
 package Model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NonNull;
-import lombok.Setter;
 
-import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  * Created by Lukas Aronsson
@@ -15,35 +16,16 @@ import java.util.Objects;
  * Copyright: MIT
  **/
 
-@Getter
-@Setter
-@AllArgsConstructor
+@Data
+@Entity
 public class Address {
 
     @NonNull
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @NonNull
     private String address;
     @NonNull
     private AreaCode areaCode;
-
-    @Override
-    public String toString() {
-        return "Address{" +
-                "address='" + address + '\'' +
-                ", areaCode=" + areaCode +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Address address1)) return false;
-        return getAddress().equals(address1.getAddress()) && getAreaCode().equals(address1.getAreaCode());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getAddress(), getAreaCode());
-    }
 }

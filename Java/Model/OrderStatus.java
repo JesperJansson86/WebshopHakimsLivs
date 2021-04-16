@@ -1,11 +1,7 @@
 package Model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NonNull;
-import lombok.Setter;
-
-import java.util.Objects;
 
 /**
  * Created by Lukas Aronsson
@@ -14,9 +10,7 @@ import java.util.Objects;
  * Project: WebshopHakimsLivs
  * Copyright: MIT
  **/
-@Getter
-@Setter
-@AllArgsConstructor
+@Data
 public class OrderStatus {
 
     @NonNull
@@ -24,22 +18,4 @@ public class OrderStatus {
     @NonNull
     private String orderStatus;
 
-    @Override
-    public String toString() {
-        return "OrderStatus{" +
-                "orderStatus='" + orderStatus + '\'' +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof OrderStatus that)) return false;
-        return getOrderStatus().equals(that.getOrderStatus());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getOrderStatus());
-    }
 }

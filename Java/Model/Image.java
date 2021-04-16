@@ -1,11 +1,7 @@
 package Model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NonNull;
-import lombok.Setter;
-
-import java.util.Objects;
 
 /**
  * Created by Lukas Aronsson
@@ -14,10 +10,7 @@ import java.util.Objects;
  * Project: WebshopHakimsLivs
  * Copyright: MIT
  **/
-
-@Getter
-@Setter
-@AllArgsConstructor
+@Data
 public class Image {
 
     @NonNull
@@ -26,24 +19,4 @@ public class Image {
     private String image;
     @NonNull
     private Product product;
-
-    @Override
-    public String toString() {
-        return "Image{" +
-                "image='" + image + '\'' +
-                ", product=" + product +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Image image1)) return false;
-        return getImage().equals(image1.getImage()) && getProduct().equals(image1.getProduct());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getImage(), getProduct());
-    }
 }

@@ -1,11 +1,7 @@
 package Model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NonNull;
-import lombok.Setter;
-
-import java.util.Objects;
 
 /**
  * Created by Lukas Aronsson
@@ -15,9 +11,7 @@ import java.util.Objects;
  * Copyright: MIT
  **/
 
-@Getter
-@Setter
-@AllArgsConstructor
+@Data
 public class Order_Contains {
 
     @NonNull
@@ -29,24 +23,4 @@ public class Order_Contains {
     @NonNull
     private int productAmount;
 
-    @Override
-    public String toString() {
-        return "Order_Contains{" +
-                "order=" + order +
-                ", product=" + product +
-                ", productAmount=" + productAmount +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Order_Contains that)) return false;
-        return getProductAmount() == that.getProductAmount() && getOrder().equals(that.getOrder()) && getProduct().equals(that.getProduct());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getOrder(), getProduct(), getProductAmount());
-    }
 }

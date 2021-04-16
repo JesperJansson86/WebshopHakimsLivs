@@ -1,11 +1,7 @@
 package Model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NonNull;
-import lombok.Setter;
-
-import java.util.Objects;
 
 /**
  * Created by Lukas Aronsson
@@ -14,32 +10,11 @@ import java.util.Objects;
  * Project: WebshopHakimsLivs
  * Copyright: MIT
  **/
-@Getter
-@Setter
-@AllArgsConstructor
+@Data
 public class Category {
 
     @NonNull
     private int id;
     @NonNull
     private String category;
-
-    @Override
-    public String toString() {
-        return "Category{" +
-                "category='" + category + '\'' +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Category category1)) return false;
-        return getCategory().equals(category1.getCategory());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getCategory());
-    }
 }

@@ -1,11 +1,7 @@
 package Model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NonNull;
-import lombok.Setter;
-
-import java.util.Objects;
 
 /**
  * Created by Lukas Aronsson
@@ -15,9 +11,7 @@ import java.util.Objects;
  * Copyright: MIT
  **/
 
-@Getter
-@Setter
-@AllArgsConstructor
+@Data
 public class Store {
 
     @NonNull
@@ -31,25 +25,4 @@ public class Store {
     @NonNull
     private Address address;
 
-    @Override
-    public String toString() {
-        return "Store{" +
-                "phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", openHours='" + openHours + '\'' +
-                ", address=" + address +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Store store)) return false;
-        return getPhone().equals(store.getPhone()) && getEmail().equals(store.getEmail()) && getOpenHours().equals(store.getOpenHours()) && getAddress().equals(store.getAddress());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getPhone(), getEmail(), getOpenHours(), getAddress());
-    }
 }

@@ -1,12 +1,9 @@
 package Model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NonNull;
-import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 /**
  * Created by Lukas Aronsson
@@ -15,9 +12,7 @@ import java.util.Objects;
  * Project: WebshopHakimsLivs
  * Copyright: MIT
  **/
-@Getter
-@Setter
-@AllArgsConstructor
+@Data
 public class Orders {
 
     @NonNull
@@ -29,24 +24,4 @@ public class Orders {
     @NonNull
     private Customer customer;
 
-    @Override
-    public String toString() {
-        return "Orders{" +
-                "orderDate=" + orderDate +
-                ", orderStatus=" + orderStatus +
-                ", customer=" + customer +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Orders orders)) return false;
-        return getOrderDate().equals(orders.getOrderDate()) && getOrderStatus().equals(orders.getOrderStatus()) && getCustomer().equals(orders.getCustomer());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getOrderDate(), getOrderStatus(), getCustomer());
-    }
 }

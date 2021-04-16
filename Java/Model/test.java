@@ -20,6 +20,6 @@ public class test {
         AreaCode areaCode = new AreaCode(1, "13624", city);
         Address address = new Address(1, "location", areaCode);
 
-        System.out.println(address);
+        System.out.println();
     }
 }
