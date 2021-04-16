@@ -172,7 +172,7 @@ function IsCartEmpty() {
   if (Object.keys(itemsInCart).length === 0) {
     document.getElementById("bigError").innerHTML = "Din varukorg är tom";
     localStorage.clear();
-    document.getElementById("total").innerHTML = "";
+    //document.getElementById("total").innerHTML = "";
     document.getElementById("basketValue").innerHTML = "";
     document.getElementById("deliveryCost").innerHTML = "";
     document.getElementById("freeDelivery").innerHTML =
@@ -203,7 +203,7 @@ function checkTotalValueOfCart(sum) {
 function calculateShippment(sum) {
   // räknar ut om kunden har rätt till fri frakt eller inte
   const shippment = 39;
-  if (sum >= 500) {
+  /*if (sum >= 500) {
     document.getElementById("total").innerHTML =
       "Summa: $" + sum.toFixed(2) + " inklusive gratis frakt";
   } else {
@@ -212,7 +212,7 @@ function calculateShippment(sum) {
       "Summa: $" +
       sumInkShippment.toFixed(2) +
       " inklusive fraktavgift på 39kr";
-  }
+  }*/
 
   document.getElementById(
     "basketValue"
