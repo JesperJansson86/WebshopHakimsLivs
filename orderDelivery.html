@@ -10,6 +10,11 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
     <title>Startsida</title>
   </head>
   <body class="container-fluid" style="background-color: rgb(197, 221, 197)">
@@ -36,17 +41,77 @@
                 Hur vill du få dina varor levererade?
               </p>
 
-              <label class="checkbox-inline me-5">
+              <div id="orderSummary"></div>
+              <form id="chooseDeliveryForm">
                 <input
-                  type="checkbox"
-                  id="box1"
-                  value="first-option"
-                />Hemleverans
-              </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="box2" value="second-option" />Hämta i
-                butik
-              </label>
+                  type="radio"
+                  name="deliveryChoice"
+                  id="storePickUpChoice"
+                />
+                Hämta i butik
+                <br />
+                <input
+                  type="radio"
+                  name="deliveryChoice"
+                  id="homeDeliveryChoice"
+                  checked
+                />
+                Hemleverans
+                <br />
+              </form>
+              <div id="storePickUp">
+                Hämtas i butik efter 12:00
+                <form id="storePickUpForm" onsubmit="submitPickUp()">
+                  <input
+                    type="submit"
+                    name="storePickUpSubmit"
+                    id="storePickUpSubmit"
+                    value="Beställ"
+                  />
+                </form>
+              </div>
+              <div id="homeDelivery">
+                Hemleverans!<br />
+                <form id="homeDeliveryForm" onsubmit="submitDelivery()">
+                  <input
+                    type="text"
+                    name="deliveryName"
+                    id="deliveryName"
+                    placeholder="Ditt Namn"
+                    pattern="[a-zA-ZåöäÅÖÄ]{2,30}"
+                  /><br />
+                  <input
+                    type="text"
+                    name="deliveryPhone"
+                    id="deliveryPhone"
+                    placeholder="Ditt telefonnummer"
+                    pattern="[0-9]{5,20}"
+                  /><br />
+                  <input
+                    type="text"
+                    name="deliveryAdress"
+                    id="deliveryAdress"
+                    placeholder="Din Adress"
+                  />
+                  <br />
+                  <input
+                    type="submit"
+                    name="deliverySubmit"
+                    id="deliverySubmit"
+                    value="Beställ"
+                  />
+                  <br />
+                  Förnamn <br />
+                  Efternamn <br />
+                  Telefonnummer <br />
+                  E-post <br /><br />
+
+                  OM leverans <br />
+                  Adress <br />
+                  Postnummer <br />
+                  Ort
+                </form>
+              </div>
             </div>
           </div>
 
@@ -187,6 +252,58 @@
     ></script>
     <script src="../javascript/barsBasket.js"></script>
     <script>
+      localStorage.setItem("deliveryType", "home");
+
+      function submitDelivery() {
+        name = document.getElementById("deliveryName").value;
+        phone = document.getElementById("deliveryPhone").value;
+        adress = document.getElementById("deliveryAdress").value;
+        var parseCustomer = {
+          name: [name],
+          phone: [phone],
+          adress: [adress],
+        };
+        var customerJSON = JSON.stringify(parseCustomer);
+        //Todo vad händer här?
+      }
+
+      function submitPickUp() {
+        //Todo vad händer här?
+      }
+
+      $("#storePickUp").hide();
+
+      //Kund och beställningsdata hämtas just nu från en order.json som bör bytas ut.
+      $("document").ready(function () {
+        $.getJSON("order.json", function (data) {
+          let total = 0;
+          console.log(data);
+          document.getElementById("orderSummary").innerHTML +=
+            data[0].customerName;
+          $.each(data[0].orderList, function (key, value) {
+            document.getElementById(
+              "orderSummary"
+            ).innerHTML += `<br>${value.product} ${value.price}:- `;
+            total += parseInt(value.price);
+          });
+
+          document.getElementById(
+            "orderSummary"
+          ).innerHTML += `<br> Totalt: ${total}`;
+        });
+      });
+
+      $("#storePickUpChoice").click(function () {
+        $("#homeDelivery").hide();
+        $("#storePickUp").show();
+        localStorage.setItem("deliveryType", "Pickup");
+      });
+      $("#homeDeliveryChoice").click(function () {
+        $("#homeDelivery").show();
+        $("#storePickUp").hide();
+        localStorage.setItem("deliveryType", "home");
+      });
+
       var sum = JSON.parse(localStorage.getItem("basketValue"));
 
       document.getElementById(
