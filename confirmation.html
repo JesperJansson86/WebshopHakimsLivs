@@ -53,14 +53,16 @@
                     <th>Orderdatum</th>
                     <th>Totalsumma</th>
                     <th>Antal produkter beställda</th>
+                    <th>Leveranssätt</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Stina Jansson</td>
-                    <td>2021-03-31</td>
-                    <td>685,50 kr</td>
-                    <td>46</td>
+                    <td id="name">Stina Jansson</td>
+                    <td id="date">2021-03-31</td>
+                    <td id="total">685,50 kr</td>
+                    <td id="products">46</td>
+                    <td id="delivery">46</td>
                   </tr>
                 </tbody>
               </table>
@@ -68,14 +70,12 @@
           </div>
             
           <p>
-            Vi kommer alldeles snart att påbörja plocka din order. Du kan
-            följa din order under Mina sidor.
+            Vi kommer alldeles snart att påbörja plocka din order.
           </p>
           <p>En orderbekräftelse har skickats till angiven e-postadress.</p>
 
           <div class="container">
             <div class="d-grid gap-2 d-md-block">
-              <a href="../minaSidor/myOrders.html" class="btn btn-success" role="button">Mina sidor</a>
               <a href="/index.html" class="btn btn-success" role="button">Tillbaka till startsidan</a>
             </div>
           </div>
@@ -95,6 +95,15 @@
     integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
     crossorigin="anonymous"></script>
   <script src="../javascript/barsConfirm.js"></script>
+  <script>
+    document.getElementById("name").innerHTML = localStorage.getItem("customerName");
+    document.getElementById("date").innerHTML;
+    document.getElementById("total").innerHTML = localStorage.getItem("TotalAmount") + " kr"
+    document.getElementById("products").innerHTML = localStorage.getItem("basketQuantity")
+    document.getElementById("delivery").innerHTML = localStorage.getItem("deliveryType")
+
+    localStorage.clear();
+  </script>
 </body>
 
 </html>
