@@ -43,12 +43,7 @@
         <div id="hej">
           <input type="text" id="search" name="search">
           <br> 
-          <input type="checkbox" id="category1" onclick="updateSearchResults()">Kategori 1
-          <input type="checkbox" id="category2" onclick="updateSearchResults()">Kategori 2
-          <input type="checkbox" id="category3" onclick="updateSearchResults()">Kategori 3
-          <input type="checkbox" id="category4" onclick="updateSearchResults()">Kategori 4
-          <input type="checkbox" id="category5" onclick="updateSearchResults()">Kategori 5
-          <input type="checkbox" id="category6" onclick="updateSearchResults()">Kategori 6
+          sökresultat
           <ul  id="results">
         </div>
       </div>
@@ -65,7 +60,6 @@
 
     <script>
      /*Detta är för att sökresultaten ska uppdateras både om en skriver i sök-fältet
-     och om en klickar i en kategoricheckbox.
      */
      $(document).ready(function(){
           $('#search').keyup(function() {
@@ -81,27 +75,9 @@
               var expression = new RegExp(searchField,"i");
               $.getJSON('../json/products1.json',function(data){
                   $.each(data, function(key, value){
-                      console.log(value.categoryId +"HÄR")
                       if(value.name.search(expression) != -1) 
-                  {
-                      /**
-                       * Om alla checkboxar är tomma så tar vi bara all data
-                       * annars så kollar vi i loopen vilka checkboxar som är
-                       * ifyllda och visar bara data som matchar den kategorin.
-                       */
-                      if ((!document.getElementById(`category1`).checked)
-                        &&(!document.getElementById(`category2`).checked)
-                        &&(!document.getElementById(`category3`).checked)
-                        &&(!document.getElementById(`category4`).checked)
-                        &&(!document.getElementById(`category5`).checked)
-                        &&(!document.getElementById(`category6`).checked)) 
+                  {                      
                       $('#results').append('<li >'+value.name);
-                          else
-                      for (let i = 1; i <= 6; i++)
-                          if (document.getElementById(`category${i}`).checked){
-                              if(value.categoryId==i)
-                              {$('#results').append('<li >'+value.name);}
-                          }
                   }
                   })
               })}
