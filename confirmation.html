@@ -97,7 +97,7 @@
   <script src="../javascript/barsConfirm.js"></script>
   <script>
     document.getElementById("name").innerHTML = localStorage.getItem("customerName");
-    document.getElementById("date").innerHTML;
+    document.getElementById("date").innerHTML = new Date().toISOString().slice(0, 10);
     document.getElementById("total").innerHTML = localStorage.getItem("TotalAmount") + " kr"
     document.getElementById("products").innerHTML = localStorage.getItem("basketQuantity")
     document.getElementById("delivery").innerHTML = localStorage.getItem("deliveryType")
