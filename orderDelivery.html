@@ -257,6 +257,8 @@
                   />
                 </form>
               </div>
+              <h3 class="mb-3" style="color: red" id="bigError">
+              </h3>
             </div>
           </div>
         </div>
@@ -305,6 +307,11 @@
         adress = document.getElementById("deliveryAddress").value;
         zip = document.getElementById("deliveryZipcode").value;
         city = document.getElementById("deliveryCity").value;
+
+        if(firstname == "" || lastname == "" || phone == "" || email == "" || adress == "" || zip == "" || city == ""){
+          document.getElementById("bigError").innerHTML = "Kontrollera att du fyllt i alla kontaktuppgifter"
+          return false;
+        }
         
         var parseCustomer = [{
           firstname: firstname,
@@ -317,8 +324,10 @@
         }];
         var customerJSON = JSON.stringify(parseCustomer);
         console.log(customerJSON);
+        localStorage.setItem("customerName", firstname + " "+ lastname);
+
         
-        //Todo vad händer här?
+        return true;
       }
 
       function submitPickUp() {
@@ -327,6 +336,10 @@
         phone = document.getElementById("pickupPhonenumber").value;
         email = document.getElementById("pickupEmail").value;
 
+        if(firstname == "" || lastname == "" || phone == "" || email == ""){
+          document.getElementById("bigError").innerHTML = "Kontrollera att du fyllt i alla kontaktuppgifter"
+          return false;
+        }
         
         var parseCustomer = [{
           firstname: firstname,
@@ -338,7 +351,9 @@
         var customerJSON = JSON.stringify(parseCustomer);
         console.log(customerJSON);
 
-        //Todo vad händer här?
+        localStorage.setItem("customerName", firstname + " "+ lastname);
+
+        return true;
       }
 
       $("#storePickUp").hide();
