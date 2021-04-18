@@ -17,34 +17,6 @@ function getProducts() {
   }
 
 
-
-      /**
-       * Slumpar fram 6st synliga produkter från Json fil
-       * */
-/*         
-document.getElementById("titleOfPage").innerText == "Välkommen!"
-
-       $.getJSON("../json/products1.json", function (value) {
-        var visibleProducts = [];
-        $.each(value, function (key, value) {
-          if (value.visible) {
-            visibleProducts.push(value);
-          }
-        })
-        var displayedProducts = 6;
-          for (var i = 0; i < displayedProducts; i++) {
-            var product = visibleProducts[Math.floor(Math.random() * visibleProducts.length)];
-            //Tar bort framslumpad product ur arrayen så att inga dubbletter visas
-            var removeIndex = visibleProducts.map(prod => prod.id).indexOf(product.id);
-            visibleProducts.splice(removeIndex, 1);
-            
-              document.getElementById("card").innerHTML += `
-
-
-*/
-
-
-
   let output =
   $.getJSON("../json/products1.json", function (value) {
     if(document.getElementById("titleOfPage").innerText == "Välkommen!"){

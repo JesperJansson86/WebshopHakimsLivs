@@ -11,37 +11,40 @@
       crossorigin="anonymous"
     />
     <title>Test of Search</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-    crossorigin="anonymous"
-  ></script>
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body style="background-color: rgb(197, 221, 197)">
     <!-- Header/ huvudmenyn -->
 
+    <div class="row">
+      <header class="col px-0" id="header"></header>
+    </div>
+
+    <!-- ./ header -->
+
+    <!-- Sidomenyn -->
+    <div class="container">
       <div class="row">
-        <header class="col px-0" id="header"></header>
-      </div>
+        <div class="col-md-3" id="sidebar"></div>
+        <!-- ./ sidomeny -->
 
-      <!-- ./ header -->
-
-      <!-- Sidomenyn -->
-      <div class="container" >
-        <div class="row">
-          <div class="col-md-3" id="sidebar"></div>
-          <!-- ./ sidomeny -->
-
-          <!-- Main -->
-          <div class="col-md-9">
-            <h1 style="color: rgb(3, 78, 3)" id="titleOfPage">Sökresultat</h1>
-            <div id="hej">
-              <input type="text" id="search" name="search">
-              <br>
-              <ul  id="results">
-            </div>
+        <!-- Main -->
+        <div class="col-md-9">
+          <h1 style="color: rgb(3, 78, 3)" id="titleOfPage">Sökresultat</h1>
+          <div id="hej">
+            <input type="text" id="search" name="search" />
+            <br />
+            <div class="row mt-5" id="results"></div>
           </div>
         </div>
       </div>
@@ -54,36 +57,97 @@
     </div>
     <!-- ./ footer/ information-->
 
-
-
-
     <script>
-     /*Detta är för att sökresultaten ska uppdateras både om en skriver i sök-fältet
-     */
-     $(document).ready(function(){
-          $('#search').keyup(function() {
-              updateSearchResults()
-          })
-      })
+      /*Detta är för att sökresultaten ska uppdateras både om en skriver i sök-fältet
+       */
+      $(document).ready(function () {
+        $("#search").keyup(function () {
+          updateSearchResults();
+        });
+      });
 
       /*Vi tar in det stom står i #search (ignorerar casing) och kontrollerar
-      *om det matchar med namndata i products1.json
-      */
-      function updateSearchResults() {$('#results').html('');
-              var searchField = $('#search').val();
-              var expression = new RegExp(searchField,"i");
-              $.getJSON('../json/products1.json',function(data){
-                  $.each(data, function(key, value){
-                      if(value.name.search(expression) != -1) 
-                  {                      
-                      $('#results').append('<li >'+value.name);
-                  }
-                  })
-              })}
+       *om det matchar med namndata i products1.json
+       */
+      function updateSearchResults() {
+        $("#results").html("");
+        var searchField = $("#search").val();
+        var expression = new RegExp(searchField, "i");
+        $.getJSON("../json/products1.json", function (data) {
+          $.each(data, function (key, value) {
+            if (value.name.search(expression) != -1) {
 
+              document.getElementById("results").innerHTML += `
+          <div class="col-md-6 col-lg-4">
+            <div class="card text-dark border-success bg-light mb-3">
+                    
+              <div class="card-body">
+                <h5 class="card-title">${value.name}</h5>
+  
+                <img src="https://raw.githubusercontent.com/JesperJansson86/WebshopHakimsLivs/S01-4/Testdata/img/${
+                  value.image
+                }" class="img-fluid">
+  
+                <p class="card-text">${value.description}</p>
+              </div>
+                  
+  
+              <div class="card-body text-end">
+                <p>Pris: ${value.price} kr</p>
+                
+                <p class="my-1"><small class="text-muted">Jmfrpris: ${Math.round(
+                  (value.price / value.size) * 1000
+                )}/${value.unitId} kr</small></p>
+                <p><small class="text-muted">Lagerstatus: ${Math.round(
+                  Math.random() * 10
+                )}</small></p>
+              
+                <div class="d-grid gap-2">
+                  <button class="buy-btn" data-id="${value.id}">Köp</button>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+                       `;
+              const buyButtons = document.querySelectorAll(".buy-btn");
+              buyButtons.forEach((b) =>
+                b.addEventListener("click", handlebuyClick)
+              );
 
+              function handlebuyClick(e) {
+                let checkBasketQuantity = JSON.parse(
+                  localStorage.getItem("basketQuantity")
+                );
+                if (checkBasketQuantity < 20) {
+                  const button = e.target;
+                  const productId = button.dataset.id;
+                  sendItemToCart(productId);
+                  localStorage.setItem(
+                    "basketQuantity",
+                    checkBasketQuantity + 1
+                  );
+                  document.getElementById("basketQ").innerHTML = JSON.parse(
+                    localStorage.getItem("basketQuantity")
+                  );
+                } else {
+                  alert("Varukorgen är full, max 20 produkter!");
+                }
+              }
 
-
+              function sendItemToCart(productId) {
+                let cart = JSON.parse(localStorage.getItem("cart") || "{}");
+                if (productId in cart) {
+                  cart[productId]++;
+                } else {
+                  cart[productId] = 1;
+                }
+                localStorage.setItem("cart", JSON.stringify(cart));
+              }
+            }
+          });
+        });
+      }
     </script>
     <script src="../javascript/barsStandard.js"></script>
   </body>
