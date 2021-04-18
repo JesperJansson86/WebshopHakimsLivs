@@ -42,8 +42,6 @@
         <div class="col-md-9">
           <h1 style="color: rgb(3, 78, 3)" id="titleOfPage">Sökresultat</h1>
           <div id="hej">
-            <input type="text" id="search" name="search" />
-            <br />
             <div class="row mt-5" id="results"></div>
           </div>
         </div>
@@ -58,25 +56,29 @@
     <!-- ./ footer/ information-->
 
     <script>
-      /*Detta är för att sökresultaten ska uppdateras både om en skriver i sök-fältet
-       */
-      $(document).ready(function () {
-        $("#search").keyup(function () {
-          updateSearchResults();
-        });
-      });
-
       /*Vi tar in det stom står i #search (ignorerar casing) och kontrollerar
        *om det matchar med namndata i products1.json
        */
+      $(document).ready(function () {
+        updateSearchResults();
+      });
+
       function updateSearchResults() {
+        var searchField;
+        if (localStorage.getItem("searchField") !== null) {
+          searchField = localStorage.getItem("searchField");
+          localStorage.removeItem("searchField");
+        } else {
+          searchField = $("#searchTop").val();
+        }
+
         $("#results").html("");
-        var searchField = $("#search").val();
+        console.log(searchField);
+
         var expression = new RegExp(searchField, "i");
         $.getJSON("../json/products1.json", function (data) {
           $.each(data, function (key, value) {
             if (value.name.search(expression) != -1) {
-
               document.getElementById("results").innerHTML += `
           <div class="col-md-6 col-lg-4">
             <div class="card text-dark border-success bg-light mb-3">

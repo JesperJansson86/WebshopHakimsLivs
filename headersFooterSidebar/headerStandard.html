@@ -40,8 +40,7 @@
                 id="searchTop"
                 placeholder="Search"
                 aria-label="Search"
-                style="width: 300px"
-                onclick="location.href='../testOfSearch.html'"
+                style="width: 300px"                
               />
 
             </li>
@@ -67,6 +66,23 @@
 
     <script>
       document.getElementById("basketQ").innerHTML = JSON.parse(localStorage.getItem("basketQuantity"));
+
+            /*Detta är för att sökresultaten ska uppdateras både om en skriver i sök-fältet
+       */
+      $(document).ready(function () {
+        $("#searchTop").keyup(function () {
+          if(location.pathname != "/testOfSearch.html"){    
+            localStorage.setItem("searchField", $("#searchTop").val())        
+            location.href = "/testOfSearch.html"
+          }   
+          else{
+            updateSearchResults();
+          }       
+          
+        });
+      });
     </script>
+
+    
   </body>
 </html>
