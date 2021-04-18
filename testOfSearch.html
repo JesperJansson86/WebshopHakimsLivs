@@ -18,45 +18,44 @@
     crossorigin="anonymous"
   ></script>
   </head>
-  <body class="container-fluid">
 
-        <!-- Header/ huvudmenyn -->
-    <div class="row">
-          <div class="col px-0">
-    <header id="header"></header>
-    </div>
-    </div>
+  <body style="background-color: rgb(197, 221, 197)">
+    <!-- Header/ huvudmenyn -->
 
-
-    <div class="row px-5">
-      <div class="col-3">
-    <!-- Sidomenyn -->
-    <div id="sidebar"></div>
+      <div class="row">
+        <header class="col px-0" id="header"></header>
       </div>
-      <div class="col">
-        <div
-        class="p-3 overflow-auto"
-        style="
-          background-color: rgb(197, 221, 197);
-        "
-      >
-        <div id="hej">
-          <input type="text" id="search" name="search">
-          <br> 
-          sökresultat
-          <ul  id="results">
+
+      <!-- ./ header -->
+
+      <!-- Sidomenyn -->
+      <div class="container" >
+        <div class="row">
+          <div class="col-md-3" id="sidebar"></div>
+          <!-- ./ sidomeny -->
+
+          <!-- Main -->
+          <div class="col-md-9">
+            <h1 style="color: rgb(3, 78, 3)" id="titleOfPage">Sökresultat</h1>
+            <div id="hej">
+              <input type="text" id="search" name="search">
+              <br>
+              <ul  id="results">
+            </div>
+          </div>
         </div>
       </div>
-      </div>
     </div>
+    <!-- ./ main -->
 
-
-    <div class="row">
-      <div class="col px-0">
     <!-- footer/ information-->
-    <footer></footer>
-      </div>
+    <div class="row">
+      <footer class="col"></footer>
     </div>
+    <!-- ./ footer/ information-->
+
+
+
 
     <script>
      /*Detta är för att sökresultaten ska uppdateras både om en skriver i sök-fältet
