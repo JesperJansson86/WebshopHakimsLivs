@@ -59,61 +59,8 @@
       crossorigin="anonymous"
     ></script>
     <script src="../javascript/barsStandard.js"></script>
+    <script src="/javascript/loadProducts.js"></script>
+    
 
-    <script>
-      /**
-       * Slumpar fram 6st synliga produkter från Json fil
-       * */
-         
-      $.getJSON("../json/products1.json", function (value) {
-        var visibleProducts = [];
-        $.each(value, function (key, value) {
-          if (value.visible) {
-            visibleProducts.push(value);
-          }
-        })
-        var displayedProducts = 6;
-          for (var i = 0; i < displayedProducts; i++) {
-            var product = visibleProducts[Math.floor(Math.random() * visibleProducts.length)];
-            //Tar bort framslumpad product ur arrayen så att inga dubbletter visas
-            var removeIndex = visibleProducts.map(prod => prod.id).indexOf(product.id);
-            visibleProducts.splice(removeIndex, 1);
-            
-              document.getElementById("card").innerHTML += `
-            <div class="col-md-6 col-lg-4">
-              <div class="card text-dark border-success bg-light mb-3">
-                      
-                <div class="card-body">
-                  <h5 class="card-title">${product.name}</h5>
-
-                  <img src="https://raw.githubusercontent.com/JesperJansson86/WebshopHakimsLivs/S01-4/Testdata/img/${
-                    product.image
-                  }" class="img-fluid">
-
-                  <p class="card-text">${product.description}</p>
-                </div>
-                    
-
-                <div class="card-body text-end">
-                  <p>Pris: ${product.price} kr</p>
-                  
-                  <p class="my-1"><small class="text-muted">Jmfrpris: ${Math.round(
-                    (product.price / product.size) * 1000
-                  )}/${product.unitId} kr</small></p>
-                  <p><small class="text-muted">Lagerstatus: ${Math.round(
-                    Math.random() * 10
-                  )}</small></p>
-                
-                  <div class="d-grid gap-2">
-                  <a href="#" class="btn btn-primary">Köp</a>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-                         `;
-            }
-      });
-    </script>
   </body>
 </html>

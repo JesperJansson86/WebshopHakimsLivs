@@ -40,11 +40,8 @@
                 id="searchTop"
                 placeholder="Search"
                 aria-label="Search"
-                style="width: 300px"
+                style="width: 300px"                
               />
-              <button onclick="location.href='../testOfSearch.html'">
-                Använd denna för att testa sökfunktion
-              </button>
 
             </li>
             <li class="nav-item">
@@ -69,6 +66,23 @@
 
     <script>
       document.getElementById("basketQ").innerHTML = JSON.parse(localStorage.getItem("basketQuantity"));
+
+            /*Detta är för att sökresultaten ska uppdateras både om en skriver i sök-fältet
+       */
+      $(document).ready(function () {
+        $("#searchTop").keyup(function () {
+          if(location.pathname != "/testOfSearch.html" && event.which === 13){    
+            localStorage.setItem("searchField", $("#searchTop").val())        
+            location.href = "/testOfSearch.html"
+          }   
+          else{
+            updateSearchResults();
+          }       
+          
+        });
+      });
     </script>
+
+    
   </body>
 </html>
