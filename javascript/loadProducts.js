@@ -54,7 +54,7 @@ function getProducts() {
                   <p><small class="text-muted">Lagerstatus: ${Math.round(Math.random() * 10)}</small></p>
                 
                   <div class="d-grid gap-2">
-                    <button class="buy-btn" data-id="${product.id}">Köp</button>
+                    <button class="buy-btn btn btn-success" data-id="${product.id}">Köp</button>
                   </div>
                 </div>
     
@@ -86,7 +86,7 @@ function getProducts() {
                 <p><small class="text-muted">Lagerstatus: ${Math.round(Math.random() * 10)}</small></p>
               
                 <div class="d-grid gap-2">
-                  <button class="buy-btn" data-id="${value.id}">Köp</button>
+                  <button class="buy-btn btn btn-success" data-id="${value.id}">Köp</button>
                 </div>
               </div>
   
