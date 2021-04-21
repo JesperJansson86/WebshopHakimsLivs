@@ -76,15 +76,15 @@
         console.log(searchField);
 
         var expression = new RegExp(searchField, "i");
-        $.getJSON("../json/products1.json", function (data) {
+        $.getJSON("https://hakimslivs.herokuapp.com/api/product/all", function (data) {
           $.each(data, function (key, value) {
-            if (value.name.search(expression) != -1) {
+            if (value.title.search(expression) != -1) {
               document.getElementById("results").innerHTML += `
           <div class="col-md-6 col-lg-4">
             <div class="card text-dark border-success bg-light mb-3">
                     
               <div class="card-body">
-                <h5 class="card-title">${value.name}</h5>
+                <h5 class="card-title">${value.title}</h5>
   
                 <img src="https://raw.githubusercontent.com/JesperJansson86/WebshopHakimsLivs/S01-4/Testdata/img/${
                   value.image
@@ -99,7 +99,7 @@
                 
                 <p class="my-1"><small class="text-muted">Jmfrpris: ${Math.round(
                   (value.price / value.size) * 1000
-                )}/${value.unitId} kr</small></p>
+                )}/${value.unit.id} kr</small></p>
                 <p><small class="text-muted">Lagerstatus: ${Math.round(
                   Math.random() * 10
                 )}</small></p>
