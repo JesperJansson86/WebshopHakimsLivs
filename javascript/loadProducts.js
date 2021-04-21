@@ -41,7 +41,7 @@ function getProducts() {
                 <div class="card-body">
                   <h5 class="card-title">${product.title}</h5>
     
-                  <img src="https://raw.githubusercontent.com/JesperJansson86/WebshopHakimsLivs/S01-4/Testdata/img/${product.image}" class="img-fluid">
+                  <img src="https://raw.githubusercontent.com/JesperJansson86/WebshopHakimsLivs/S01-4/Testdata/img/${product.imageList[0].image}" class="img-fluid">
     
                   <p class="card-text">${product.description}</p>
                 </div>
@@ -73,7 +73,7 @@ function getProducts() {
               <div class="card-body">
                 <h5 class="card-title">${value.title}</h5>
   
-                <img src="https://raw.githubusercontent.com/JesperJansson86/WebshopHakimsLivs/S01-4/Testdata/img/${value.image}" class="img-fluid">
+                <img src="https://raw.githubusercontent.com/JesperJansson86/WebshopHakimsLivs/S01-4/Testdata/img/${value.imageList[0].image}" class="img-fluid">
   
                 <p class="card-text">${value.description}</p>
               </div>

@@ -39,7 +39,7 @@ function renderCart() {
         <div class="row">
           <div class="col">
           <img style="width: 100%; height: auto;" src="https://raw.githubusercontent.com/JesperJansson86/WebshopHakimsLivs/S01-4/Testdata/img/${
-            product.image
+            product.imageList[0].image
           }">
           </div>
           <div class="col">
