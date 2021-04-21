@@ -85,7 +85,7 @@ insert into category(category) VALUES
 ('Hem & hushåll'),
 ('Hygien & apotek');
 
-insert into product(name, price, description, stockpile, size, quantity, category_id, brand_id, unit_id, visibility) VALUES
+insert into product(title, price, description, stockpile, size, quantity, category_id, brand_id, unit_id, visibility) VALUES
 ('Ballerina Salted Caramel 10-pack', 69,'Ballerina salted caramel är två spröda kex med len och krämig fyllning med salt kolasmak',50, 190, 10, 1, 1, 4, TRUE),
 ('Råg crisps med gräddfil & dill', 19,'Perfekt när du ska bjuda på tilltugg eller smårätter.', 100, 150, 1, 1, 2, 4, TRUE),
 ('Salta Kex Vallmofrö',25,'Glutenfria, salta kex med vallmofrö. Goda som snacks både med eller utan topping!',70, 155, 1, 1, 3, 4, TRUE),
@@ -144,7 +144,7 @@ insert into orderStatus(OrderStatus) VALUES
 ('Plock'),
 ('Skickad');
 
-insert into	delivery(deliverytype, deliverycost) VALUES
+insert into	deliveryOption(deliverytype, deliverycost) VALUES
 ('Hämtas i butik', 0),
 ('Levereras till kund', 39),
 ('Fri leverans', 0);

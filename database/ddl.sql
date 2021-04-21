@@ -71,7 +71,7 @@ create table category
 create table product
 (
     id          int            not null auto_increment primary key,
-    name        varchar(100)   not null,
+    title        varchar(100)   not null,
     price       decimal(10, 2) not null,
     description varchar(1000),
     stockpile   int            not null default 0, 
@@ -102,7 +102,7 @@ create table orderStatus
     orderstatus varchar(50) not null
 );
 
-create table delivery
+create table deliveryOption
 (
     id          int         not null auto_increment primary key,
     deliverytype varchar(50),
