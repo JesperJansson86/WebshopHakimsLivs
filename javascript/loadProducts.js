@@ -1,13 +1,14 @@
 function getProducts() {
+
   
   let getFromLS = JSON.parse(localStorage.getItem("Knapp"));
   if (getFromLS === null && document.getElementById("titleOfPage").innerText != "Välkommen!") {
     document.getElementById("titleOfPage").innerHTML = "Alla produkter";
   } else {
-    $.getJSON("../json/categories.json", function (data) {
+    $.getJSON("https://hakimslivs.herokuapp.com/api/product/all", function (data) {
       $.each(data, function (key, value) {
-        if (value.id == getFromLS) {
-          document.getElementById("titleOfPage").innerHTML = value.category;
+        if (value.category.id == getFromLS) {
+          document.getElementById("titleOfPage").innerHTML = value.category.category;
           
         }
       });
@@ -18,11 +19,11 @@ function getProducts() {
 
 
   let output =
-  $.getJSON("../json/products1.json", function (value) {
+  $.getJSON("https://hakimslivs.herokuapp.com/api/product/all", function (value) {
     if(document.getElementById("titleOfPage").innerText == "Välkommen!"){
       var visibleProducts = [];
       $.each(value, function (key, value) {
-        if (value.visible) {
+        if (value.visibility) {
           visibleProducts.push(value);
         }
       })
@@ -38,7 +39,7 @@ function getProducts() {
               <div class="card text-dark border-success bg-light mb-3">
                       
                 <div class="card-body">
-                  <h5 class="card-title">${product.name}</h5>
+                  <h5 class="card-title">${product.title}</h5>
     
                   <img src="https://raw.githubusercontent.com/JesperJansson86/WebshopHakimsLivs/S01-4/Testdata/img/${product.image}" class="img-fluid">
     
@@ -49,7 +50,7 @@ function getProducts() {
                 <div class="card-body text-end">
                   <p>Pris: ${product.price} kr</p>
                   
-                  <p class="my-1"><small class="text-muted">Jmfrpris: ${Math.round((product.price/product.size) * 1000)}/${product.unitId} kr</small></p>
+                  <p class="my-1"><small class="text-muted">Jmfrpris: ${Math.round((product.price/product.size) * 1000)}/${product.unit.id} kr</small></p>
                   <p><small class="text-muted">Lagerstatus: ${Math.round(Math.random() * 10)}</small></p>
                 
                   <div class="d-grid gap-2">
@@ -64,13 +65,13 @@ function getProducts() {
     }
     else{
       $.each(value, function (key, value) {
-        if ((value.categoryId == getFromLS || getFromLS === null) && value.visible) {
+        if ((value.category.id == getFromLS || getFromLS === null) && value.visibility) {
           document.getElementById("card").innerHTML += `
           <div class="col-md-6 col-lg-4">
             <div class="card text-dark border-success bg-light mb-3">
                     
               <div class="card-body">
-                <h5 class="card-title">${value.name}</h5>
+                <h5 class="card-title">${value.title}</h5>
   
                 <img src="https://raw.githubusercontent.com/JesperJansson86/WebshopHakimsLivs/S01-4/Testdata/img/${value.image}" class="img-fluid">
   
@@ -81,7 +82,7 @@ function getProducts() {
               <div class="card-body text-end">
                 <p>Pris: ${value.price} kr</p>
                 
-                <p class="my-1"><small class="text-muted">Jmfrpris: ${Math.round((value.price/value.size) * 1000)}/${value.unitId} kr</small></p>
+                <p class="my-1"><small class="text-muted">Jmfrpris: ${Math.round((value.price/value.size) * 1000)}/${value.unit.id} kr</small></p>
                 <p><small class="text-muted">Lagerstatus: ${Math.round(Math.random() * 10)}</small></p>
               
                 <div class="d-grid gap-2">

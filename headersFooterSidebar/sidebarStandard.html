@@ -61,7 +61,7 @@
                   Alla produkter
                 </button>
               `;
-      $.getJSON("../json/categories.json", function (data) {
+      $.getJSON("https://hakimslivs.herokuapp.com/api/category/all", function (data) {
         $.each(data, function (key, value) {
           output += `
                 <button
