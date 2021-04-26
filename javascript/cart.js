@@ -182,15 +182,7 @@ function IsCartEmpty() {
 function checkTotalValueOfCart(sum) {
   // kollar om varukorgens totala summa överstiger 700
   localStorage.setItem("basketValue", sum);
-  if (sum > 700) {
-    document.getElementById("bigError").innerHTML =
-      "Du får max beställa varor för 700 kr";
-    document.getElementById("nextPageBtn").disabled = true;
-  } else {
-    document.getElementById("bigError").innerHTML = "";
-    document.getElementById("nextPageBtn").disabled = false;
-  }
-  return sum > 700;
+  return sum;
 }
 
 function calculateShippment(sum) {
