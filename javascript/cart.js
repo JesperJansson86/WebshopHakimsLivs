@@ -14,12 +14,6 @@ function renderCart() {
     sum += product.price * quantity;
     totalQuantity += quantity;
     localStorage.setItem("basketQuantity", totalQuantity);
-    if (totalQuantity == 20) {
-      document.getElementById("bigError").innerHTML =
-        "Du får max beställa 20 varor";
-    } else {
-      document.getElementById("bigError").innerHTML = "";
-    }
   }
 
   for (let id in itemsInCart) {
@@ -29,7 +23,6 @@ function renderCart() {
     const quantity = itemsInCart[id];
     const tooManyItems =
       quantity >= getMaxQuantity(id) ||
-      totalQuantity >= 20 ||
       checkTotalValueOfCart(sum); // villkor som sen används i  + knappen för att disabl:ea den om antalet produkter av viss sort, antalet produkter i varukogen, värdet i varukorgen är för högt. Sätts på varje + knapp.
 
     output += ` 
