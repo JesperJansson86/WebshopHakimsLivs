@@ -65,7 +65,6 @@
           <div class="card">
             <div class="card-header">Vänligen fyll i dina kontaktuppgifter</div>
             <div class="card-body">
-
               <div id="storePickUp">
                 <form
                   name="form"
@@ -114,7 +113,7 @@
                       placeholder="Ange telefonnummer"
                       name="phonenumber"
                       style="width: 40%"
-                      pattern="[0-9]{5,20}"
+                      pattern="[0-9 -+]{5,20}"
                     />
                   </div>
 
@@ -127,7 +126,7 @@
                       placeholder="Ange e-post"
                       name="email"
                       style="width: 40%"
-                      pattern="[a-z0-9._%+-]{1,64}@[a-z0-9.-]{1,252}\.[a-z]{2,3}"
+                      pattern="[a-zA-Z0-9._%+-]{1,64}@[a-zA-Z0-9.-]{1,252}\.[a-z]{2,3}"
                     />
                   </div>
                   <input
@@ -188,7 +187,7 @@
                       placeholder="Ange telefonnummer"
                       name="phonenumber"
                       style="width: 40%"
-                      pattern="[0-9]{5,20}"
+                      pattern="[0-9 +-]{5,20}"
                     />
                   </div>
 
@@ -201,7 +200,7 @@
                       placeholder="Ange e-post"
                       name="email"
                       style="width: 40%"
-                      pattern="[a-z0-9._%+-]{1,64}@[a-z0-9.-]{1,252}\.[a-z]{2,3}"
+                      pattern="[a-zA-Z0-9._%+-]{1,64}@[a-zA-Z0-9.-]{1,252}\.[a-z]{2,3}"
                     />
                   </div>
 
@@ -216,7 +215,7 @@
                       placeholder="Ange adress"
                       name="address"
                       style="width: 40%"
-                      pattern="[a-z A-ZåöäÅÖÄ 0-9]{2,30}"
+                      pattern="^[a-z A-ZåöäÅÖÄ]{1,30}[a-z A-ZåöäÅÖÄ 0-9]{1,30}"
                     />
                   </div>
 
@@ -231,7 +230,7 @@
                       placeholder="Ange postnummer"
                       name="zipcode"
                       style="width: 40%"
-                      pattern="[0-9]{5,6}"
+                      pattern="^[1-9 ][0-9 ]{5,7}"
                     />
                   </div>
 
@@ -244,7 +243,7 @@
                       placeholder="Ange ort"
                       name="city"
                       style="width: 40%"
-                      pattern="[a-z A-ZåöäÅÖÄ]{2,30}"
+                      pattern="[a-z A-ZåöäÅÖÄ]{1,30}"
                     />
                   </div>
 
@@ -257,8 +256,7 @@
                   />
                 </form>
               </div>
-              <h3 class="mb-3" style="color: red" id="bigError">
-              </h3>
+              <h3 class="mb-3" style="color: red" id="bigError"></h3>
             </div>
           </div>
         </div>
@@ -298,7 +296,6 @@
     <script>
       localStorage.setItem("deliveryType", "home");
 
-
       function submitDelivery() {
         firstname = document.getElementById("deliveryFirstname").value;
         lastname = document.getElementById("deliveryLastname").value;
@@ -308,25 +305,35 @@
         zip = document.getElementById("deliveryZipcode").value;
         city = document.getElementById("deliveryCity").value;
 
-        if(firstname == "" || lastname == "" || phone == "" || email == "" || adress == "" || zip == "" || city == ""){
-          document.getElementById("bigError").innerHTML = "Kontrollera att du fyllt i alla kontaktuppgifter"
+        if (
+          firstname == "" ||
+          lastname == "" ||
+          phone == "" ||
+          email == "" ||
+          adress == "" ||
+          zip == "" ||
+          city == ""
+        ) {
+          document.getElementById("bigError").innerHTML =
+            "Kontrollera att du fyllt i alla kontaktuppgifter";
           return false;
         }
-        
-        var parseCustomer = [{
-          firstname: firstname,
-          lastname: lastname,
-          phone: phone,
-          email: email,
-          adress: adress,          
-          zip: zip,
-          city: city,
-        }];
+
+        var parseCustomer = [
+          {
+            firstname: firstname,
+            lastname: lastname,
+            phone: phone,
+            email: email,
+            adress: adress,
+            zip: zip,
+            city: city,
+          },
+        ];
         var customerJSON = JSON.stringify(parseCustomer);
         console.log(customerJSON);
-        localStorage.setItem("customerName", firstname + " "+ lastname);
+        localStorage.setItem("customerName", firstname + " " + lastname);
 
-        
         return true;
       }
 
@@ -336,22 +343,24 @@
         phone = document.getElementById("pickupPhonenumber").value;
         email = document.getElementById("pickupEmail").value;
 
-        if(firstname == "" || lastname == "" || phone == "" || email == ""){
-          document.getElementById("bigError").innerHTML = "Kontrollera att du fyllt i alla kontaktuppgifter"
+        if (firstname == "" || lastname == "" || phone == "" || email == "") {
+          document.getElementById("bigError").innerHTML =
+            "Kontrollera att du fyllt i alla kontaktuppgifter";
           return false;
         }
-        
-        var parseCustomer = [{
-          firstname: firstname,
-          lastname: lastname,
-          phone: phone,
-          email: email,
 
-        }];
+        var parseCustomer = [
+          {
+            firstname: firstname,
+            lastname: lastname,
+            phone: phone,
+            email: email,
+          },
+        ];
         var customerJSON = JSON.stringify(parseCustomer);
         console.log(customerJSON);
 
-        localStorage.setItem("customerName", firstname + " "+ lastname);
+        localStorage.setItem("customerName", firstname + " " + lastname);
 
         return true;
       }
