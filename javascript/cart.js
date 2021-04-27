@@ -174,10 +174,6 @@ function IsCartEmpty() {
     localStorage.clear();
     //document.getElementById("total").innerHTML = "";
     document.getElementById("basketValue").innerHTML = "";
-    document.getElementById("deliveryCost").innerHTML = "";
-    document.getElementById("freeDelivery").innerHTML =
-      "Handla för minst 500 kr och få gratis leverans";
-    document.getElementById("TotalAmount").innerHTML = "";
     document.getElementById("nextPageBtn").disabled = true;
 
     return true;
@@ -218,18 +214,6 @@ function calculateShippment(sum) {
     "basketValue"
   ).innerHTML = `<b>Summa varor:</b> ${sum.toFixed(2)}  kr`;
   
-    document.getElementById(
-      "deliveryCost"
-    ).innerHTML = `<b>Leverans:</b> ${shippment} kr`;
-    localStorage.setItem("deliveryCost", shippment);
- 
-
-  let d = JSON.parse(localStorage.getItem("deliveryCost"));
-  let ta = d + sum;
-  document.getElementById(
-    "TotalAmount"
-  ).innerHTML = `<b>Totalsumma: </b>${ta.toFixed(2)} kr`;
-  localStorage.setItem("TotalAmount", ta);
 }
 
 function proceedToShippment(e) {
