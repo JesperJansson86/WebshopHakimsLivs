@@ -53,7 +53,6 @@
           <div class="card border-success mb-3">
             <div class="card-header">Vänligen fyll i dina kontaktuppgifter</div>
             <div class="card-body">
-
               <div id="storePickUp">
                 <form name="form" action="confirmation.html" id="storePickUpForm" onsubmit="return submitPickUp()">
 
@@ -89,6 +88,7 @@
                       <input type="submit" class="btn btn-primary mt-3 btn-block" name="pickupSubmit" id="pickupSubmit"                 value="Beställ" />
                       
                     </div>
+
                   </div>
 
                 </form>
@@ -111,6 +111,7 @@
                         name="lastname" pattern="[a-z A-ZåäöÅÄÖ]{2,30}" />
                     </div>
                   </div> <!-- ./ form row -->
+
 
                   <div class="form-row">
                     <div class="form-group col-md-6">
@@ -142,6 +143,7 @@
                     <label for="city">Ort:</label>
                     <input type="text" class="form-control" id="deliveryCity" placeholder="Ange ort" name="city"
                       pattern="[a-z A-ZåöäÅÖÄ]{2,30}" />
+
                   </div>
 
                   <input type="submit" name="deliverySubmit" id="deliverySubmit" value="Beställ"
@@ -190,61 +192,73 @@
     localStorage.setItem("deliveryType", "home");
 
 
-    function submitDelivery() {
-      firstname = document.getElementById("deliveryFirstname").value;
-      lastname = document.getElementById("deliveryLastname").value;
-      phone = document.getElementById("deliveryPhonenumber").value;
-      email = document.getElementById("deliveryEmail").value;
-      adress = document.getElementById("deliveryAddress").value;
-      zip = document.getElementById("deliveryZipcode").value;
-      city = document.getElementById("deliveryCity").value;
+      function submitDelivery() {
+        firstname = document.getElementById("deliveryFirstname").value;
+        lastname = document.getElementById("deliveryLastname").value;
+        phone = document.getElementById("deliveryPhonenumber").value;
+        email = document.getElementById("deliveryEmail").value;
+        adress = document.getElementById("deliveryAddress").value;
+        zip = document.getElementById("deliveryZipcode").value;
+        city = document.getElementById("deliveryCity").value;
 
-      if (firstname == "" || lastname == "" || phone == "" || email == "" || adress == "" || zip == "" || city == "") {
-        document.getElementById("bigError").innerHTML = "Kontrollera att du fyllt i alla kontaktuppgifter"
-        return false;
+        if (
+          firstname == "" ||
+          lastname == "" ||
+          phone == "" ||
+          email == "" ||
+          adress == "" ||
+          zip == "" ||
+          city == ""
+        ) {
+          document.getElementById("bigError").innerHTML =
+            "Kontrollera att du fyllt i alla kontaktuppgifter";
+          return false;
+        }
+
+        var parseCustomer = [
+          {
+            firstname: firstname,
+            lastname: lastname,
+            phone: phone,
+            email: email,
+            adress: adress,
+            zip: zip,
+            city: city,
+          },
+        ];
+        var customerJSON = JSON.stringify(parseCustomer);
+        console.log(customerJSON);
+        localStorage.setItem("customerName", firstname + " " + lastname);
+
+        return true;
       }
 
-      var parseCustomer = [{
-        firstname: firstname,
-        lastname: lastname,
-        phone: phone,
-        email: email,
-        adress: adress,
-        zip: zip,
-        city: city,
-      }];
-      var customerJSON = JSON.stringify(parseCustomer);
-      console.log(customerJSON);
-      localStorage.setItem("customerName", firstname + " " + lastname);
+      function submitPickUp() {
+        firstname = document.getElementById("pickupFirstname").value;
+        lastname = document.getElementById("pickupLastname").value;
+        phone = document.getElementById("pickupPhonenumber").value;
+        email = document.getElementById("pickupEmail").value;
 
+        if (firstname == "" || lastname == "" || phone == "" || email == "") {
+          document.getElementById("bigError").innerHTML =
+            "Kontrollera att du fyllt i alla kontaktuppgifter";
+          return false;
+        }
 
-      return true;
-    }
+        var parseCustomer = [
+          {
+            firstname: firstname,
+            lastname: lastname,
+            phone: phone,
+            email: email,
+          },
+        ];
+        var customerJSON = JSON.stringify(parseCustomer);
+        console.log(customerJSON);
 
-    function submitPickUp() {
-      firstname = document.getElementById("pickupFirstname").value;
-      lastname = document.getElementById("pickupLastname").value;
-      phone = document.getElementById("pickupPhonenumber").value;
-      email = document.getElementById("pickupEmail").value;
+        localStorage.setItem("customerName", firstname + " " + lastname);
 
-      if (firstname == "" || lastname == "" || phone == "" || email == "") {
-        document.getElementById("bigError").innerHTML = "Kontrollera att du fyllt i alla kontaktuppgifter"
-        return false;
-      }
-
-      var parseCustomer = [{
-        firstname: firstname,
-        lastname: lastname,
-        phone: phone,
-        email: email,
-
-      }];
-      var customerJSON = JSON.stringify(parseCustomer);
-      console.log(customerJSON);
-
-      localStorage.setItem("customerName", firstname + " " + lastname);
-
-      return true;
+        return true;
     }
 
     $("#storePickUp").hide();
