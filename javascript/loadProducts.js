@@ -89,26 +89,19 @@ function getProducts() {
                   <button class="buy-btn btn btn-success" data-id="${value.id}">Köp</button>
                 </div>
               </div>
-  
             </div>
           </div>
                        `;
         }
       });
     }
-
-
   });
     return output;
   }
 
   async function main() {
   const products = await getProducts();
-  localStorage.setItem("products", JSON.stringify(products));
-  
-
-  
-    
+  localStorage.setItem("products", JSON.stringify(products));  
 
     const buyButtons = document.querySelectorAll(".buy-btn");
     buyButtons.forEach((b) =>
@@ -119,18 +112,26 @@ function getProducts() {
       let checkBasketQuantity = JSON.parse(localStorage.getItem("basketQuantity"));
       if(checkBasketQuantity < 20){
         const button = e.target;
-        const productId = button.dataset.id; 
+        const productId = button.dataset.id;
         sendItemToCart(productId);
         localStorage.setItem("basketQuantity",checkBasketQuantity +1);  
         document.getElementById("basketQ").innerHTML = JSON.parse(localStorage.getItem("basketQuantity"));
+        addToCartPopUp('success', 'Varan har lagts i varukorgen!');
       }
       else{
         alert('Varukorgen är full, max 20 produkter!');
       }
+    } 
 
-
+    function addToCartPopUp(type, message) {
+      let alert = '<div class="alert alert-' + type + '">' + message + '</div>';
+  
+      $(".alert-message").append(alert);
+      $(".alert-message .alert").fadeIn(200).delay(1000).fadeOut(2000, function () { 
+        $(this).remove(); 
+      });
     }
-
+  
     function sendItemToCart(productId){
       let cart = JSON.parse(localStorage.getItem('cart')||'{}'); 
       if(productId in cart) { 
@@ -139,10 +140,7 @@ function getProducts() {
         cart[productId]=1 
       }
       localStorage.setItem("cart", JSON.stringify(cart)); 
-
-
       }
-
   }
   document.addEventListener("DOMContentLoaded", main);
 
