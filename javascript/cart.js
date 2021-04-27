@@ -217,21 +217,12 @@ function calculateShippment(sum) {
   document.getElementById(
     "basketValue"
   ).innerHTML = `<b>Summa varor:</b> ${sum.toFixed(2)}  kr`;
-
-  if (sum < 500) {
-    document.getElementById("freeDelivery").innerHTML = `<b>${(
-      500 - sum
-    ).toFixed(2)}  kr kvar till gratis leverans</b>`;
+  
     document.getElementById(
       "deliveryCost"
     ).innerHTML = `<b>Leverans:</b> ${shippment} kr`;
     localStorage.setItem("deliveryCost", shippment);
-  } else {
-    document.getElementById("deliveryCost").innerHTML = "";
-    localStorage.setItem("deliveryCost", 0);
-    document.getElementById("freeDelivery").innerHTML =
-      "<b>Gratis leverans </b>";
-  }
+ 
 
   let d = JSON.parse(localStorage.getItem("deliveryCost"));
   let ta = d + sum;
