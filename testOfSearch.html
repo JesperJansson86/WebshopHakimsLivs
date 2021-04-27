@@ -63,24 +63,14 @@
         updateSearchResults();
       });
 
-     /*  $(document).ready(function () {
-   $("#searchTop").keyup(function () {
-     if(location.pathname != "/testOfSearch.html" && event.which === 13){    
-       localStorage.setItem("searchField", $("#searchTop").val())        
-       location.href = "/testOfSearch.html"
-     }   
-     else{
-       updateSearchResults();
-     }       
-     
-   });*/
       function updateSearchResults() {
-        var searchField;
-        if (localStorage.getItem("searchField") !== null) {
+        var searchField;        
+        
+        if (localStorage.getItem("searchField") !== null) {          
           searchField = localStorage.getItem("searchField");
           localStorage.removeItem("searchField");
-        } else {
-          searchField = $("#searchTop").val();
+        } else {     
+            searchField = $("#searchTop").val();      
         }
 
         $("#results").html("");
