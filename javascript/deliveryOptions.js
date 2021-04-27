@@ -75,11 +75,51 @@ $("#storePickUpChoice").click(function () {
   $("#homeDelivery").hide();
   $("#storePickUp").show();
   localStorage.setItem("deliveryType", "Pickup");
+  localStorage.setItem("deliveryCost", 0);
+
+  var sum = JSON.parse(localStorage.getItem("basketValue"));
+
+  document.getElementById(
+    "basketValue"
+  ).innerHTML = `<b>Summa varor:</b> ${sum.toFixed(2)}  kr`;
+
+  document.getElementById(
+    "deliveryCost"
+  ).innerHTML = `<b>Leverans:</b> ${JSON.parse(
+    localStorage.getItem("deliveryCost")
+  )} kr`;
+
+  let d = JSON.parse(localStorage.getItem("deliveryCost"));
+  let ta = d + sum;
+  document.getElementById(
+    "TotalAmount"
+  ).innerHTML = `<b>Totalsumma: </b>${ta.toFixed(2)} kr`;
+  localStorage.setItem("TotalAmount", ta);
 });
 $("#homeDeliveryChoice").click(function () {
   $("#homeDelivery").show();
   $("#storePickUp").hide();
   localStorage.setItem("deliveryType", "Levereras");
+  localStorage.setItem("deliveryCost", 39);
+
+  var sum = JSON.parse(localStorage.getItem("basketValue"));
+
+  document.getElementById(
+    "basketValue"
+  ).innerHTML = `<b>Summa varor:</b> ${sum.toFixed(2)}  kr`;
+
+  document.getElementById(
+    "deliveryCost"
+  ).innerHTML = `<b>Leverans:</b> ${JSON.parse(
+    localStorage.getItem("deliveryCost")
+  )} kr`;
+
+  let d = JSON.parse(localStorage.getItem("deliveryCost"));
+  let ta = d + sum;
+  document.getElementById(
+    "TotalAmount"
+  ).innerHTML = `<b>Totalsumma: </b>${ta.toFixed(2)} kr`;
+  localStorage.setItem("TotalAmount", ta);
 });
 
 /*
@@ -91,25 +131,11 @@ document.getElementById(
   "basketValue"
 ).innerHTML = `<b>Summa varor:</b> ${sum.toFixed(2)}  kr`;
 
-if (sum < 500) {
-  document.getElementById("freeDelivery").innerHTML = `<b>${(
-    500 - sum
-  ).toFixed(2)}  kr kvar till gratis leverans</b>`;
-  document.getElementById(
-    "deliveryCost"
-  ).innerHTML = `<b>Leverans:</b> ${JSON.parse(
-    localStorage.getItem("deliveryCost")
-  )} kr`;
-  localStorage.setItem(
-    "deliveryCost",
-    JSON.parse(localStorage.getItem("deliveryCost"))
-  );
-} else {
-  document.getElementById("deliveryCost").innerHTML = "";
-  localStorage.setItem("deliveryCost", 0);
-  document.getElementById("freeDelivery").innerHTML =
-    "<b>Gratis leverans </b>";
-}
+document.getElementById(
+  "deliveryCost"
+).innerHTML = `<b>Leverans:</b> ${JSON.parse(
+  localStorage.getItem("deliveryCost")
+)} kr`;
 
 let d = JSON.parse(localStorage.getItem("deliveryCost"));
 let ta = d + sum;
