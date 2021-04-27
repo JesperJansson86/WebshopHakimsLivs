@@ -270,6 +270,8 @@
             <div class="card-body">
               <p class="card-text" id="basketValue"></p>
               <p class="card-text" id="deliveryCost"></p>
+              <p class="card-text">Gratis hemleverans om du bor i Stockholm</p>
+              
               <p class="card-text" id="TotalAmount"></p>
             </div>
           </div>
@@ -292,6 +294,7 @@
     <script src="../javascript/barsBasket.js"></script>
     <script>
       localStorage.setItem("deliveryType", "home");
+      localStorage.setItem("deliveryCost", 39);
 
       function submitDelivery() {
         firstname = document.getElementById("deliveryFirstname").value;
@@ -330,6 +333,14 @@
         var customerJSON = JSON.stringify(parseCustomer);
         console.log(customerJSON);
         localStorage.setItem("customerName", firstname + " " + lastname);
+
+        if(city === "stockholm" || city === "Stockholm"){
+          localStorage.setItem("deliveryCost", 0);
+          localStorage.setItem("TotalAmount", JSON.parse(localStorage.getItem("basketValue")));
+        }
+        else{
+          localStorage.setItem("deliveryCost", 39);
+        }
 
         return true;
       }
