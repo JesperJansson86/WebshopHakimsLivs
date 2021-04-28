@@ -30,17 +30,25 @@ function submitDelivery() {
         return false;
     }
 
-    var parseCustomer = [
-        {
-            firstname: firstname,
-            lastname: lastname,
-            phone: phone,
-            email: email,
-            adress: adress,
-            zip: zip,
-            city: city,
-        },
-    ];
+    var productsFromLocalstorage = JSON.parse(localStorage.getItem("cart"));
+    var productJSON = [];
+    for (let id in productsFromLocalstorage) {
+        id = parseInt(id);
+        const quantity = productsFromLocalstorage[id];
+        productJSON.push({product_id : id, amount : quantity})
+    }
+    console.log(JSON.stringify(productJSON))
+    var parseCustomer = {
+        products: productJSON,
+        delivery_option_id : 2,
+        firstName: firstname,
+        lastName: lastname,
+        address : adress,
+        areaCode : zip,
+        city : city,
+        email: email,
+        phoneNumber : phone
+    };
     var customerJSON = JSON.stringify(parseCustomer);
     console.log(customerJSON);
     localStorage.setItem("customerName", firstname + " " + lastname);
@@ -52,7 +60,29 @@ function submitDelivery() {
     } else {
         localStorage.setItem("deliveryCost", 39);
     }
+    const requestData = customerJSON;
 
+    try{
+        const orderSubmussion = fetch('http://localhost:8080/api/orders/post-add', {
+            method : 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json;charset=UTF-8'
+            },
+            body : requestData
+        }).then(response => {
+            // if (!response.success) {
+            //   throw new Error("Got non-2XX response from API server.");
+            // }
+            return response.json();
+        }).then(responseData => {
+            return responseData.users;
+        });
+
+        console.log(orderSubmussion.message); //UNdefined motherfucker.
+    } catch (error) {
+        console.error(error);
+    }
     return true;
 }
 
