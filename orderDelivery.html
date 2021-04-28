@@ -1,40 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.js"
-      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-      crossorigin="anonymous"
-    ></script>
-    <title>Startsida</title>
-  </head>
-  <body class="container-fluid" style="background-color: rgb(197, 221, 197)">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
+
+  <title>HakimLivs - Varukorg</title>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+</head>
+
+
+<body style="background-color: rgb(197, 221, 197)">
+  <!-- Header/ huvudmenyn -->
+
+  <div class="row">
+    <header class="col px-0"></header>
+  </div>
+  <!-- ./ header -->
+
+  <div class="container">
     <div class="row">
-      <div class="col px-0">
-        <!-- Header/ huvudmenyn -->
-        <header></header>
-      </div>
-    </div>
-    <div class="row px-5">
-      <div class="col-9">
-        <!-- Main -->
-        <div
-          class="p-3 overflow-auto"
-          style="background-color: rgb(197, 221, 197)"
-        >
+      <!-- Main -->
+      <div class="col-md-9">
+        <div class="overflow-auto" style="background-color: rgb(197, 221, 197)">
           <h2 style="color: rgb(3, 78, 3)" id="titleOfPage">
             Leverans och betalning
           </h2>
-          <div class="card mb-3">
+          <div class="card border-success mb-3">
             <div class="card-header">Välj leveranssätt</div>
             <div class="card-body">
               <p style="font-weight: 500">
@@ -43,224 +40,115 @@
 
               <div id="orderSummary"></div>
               <form id="chooseDeliveryForm">
-                <input
-                  type="radio"
-                  name="deliveryChoice"
-                  id="storePickUpChoice"
-                />
-                Hämta i butik
-                <br />
-                <input
-                  type="radio"
-                  name="deliveryChoice"
-                  id="homeDeliveryChoice"
-                  checked
-                />
-                Hemleverans
-                <br />
+                <input type="radio" name="deliveryChoice" id="homeDeliveryChoice" checked /> Hemleverans <br />
+                <input type="radio" name="deliveryChoice" id="storePickUpChoice" /> Hämta i butik <br />
               </form>
             </div>
           </div>
 
-          <div class="card">
+          <div class="card border-success mb-3">
             <div class="card-header">Vänligen fyll i dina kontaktuppgifter</div>
             <div class="card-body">
               <div id="storePickUp">
-                <form
-                  name="form"
-                  action="confirmation.html"
-                  id="storePickUpForm"
-                  onsubmit="return submitPickUp()"
-                >
-                  <div class="mb-3">
-                    <label for="firstname" style="font-weight: 500"
-                      >Förnamn:</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="pickupFirstname"
-                      placeholder="Ange förnamn"
-                      name="firstname"
-                      style="width: 40%"
-                      pattern="[a-z A-ZåäöÅÄÖ]{2,30}"
-                    />
+                <form name="form" action="confirmation.html" id="storePickUpForm" onsubmit="return submitPickUp()">
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="firstname">Förnamn:</label>
+                      <input type="text" class="form-control" id="pickupFirstname" placeholder="Ange förnamn"
+                        name="firstname" />
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="lastname">Efternamn:</label>
+                      <input type="text" class="form-control" id="pickupLastname" placeholder="Ange efternamn"
+                        name="lastname" />
+                    </div>
+                  </div> <!-- ./ form row -->
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="phonenumber">Telefon:</label>
+                      <input type="text" class="form-control" id="pickupPhonenumber" placeholder="Ange telefonnummer"
+                        name="phonenumber" />
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <label for="email">E-post:</label>
+                      <input type="email" class="form-control" id="pickupEmail" placeholder="Ange e-post" name="email">
+                    </div>
+
+                  </div> <!-- ./ form row -->
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <input type="submit" class="btn btn-primary mt-3 btn-block" name="pickupSubmit" id="pickupSubmit"
+                        value="Beställ" />
+                    </div>
                   </div>
 
-                  <div class="mb-3">
-                    <label for="lastname" style="font-weight: 500"
-                      >Efternamn:</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="pickupLastname"
-                      placeholder="Ange efternamn"
-                      name="lastname"
-                      style="width: 40%"
-                      pattern="[a-z A-ZåäöÅÄÖ]{2,30}"
-                    />
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="phonenumber" style="font-weight: 500"
-                      >Telefon:</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="pickupPhonenumber"
-                      placeholder="Ange telefonnummer"
-                      name="phonenumber"
-                      style="width: 40%"
-                      pattern="[0-9 -+]{5,20}"
-                    />
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="email" style="font-weight: 500">E-post:</label>
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="pickupEmail"
-                      placeholder="Ange e-post"
-                      name="email"
-                      style="width: 40%"
-                      pattern="[a-zA-Z0-9._%+-]{1,64}@[a-zA-Z0-9.-]{1,252}\.[a-z]{2,3}"
-                    />
-                  </div>
-                  <input
-                    type="submit"
-                    name="pickupSubmit"
-                    id="pickupSubmit"
-                    value="Beställ"
-                    class="mt-3"
-                  />
                 </form>
-              </div>
+              </div> <!-- ./ store pick up customer info -->
+
+
 
               <div id="homeDelivery">
-                <form
-                  name="form"
-                  action="confirmation.html"
-                  id="homeDeliveryForm"
-                  onsubmit="return submitDelivery()"
-                >
-                  <div class="mb-3">
-                    <label for="firstname" style="font-weight: 500"
-                      >Förnamn:</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="deliveryFirstname"
-                      placeholder="Ange förnamn"
-                      name="firstname"
-                      style="width: 40%"
-                      pattern="[a-z A-ZåöäÅÖÄ]{2,30}"
-                    />
+                <form name="form" action="confirmation.html" id="homeDeliveryForm" onsubmit="return submitDelivery()">
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="firstname">Förnamn:</label>
+                      <input type="text" class="form-control" id="deliveryFirstname" placeholder="Ange förnamn"
+                        name="firstname">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="lastname">Efternamn:</label>
+                      <input type="text" class="form-control" id="deliveryLastname" placeholder="Ange efternamn"
+                        name="lastname" />
+                    </div>
+                  </div> <!-- ./ form row -->
+
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="phonenumber">Telefon:</label>
+                      <input type="text" class="form-control" id="deliveryPhonenumber" placeholder="Ange telefonnummer"
+                        name="phonenumber">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <label for="email">E-post:</label>
+                      <input type="email" class="form-control" id="deliveryEmail" placeholder="Ange e-post" name="email"/>
+                    </div>
+                  </div> <!-- ./ form row -->
+
+
+                  <div class="form-group col-md-6">
+                    <label for="address">Adress:</label>
+                    <input type="text" class="form-control" id="deliveryAddress" placeholder="Ange adress"
+                      name="address">
                   </div>
 
-                  <div class="mb-3">
-                    <label for="lastname" style="font-weight: 500"
-                      >Efternamn:</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="deliveryLastname"
-                      placeholder="Ange efternamn"
-                      name="lastname"
-                      style="width: 40%"
-                      pattern="[a-z A-ZåöäÅÖÄ]{2,30}"
-                    />
+                  <div class="form-group col-md-6">
+                    <label for="zipcode">Postnummer:</label>
+                    <input type="text" class="form-control" id="deliveryZipcode" placeholder="Ange postnummer"
+                      name="zipcode">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="city">Ort:</label>
+                    <input type="text" class="form-control" id="deliveryCity" placeholder="Ange ort" name="city"/>
                   </div>
 
-                  <div class="mb-3">
-                    <label for="phonenumber" style="font-weight: 500"
-                      >Telefon:</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="deliveryPhonenumber"
-                      placeholder="Ange telefonnummer"
-                      name="phonenumber"
-                      style="width: 40%"
-                      pattern="[0-9 +-]{5,20}"
-                    />
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="email" style="font-weight: 500">E-post:</label>
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="deliveryEmail"
-                      placeholder="Ange e-post"
-                      name="email"
-                      style="width: 40%"
-                      pattern="[a-zA-Z0-9._%+-]{1,64}@[a-zA-Z0-9.-]{1,252}\.[a-z]{2,3}"
-                    />
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="address" style="font-weight: 500"
-                      >Adress:</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="deliveryAddress"
-                      placeholder="Ange adress"
-                      name="address"
-                      style="width: 40%"
-                      pattern="^[a-z A-ZåöäÅÖÄ]{1,30}[a-z A-ZåöäÅÖÄ 0-9]{1,30}"
-                    />
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="zipcode" style="font-weight: 500"
-                      >Postnummer:</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="deliveryZipcode"
-                      placeholder="Ange postnummer"
-                      name="zipcode"
-                      style="width: 40%"
-                      pattern="^[1-9 ][0-9 ]{5,7}"
-                    />
-                  </div>
-
-                  <div>
-                    <label for="city" style="font-weight: 500">Ort:</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="deliveryCity"
-                      placeholder="Ange ort"
-                      name="city"
-                      style="width: 40%"
-                      pattern="[a-z A-ZåöäÅÖÄ]{1,30}"
-                    />
-                  </div>
-
-                  <input
-                    type="submit"
-                    name="deliverySubmit"
-                    id="deliverySubmit"
-                    value="Beställ"
-                    class="mt-3"
-                  />
+                  <input type="submit" name="deliverySubmit" id="deliverySubmit" value="Beställ"
+                    class="btn btn-primary mt-3 btn-block" />
                 </form>
               </div>
-              <h3 class="mb-3" style="color: red" id="bigError"></h3>
             </div>
           </div>
+          <h3 class="mb-3" style="color: red" id="bigError">
+          </h3>
         </div>
       </div>
+
+
       <!-- Kassa sidebar-->
       <div class="col">
         <div class="p-3" style="background-color: rgb(136, 153, 136)">
@@ -278,175 +166,20 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="row">
-      <div class="col px-0">
-        <!-- footer/ information-->
-        <footer></footer>
-      </div>
+  <div class="row">
+    <div class="col px-0">
+      <!-- footer/ information-->
+      <footer></footer>
     </div>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-      crossorigin="anonymous"
-    ></script>
-    <script src="../javascript/barsBasket.js"></script>
-    <script>
-      localStorage.setItem("deliveryType", "home");
-      localStorage.setItem("deliveryCost", 39);
-
-      function submitDelivery() {
-        firstname = document.getElementById("deliveryFirstname").value;
-        lastname = document.getElementById("deliveryLastname").value;
-        phone = document.getElementById("deliveryPhonenumber").value;
-        email = document.getElementById("deliveryEmail").value;
-        adress = document.getElementById("deliveryAddress").value;
-        zip = document.getElementById("deliveryZipcode").value;
-        city = document.getElementById("deliveryCity").value;
-
-        if (
-          firstname == "" ||
-          lastname == "" ||
-          phone == "" ||
-          email == "" ||
-          adress == "" ||
-          zip == "" ||
-          city == ""
-        ) {
-          document.getElementById("bigError").innerHTML =
-            "Kontrollera att du fyllt i alla kontaktuppgifter";
-          return false;
-        }
-
-        var parseCustomer = [
-          {
-            firstname: firstname,
-            lastname: lastname,
-            phone: phone,
-            email: email,
-            adress: adress,
-            zip: zip,
-            city: city,
-          },
-        ];
-        var customerJSON = JSON.stringify(parseCustomer);
-        console.log(customerJSON);
-        localStorage.setItem("customerName", firstname + " " + lastname);
-
-        if(city === "stockholm" || city === "Stockholm"){
-          localStorage.setItem("deliveryCost", 0);
-          localStorage.setItem("TotalAmount", JSON.parse(localStorage.getItem("basketValue")));
-        }
-        else{
-          localStorage.setItem("deliveryCost", 39);
-        }
-
-        return true;
-      }
-
-      function submitPickUp() {
-        firstname = document.getElementById("pickupFirstname").value;
-        lastname = document.getElementById("pickupLastname").value;
-        phone = document.getElementById("pickupPhonenumber").value;
-        email = document.getElementById("pickupEmail").value;
-
-        if (firstname == "" || lastname == "" || phone == "" || email == "") {
-          document.getElementById("bigError").innerHTML =
-            "Kontrollera att du fyllt i alla kontaktuppgifter";
-          return false;
-        }
-
-        var parseCustomer = [
-          {
-            firstname: firstname,
-            lastname: lastname,
-            phone: phone,
-            email: email,
-          },
-        ];
-        var customerJSON = JSON.stringify(parseCustomer);
-        console.log(customerJSON);
-
-        localStorage.setItem("customerName", firstname + " " + lastname);
-
-        return true;
-      }
-
-      $("#storePickUp").hide();
-
-      $("#storePickUpChoice").click(function () {
-        $("#homeDelivery").hide();
-        $("#storePickUp").show();
-        localStorage.setItem("deliveryType", "Pickup");
-        localStorage.setItem("deliveryCost", 0);
-
-        var sum = JSON.parse(localStorage.getItem("basketValue"));
-
-        document.getElementById(
-          "basketValue"
-        ).innerHTML = `<b>Summa varor:</b> ${sum.toFixed(2)}  kr`;
-
-        document.getElementById(
-          "deliveryCost"
-        ).innerHTML = `<b>Leverans:</b> ${JSON.parse(
-          localStorage.getItem("deliveryCost")
-        )} kr`;
-
-        let d = JSON.parse(localStorage.getItem("deliveryCost"));
-        let ta = d + sum;
-        document.getElementById(
-          "TotalAmount"
-        ).innerHTML = `<b>Totalsumma: </b>${ta.toFixed(2)} kr`;
-        localStorage.setItem("TotalAmount", ta);
-      });
-      $("#homeDeliveryChoice").click(function () {
-        $("#homeDelivery").show();
-        $("#storePickUp").hide();
-        localStorage.setItem("deliveryType", "Levereras");
-        localStorage.setItem("deliveryCost", 39);
-
-        var sum = JSON.parse(localStorage.getItem("basketValue"));
-
-        document.getElementById(
-          "basketValue"
-        ).innerHTML = `<b>Summa varor:</b> ${sum.toFixed(2)}  kr`;
-
-        document.getElementById(
-          "deliveryCost"
-        ).innerHTML = `<b>Leverans:</b> ${JSON.parse(
-          localStorage.getItem("deliveryCost")
-        )} kr`;
-
-        let d = JSON.parse(localStorage.getItem("deliveryCost"));
-        let ta = d + sum;
-        document.getElementById(
-          "TotalAmount"
-        ).innerHTML = `<b>Totalsumma: </b>${ta.toFixed(2)} kr`;
-        localStorage.setItem("TotalAmount", ta);
-      });
-
-      /*
-      Uppdatera Kassan
-      */
-      var sum = JSON.parse(localStorage.getItem("basketValue"));
-
-      document.getElementById(
-        "basketValue"
-      ).innerHTML = `<b>Summa varor:</b> ${sum.toFixed(2)}  kr`;
-
-      document.getElementById(
-        "deliveryCost"
-      ).innerHTML = `<b>Leverans:</b> ${JSON.parse(
-        localStorage.getItem("deliveryCost")
-      )} kr`;
-
-      let d = JSON.parse(localStorage.getItem("deliveryCost"));
-      let ta = d + sum;
-      document.getElementById(
-        "TotalAmount"
-      ).innerHTML = `<b>Totalsumma: </b>${ta.toFixed(2)} kr`;
-      localStorage.setItem("TotalAmount", ta);
-    </script>
-  </body>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+    crossorigin="anonymous"></script>
+  <script src="../javascript/barsBasket.js"></script>
+  <script src="../javascript/deliveryOptions.js"></script>
+  <script src="../javascript/regEx.js"></script>
+</body>
 </html>
+
