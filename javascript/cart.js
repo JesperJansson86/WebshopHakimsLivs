@@ -84,16 +84,32 @@ function renderCart() {
       parseInt(productId);
       console.log("klick - add" + productId);
 
-      let itemsInCart = JSON.parse(localStorage.getItem("cart"));
-      itemsInCart[productId]++;
-
-      //Minskar lagersaldot med 1 när du klickar på +
       let changeStatus = JSON.parse(localStorage.getItem("products"));
-      changeStatus[productId - 1].inventory--;
-      localStorage.setItem("products", JSON.stringify(changeStatus));
 
-      localStorage.setItem("cart", JSON.stringify(itemsInCart)); // sparar varukorgen med det nya antalet produkter efter klick
-      renderCart(); // renderar varukorgen
+
+
+      if (changeStatus[productId - 1].inventory > 0) {
+        button.disabled = false;
+        let itemsInCart = JSON.parse(localStorage.getItem("cart"));
+        itemsInCart[productId]++;
+
+        //Minskar lagersaldot med 1 när du klickar på +
+        console.log("Innan " + changeStatus[productId - 1].inventory)
+
+        changeStatus[productId - 1].inventory--;        
+        
+        localStorage.setItem("products", JSON.stringify(changeStatus));     
+        
+        console.log("efter " + changeStatus[productId - 1].inventory)
+        if(changeStatus[productId - 1].inventory == 0){
+          button.disabled = true;
+        }
+        
+
+        localStorage.setItem("cart", JSON.stringify(itemsInCart)); // sparar varukorgen med det nya antalet produkter efter klick
+        renderCart(); // renderar varukorgen
+      }    
+      
     })
   );
 
@@ -107,16 +123,14 @@ function renderCart() {
       let itemsInCart = JSON.parse(localStorage.getItem("cart"));
       itemsInCart[productId]--;
 
-            //Ökar lagersaldot med 1 när du klickar på -
-            let changeStatus = JSON.parse(localStorage.getItem("products"));
-            changeStatus[productId - 1].inventory++;
-            localStorage.setItem("products", JSON.stringify(changeStatus));
+      //Ökar lagersaldot med 1 när du klickar på -
+      let changeStatus = JSON.parse(localStorage.getItem("products"));
+      changeStatus[productId - 1].inventory++;
+      localStorage.setItem("products", JSON.stringify(changeStatus));
 
-            
       if (itemsInCart[productId] == 0) {
         delete itemsInCart[productId];
       }
-
 
       localStorage.setItem("cart", JSON.stringify(itemsInCart)); // sparar varukorgen med det nya antalet produkter efter klick
       renderCart(); // renderar varukorgen
@@ -130,15 +144,12 @@ function renderCart() {
       const productId = button.dataset.id;
       console.log("klick - delete" + productId);
       let itemsInCart = JSON.parse(localStorage.getItem("cart"));
-            //Ökar lagersaldot med antalet varor som tas bort när du klickar på TA BORT
-            let changeStatus = JSON.parse(localStorage.getItem("products"));
-            changeStatus[productId - 1].inventory += itemsInCart[productId];
-            localStorage.setItem("products", JSON.stringify(changeStatus));
+      //Ökar lagersaldot med antalet varor som tas bort när du klickar på TA BORT
+      let changeStatus = JSON.parse(localStorage.getItem("products"));
+      changeStatus[productId - 1].inventory += itemsInCart[productId];
+      localStorage.setItem("products", JSON.stringify(changeStatus));
 
       delete itemsInCart[productId];
-
-
-
 
       localStorage.setItem("cart", JSON.stringify(itemsInCart)); // sparar varukorgen med det nya antalet produkter efter klick
       renderCart(); // renderar varukorgen
