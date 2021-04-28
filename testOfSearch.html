@@ -42,7 +42,9 @@
         <div class="col-md-9">
           <h1 style="color: rgb(3, 78, 3)" id="titleOfPage">Sökresultat</h1>
           <div id="hej">
-            <div class="row mt-5" id="results"></div>
+            <div id="searchInfo"><h3>Inget sökresultat</h3></div>            
+            <div class="row mt-5" id="results">
+            </div>
           </div>
         </div>
       </div>
@@ -64,12 +66,13 @@
       });
 
       function updateSearchResults() {
-        var searchField;
-        if (localStorage.getItem("searchField") !== null) {
+        var searchField;        
+        
+        if (localStorage.getItem("searchField") !== null) {          
           searchField = localStorage.getItem("searchField");
           localStorage.removeItem("searchField");
-        } else {
-          searchField = $("#searchTop").val();
+        } else {     
+            searchField = $("#searchTop").val();    
         }
 
         $("#results").html("");
@@ -79,6 +82,7 @@
         $.getJSON("https://hakimslivs.herokuapp.com/api/product/all", function (data) {
           $.each(data, function (key, value) {
             if (value.title.search(expression) != -1) {
+              document.getElementById("searchInfo").innerHTML = `Visar träffar för "${searchField}"`;
               document.getElementById("results").innerHTML += `
           <div class="col-md-6 col-lg-4">
             <div class="card text-dark border-success bg-light mb-3">
@@ -95,14 +99,9 @@
                   
   
               <div class="card-body text-end">
-                <p>Pris: ${value.price} kr</p>
-                
-                <p class="my-1"><small class="text-muted">Jmfrpris: ${Math.round(
-                  (value.price / value.size) * 1000
-                )}/${value.unit.id} kr</small></p>
-                <p><small class="text-muted">Lagerstatus: ${Math.round(
-                  Math.random() * 10
-                )}</small></p>
+                <h4>Pris: ${value.price} kr</h4>                
+        
+                <p><small class="text-muted">Lagerstatus: ${value.inventory}</small></p>
               
                 <div class="d-grid gap-2">
                   <button class="buy-btn btn btn-success" data-id="${value.id}">Köp</button>
@@ -111,7 +110,7 @@
   
             </div>
           </div>
-                       `;
+                       `;                       
               const buyButtons = document.querySelectorAll(".buy-btn");
               buyButtons.forEach((b) =>
                 b.addEventListener("click", handlebuyClick)
@@ -132,10 +131,10 @@
                   document.getElementById("basketQ").innerHTML = JSON.parse(
                     localStorage.getItem("basketQuantity")
                   );
-                } else {
-                  alert("Varukorgen är full, max 20 produkter!");
                 }
               }
+
+              
 
               function sendItemToCart(productId) {
                 let cart = JSON.parse(localStorage.getItem("cart") || "{}");
@@ -149,7 +148,7 @@
             }
           });
         });
-      }
+      }      
     </script>
     <script src="../javascript/barsStandard.js"></script>
   </body>

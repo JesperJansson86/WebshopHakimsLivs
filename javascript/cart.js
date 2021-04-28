@@ -1,4 +1,6 @@
 function renderCart() {
+  document.getElementById("bigError").innerHTML =
+  "";
   let itemsInCart = JSON.parse(localStorage.getItem("cart")); // byt namn på "cart" så att det matchar och kan kopplas till produktsidan
   let output = "";
   let sum = 0;
@@ -14,12 +16,6 @@ function renderCart() {
     sum += product.price * quantity;
     totalQuantity += quantity;
     localStorage.setItem("basketQuantity", totalQuantity);
-    if (totalQuantity == 20) {
-      document.getElementById("bigError").innerHTML =
-        "Du får max beställa 20 varor";
-    } else {
-      document.getElementById("bigError").innerHTML = "";
-    }
   }
 
   for (let id in itemsInCart) {
@@ -27,11 +23,8 @@ function renderCart() {
     id = parseInt(id);
     const product = products.find((p) => p.id === id);
     const quantity = itemsInCart[id];
-    const tooManyItems =
-      quantity >= getMaxQuantity(id) ||
-      totalQuantity >= 20 ||
-      checkTotalValueOfCart(sum); // villkor som sen används i  + knappen för att disabl:ea den om antalet produkter av viss sort, antalet produkter i varukogen, värdet i varukorgen är för högt. Sätts på varje + knapp.
-
+    localStorage.setItem("basketValue", sum);
+    
     output += ` 
     <p class="mb-1" style="font-weight: 500">${product.title}</p>
     <div class="card border-success mb-3">
@@ -54,9 +47,8 @@ function renderCart() {
                 <p>${quantity} st</p>
               </div>
               <div class="col">
-                <button class="btn btn-success btn-sm add-btn"  ${
-                  tooManyItems ? "disabled" : ""
-                } data-id="${product.id}">+</button>
+                <button class="btn btn-success btn-sm add-btn"  
+                 data-id="${product.id}">+</button>
               </div>
             </div>
           </div>
@@ -76,10 +68,6 @@ function renderCart() {
           </div>
         </div>        
       </div>
-      <p class="mb-3 mx-auto" style="color: green; font-weight: 500" id="smallError">
-      Du får max beställa ${getMaxQuantity(product.id)} st av denna vara
-      
-    </p>
     </div>
     `;
     calculateShippment(sum);
@@ -137,42 +125,12 @@ function renderCart() {
 }
 renderCart();
 
-function getMaxQuantity(productId) {
-  // sätter gränser för antalet av en viss produkt man kan köpa där 1:4 (1 = produkt ID) (4 = antalet)
-  const maxQuantity = {
-    1: 4,
-    2: 10,
-    3: 5,
-    4: 8,
-    5: 15,
-    6: 10,
-    7: 5,
-    8: 6,
-    9: 10,
-    10: 5,
-    11: 6,
-    12: 7,
-    13: 8,
-    14: 9,
-    15: 10,
-    16: 9,
-    17: 15,
-    18: 10,
-    19: 10,
-    20: 5,
-  };
-  const defaultMaxQuantity = 4; // defaultvärde om en viss produkt inte hunnit registreras
-
-  return maxQuantity[productId] || defaultMaxQuantity;
-}
-
 function IsCartEmpty() {
   // kollar om varukorgen är tom
   let itemsInCart = JSON.parse(localStorage.getItem("cart") || "{}");
   if (Object.keys(itemsInCart).length === 0) {
     document.getElementById("bigError").innerHTML = "Din varukorg är tom";
     localStorage.clear();
-    //document.getElementById("total").innerHTML = "";
     document.getElementById("basketValue").innerHTML = "";
     document.getElementById("deliveryCost").innerHTML = "";
     document.getElementById("freeDelivery").innerHTML =
@@ -186,52 +144,22 @@ function IsCartEmpty() {
   return false;
 }
 
-function checkTotalValueOfCart(sum) {
-  // kollar om varukorgens totala summa överstiger 700
-  localStorage.setItem("basketValue", sum);
-  if (sum > 700) {
-    document.getElementById("bigError").innerHTML =
-      "Du får max beställa varor för 700 kr";
-    document.getElementById("nextPageBtn").disabled = true;
-  } else {
-    document.getElementById("bigError").innerHTML = "";
-    document.getElementById("nextPageBtn").disabled = false;
-  }
-  return sum > 700;
-}
 
 function calculateShippment(sum) {
-  // räknar ut om kunden har rätt till fri frakt eller inte
   const shippment = 39;
-  /*if (sum >= 500) {
-    document.getElementById("total").innerHTML =
-      "Summa: $" + sum.toFixed(2) + " inklusive gratis frakt";
-  } else {
-    let sumInkShippment = sum + shippment;
-    document.getElementById("total").innerHTML =
-      "Summa: $" +
-      sumInkShippment.toFixed(2) +
-      " inklusive fraktavgift på 39kr";
-  }*/
+
+  
+  
 
   document.getElementById(
     "basketValue"
   ).innerHTML = `<b>Summa varor:</b> ${sum.toFixed(2)}  kr`;
-
-  if (sum < 500) {
-    document.getElementById("freeDelivery").innerHTML = `<b>${(
-      500 - sum
-    ).toFixed(2)}  kr kvar till gratis leverans</b>`;
+  
     document.getElementById(
       "deliveryCost"
     ).innerHTML = `<b>Leverans:</b> ${shippment} kr`;
     localStorage.setItem("deliveryCost", shippment);
-  } else {
-    document.getElementById("deliveryCost").innerHTML = "";
-    localStorage.setItem("deliveryCost", 0);
-    document.getElementById("freeDelivery").innerHTML =
-      "<b>Gratis leverans </b>";
-  }
+ 
 
   let d = JSON.parse(localStorage.getItem("deliveryCost"));
   let ta = d + sum;
