@@ -51,7 +51,7 @@
 
     <!-- footer/ information-->
     <div class="row">
-      <footer class="col"></footer>
+      <footer class="col px-0 footer"></footer>
     </div>
     <!-- ./ footer/ information-->
 
@@ -76,10 +76,12 @@
         console.log(searchField);
 
         var expression = new RegExp(searchField, "i");
-        $.getJSON("https://hakimslivs.herokuapp.com/api/product/all", function (data) {
-          $.each(data, function (key, value) {
-            if (value.title.search(expression) != -1) {
-              document.getElementById("results").innerHTML += `
+        $.getJSON(
+          "https://hakimslivs.herokuapp.com/api/product/all",
+          function (data) {
+            $.each(data, function (key, value) {
+              if (value.title.search(expression) != -1) {
+                document.getElementById("results").innerHTML += `
           <div class="col-md-6 col-lg-4">
             <div class="card text-dark border-success bg-light mb-3">
                     
@@ -105,50 +107,53 @@
                 )}</small></p>
               
                 <div class="d-grid gap-2">
-                  <button class="buy-btn btn btn-success" data-id="${value.id}">Köp</button>
+                  <button class="buy-btn btn btn-success" data-id="${
+                    value.id
+                  }">Köp</button>
                 </div>
               </div>
   
             </div>
           </div>
                        `;
-              const buyButtons = document.querySelectorAll(".buy-btn");
-              buyButtons.forEach((b) =>
-                b.addEventListener("click", handlebuyClick)
-              );
-
-              function handlebuyClick(e) {
-                let checkBasketQuantity = JSON.parse(
-                  localStorage.getItem("basketQuantity")
+                const buyButtons = document.querySelectorAll(".buy-btn");
+                buyButtons.forEach((b) =>
+                  b.addEventListener("click", handlebuyClick)
                 );
-                if (checkBasketQuantity < 20) {
-                  const button = e.target;
-                  const productId = button.dataset.id;
-                  sendItemToCart(productId);
-                  localStorage.setItem(
-                    "basketQuantity",
-                    checkBasketQuantity + 1
-                  );
-                  document.getElementById("basketQ").innerHTML = JSON.parse(
+
+                function handlebuyClick(e) {
+                  let checkBasketQuantity = JSON.parse(
                     localStorage.getItem("basketQuantity")
                   );
-                } else {
-                  alert("Varukorgen är full, max 20 produkter!");
+                  if (checkBasketQuantity < 20) {
+                    const button = e.target;
+                    const productId = button.dataset.id;
+                    sendItemToCart(productId);
+                    localStorage.setItem(
+                      "basketQuantity",
+                      checkBasketQuantity + 1
+                    );
+                    document.getElementById("basketQ").innerHTML = JSON.parse(
+                      localStorage.getItem("basketQuantity")
+                    );
+                  } else {
+                    alert("Varukorgen är full, max 20 produkter!");
+                  }
                 }
-              }
 
-              function sendItemToCart(productId) {
-                let cart = JSON.parse(localStorage.getItem("cart") || "{}");
-                if (productId in cart) {
-                  cart[productId]++;
-                } else {
-                  cart[productId] = 1;
+                function sendItemToCart(productId) {
+                  let cart = JSON.parse(localStorage.getItem("cart") || "{}");
+                  if (productId in cart) {
+                    cart[productId]++;
+                  } else {
+                    cart[productId] = 1;
+                  }
+                  localStorage.setItem("cart", JSON.stringify(cart));
                 }
-                localStorage.setItem("cart", JSON.stringify(cart));
               }
-            }
-          });
-        });
+            });
+          }
+        );
       }
     </script>
     <script src="../javascript/barsStandard.js"></script>

@@ -1,109 +1,126 @@
 <!DOCTYPE html>
 <html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Startsida</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Startsida</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/Web/css/style.css" />
 
-  <link rel="stylesheet" href="/Web/css/style.css">
-  
-  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-    crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
 
+    <title>HakimLivs</title>
+  </head>
 
-  <title>HakimLivs</title>
+  <body style="background-color: rgb(197, 221, 197)">
+    <!-- Header/ huvudmenyn -->
 
-</head>
+    <div class="row sticky-top">
+      <header class="col px-0"></header>
+    </div>
+    <!-- ./ header -->
 
-<body style="background-color: rgb(197, 221, 197)">
-  <!-- Header/ huvudmenyn -->
+    <div class="container">
+      <div class="row">
+        <!-- Main -->
+        <div class="col-12" style="background-color: rgb(197, 221, 197)">
+          <h2 style="color: rgb(3, 78, 3)" id="titleOfPage">
+            Orderbekräftelse
+          </h2>
 
-  <div class="row sticky-top">
-    <header class="col px-0"></header>
-  </div>
-  <!-- ./ header -->
+          <div class="mt-3 text-center">
+            <img
+              class="image-box"
+              src="../IconsPictures/check-square.svg"
+              alt="Bootstrap"
+              width="50px"
+              height="50px"
+            />
 
-  <div class="container">
-    <div class="row">
+            <h4>Tack för din beställning!</h4>
 
-      <!-- Main -->
-      <div class="col-12" style="background-color: rgb(197, 221, 197)">
-
-
-        <h2 style="color: rgb(3, 78, 3)" id="titleOfPage">
-          Orderbekräftelse
-        </h2>
-
-        <div class="mt-3 text-center">
-          <img class="image-box" src="../IconsPictures/check-square.svg" alt="Bootstrap" width="50px" height="50px" />
-
-          <h4>Tack för din beställning!</h4>
-
-          <div class="container mt-3">
-            <div class="table-responsive-sm">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>Namn</th>
-                    <th>Orderdatum</th>
-                    <th>Totalsumma</th>
-                    <th>Antal produkter beställda</th>
-                    <th>Leveranssätt</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td id="name">Stina Jansson</td>
-                    <td id="date">2021-03-31</td>
-                    <td id="total">685,50 kr</td>
-                    <td id="products">46</td>
-                    <td id="delivery">46</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="container mt-3">
+              <div class="table-responsive-sm">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Namn</th>
+                      <th>Orderdatum</th>
+                      <th>Totalsumma</th>
+                      <th>Antal produkter beställda</th>
+                      <th>Leveranssätt</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td id="name">Stina Jansson</td>
+                      <td id="date">2021-03-31</td>
+                      <td id="total">685,50 kr</td>
+                      <td id="products">46</td>
+                      <td id="delivery">46</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-            
-          <p>
-            Vi kommer alldeles snart att påbörja plocka din order.
-          </p>
-          <p>En orderbekräftelse har skickats till angiven e-postadress.</p>
 
-          <div class="container">
-            <div class="d-grid gap-2 d-md-block">
-              <a href="/index.html" class="btn btn-success" role="button">Tillbaka till startsidan</a>
+            <p>Vi kommer alldeles snart att påbörja plocka din order.</p>
+            <p>En orderbekräftelse har skickats till angiven e-postadress.</p>
+
+            <div class="container">
+              <div class="d-grid gap-2 d-md-block">
+                <a href="/index.html" class="btn btn-success" role="button"
+                  >Tillbaka till startsidan</a
+                >
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="row sticky-bottom">
-    <div class="col px-0">
-      <!-- footer/ information-->
-      <footer></footer>
+    <div class="row">
+      <div class="col px-0 footer">
+        <!-- footer/ information-->
+        <footer></footer>
+      </div>
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-    crossorigin="anonymous"></script>
-  <script src="../javascript/barsConfirm.js"></script>
-  <script>
-    document.getElementById("name").innerHTML = localStorage.getItem("customerName");
-    document.getElementById("date").innerHTML = new Date().toISOString().slice(0, 10);
-    document.getElementById("total").innerHTML = localStorage.getItem("TotalAmount") + " kr"
-    document.getElementById("products").innerHTML = localStorage.getItem("basketQuantity")
-    document.getElementById("delivery").innerHTML = localStorage.getItem("deliveryType")
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../javascript/barsConfirm.js"></script>
+    <script>
+      document.getElementById("name").innerHTML = localStorage.getItem(
+        "customerName"
+      );
+      document.getElementById(
+        "date"
+      ).innerHTML = new Date().toISOString().slice(0, 10);
+      document.getElementById("total").innerHTML =
+        localStorage.getItem("TotalAmount") + " kr";
+      document.getElementById("products").innerHTML = localStorage.getItem(
+        "basketQuantity"
+      );
+      document.getElementById("delivery").innerHTML = localStorage.getItem(
+        "deliveryType"
+      );
 
-    localStorage.clear();
-  </script>
-</body>
-
+      localStorage.clear();
+    </script>
+  </body>
 </html>
