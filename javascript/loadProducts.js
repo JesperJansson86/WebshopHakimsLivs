@@ -116,9 +116,6 @@ function getProducts() {
 
         addToCartPopUp('success', 'Varan har lagts i varukorgen!');
       }
-      else{
-        alert('Varukorgen är full, max 20 produkter!');
-      }
     } 
 
     function addToCartPopUp(type, message) {
@@ -140,6 +137,8 @@ function getProducts() {
       }
       localStorage.setItem("cart", JSON.stringify(cart)); 
       }
-  }
+  
+
   document.addEventListener("DOMContentLoaded", main);
+  
 
