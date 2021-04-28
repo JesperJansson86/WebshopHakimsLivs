@@ -64,12 +64,13 @@
       });
 
       function updateSearchResults() {
-        var searchField;
-        if (localStorage.getItem("searchField") !== null) {
+        var searchField;        
+        
+        if (localStorage.getItem("searchField") !== null) {          
           searchField = localStorage.getItem("searchField");
           localStorage.removeItem("searchField");
-        } else {
-          searchField = $("#searchTop").val();
+        } else {     
+            searchField = $("#searchTop").val();    
         }
 
         $("#results").html("");
