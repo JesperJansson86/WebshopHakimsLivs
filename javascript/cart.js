@@ -1,6 +1,5 @@
 function renderCart() {
-  document.getElementById("bigError").innerHTML =
-  "";
+  document.getElementById("bigError").innerHTML = "";
   let itemsInCart = JSON.parse(localStorage.getItem("cart")); // byt namn på "cart" så att det matchar och kan kopplas till produktsidan
   let output = "";
   let sum = 0;
@@ -24,7 +23,7 @@ function renderCart() {
     const product = products.find((p) => p.id === id);
     const quantity = itemsInCart[id];
     localStorage.setItem("basketValue", sum);
-    
+
     output += ` 
     <p class="mb-1" style="font-weight: 500">${product.title}</p>
     <div class="card border-success mb-3">
@@ -88,6 +87,11 @@ function renderCart() {
       let itemsInCart = JSON.parse(localStorage.getItem("cart"));
       itemsInCart[productId]++;
 
+      //Minskar lagersaldot med 1 när du klickar på +
+      let changeStatus = JSON.parse(localStorage.getItem("products"));
+      changeStatus[productId - 1].inventory--;
+      localStorage.setItem("products", JSON.stringify(changeStatus));
+
       localStorage.setItem("cart", JSON.stringify(itemsInCart)); // sparar varukorgen med det nya antalet produkter efter klick
       renderCart(); // renderar varukorgen
     })
@@ -102,9 +106,18 @@ function renderCart() {
 
       let itemsInCart = JSON.parse(localStorage.getItem("cart"));
       itemsInCart[productId]--;
+
+            //Ökar lagersaldot med 1 när du klickar på -
+            let changeStatus = JSON.parse(localStorage.getItem("products"));
+            changeStatus[productId - 1].inventory++;
+            localStorage.setItem("products", JSON.stringify(changeStatus));
+
+            
       if (itemsInCart[productId] == 0) {
         delete itemsInCart[productId];
       }
+
+
       localStorage.setItem("cart", JSON.stringify(itemsInCart)); // sparar varukorgen med det nya antalet produkter efter klick
       renderCart(); // renderar varukorgen
     })
@@ -140,17 +153,12 @@ function IsCartEmpty() {
   return false;
 }
 
-
 function calculateShippment(sum) {
   const shippment = 39;
-
-  
-  
 
   document.getElementById(
     "basketValue"
   ).innerHTML = `<b>Summa varor:</b> ${sum.toFixed(2)}  kr`;
-  
 }
 
 function proceedToShippment(e) {
