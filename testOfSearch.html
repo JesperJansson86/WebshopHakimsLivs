@@ -42,7 +42,9 @@
         <div class="col-md-9">
           <h1 style="color: rgb(3, 78, 3)" id="titleOfPage">Sökresultat</h1>
           <div id="hej">
-            <div class="row mt-5" id="results"></div>
+            <div id="searchInfo"><h3>Inget sökresultat</h3></div>            
+            <div class="row mt-5" id="results">
+            </div>
           </div>
         </div>
       </div>
@@ -80,6 +82,7 @@
         $.getJSON("https://hakimslivs.herokuapp.com/api/product/all", function (data) {
           $.each(data, function (key, value) {
             if (value.title.search(expression) != -1) {
+              document.getElementById("searchInfo").innerHTML = `Visar träffar för "${searchField}"`;
               document.getElementById("results").innerHTML += `
           <div class="col-md-6 col-lg-4">
             <div class="card text-dark border-success bg-light mb-3">
@@ -107,7 +110,7 @@
   
             </div>
           </div>
-                       `;
+                       `;                       
               const buyButtons = document.querySelectorAll(".buy-btn");
               buyButtons.forEach((b) =>
                 b.addEventListener("click", handlebuyClick)
@@ -128,10 +131,10 @@
                   document.getElementById("basketQ").innerHTML = JSON.parse(
                     localStorage.getItem("basketQuantity")
                   );
-                } else {
-                  alert("Varukorgen är full, max 20 produkter!");
                 }
               }
+
+              
 
               function sendItemToCart(productId) {
                 let cart = JSON.parse(localStorage.getItem("cart") || "{}");
@@ -145,7 +148,7 @@
             }
           });
         });
-      }
+      }      
     </script>
     <script src="../javascript/barsStandard.js"></script>
   </body>
