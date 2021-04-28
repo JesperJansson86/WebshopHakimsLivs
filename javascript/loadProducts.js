@@ -113,6 +113,26 @@ async function main() {
 
   const buyButtons = document.querySelectorAll(".buy-btn");
   buyButtons.forEach((b) => b.addEventListener("click", handlebuyClick));
+  buyButtons.forEach((element) => {
+    element.disabled = isInventoryEmpty(element.dataset.id);
+    if(isInventoryEmpty(element.dataset.id) == true){
+      element.innerHTML = "Slut i lager"
+    }
+    else{
+      element.innerHTML = "Köp"
+    }
+  });
+
+  function isInventoryEmpty(id) {
+    let changeStatus = JSON.parse(localStorage.getItem("products"));
+    let itemsInCart = JSON.parse(localStorage.getItem("cart"));
+  
+    if (itemsInCart[id] == changeStatus[id - 1].inventory) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   function handlebuyClick(e) {
     let checkBasketQuantity = JSON.parse(

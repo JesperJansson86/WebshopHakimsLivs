@@ -90,15 +90,10 @@ function renderCart() {
       console.log("klick - add" + productId);
 
       let changeStatus = JSON.parse(localStorage.getItem("products"));
+      let itemsInCart = JSON.parse(localStorage.getItem("cart"));
 
-      if (changeStatus[productId - 1].inventory > 0) {
-        button.disabled = false;
-        let itemsInCart = JSON.parse(localStorage.getItem("cart"));
+      if (itemsInCart[productId] < changeStatus[productId - 1].inventory) {        
         itemsInCart[productId]++;
-
-        //Minskar lagersaldot med 1 när du klickar på +
-        changeStatus[productId - 1].inventory--;
-        localStorage.setItem("products", JSON.stringify(changeStatus));
 
         localStorage.setItem("cart", JSON.stringify(itemsInCart)); // sparar varukorgen med det nya antalet produkter efter klick
         renderCart(); // renderar varukorgen
@@ -116,11 +111,6 @@ function renderCart() {
       let itemsInCart = JSON.parse(localStorage.getItem("cart"));
       itemsInCart[productId]--;
 
-      //Ökar lagersaldot med 1 när du klickar på -
-      let changeStatus = JSON.parse(localStorage.getItem("products"));
-      changeStatus[productId - 1].inventory++;
-      localStorage.setItem("products", JSON.stringify(changeStatus));
-
       if (itemsInCart[productId] == 0) {
         delete itemsInCart[productId];
       }
@@ -137,10 +127,6 @@ function renderCart() {
       const productId = button.dataset.id;
       console.log("klick - delete" + productId);
       let itemsInCart = JSON.parse(localStorage.getItem("cart"));
-      //Ökar lagersaldot med antalet varor som tas bort när du klickar på TA BORT
-      let changeStatus = JSON.parse(localStorage.getItem("products"));
-      changeStatus[productId - 1].inventory += itemsInCart[productId];
-      localStorage.setItem("products", JSON.stringify(changeStatus));
 
       delete itemsInCart[productId];
 
@@ -153,8 +139,9 @@ renderCart();
 
 function isInventoryEmpty(id) {
   let changeStatus = JSON.parse(localStorage.getItem("products"));
+  let itemsInCart = JSON.parse(localStorage.getItem("cart"));
 
-  if (changeStatus[id - 1].inventory == 0) {
+  if (itemsInCart[id] == changeStatus[id - 1].inventory) {
     return true;
   } else {
     return false;
