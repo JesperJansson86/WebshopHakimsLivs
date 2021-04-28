@@ -48,10 +48,9 @@ function getProducts() {
                     
     
                 <div class="card-body text-end">
-                  <p>Pris: ${product.price} kr</p>
+                  <h4>Pris: ${product.price} kr</h4>
                   
-                  <p class="my-1"><small class="text-muted">Jmfrpris: ${Math.round((product.price/product.size) * 1000)}/${product.unit.id} kr</small></p>
-                  <p><small class="text-muted">Lagerstatus: ${Math.round(Math.random() * 10)}</small></p>
+                  <p><small class="text-muted">Lagerstatus: ${product.inventory}</small></p>
                 
                   <div class="d-grid gap-2">
                     <button class="buy-btn btn btn-success" data-id="${product.id}">Köp</button>
@@ -80,10 +79,9 @@ function getProducts() {
                   
   
               <div class="card-body text-end">
-                <p>Pris: ${value.price} kr</p>
+                <h4>Pris: ${value.price} kr</h4>
                 
-                <p class="my-1"><small class="text-muted">Jmfrpris: ${Math.round((value.price/value.size) * 1000)}/${value.unit.id} kr</small></p>
-                <p><small class="text-muted">Lagerstatus: ${Math.round(Math.random() * 10)}</small></p>
+                <p><small class="text-muted">Lagerstatus: ${value.inventory}</small></p>
               
                 <div class="d-grid gap-2">
                   <button class="buy-btn btn btn-success" data-id="${value.id}">Köp</button>
@@ -117,18 +115,11 @@ function getProducts() {
     
     function handlebuyClick(e) {
       let checkBasketQuantity = JSON.parse(localStorage.getItem("basketQuantity"));
-      if(checkBasketQuantity < 20){
         const button = e.target;
         const productId = button.dataset.id; 
         sendItemToCart(productId);
         localStorage.setItem("basketQuantity",checkBasketQuantity +1);  
         document.getElementById("basketQ").innerHTML = JSON.parse(localStorage.getItem("basketQuantity"));
-      }
-      else{
-        alert('Varukorgen är full, max 20 produkter!');
-      }
-
-
     }
 
     function sendItemToCart(productId){
