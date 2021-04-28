@@ -130,7 +130,16 @@ function renderCart() {
       const productId = button.dataset.id;
       console.log("klick - delete" + productId);
       let itemsInCart = JSON.parse(localStorage.getItem("cart"));
+            //Ökar lagersaldot med antalet varor som tas bort när du klickar på TA BORT
+            let changeStatus = JSON.parse(localStorage.getItem("products"));
+            changeStatus[productId - 1].inventory += itemsInCart[productId];
+            localStorage.setItem("products", JSON.stringify(changeStatus));
+
       delete itemsInCart[productId];
+
+
+
+
       localStorage.setItem("cart", JSON.stringify(itemsInCart)); // sparar varukorgen med det nya antalet produkter efter klick
       renderCart(); // renderar varukorgen
     })
