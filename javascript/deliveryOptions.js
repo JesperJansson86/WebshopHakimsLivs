@@ -72,51 +72,31 @@ function submitPickUp() {
             "Kontrollera att du fyllt i alla kontaktuppgifter";
         return false;
     }
-    // {
-    //     "products" : [
-    //     {
-    //         "product_id" : 1,
-    //         "amount": 2
-    //     },
-    //     {
-    //         "product_id" : 2,
-    //         "amount": 5
-    //     }
-    // ],
-    //     "delivery_option_id" : 1,
-    //     "firstName": "Jane",
-    //     "lastName": "Andresson",
-    //     "address": "Stadsgårdshamnen 22",
-    //     "areaCode" : 11645,
-    //     "city": "Stockholm",
-    //     "email": "jabari45@example.org",
-    //     "phoneNumber": "070-1740605"
-    // }
 
     var productsFromLocalstorage = JSON.parse(localStorage.getItem("cart"));
-var productJSON = [];
+    var productJSON = [];
     for (let id in productsFromLocalstorage) {
         id = parseInt(id);
         const quantity = productsFromLocalstorage[id];
        productJSON.push({product_id : id, amount : quantity})
     }
     console.log(JSON.stringify(productJSON))
-    var parseCustomer = [
-        {
-            firstname: firstname,
-            lastname: lastname,
-            phone: phone,
-            email: email,
-        },
-    ];
+    var parseCustomer = {
+      products: productJSON,
+      delivery_option_id : 1,
+      firstName: firstname,
+      lastName: lastname,
+      address : null,
+      areaCode : null,
+      city : null,
+      email: email,
+      phoneNumber : phone
+    };
     var customerJSON = JSON.stringify(parseCustomer);
     console.log(customerJSON);
-    console.log("MEN VAD FAAAAAAAN");
-    console.log(productsFromLocalstorage)
-    console.log(productsFromLocalstorage[1])
-    console.log(productsFromLocalstorage[2])
     localStorage.setItem("customerName", firstname + " " + lastname);
 
+    //TODO: Fetch Post validate
     return false;
 }
 
