@@ -1,4 +1,11 @@
 localStorage.setItem("deliveryType", "home");
+localStorage.setItem("deliveryCost", 39);
+
+
+/** 
+ * Om kunden väljer hemleverans behöver den ange vissa kontaktuppgifter
+ * Om någon uppgift saknas visat ett felmeddelande
+ **/
 
 function submitDelivery() {
   firstname = document.getElementById("deliveryFirstname").value;
@@ -38,8 +45,22 @@ function submitDelivery() {
   console.log(customerJSON);
   localStorage.setItem("customerName", firstname + " " + lastname);
 
+  /* Om kunden har Stockholm som postort blir leveransen gratis */
+  if(city === "stockholm" || city === "Stockholm"){
+    localStorage.setItem("deliveryCost", 0);
+    localStorage.setItem("TotalAmount", JSON.parse(localStorage.getItem("basketValue")));
+  }
+  else{
+    localStorage.setItem("deliveryCost", 39);
+  }
+
   return true;
 }
+
+/** 
+ * Om kunden väljer att hämta i butik behöver den ange färre kontaktuppgifter
+ * Om någon uppgift saknas visat ett felmeddelande
+ **/
 
 function submitPickUp() {
   firstname = document.getElementById("pickupFirstname").value;
@@ -68,6 +89,8 @@ function submitPickUp() {
 
   return true;
 }
+
+/** Visar och döljer, samt räknar ut leveranskostnad och totalsumma beroende av leveransalternativ */
 
 $("#storePickUp").hide();
 
