@@ -97,7 +97,30 @@ function submitPickUp() {
     localStorage.setItem("customerName", firstname + " " + lastname);
 
     //TODO: Fetch Post validate
-    return false;
+  const requestData = customerJSON;
+
+  try{
+    const orderSubmussion = fetch('http://localhost:8080/api/orders/post-add', {
+      method : 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json;charset=UTF-8'
+      },
+      body : requestData
+    }).then(response => {
+      // if (!response.success) {
+      //   throw new Error("Got non-2XX response from API server.");
+      // }
+      return response.json();
+    }).then(responseData => {
+      return responseData.users;
+    });
+
+    console.log(orderSubmussion.message); //UNdefined motherfucker.
+  } catch (error) {
+    console.error(error);
+  }
+  return false;
 }
 
 /** Visar och döljer, samt räknar ut leveranskostnad och totalsumma beroende av leveransalternativ */
