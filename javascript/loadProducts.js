@@ -147,11 +147,6 @@ async function main() {
     );
 
     addToCartPopUp("success", "Varan har lagts i varukorgen!");
-
-    //Minskar lagersaldot med 1 när du klickar på KÖP
-    let changeStatus = JSON.parse(localStorage.getItem("products"));
-    changeStatus[productId - 1].inventory--;
-    localStorage.setItem("products", JSON.stringify(changeStatus));
   }
 }
 
