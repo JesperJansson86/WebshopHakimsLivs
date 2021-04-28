@@ -77,6 +77,11 @@ function renderCart() {
   IsCartEmpty();
 
   const addItemButtons = document.querySelectorAll(".add-btn"); // lägger till + knappar för varje produkt
+
+  addItemButtons.forEach((element) => {
+    element.disabled = isInventoryEmpty(element.dataset.id);
+  });
+
   addItemButtons.forEach((b) =>
     b.addEventListener("click", function (e) {
       let button = e.target;
@@ -86,30 +91,18 @@ function renderCart() {
 
       let changeStatus = JSON.parse(localStorage.getItem("products"));
 
-
-
       if (changeStatus[productId - 1].inventory > 0) {
         button.disabled = false;
         let itemsInCart = JSON.parse(localStorage.getItem("cart"));
         itemsInCart[productId]++;
 
         //Minskar lagersaldot med 1 när du klickar på +
-        console.log("Innan " + changeStatus[productId - 1].inventory)
-
-        changeStatus[productId - 1].inventory--;        
-        
-        localStorage.setItem("products", JSON.stringify(changeStatus));     
-        
-        console.log("efter " + changeStatus[productId - 1].inventory)
-        if(changeStatus[productId - 1].inventory == 0){
-          button.disabled = true;
-        }
-        
+        changeStatus[productId - 1].inventory--;
+        localStorage.setItem("products", JSON.stringify(changeStatus));
 
         localStorage.setItem("cart", JSON.stringify(itemsInCart)); // sparar varukorgen med det nya antalet produkter efter klick
         renderCart(); // renderar varukorgen
-      }    
-      
+      }
     })
   );
 
@@ -157,6 +150,16 @@ function renderCart() {
   );
 }
 renderCart();
+
+function isInventoryEmpty(id) {
+  let changeStatus = JSON.parse(localStorage.getItem("products"));
+
+  if (changeStatus[id - 1].inventory == 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 function IsCartEmpty() {
   // kollar om varukorgen är tom
