@@ -62,28 +62,19 @@ function submitDelivery() {
     }
     const requestData = customerJSON;
 
-    try{
-        const orderSubmussion = fetch('http://localhost:8080/api/orders/post-add', {
-            method : 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json;charset=UTF-8'
-            },
-            body : requestData
-        }).then(response => {
-            // if (!response.success) {
-            //   throw new Error("Got non-2XX response from API server.");
-            // }
-            return response.json();
-        }).then(responseData => {
-            return responseData.users;
-        });
-
-        console.log(orderSubmussion.message); //UNdefined motherfucker.
-    } catch (error) {
-        console.error(error);
+    const url = 'http://localhost:8080/api/orders/post-add'
+    const options = {
+        method : 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json;charset=UTF-8'
+        },
+        body : requestData
     }
-    return true;
+
+    fetchOrderAndRedirectOrShowError(url, options);
+
+    return false;
 }
 
 /**
@@ -138,22 +129,32 @@ function submitPickUp() {
         body : requestData
     }
 
+    fetchOrderAndRedirectOrShowError(url, options);
+
+    return false;
+}
+
+async function fetchOrderAndRedirectOrShowError(url, options){
     fetch(url, options)
         .then(response => response.json())
         .then(responseData => {
             const success = responseData.success;
             const message = responseData.message;
             if (success) {
-                console.log("Here we redirect");
                 window.location.replace("./confirmation.html");
-            } else {
+            } else if(success == false) {
                 document.getElementById("bigError").innerHTML =
                     "Fel vid hantering av order: " + message;
+            } else {
+                document.getElementById("bigError").innerHTML =
+                    "Fel vid hantering av order: Internal server error";
             }
         })
-        .catch(error => console.error(error));
-
-    return false;
+        .catch(error => {
+        console.error(error);
+        document.getElementById("bigError").innerHTML =
+            "Fel vid hantering av order: Internal server error";
+        });
 }
 
 /** Visar och döljer, samt räknar ut leveranskostnad och totalsumma beroende av leveransalternativ */
