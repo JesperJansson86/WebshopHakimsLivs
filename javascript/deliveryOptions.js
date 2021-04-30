@@ -80,7 +80,7 @@ function submitPickUp() {
         const quantity = productsFromLocalstorage[id];
        productJSON.push({product_id : id, amount : quantity})
     }
-    console.log(JSON.stringify(productJSON))
+
     var parseCustomer = {
       products: productJSON,
       delivery_option_id : 1,
@@ -93,34 +93,37 @@ function submitPickUp() {
       phoneNumber : phone
     };
     var customerJSON = JSON.stringify(parseCustomer);
-    console.log(customerJSON);
     localStorage.setItem("customerName", firstname + " " + lastname);
 
-    //TODO: Fetch Post validate
-  const requestData = customerJSON;
 
-  try{
-    const orderSubmussion = fetch('http://localhost:8080/api/orders/post-add', {
-      method : 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json;charset=UTF-8'
-      },
-      body : requestData
-    }).then(response => {
-      // if (!response.success) {
-      //   throw new Error("Got non-2XX response from API server.");
-      // }
-      return response.json();
-    }).then(responseData => {
-      return responseData.users;
-    });
+    const requestData = customerJSON;
 
-    console.log(orderSubmussion.message); //UNdefined motherfucker.
-  } catch (error) {
-    console.error(error);
-  }
-  return false;
+    const url = 'http://localhost:8080/api/orders/post-add'
+    const options = {
+        method : 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json;charset=UTF-8'
+        },
+        body : requestData
+    }
+
+    fetch(url, options)
+        .then(response => response.json())
+        .then(responseData => {
+            const success = responseData.success;
+            const message = responseData.message;
+            if (success) {
+                console.log("Here we redirect");
+                window.location.replace("./confirmation.html");
+            } else {
+                document.getElementById("bigError").innerHTML =
+                    "Fel vid hantering av order: " + message;
+            }
+        })
+        .catch(error => console.error(error));
+
+    return false;
 }
 
 /** Visar och döljer, samt räknar ut leveranskostnad och totalsumma beroende av leveransalternativ */
