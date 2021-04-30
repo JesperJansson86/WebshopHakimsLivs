@@ -62,7 +62,7 @@ function submitDelivery() {
     }
     const requestData = customerJSON;
 
-    const url = 'http://localhost:8080/api/orders/post-add'
+    const url = 'http://localhost:8080/api/orders/add'
     const options = {
         method : 'POST',
         headers: {
@@ -119,7 +119,7 @@ function submitPickUp() {
 
     const requestData = customerJSON;
 
-    const url = 'http://localhost:8080/api/orders/post-add'
+    const url = 'http://localhost:8080/api/orders/add'
     const options = {
         method : 'POST',
         headers: {
