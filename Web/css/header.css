@@ -1,0 +1,30 @@
+/*
+#searchTop {
+  width: 150px;
+  height:38px;
+  
+}
+@media (min-width: 576px) {
+  #searchTop {
+    width: 200px;
+  }
+}
+@media (min-width: 768px) {
+  #searchTop {
+    width: 250px;
+  }
+}
+@media (min-width: 992px) {
+  #searchTop {
+    width: 300px;
+  }
+}
+
+#basketButton {
+  width: 80px;
+}
+
+#headerText{
+
+    
+}
