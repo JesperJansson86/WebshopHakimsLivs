@@ -10,6 +10,7 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
+
     <link rel="stylesheet" href="/Web/css/header.css" />
 
     <title>Startsida</title>
@@ -39,6 +40,7 @@
         style="background-color: #a5f5b2"
       >
         <div class="container">
+
           <div class="col-md-8">
             <a class="navbar-brand" href="/index.html">
               <h1 id="headerText" style="color: green">HakimLivs</h1>
@@ -78,6 +80,7 @@
               ></span>
             </button>
           </div>
+
         </div>
       </nav>
     </header>
@@ -93,15 +96,21 @@
         localStorage.getItem("basketQuantity")
       );
 
-      /*Detta är för att sökresultaten ska uppdateras både om en skriver i sök-fältet
+
+      /*Detta är för att sökresultaten ska visas när du klickar på enter och byter sida till testOfSearch
        */
       $(document).ready(function () {
         $("#searchTop").keyup(function () {
-          if (location.pathname != "/testOfSearch.html" && event.which === 13) {
-            localStorage.setItem("searchField", $("#searchTop").val());
-            location.href = "/testOfSearch.html";
-          } else {
-            updateSearchResults();
+          if (event.which === 13) {
+            if (location.pathname != "/testOfSearch.html") {
+              localStorage.setItem("searchField", $("#searchTop").val());
+              location.href = "/testOfSearch.html";
+            } else {
+              updateSearchResults();
+            }
+
+            document.getElementById("searchTop").value = "";
+
           }
         });
       });
