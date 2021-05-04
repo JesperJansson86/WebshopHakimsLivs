@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,7 +18,7 @@
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
       crossorigin="anonymous"
     ></script>
-    <title>Startsida</title>
+    <title>HakimLivs - Varukorg</title>
   </head>
   <body class="container-fluid" style="background-color: rgb(197, 221, 197)">
     <div class="row sticky-top">
@@ -61,12 +62,12 @@
 
                   <div class="form-row">
                     <div class="form-group col-md-6">
-                      <label for="firstname">Förnamn:</label>
+                      <label for="pickupFirstname">Förnamn:</label>
                       <input type="text" class="form-control" id="pickupFirstname" placeholder="Ange förnamn"
                         name="firstname" />
                     </div>
                     <div class="form-group col-md-6">
-                      <label for="lastname">Efternamn:</label>
+                      <label for="pickupLastname">Efternamn:</label>
                       <input type="text" class="form-control" id="pickupLastname" placeholder="Ange efternamn"
                         name="lastname" />
                     </div>
@@ -74,13 +75,13 @@
 
                   <div class="form-row">
                     <div class="form-group col-md-6">
-                      <label for="phonenumber">Telefon:</label>
+                      <label for="pickupPhonenumber">Telefon:</label>
                       <input type="text" class="form-control" id="pickupPhonenumber" placeholder="Ange telefonnummer"
                         name="phonenumber" />
                     </div>
 
                     <div class="form-group col-md-6">
-                      <label for="email">E-post:</label>
+                      <label for="pickupEmail">E-post:</label>
                       <input type="email" class="form-control" id="pickupEmail" placeholder="Ange e-post" name="email">
                     </div>
 
@@ -102,12 +103,12 @@
 
                   <div class="form-row">
                     <div class="form-group col-md-6">
-                      <label for="firstname">Förnamn:</label>
+                      <label for="deliveryFirstname">Förnamn:</label>
                       <input type="text" class="form-control" id="deliveryFirstname" placeholder="Ange förnamn"
                         name="firstname">
                     </div>
                     <div class="form-group col-md-6">
-                      <label for="lastname">Efternamn:</label>
+                      <label for="deliveryLastname">Efternamn:</label>
                       <input type="text" class="form-control" id="deliveryLastname" placeholder="Ange efternamn"
                         name="lastname" />
                     </div>
@@ -116,31 +117,31 @@
 
                   <div class="form-row">
                     <div class="form-group col-md-6">
-                      <label for="phonenumber">Telefon:</label>
+                      <label for="deliveryPhonenumber">Telefon:</label>
                       <input type="text" class="form-control" id="deliveryPhonenumber" placeholder="Ange telefonnummer"
                         name="phonenumber">
                     </div>
 
                     <div class="form-group col-md-6">
-                      <label for="email">E-post:</label>
+                      <label for="deliveryEmail">E-post:</label>
                       <input type="email" class="form-control" id="deliveryEmail" placeholder="Ange e-post" name="email"/>
                     </div>
                   </div> <!-- ./ form row -->
 
 
                   <div class="form-group col-md-6">
-                    <label for="address">Adress:</label>
+                    <label for="deliveryAddress">Adress:</label>
                     <input type="text" class="form-control" id="deliveryAddress" placeholder="Ange adress"
                       name="address">
                   </div>
 
                   <div class="form-group col-md-6">
-                    <label for="zipcode">Postnummer:</label>
+                    <label for="deliveryZipcode">Postnummer:</label>
                     <input type="text" class="form-control" id="deliveryZipcode" placeholder="Ange postnummer"
                       name="zipcode">
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="city">Ort:</label>
+                    <label for="deliveryCity">Ort:</label>
                     <input type="text" class="form-control" id="deliveryCity" placeholder="Ange ort" name="city"/>
                   </div>
 
@@ -183,7 +184,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
     crossorigin="anonymous"></script>
-  <script src="../javascript/barsBasket.js"></script>
+  <script src="../javascript/barsStandard.js"></script>
   <script src="../javascript/deliveryOptions.js"></script>
   <script src="../javascript/regEx.js"></script>
 </body>
