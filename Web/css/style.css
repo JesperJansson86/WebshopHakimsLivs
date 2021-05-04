@@ -33,11 +33,12 @@ body {
   position: sticky;
   bottom: 0;
 }
-@media (min-width: 576px) {
+
+/*@media (min-width: 576px) {
   .footer {
     position: fixed;
   }
-}
+}*/
 
 .image-box {
     margin-bottom: 10px;
