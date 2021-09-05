@@ -76,6 +76,7 @@ form.addEventListener("submit", (e) => {
     //if all validations return true
     Success();
   }
+
   if (message.length > 0) {
     e.preventDefault(); //prevents page reload on submit
     errorMessages.innerHTML = message;
