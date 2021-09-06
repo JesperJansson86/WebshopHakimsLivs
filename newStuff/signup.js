@@ -24,13 +24,13 @@ $(document).ready(function () {
         validatePhonenumber($(this)) ? renderValid($(this)) : renderInvalid($(this));
     });
     $("#adress").on("change paste input keyup", function(){
-        fieldNotEmpty($(this)) ? renderValid($(this)) : renderInvalid($(this));
+        validateAddress($(this)) ? renderValid($(this)) : renderInvalid($(this));
     });
     $("#areacode").on("change paste input keyup", function(){
         fieldNotEmpty($(this)) && validateAreaCode($(this)) ? renderValid($(this)) : renderInvalid($(this));
     });
     $("#city").on("change paste input keyup", function(){
-        fieldNotEmpty($(this)) ? renderValid($(this)) : renderInvalid($(this));
+        validateName($(this)) ? renderValid($(this)) : renderInvalid($(this));
     });
 })
 
@@ -45,9 +45,9 @@ function validation() {
             validateName($("#firstname")) &&
             validateName($("#lastname")) &&
             validatePhonenumber($("#phone")) &&
-            fieldNotEmpty($("#adress")) &&
+            validateAddress($("#adress")) &&
             validateAreaCode($("#areacode")) &&
-            fieldNotEmpty($("#city"))
+            validateName($("#city"))
     )
     validated ? signUp() : fail();
 }
@@ -70,7 +70,12 @@ function validateEmail(field) {
  * @returns {boolean}
  */
 function validateName(field){
-    const regex = /[a-z A-ZåäöÅÄÖ]{2,30}/;     
+    const regex = /^[a-z A-ZåäöÅÄÖ]{2,30}$/;     
+        return regex.test(field.val());
+  }
+
+  function validateAddress(field){
+    const regex = /^[a-z A-ZåöäÅÖÄ 0-9]{1,30}$/;     
         return regex.test(field.val());
   }
 
