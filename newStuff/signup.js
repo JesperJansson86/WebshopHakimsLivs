@@ -11,10 +11,10 @@ $(document).ready(function () {
         compareFields($(this), $("#psw2"));
         validatePassword($(this).val()) ? renderValid($(this)) : renderInvalid($(this));
     });
-    $("firstname").on("change paste input keyup", function (){
+    $("#firstname").on("change paste input keyup", function (){
         validateName($(this)) ? renderValid($(this)) : renderInvalid($(this));
     });
-    $("lastname").on("change paste input keyup", function (){
+    $("#lastname").on("change paste input keyup", function (){
         validateName($(this)) ? renderValid($(this)) : renderInvalid($(this));
     });
     $("#psw2").on("change paste input keyup", function () {
@@ -70,7 +70,7 @@ function validateEmail(field) {
  * @returns {boolean}
  */
 function validateName(field){
-    const regex = /^[a-z A-ZåäöÅÄÖ]{2,30}$/;     
+    const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ]{2,30}$/;     
         return regex.test(field.val());
   }
 
