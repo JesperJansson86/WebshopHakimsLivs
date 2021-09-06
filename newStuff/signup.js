@@ -154,6 +154,7 @@ function signUp() {
  * if validation fails.
  */
 function fail() {
-    alert("Something went wrong");
+    document.getElementById("bigError").innerHTML =
+    "Kontrollera att du fyllt i alla uppgifter";
     console.log("Something went wrong...");
 }
