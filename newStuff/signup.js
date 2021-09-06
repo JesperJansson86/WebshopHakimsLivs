@@ -11,6 +11,12 @@ $(document).ready(function () {
         compareFields($(this), $("#psw2"));
         validatePassword($(this).val()) ? renderValid($(this)) : renderInvalid($(this));
     });
+    $("firstname").on("change paste input keyup", function (){
+        validateName($(this)) ? renderValid($(this)) : renderInvalid($(this));
+    });
+    $("lastname").on("change paste input keyup", function (){
+        validateName($(this)) ? renderValid($(this)) : renderInvalid($(this));
+    });
     $("#psw2").on("change paste input keyup", function () {
         compareFields($("#psw"), $(this));
     });
@@ -36,6 +42,8 @@ function validation() {
     var validated = (
         validateEmail($("#email")) &&
             validatePassword($("#psw").val()) &&
+            validateName($("#firstname")) &&
+            validateName($("#lastname")) &&
             validatePhonenumber($("#phone")) &&
             fieldNotEmpty($("#adress")) &&
             validateAreaCode($("#areacode")) &&
@@ -55,6 +63,17 @@ function validateEmail(field) {
     if(input.value.length < 3) return false;
     return input.checkValidity();
 }
+
+/**
+ * Kontroll av namn
+ * @param field {String}
+ * @returns {boolean}
+ */
+function validateName(field){
+    const regex = /[a-z A-ZåäöÅÄÖ]{2,30}/;     
+        return regex.test(field.val());
+  }
+
 
 
 /**
@@ -137,6 +156,8 @@ function fieldNotEmpty(field){
 function signUp() {
     console.log(`email: ${$("#email").val()}`);
     var objectdata = JSON.stringify({
+        'firstname' : $("#firstname").val(),
+        'lastname' : $("#lastname").val(),
         'email' : $("#email").val(),
         'password' : $("#password").val(),
         'phonenumber' : $("#phone").val(),
