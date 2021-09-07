@@ -1,6 +1,5 @@
 function renderCart() {
-  document.getElementById("bigError").innerHTML =
-  "";
+  document.getElementById("bigError").innerHTML = "";
   let itemsInCart = JSON.parse(localStorage.getItem("cart")); // byt namn på "cart" så att det matchar och kan kopplas till produktsidan
   let output = "";
   let sum = 0;
@@ -24,7 +23,7 @@ function renderCart() {
     const product = products.find((p) => p.id === id);
     const quantity = itemsInCart[id];
     localStorage.setItem("basketValue", sum);
-    
+
     output += ` 
     <p class="mb-1" style="font-weight: 500">${product.title}</p>
     <div class="card border-success mb-3">
@@ -78,6 +77,11 @@ function renderCart() {
   IsCartEmpty();
 
   const addItemButtons = document.querySelectorAll(".add-btn"); // lägger till + knappar för varje produkt
+
+  addItemButtons.forEach((element) => {
+    element.disabled = isInventoryEmpty(element.dataset.id);
+  });
+
   addItemButtons.forEach((b) =>
     b.addEventListener("click", function (e) {
       let button = e.target;
@@ -85,11 +89,15 @@ function renderCart() {
       parseInt(productId);
       console.log("klick - add" + productId);
 
+      let changeStatus = JSON.parse(localStorage.getItem("products"));
       let itemsInCart = JSON.parse(localStorage.getItem("cart"));
-      itemsInCart[productId]++;
 
-      localStorage.setItem("cart", JSON.stringify(itemsInCart)); // sparar varukorgen med det nya antalet produkter efter klick
-      renderCart(); // renderar varukorgen
+      if (itemsInCart[productId] < changeStatus[productId - 1].inventory) {        
+        itemsInCart[productId]++;
+
+        localStorage.setItem("cart", JSON.stringify(itemsInCart)); // sparar varukorgen med det nya antalet produkter efter klick
+        renderCart(); // renderar varukorgen
+      }
     })
   );
 
@@ -102,9 +110,11 @@ function renderCart() {
 
       let itemsInCart = JSON.parse(localStorage.getItem("cart"));
       itemsInCart[productId]--;
+
       if (itemsInCart[productId] == 0) {
         delete itemsInCart[productId];
       }
+
       localStorage.setItem("cart", JSON.stringify(itemsInCart)); // sparar varukorgen med det nya antalet produkter efter klick
       renderCart(); // renderar varukorgen
     })
@@ -117,13 +127,26 @@ function renderCart() {
       const productId = button.dataset.id;
       console.log("klick - delete" + productId);
       let itemsInCart = JSON.parse(localStorage.getItem("cart"));
+
       delete itemsInCart[productId];
+
       localStorage.setItem("cart", JSON.stringify(itemsInCart)); // sparar varukorgen med det nya antalet produkter efter klick
       renderCart(); // renderar varukorgen
     })
   );
 }
 renderCart();
+
+function isInventoryEmpty(id) {
+  let changeStatus = JSON.parse(localStorage.getItem("products"));
+  let itemsInCart = JSON.parse(localStorage.getItem("cart"));
+
+  if (itemsInCart[id] == changeStatus[id - 1].inventory) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 function IsCartEmpty() {
   // kollar om varukorgen är tom
@@ -132,10 +155,6 @@ function IsCartEmpty() {
     document.getElementById("bigError").innerHTML = "Din varukorg är tom";
     localStorage.clear();
     document.getElementById("basketValue").innerHTML = "";
-    document.getElementById("deliveryCost").innerHTML = "";
-    document.getElementById("freeDelivery").innerHTML =
-      "Handla för minst 500 kr och få gratis leverans";
-    document.getElementById("TotalAmount").innerHTML = "";
     document.getElementById("nextPageBtn").disabled = true;
 
     return true;
@@ -144,29 +163,12 @@ function IsCartEmpty() {
   return false;
 }
 
-
 function calculateShippment(sum) {
   const shippment = 39;
-
-  
-  
 
   document.getElementById(
     "basketValue"
   ).innerHTML = `<b>Summa varor:</b> ${sum.toFixed(2)}  kr`;
-  
-    document.getElementById(
-      "deliveryCost"
-    ).innerHTML = `<b>Leverans:</b> ${shippment} kr`;
-    localStorage.setItem("deliveryCost", shippment);
- 
-
-  let d = JSON.parse(localStorage.getItem("deliveryCost"));
-  let ta = d + sum;
-  document.getElementById(
-    "TotalAmount"
-  ).innerHTML = `<b>Totalsumma: </b>${ta.toFixed(2)} kr`;
-  localStorage.setItem("TotalAmount", ta);
 }
 
 function proceedToShippment(e) {

@@ -21,34 +21,36 @@
   <body style="background-color: rgb(197, 221, 197)">
     <!-- Header/ huvudmenyn -->
 
+    <div class="row sticky-top">
+      <header class="col px-0" id="header"></header>
+    </div>
+
+    <!-- ./ header -->
+
+    <!-- Sidomenyn -->
+    <div class="container">
       <div class="row">
-        <header class="col px-0" id="header"></header>
-      </div>
+        <div class="col-md-3" id="sidebar"></div>
+        <!-- ./ sidomeny -->
 
-      <!-- ./ header -->
+        <!-- Main -->
+        <div class="col-md-9">
+          <h1 style="color: rgb(3, 78, 3)" id="titleOfPage">Välkommen!</h1>
 
-      <!-- Sidomenyn -->
-      <div class="container" >
-        <div class="row">
-          <div class="col-md-3" id="sidebar"></div>
-          <!-- ./ sidomeny -->
 
-          <!-- Main -->
-          <div class="col-md-9">
-            <h1 style="color: rgb(3, 78, 3)" id="titleOfPage">Välkommen!</h1>
+          <div id="contentOfPage">
+            <div class="row mt-5" id="card"></div>
 
-            <div id="contentOfPage">
-              <div class="row mt-5" id="card"></div>
-            </div>
           </div>
         </div>
       </div>
     </div>
+
     <!-- ./ main -->
 
     <!-- footer/ information-->
-    <div class="row">
-      <footer class="col"></footer>
+    <div class="row sticky-bottom">
+      <footer class="col px-0"></footer>
     </div>
     <!-- ./ footer/ information-->
 
@@ -57,9 +59,7 @@
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
       crossorigin="anonymous"
     ></script>
-    <script src="../javascript/barsStandard.js"></script>
+    <script src="/javascript/barsStandard.js"></script>
     <script src="/javascript/loadProducts.js"></script>
-    
-
   </body>
 </html>

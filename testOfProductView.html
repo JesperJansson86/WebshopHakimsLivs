@@ -10,6 +10,7 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/Web/css/style.css" />
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
@@ -21,7 +22,7 @@
   <body style="background-color: rgb(197, 221, 197)">
     <!-- Header/ huvudmenyn -->
 
-      <div class="row">
+      <div class="row sticky-top">
         <header class="col px-0" id="header"></header>
       </div>
       <!-- ./ header -->
@@ -38,16 +39,15 @@
           
             <div id="contentOfPage">
               <div class="row mt-5" id="card"></div>
+                <div class="alert-message text-center" style="position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); width:30%;"></div>
             </div>
-
-        </div>
         </div>
       </div> <!-- ./ main -->
     </div>
 
     <!-- footer/ information-->
     <div class="row">
-      <footer class="col"></footer>
+      <footer class="col px-0 footer"></footer>
     </div>
     <!-- ./ footer/ information-->
 
