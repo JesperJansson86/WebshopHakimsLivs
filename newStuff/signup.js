@@ -11,6 +11,12 @@ $(document).ready(function () {
         compareFields($(this), $("#psw2"));
         validatePassword($(this).val()) ? renderValid($(this)) : renderInvalid($(this));
     });
+    $("#firstname").on("change paste input keyup", function (){
+        validateName($(this)) ? renderValid($(this)) : renderInvalid($(this));
+    });
+    $("#lastname").on("change paste input keyup", function (){
+        validateName($(this)) ? renderValid($(this)) : renderInvalid($(this));
+    });
     $("#psw2").on("change paste input keyup", function () {
         compareFields($("#psw"), $(this));
     });
@@ -18,13 +24,13 @@ $(document).ready(function () {
         validatePhonenumber($(this)) ? renderValid($(this)) : renderInvalid($(this));
     });
     $("#adress").on("change paste input keyup", function(){
-        fieldNotEmpty($(this)) ? renderValid($(this)) : renderInvalid($(this));
+        validateAddress($(this)) ? renderValid($(this)) : renderInvalid($(this));
     });
     $("#areacode").on("change paste input keyup", function(){
         fieldNotEmpty($(this)) && validateAreaCode($(this)) ? renderValid($(this)) : renderInvalid($(this));
     });
     $("#city").on("change paste input keyup", function(){
-        fieldNotEmpty($(this)) ? renderValid($(this)) : renderInvalid($(this));
+        validateName($(this)) ? renderValid($(this)) : renderInvalid($(this));
     });
 })
 
@@ -36,10 +42,12 @@ function validation() {
     var validated = (
         validateEmail($("#email")) &&
             validatePassword($("#psw").val()) &&
+            validateName($("#firstname")) &&
+            validateName($("#lastname")) &&
             validatePhonenumber($("#phone")) &&
-            fieldNotEmpty($("#adress")) &&
+            validateAddress($("#adress")) &&
             validateAreaCode($("#areacode")) &&
-            fieldNotEmpty($("#city"))
+            validateName($("#city"))
     )
     validated ? signUp() : fail();
 }
@@ -55,6 +63,22 @@ function validateEmail(field) {
     if(input.value.length < 3) return false;
     return input.checkValidity();
 }
+
+/**
+ * Kontroll av namn
+ * @param field {String}
+ * @returns {boolean}
+ */
+function validateName(field){
+    const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ]{2,30}$/;     
+        return regex.test(field.val());
+  }
+
+  function validateAddress(field){
+    const regex = /^[a-z A-ZåöäÅÖÄ 0-9]{1,30}$/;     
+        return regex.test(field.val());
+  }
+
 
 
 /**
@@ -137,6 +161,8 @@ function fieldNotEmpty(field){
 function signUp() {
     console.log(`email: ${$("#email").val()}`);
     var objectdata = JSON.stringify({
+        'firstname' : $("#firstname").val(),
+        'lastname' : $("#lastname").val(),
         'email' : $("#email").val(),
         'password' : $("#password").val(),
         'phonenumber' : $("#phone").val(),
@@ -154,6 +180,7 @@ function signUp() {
  * if validation fails.
  */
 function fail() {
-    alert("Something went wrong");
+    document.getElementById("bigError").innerHTML =
+    "Kontrollera att du fyllt i alla uppgifter";
     console.log("Something went wrong...");
 }
