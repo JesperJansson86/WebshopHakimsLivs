@@ -1,0 +1,116 @@
+                <div class="col-md-6">
+                  <div class="card mb-3 border-success">
+                    <div class="card-header">Kundstatus</div>
+                    <div class="card-body">
+                      <h5 class="card-title">[customers.status]</h5>
+                      <p class="card-text">
+                        Du är en av Hakim Livs trogna kunder och får därför ta
+                        del av extra förmånliga erbjudanden
+                      </p>
+                      <div class="d-grid gap-2">
+                        <a
+                          href="#"
+                          class="btn btn-success disabled"
+                          type="button"
+                          >Visa erbjudanden</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card mb-3 border-success">
+                    <div class="card-header">Användarkonto</div>
+                    <div class="card-body">
+                      <h5 class="card-title">Avsluta konto</h5>
+                      <p class="card-text">
+                        Om du inte längre vill vara kund hos Hakim Livs kan du
+                        radera ditt konto. Då tas alla dina personuppgifter
+                        bort. Uppgifter som behövs för bokföring etc. kommer att
+                        behållas så lång tid som lagen kräver.
+                      </p>
+                      <div
+                        class="d-grid gap-2 d-md-flex justify-content-md-end"
+                      >
+                        <!-- länk behöver justeras -->
+                        <a
+                          href="editMyInfo.html"
+                          class="btn btn-danger"
+                          type="button"
+                          >Radera konto</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12">
+                  <h1 style="color: rgb(3, 78, 3)" id="titleOfPage">
+                    Mina adresser
+                  </h1>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card mb-3 border-success">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16275.952811037801!2d18.047031999999998!3d59.34139964999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x82fc0f30ed84f9ed!2sNackademin!5e0!3m2!1ssv!2sse!4v1617181403686!5m2!1ssv!2sse"
+                      style="border: 0"
+                      allowfullscreen=""
+                      loading="lazy"
+                    ></iframe>
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        [UTDELNINGSADRESS]
+                        <span class="btn btn-info btn-sm">Primär</span>
+                      </h5>
+                      <p class="card-text">[ZIP] [CITY]</p>
+                      <p class="card-text text-muted">Lades till [TIMESTAMP]</p>
+                      <div
+                        class="d-grid gap-2 d-md-flex justify-content-md-end"
+                      >
+                        <!-- länk behöver justeras -->
+                        <a
+                          href="editMyInfo.html"
+                          class="btn btn-success"
+                          type="button"
+                          >Ändra</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card mb-3 border-success">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16275.952811037801!2d18.047031999999998!3d59.34139964999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x82fc0f30ed84f9ed!2sNackademin!5e0!3m2!1ssv!2sse!4v1617181403686!5m2!1ssv!2sse"
+                      style="border: 0"
+                      allowfullscreen=""
+                      loading="lazy"
+                    ></iframe>
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        [UTDELNINGSADRESS]
+                        <a href="#" class="btn btn-secondary btn-sm"
+                          >Gör till primär</a
+                        >
+                      </h5>
+                      <p class="card-text">[ZIP] [CITY]</p>
+                      <p class="card-text text-muted">Lades till [TIMESTAMP]</p>
+                      <div
+                        class="d-grid gap-2 d-md-flex justify-content-md-end"
+                      >
+                        <!-- länk behöver justeras -->
+                        <a
+                          href="editMyInfo.html"
+                          class="btn btn-success"
+                          type="button"
+                          >Ändra</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
