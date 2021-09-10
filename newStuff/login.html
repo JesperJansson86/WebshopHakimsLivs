@@ -29,13 +29,12 @@
         <div class="col-md-9">
           <h2 style="color: rgb(3, 78, 3)" id="titleOfPage">Logga in</h2>
           <div id="contentOfPage">
-            <div id="errorMessage" style="color: red; font-weight: 500"></div>
-            <form id="loginForm" action="myInfo.html" class="mb-3">
+
+            <form id="loginForm" class="mb-3" action="myInfo.html" onsubmit="return submitForm()">
               <fieldset>
                 <div class="mb-3 mt-2">
                   <label for="username" style="font-weight: 500"
-                    >Användarnamn</label
-                  >
+                    >Användarnamn</label>
                   <input
                     class="form-control"
                     type="text"
@@ -44,12 +43,12 @@
                     name="username"
                     id="username"
                     style="width: 40%"
+                    required
                   />
                 </div>
                 <div class="mb-3">
                   <label for="password" style="font-weight: 500"
-                    >Lösenord</label
-                  >
+                    >Lösenord</label>
                   <input
                     class="form-control"
                     type="password"
@@ -58,6 +57,7 @@
                     name="password"
                     id="password"
                     style="width: 40%"
+                    required
                   />
                 </div>
               </fieldset>
@@ -67,6 +67,8 @@
             </form>
 
             <a href="signup.html">Har du inget konto? Skapa ett här</a>
+
+            <h3 id="errorMessage" class="mb-3" style="color: red; font-weight: 500"></h3>
             
             <!--Popper and Bootstrap JS-->
             <script

@@ -89,10 +89,10 @@
               </button>
               <button
                 class="btn btn-success mx-2"
+                id="loginout"
                 onclick="location.href='../newStuff/login.html'"
-              >
-                Logga in / ut
-              </button>
+              > Logga in
+              </button>              
             </li>
           </ul>
 
@@ -107,9 +107,19 @@
     ></script>
 
     <script>
+      
       document.getElementById("basketQ").innerHTML = JSON.parse(
         localStorage.getItem("basketQuantity")
       );
+
+      if(localStorage.getItem("jwtToken") != null){        
+        document.getElementById("loginout").innerHTML = "Logga ut";
+        document.getElementById("loginout").onclick = function (){
+          localStorage.removeItem("jwtToken");
+          document.getElementById("loginout").innerHTML = "Logga in";
+        }
+      }
+      
 
 
       /*Detta är för att sökresultaten ska visas när du klickar på enter och byter sida till testOfSearch
