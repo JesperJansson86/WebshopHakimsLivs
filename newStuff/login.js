@@ -11,7 +11,7 @@ function submitForm(){
   bodyData = JSON.stringify(formData);
 
   //TODO: Ändra URL för skarpt läge.
-  const url = 'http://localhost:8080/authenticate'
+  const url = 'https://hakimslivs.herokuapp.com/authenticate'
   const requestData = {
     method : 'POST',
     headers: {
