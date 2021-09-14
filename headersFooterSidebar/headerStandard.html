@@ -136,7 +136,7 @@ if(decoded.roles.authority == "ADMIN"){
   document.getElementById("welcome").innerHTML = "HEJ ADMIN";
 }
 else if(decoded.roles.authority == "CUSTOMER"){
-  document.getElementById("welcome").innerHTML = "Välkommen " + decoded.sub; //TODO: Ändra till namnet på kunden
+  document.getElementById("welcome").innerHTML = "Välkommen " + decoded.firstname;
 }
 else{
   document.getElementById("welcome").innerHTML = "";
