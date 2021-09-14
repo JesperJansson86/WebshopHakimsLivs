@@ -102,6 +102,24 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      /*Detta är för att sökresultaten ska visas när du klickar på enter och byter sida till testOfSearch
+ */
+      $(document).ready(function () {
+        $("#searchTop").keyup(function () {
+          if (event.which === 13) {
+            if (location.pathname != "/testOfSearch.html") {
+              localStorage.setItem("searchField", $("#searchTop").val());
+              location.href = "/testOfSearch.html";
+            } else {
+              updateSearchResults();
+            }
+
+            document.getElementById("searchTop").value = "";
+
+          }
+        });
+      });
+
       
       document.getElementById("basketQ").innerHTML = JSON.parse(
         localStorage.getItem("basketQuantity")
@@ -139,26 +157,6 @@
       else{
         document.getElementById("welcome").innerHTML = "";
       }
-    </script>
-    <script>
-
-      /*Detta är för att sökresultaten ska visas när du klickar på enter och byter sida till testOfSearch
-       */
-      $(document).ready(function () {
-        $("#searchTop").keyup(function () {
-          if (event.which === 13) {
-            if (location.pathname != "/testOfSearch.html") {
-              localStorage.setItem("searchField", $("#searchTop").val());
-              location.href = "/testOfSearch.html";
-            } else {
-              updateSearchResults();
-            }
-
-            document.getElementById("searchTop").value = "";
-
-          }
-        });
-      });
     </script>
    
 
