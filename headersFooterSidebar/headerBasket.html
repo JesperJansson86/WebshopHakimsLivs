@@ -37,9 +37,10 @@
               </button>
               <button
                 class="btn btn-success mx-2"
+                id="loginoutB"
                 onclick="location.href='../newStuff/login.html'"
               >
-                Logga in/ ut
+                Logga in
               </button>
             </li>
           </ul>
@@ -51,5 +52,28 @@
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
       crossorigin="anonymous"
     ></script>
+    <script>
+      const button = document.getElementById("nextPageBtn");
+
+
+      if(localStorage.getItem("jwtToken") != null){        
+        document.getElementById("loginoutB").innerHTML = "Logga ut";
+        button.disabled = false;
+        document.getElementById("loginoutB").onclick = function (){
+          localStorage.removeItem("jwtToken");
+          document.getElementById("loginoutB").innerHTML = "Logga in";
+          button.disabled = true;
+          document.getElementById("bigError").innerHTML =
+            "Du måste logga in för att fortsätta";
+          document.getElementById("loginoutB").onclick = function (){
+          location.href="../newStuff/login.html"
+        }
+        }
+      } else {
+        button.disabled = true;
+        document.getElementById("bigError").innerHTML =
+          "Du måste logga in för att fortsätta";
+      }
+    </script>
   </body>
 </html>

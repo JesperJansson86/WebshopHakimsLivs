@@ -24,6 +24,7 @@
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
       crossorigin="anonymous"
     ></script>
+    <script src="../newStuff/jwt-decode.js"></script>
   </head>
 
   <!-- Header/ huvudmenyn 
@@ -41,11 +42,12 @@
       >
         <div class="container">
 
-          <div class="col-md-8">
+          <div class="col-md-5">
             <a class="navbar-brand" href="/index.html">
               <h1 id="headerText" style="color: green">HakimLivs</h1>
             </a>
           </div>
+          <p id="welcome" style="color: green; font-weight: 500"></p>
           <div class="col-md-3 col-12 mb-3">
             <input
               class="form-control"
@@ -70,14 +72,6 @@
                 class="bi bi-cart2"
                 viewBox="0 0 16 16"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  fill="currentColor"
-                  class="bi bi-cart2"
-                  viewBox="0 0 16 16"
-                >
                   <path
                     d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
                   />
@@ -87,16 +81,18 @@
                   id="basketQ"
                 ></span>
               </button>
-              <button
-                class="btn btn-success mx-2"
-                id="loginout"
-                onclick="location.href='../newStuff/login.html'"
-              > Logga in
-              </button>              
+                         
             </li>
           </ul>
 
         </div>
+        <div class="col-md-1 col-12 mb-3">
+        <button
+                class="btn btn-success mx-2"
+                id="loginout"
+                onclick="location.href='../newStuff/login.html'"
+              > Logga in
+              </button>   </div>
       </nav>
     </header>
 
@@ -105,7 +101,6 @@
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
       crossorigin="anonymous"
     ></script>
-
     <script>
       
       document.getElementById("basketQ").innerHTML = JSON.parse(
@@ -116,10 +111,36 @@
         document.getElementById("loginout").innerHTML = "Logga ut";
         document.getElementById("loginout").onclick = function (){
           localStorage.removeItem("jwtToken");
+          document.getElementById("welcome").innerHTML = "";
           document.getElementById("loginout").innerHTML = "Logga in";
+          document.getElementById("loginout").onclick = function (){
+          location.href="../newStuff/login.html"
+        }
         }
       }
-      
+
+
+      var jwt = localStorage.getItem("jwtToken");
+console.log(jwt);
+
+
+
+var token = jwt;
+
+var decoded = jwt_decode(token);
+console.log(decoded);
+console.log(decoded.sub);
+console.log(decoded.roles.authority);
+
+if(decoded.roles.authority == "ADMIN"){
+  document.getElementById("welcome").innerHTML = "HEJ ADMIN";
+}
+else if(decoded.roles.authority == "CUSTOMER"){
+  document.getElementById("welcome").innerHTML = "Välkommen " + decoded.firstname;
+}
+else{
+  document.getElementById("welcome").innerHTML = "";
+}
 
 
       /*Detta är för att sökresultaten ska visas när du klickar på enter och byter sida till testOfSearch
@@ -140,5 +161,8 @@
         });
       });
     </script>
+   
+
+    
   </body>
 </html>
