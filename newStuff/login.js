@@ -31,7 +31,7 @@ function submitForm(){
       })
       .then(responseData => {
         localStorage.setItem("jwtToken", JSON.stringify(responseData.jwtToken));
-        window.location.replace("./myInfo.html");
+        window.location.replace("../index.html");
       })
       .catch(error => {
         errorMessages.innerHTML =
