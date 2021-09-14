@@ -7,7 +7,7 @@ $(document).ready(function () {
     $("#email").on("change paste input keyup", function() {
         validateEmail($(this)) ? renderValid($(this)) : renderInvalid($(this));
     });
-    $("#psw").on("change paste input keyup", function () {
+    $("#password").on("change paste input keyup", function () {
         compareFields($(this), $("#psw2"));
         validatePassword($(this).val()) ? renderValid($(this)) : renderInvalid($(this));
     });
@@ -18,7 +18,7 @@ $(document).ready(function () {
         validateName($(this)) ? renderValid($(this)) : renderInvalid($(this));
     });
     $("#psw2").on("change paste input keyup", function () {
-        compareFields($("#psw"), $(this));
+        compareFields($("#password"), $(this));
     });
     $("#phone").on("change paste input keyup", function () {
         validatePhonenumber($(this)) ? renderValid($(this)) : renderInvalid($(this));
@@ -41,7 +41,7 @@ $(document).ready(function () {
 function validation() {
     var validated = (
         validateEmail($("#email")) &&
-            validatePassword($("#psw").val()) &&
+            validatePassword($("#password").val()) &&
             validateName($("#firstname")) &&
             validateName($("#lastname")) &&
             validatePhonenumber($("#phone")) &&
@@ -159,21 +159,46 @@ function fieldNotEmpty(field){
  * password not
  */
 function signUp() {
-    console.log(`email: ${$("#email").val()}`);
+
+    const errorMessages = document.getElementById("errorMessage"); //div that holds login error messages
+
     var objectdata = JSON.stringify({
         'firstname' : $("#firstname").val(),
         'lastname' : $("#lastname").val(),
         'email' : $("#email").val(),
         'password' : $("#password").val(),
-        'phonenumber' : $("#phone").val(),
+        'phone' : $("#phone").val(),
         'address' : $("#adress").val(),
-        'areacode' : $("#areacode").val(),
+        'areaCode' : $("#areacode").val(),
         'city' : $("#city").val()
     })
-    console.log(objectdata);
-    //POST
-    //GET
-    //REDIRECT?
+
+    const url = 'https://hakimslivs.herokuapp.com/api/customer/add'
+    const requestData = {
+      method : 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json;charset=UTF-8'
+      },
+      body : objectdata
+    }
+
+    fetch(url, requestData)
+    .then(response => {
+      if(response.status == 200) {
+      } else {
+        throw new Error("Signup Error.");
+      }
+    })
+    .then(responseData => {
+      window.location.replace("login.html");
+    })
+    .catch(error => {
+      errorMessages.innerHTML =
+          "Fel vid registrering: " + error.message;
+    });
+return false;
+
 }
 
 /**
