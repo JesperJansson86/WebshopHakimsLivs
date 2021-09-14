@@ -72,12 +72,12 @@ function validateEmail(field) {
 function validateName(field){
     const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ]{2,30}$/;     
         return regex.test(field.val());
-  }
+}
 
-  function validateAddress(field){
+function validateAddress(field){
     const regex = /^[a-z A-ZåöäÅÖÄ 0-9]{1,30}$/;     
         return regex.test(field.val());
-  }
+}
 
 
 
@@ -173,7 +173,8 @@ function signUp() {
         'city' : $("#city").val()
     })
 
-    const url = 'https://hakimslivs.herokuapp.com/api/customer/add'
+    // const url = 'https://hakimslivs.herokuapp.com/api/customer/add'
+    const url = 'http://localhost:8080/api/customer/add'
     const requestData = {
       method : 'POST',
       headers: {
@@ -187,7 +188,7 @@ function signUp() {
     .then(response => {
       if(response.status == 200) {
       } else {
-        throw new Error("Signup Error.");
+        throw new Error(response.message);
       }
     })
     .then(responseData => {
