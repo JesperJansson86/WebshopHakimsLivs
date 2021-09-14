@@ -173,7 +173,7 @@ function signUp() {
         'city' : $("#city").val()
     })
 
-    const url = 'http://localhost:8080/api/customer/add'
+    const url = 'https://hakimslivs.herokuapp.com/api/customer/add'
     const requestData = {
       method : 'POST',
       headers: {
