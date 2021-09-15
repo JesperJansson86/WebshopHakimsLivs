@@ -174,7 +174,7 @@ function signUp() {
     })
 
     // const url = 'https://hakimslivs.herokuapp.com/api/customer/add'
-    const url = 'http://localhost:8080/api/customer/add'
+    const url = 'http://hakimslivs.herokuapp.com/api/customer/add'
     const requestData = {
       method : 'POST',
       headers: {
