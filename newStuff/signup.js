@@ -173,8 +173,7 @@ function signUp() {
         'city' : $("#city").val()
     })
 
-    // const url = 'https://hakimslivs.herokuapp.com/api/customer/add'
-    const url = 'http://localhost:8080/api/customer/add'
+    const url = 'https://hakimslivs.herokuapp.com/api/customer/add'
     const requestData = {
       method : 'POST',
       headers: {
@@ -187,12 +186,13 @@ function signUp() {
     fetch(url, requestData)
     .then(response => {
       if(response.status == 200) {
+          window.location.replace("login.html");
       } else {
-        throw new Error(response.message);
+          return response.text();
       }
     })
     .then(responseData => {
-      window.location.replace("login.html");
+        throw new Error(responseData);
     })
     .catch(error => {
       errorMessages.innerHTML =
