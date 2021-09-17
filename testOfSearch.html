@@ -41,10 +41,11 @@
         <!-- Main -->
         <div class="col-md-9">
           <h1 style="color: rgb(3, 78, 3)" id="titleOfPage">Sökresultat</h1>
-          <div id="hej">
-            <div id="searchInfo"><h3>Inget sökresultat</h3></div>            
+          <div id="contentOfPage">
+            <div id="searchInfo"><h3>Inget sökresultat</h3></div>                        
             <div class="row mt-5" id="results">
             </div>
+            <div class="alert-message text-center" style="position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); width:30%;"></div>
           </div>
         </div>
       </div>
@@ -109,22 +110,24 @@
                   <button class="buy-btn btn btn-success" data-id="${
                     value.id
                   }">Köp</button>
-                </div>
+                </div>          
               </div>
-  
             </div>
           </div>
                        `;
                 const buyButtons = document.querySelectorAll(".buy-btn");
                 buyButtons.forEach((b) =>
                   b.addEventListener("click", handlebuyClick)
-
                 );
 
                 function handlebuyClick(e) {
                   let checkBasketQuantity = JSON.parse(
                     localStorage.getItem("basketQuantity")
                   );
+                  
+                  const button = e.target;
+                  const productId = button.dataset.id;
+                  sendItemToCart(productId);
                 }
 
               function sendItemToCart(productId) {
@@ -134,13 +137,32 @@
                 } else {
                   cart[productId] = 1;
                 }
+                
+                localStorage.setItem("cart", JSON.stringify(cart));
+                addToCartPopUp("success", "Varan har lagts i varukorgen!");
               }
             }
           });
         });
       }      
 
+      
+
+function addToCartPopUp(type, message) {
+  let alert = '<div class="alert alert-' + type + '">' + message + "</div>";
+
+  $(".alert-message").append(alert);
+  $(".alert-message .alert")
+    .fadeIn(200)
+    .delay(1000)
+    .fadeOut(2000, function () {
+      $(this).remove();
+    });
+}
+
+
     </script>
     <script src="../javascript/barsStandard.js"></script>
+    <script src="/javascript/loadProducts.js"></script>
   </body>
 </html>
