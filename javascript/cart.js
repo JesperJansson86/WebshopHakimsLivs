@@ -134,6 +134,25 @@ function renderCart() {
       renderCart(); // renderar varukorgen
     })
   );
+if(localStorage.getItem("jwtToken") != null){        
+  document.getElementById("loginoutB").innerHTML = "Logga ut";
+  button.disabled = false;
+  document.getElementById("loginoutB").onclick = function (){
+    localStorage.removeItem("jwtToken");
+    document.getElementById("loginoutB").innerHTML = "Logga in";
+    button.disabled = true;
+    document.getElementById("bigError").innerHTML =
+      "Du måste logga in för att fortsätta";
+    document.getElementById("loginoutB").onclick = function (){
+    location.href="../newStuff/login.html"
+  }
+  }
+} else {
+  button.disabled = true;
+  document.getElementById("bigError").innerHTML =
+    "Du måste logga in för att fortsätta";
+}
+
 }
 renderCart();
 
