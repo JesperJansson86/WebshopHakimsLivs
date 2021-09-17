@@ -86,13 +86,25 @@ function renderCart() {
     b.addEventListener("click", function (e) {
       let button = e.target;
       const productId = button.dataset.id;
+      console.log(productId)
       parseInt(productId);
       console.log("klick - add" + productId);
 
       let changeStatus = JSON.parse(localStorage.getItem("products"));
       let itemsInCart = JSON.parse(localStorage.getItem("cart"));
 
-      if (itemsInCart[productId] < changeStatus[productId - 1].inventory) {        
+
+      for (let i = 0; i < changeStatus.length; i++) {
+        if(productId == changeStatus[i].id){
+            changeStatus = changeStatus[i];
+        }
+      }
+
+      console.log(changeStatus);
+
+      
+      if (itemsInCart[productId] < changeStatus.inventory) {   
+        console.log("inventory " + changeStatus.inventory);  
         itemsInCart[productId]++;
 
         localStorage.setItem("cart", JSON.stringify(itemsInCart)); // sparar varukorgen med det nya antalet produkter efter klick
@@ -138,10 +150,17 @@ function renderCart() {
 renderCart();
 
 function isInventoryEmpty(id) {
+  
   let changeStatus = JSON.parse(localStorage.getItem("products"));
   let itemsInCart = JSON.parse(localStorage.getItem("cart"));
 
-  if (itemsInCart[id] == changeStatus[id - 1].inventory) {
+  for (let i = 0; i < changeStatus.length; i++) {
+    if(id == changeStatus[i].id){
+        changeStatus = changeStatus[i];
+    }
+  }
+
+  if (itemsInCart[id] == changeStatus.inventory) {
     return true;
   } else {
     return false;
