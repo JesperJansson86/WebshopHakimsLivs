@@ -87,7 +87,7 @@ function validateAddress(field){
  * @returns {boolean}
  */
 function validatePassword(password) {
-    const regex = new RegExp("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=])(?=\S+$).{6,40}$"); //Password need to be at least 6 characters but max 40, include 1 special character, 1 uppercase character and a number
+    const regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{6,40})");; //Password need to be at least 6 characters but max 40, include 1 special character, 1 uppercase character and a number
     //do not by mistake format the regex string changes on format and probably breaks !
     return regex.test(password);
 }
